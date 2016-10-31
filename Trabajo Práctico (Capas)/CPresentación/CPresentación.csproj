@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A1A6506-258D-4828-99EF-55D34739F28F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CPresentación</RootNamespace>
+    <AssemblyName>CPresentación</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios\f01-Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f01-Main.designer.cs">
+      <DependentUpon>f01-Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f02-RealizarCuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f02-RealizarCuestionario.designer.cs">
+      <DependentUpon>f02-RealizarCuestionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f03-IngresoConsultor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f03-IngresoConsultor.designer.cs">
+      <DependentUpon>f03-IngresoConsultor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f04-MainConsultor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f04-MainConsultor.designer.cs">
+      <DependentUpon>f04-MainConsultor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f05-AdminCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f05-AdminCandidatos.designer.cs">
+      <DependentUpon>f05-AdminCandidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f06-EvCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f06-EvCandidatos.designer.cs">
+      <DependentUpon>f06-EvCandidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f07-EvCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f07-EvCandidatos.designer.cs">
+      <DependentUpon>f07-EvCandidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f08-GestionarPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f08-GestionarPreguntas.designer.cs">
+      <DependentUpon>f08-GestionarPreguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f09-NuevaPregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f09-NuevaPregunta.designer.cs">
+      <DependentUpon>f09-NuevaPregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f10-ModificarPregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f10-ModificarPregunta.designer.cs">
+      <DependentUpon>f10-ModificarPregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f11-GestionarPuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f11-GestionarPuestos.designer.cs">
+      <DependentUpon>f11-GestionarPuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f12-AltaPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f12-AltaPuesto.designer.cs">
+      <DependentUpon>f12-AltaPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f13-ModificarPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f13-ModificarPuesto.designer.cs">
+      <DependentUpon>f13-ModificarPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f14-GestionarOpcionesRespuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f14-GestionarOpcionesRespuesta.designer.cs">
+      <DependentUpon>f14-GestionarOpcionesRespuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f15-AltaOpcionRespuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f15-AltaOpcionRespuesta.designer.cs">
+      <DependentUpon>f15-AltaOpcionRespuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f16-GenResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f16-GenResultados.designer.cs">
+      <DependentUpon>f16-GenResultados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f17-EmitirRepComparativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f17-EmitirRepComparativo.designer.cs">
+      <DependentUpon>f17-EmitirRepComparativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f18-EmitirOrdenDeMerito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f18-EmitirOrdenDeMerito.designer.cs">
+      <DependentUpon>f18-EmitirOrdenDeMerito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f19-EvaluacionesPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f19-EvaluacionesPuesto.designer.cs">
+      <DependentUpon>f19-EvaluacionesPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f20-OrdenDeMérito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f20-OrdenDeMérito.designer.cs">
+      <DependentUpon>f20-OrdenDeMérito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f21-CuestionarioInstrucciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f21-CuestionarioInstrucciones.designer.cs">
+      <DependentUpon>f21-CuestionarioInstrucciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\f22-Cuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\f22-Cuestionario.designer.cs">
+      <DependentUpon>f22-Cuestionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\f01-Main.resx">
+      <DependentUpon>f01-Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f02-RealizarCuestionario.resx">
+      <DependentUpon>f02-RealizarCuestionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f03-IngresoConsultor.resx">
+      <DependentUpon>f03-IngresoConsultor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f04-MainConsultor.resx">
+      <DependentUpon>f04-MainConsultor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f05-AdminCandidatos.resx">
+      <DependentUpon>f05-AdminCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f06-EvCandidatos.resx">
+      <DependentUpon>f06-EvCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f07-EvCandidatos.resx">
+      <DependentUpon>f07-EvCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f08-GestionarPreguntas.resx">
+      <DependentUpon>f08-GestionarPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f09-NuevaPregunta.resx">
+      <DependentUpon>f09-NuevaPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f10-ModificarPregunta.resx">
+      <DependentUpon>f10-ModificarPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f11-GestionarPuestos.resx">
+      <DependentUpon>f11-GestionarPuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f12-AltaPuesto.resx">
+      <DependentUpon>f12-AltaPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f13-ModificarPuesto.resx">
+      <DependentUpon>f13-ModificarPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f14-GestionarOpcionesRespuesta.resx">
+      <DependentUpon>f14-GestionarOpcionesRespuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f15-AltaOpcionRespuesta.resx">
+      <DependentUpon>f15-AltaOpcionRespuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f16-GenResultados.resx">
+      <DependentUpon>f16-GenResultados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f17-EmitirRepComparativo.resx">
+      <DependentUpon>f17-EmitirRepComparativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f18-EmitirOrdenDeMerito.resx">
+      <DependentUpon>f18-EmitirOrdenDeMerito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f19-EvaluacionesPuesto.resx">
+      <DependentUpon>f19-EvaluacionesPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f20-OrdenDeMérito.resx">
+      <DependentUpon>f20-OrdenDeMérito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f21-CuestionarioInstrucciones.resx">
+      <DependentUpon>f21-CuestionarioInstrucciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\f22-Cuestionario.resx">
+      <DependentUpon>f22-Cuestionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recursos\Botones1.png" />
+    <Content Include="Recursos\Botones11.png" />
+    <Content Include="Recursos\Fondo.png" />
+    <Content Include="Recursos\Fondo3.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

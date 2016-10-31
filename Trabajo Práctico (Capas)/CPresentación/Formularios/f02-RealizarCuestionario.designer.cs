@@ -87,14 +87,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("AlleynW01-Bold", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(217, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(310, 33);
+            this.label1.Size = new System.Drawing.Size(323, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Realizar cuestionario";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -113,7 +113,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(188, 122);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(376, 163);
             this.panel1.TabIndex = 21;
@@ -122,7 +122,7 @@
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox4.Location = new System.Drawing.Point(80, 110);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '*';
             this.textBox4.Size = new System.Drawing.Size(264, 23);
@@ -133,7 +133,7 @@
             // 
             this.textBox5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox5.Location = new System.Drawing.Point(139, 70);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(204, 23);
             this.textBox5.TabIndex = 12;
@@ -142,7 +142,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox6.Location = new System.Drawing.Point(80, 29);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(264, 23);
             this.textBox6.TabIndex = 11;
@@ -191,7 +191,7 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(188, 398);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(375, 41);
             this.panel2.TabIndex = 22;
@@ -205,9 +205,9 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
             this.button2.Location = new System.Drawing.Point(53, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 32);
             this.button2.TabIndex = 21;
@@ -224,9 +224,9 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(227, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 32);
             this.button1.TabIndex = 20;
@@ -246,14 +246,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(753, 493);
             this.MinimumSize = new System.Drawing.Size(753, 493);
             this.Name = "f2_RealizarCuestionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajo práctico";
-            this.Load += new System.EventHandler(this.f2_RealizarCuestionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -307,6 +307,16 @@
     <Content Include="Recursos\Fondo.png" />
     <Content Include="Recursos\Fondo3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CEntidades\CEntidades.csproj">
+      <Project>{070b75ca-3a53-4ecd-91dd-5464b30e9a85}</Project>
+      <Name>CEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CLógica\CLogica.csproj">
+      <Project>{81df6aa1-6084-472e-a427-c2a50bf9b4c1}</Project>
+      <Name>CLogica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPresentación", "CPresentación\CPresentación.csproj", "{6A1A6506-258D-4828-99EF-55D34739F28F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLógica", "CLógica\CLógica.csproj", "{81DF6AA1-6084-472E-A427-C2A50BF9B4C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLogica", "CLógica\CLogica.csproj", "{81DF6AA1-6084-472E-A427-C2A50BF9B4C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CEntidades", "CEntidades\CEntidades.csproj", "{070B75CA-3A53-4ECD-91DD-5464B30E9A85}"
 EndProject

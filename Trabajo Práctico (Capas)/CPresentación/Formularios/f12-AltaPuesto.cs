@@ -30,8 +30,11 @@ namespace Trabajo_práctico
 
         private void f11_AltaPuesto_Load(object sender, EventArgs e)
         {
+            tbNombre.CharacterCasing = CharacterCasing.Upper;
+            tbDescripcion.CharacterCasing = CharacterCasing.Upper;
+            tbEmpresa.CharacterCasing = CharacterCasing.Upper;
             dgvCaracteristicas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CLogica.Gestores.GestorDeCompetencia clog = new CLogica.Gestores.GestorDeCompetencia();
+            GestorDeCompetencia clog = new GestorDeCompetencia();
             try
             {
                 competencias = clog.getCompetencias().Tables[0];
@@ -46,13 +49,76 @@ namespace Trabajo_práctico
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Puesto puesto = new Puesto(Int32.Parse(tbCodigo.Text), tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
             try
             {
-                GestorDePuestos clog = new GestorDePuestos();
-                clog.alta(puesto);
+                int codigo = Int32.Parse(tbCodigo.Text);
+                if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count > 0)
+                {
+                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
+                    GestorDePuestos clog = new GestorDePuestos();
+                    clog.alta(puesto);
+                    DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
+                    tbCodigo.Text = "";
+                    tbNombre.Text = "";
+                    tbDescripcion.Text = "";
+                    tbEmpresa.Text = "";
+                    tbPonderacion.Text = "";
+                    dgvCaracteristicas.Rows.Clear();
+                    excluidos.Clear();
+                    listaCar.Clear();
+                    if (dialogResult == DialogResult.No)
+                    {
+                        Owner.Show();
+                        this.Close();
+                    }
+
+                }
+                else
+                {
+                    string errorString = "";
+                    if (tbNombre.Text == "")
+                    {
+                        errorString += "No puede dejar el campo nombre vacío.\n";
+                    }
+                    if (tbDescripcion.Text == "")
+                    {
+                        errorString += "No puede dejar el campo descripción vacío.\n";
+                    }
+                    if (tbEmpresa.Text == "")
+                    {
+                        errorString += "No puede dejar el campo empresa vacío.\n";
+                    }
+                    if (listaCar.Count == 0)
+                    {
+                        errorString += "Debe cargar al menos una característica.\n";
+                    }
+                    errorString.Remove(errorString.LastIndexOf('\n'));
+                    MessageBox.Show(errorString);
+                }
             }
-            catch(Exception ex)
+            catch (FormatException exfm)
+            {
+                string errorString = "El campo código debe ser un número o estar completo.\n";
+                if (tbNombre.Text == "")
+                {
+                    errorString += "No puede dejar el campo nombre vacío.\n";
+                }
+                if (tbDescripcion.Text == "")
+                {
+                    errorString += "No puede dejar el campo descripción vacío.\n";
+                }
+                if (tbEmpresa.Text == "")
+                {
+                    errorString += "No puede dejar el campo empresa vacío.\n";
+                }
+                if (listaCar.Count == 0)
+                {
+                    errorString += "Debe cargar al menos una característica.\n";
+                }
+                errorString.Remove(errorString.LastIndexOf('\n'));
+                MessageBox.Show(errorString);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error:\n" + ex.ToString());
             }
@@ -65,18 +131,35 @@ namespace Trabajo_práctico
             {
                 try
                 {
-                    if (!excluidos.Contains(cbCompetencias.Text)) {
-                        Competencia competencia = new Competencia(Int32.Parse(competencias1[0].ItemArray[0].ToString()), competencias1[0].ItemArray[1].ToString(), competencias1[0].ItemArray[2].ToString(), competencias1[0].ItemArray[3].ToString());
-                        Caracteristica car = new Caracteristica();
-                        car.Competencia = competencia;
-                        car.Ponderacion = Int32.Parse(tbPonderacion.Text);
-                        listaCar.Add(car);
-                        dgvCaracteristicas.Rows.Add(cbCompetencias.Text, tbPonderacion.Text);
-                        excluidos.Add(cbCompetencias.Text);
+                    if (!excluidos.Contains(cbCompetencias.Text))
+                    {
+                        try
+                        {
+                            Competencia competencia = new Competencia(Int32.Parse(competencias1[0].ItemArray[0].ToString()), competencias1[0].ItemArray[1].ToString(), competencias1[0].ItemArray[2].ToString(), competencias1[0].ItemArray[3].ToString());
+                            Caracteristica car = new Caracteristica();
+                            car.Competencia = competencia;
+                            car.Ponderacion = Int32.Parse(tbPonderacion.Text);
+                            if (car.Ponderacion > 0 && car.Ponderacion <= 10)
+                            {
+                                listaCar.Add(car);
+                                dgvCaracteristicas.Rows.Add(cbCompetencias.Text, tbPonderacion.Text);
+                                excluidos.Add(cbCompetencias.Text);
+                            }
+                            else
+                            {
+                                string errorString = "El campo ponderación debe ser un número entre 0 y 10.";
+                                MessageBox.Show(errorString);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            string errorString = "El campo ponderación debe ser un número o estar completo.";
+                            MessageBox.Show(errorString);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error, usted ya ha cargado esa competencia");
+                        MessageBox.Show("Error, usted ya ha cargado esa competencia.");
                     }
                 }
                 catch (Exception ex)
@@ -104,9 +187,9 @@ namespace Trabajo_práctico
                     car.Ponderacion = Int32.Parse(tbPonderacion.Text);
                     int i = 0;
                     bool encontrado = false;
-                    while(i<listaCar.Count() && !encontrado)
+                    while (i < listaCar.Count() && !encontrado)
                     {
-                        if(listaCar[i].Igual(car))
+                        if (listaCar[i].Igual(car))
                         {
                             listaCar.RemoveAt(i);
                             encontrado = true;
@@ -135,6 +218,46 @@ namespace Trabajo_práctico
             {
                 MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre");
             }
+        }
+
+        private void tbCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+
+        }
+
+        private void tbPonderacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+
         }
     }
 }

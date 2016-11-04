@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades.Entidades;
 using System.Windows.Forms;
+using CDatos.ClasesDB;
 
 namespace CLogica.Gestores
 {
@@ -12,7 +13,15 @@ namespace CLogica.Gestores
     {
         public void alta(Puesto puesto)
         {
-            
+            PuestoDB cdatos = new PuestoDB();
+            try
+            {
+                cdatos.alta(puesto);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
         }
         public void baja()
         {

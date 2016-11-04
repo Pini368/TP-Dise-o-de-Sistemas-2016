@@ -34,7 +34,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.ToString());
+                throw new ExceptionPersonalizada(ex.Message);
             }
         }
     }

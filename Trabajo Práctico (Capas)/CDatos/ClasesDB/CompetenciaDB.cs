@@ -23,7 +23,7 @@ namespace CDatos.ClasesDB
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "spObtenerNombreTodasCompetencias";
+                cmd.CommandText = "spObtenerTodasCompetencias";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.ExecuteNonQuery();
@@ -56,7 +56,7 @@ namespace CDatos.ClasesDB
                 }
                 catch (Exception ex1)
                 {
-                    throw new ExceptionPersonalizada(ex1.ToString());
+                    throw new ExceptionPersonalizada(ex1.Message);
                 }
             }
             return ds;

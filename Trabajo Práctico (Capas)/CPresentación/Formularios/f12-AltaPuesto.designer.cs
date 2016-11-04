@@ -1,4 +1,6 @@
-﻿namespace Trabajo_práctico
+﻿using System;
+
+namespace Trabajo_práctico
 {
     partial class f11_AltaPuesto
     {
@@ -77,6 +79,7 @@
             this.tbPonderacion.Name = "tbPonderacion";
             this.tbPonderacion.Size = new System.Drawing.Size(37, 20);
             this.tbPonderacion.TabIndex = 11;
+            this.tbPonderacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPonderacion_KeyPress);
             // 
             // splitter1
             // 
@@ -88,6 +91,8 @@
             // 
             // dgvCaracteristicas
             // 
+            this.dgvCaracteristicas.AllowUserToAddRows = false;
+            this.dgvCaracteristicas.AllowUserToDeleteRows = false;
             this.dgvCaracteristicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCaracteristicas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Competencia,
@@ -103,12 +108,14 @@
             this.Competencia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Competencia.HeaderText = "Competencia";
             this.Competencia.Name = "Competencia";
+            this.Competencia.ReadOnly = true;
             // 
             // Pond
             // 
             this.Pond.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Pond.HeaderText = "Pond";
             this.Pond.Name = "Pond";
+            this.Pond.ReadOnly = true;
             // 
             // panel1
             // 
@@ -146,6 +153,7 @@
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(423, 23);
             this.tbCodigo.TabIndex = 64;
+            this.tbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigo_KeyPress);
             // 
             // tbDescripcion
             // 
@@ -403,6 +411,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void tbNombre_KeyPress(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

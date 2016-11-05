@@ -47,6 +47,18 @@ namespace Trabajo_práctico
             }
         }
 
+        private void limpiarCampos()
+        {
+            tbCodigo.Text = "";
+            tbNombre.Text = "";
+            tbDescripcion.Text = "";
+            tbEmpresa.Text = "";
+            tbPonderacion.Text = "";
+            dgvCaracteristicas.Rows.Clear();
+            excluidos.Clear();
+            listaCar.Clear();
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -58,14 +70,7 @@ namespace Trabajo_práctico
                     GestorDePuestos clog = new GestorDePuestos();
                     clog.alta(puesto);
                     DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
-                    tbCodigo.Text = "";
-                    tbNombre.Text = "";
-                    tbDescripcion.Text = "";
-                    tbEmpresa.Text = "";
-                    tbPonderacion.Text = "";
-                    dgvCaracteristicas.Rows.Clear();
-                    excluidos.Clear();
-                    listaCar.Clear();
+                    limpiarCampos();
                     if (dialogResult == DialogResult.No)
                     {
                         Owner.Show();

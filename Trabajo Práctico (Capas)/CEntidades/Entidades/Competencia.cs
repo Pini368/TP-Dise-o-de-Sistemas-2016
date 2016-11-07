@@ -73,6 +73,8 @@ namespace CEntidades.Entidades
             _estado = est;
         }
 
+        public Competencia() { }
+
         public bool Igual(Competencia comp)
         {
             return (_codigo == comp.Codigo && _nombre == comp.Nombre && _descripcion == comp.Descripcion && _estado == comp.Estado);

@@ -16,6 +16,66 @@ namespace CDatos.ClasesDB
         SqlDataAdapter da;
         Conexion cn = new Conexion();
 
+        public List<Caracteristica> obtenerCaracteristicasPuesto(int codigoPuesto, string nombrePuesto)
+        {
+            List <Caracteristica> lc = new List <Caracteristica>();
+            conn = cn.obtenerConexion();
+            try
+            {
+                cn.conectar(conn);
+
+                DataSet ds = new DataSet();
+
+                int idPuesto = obtenerUltimoPuesto(codigoPuesto, nombrePuesto);
+
+                if(idPuesto == -1)
+                {
+                    throw new ExceptionPersonalizada("No existe ningun puesto con ese codigo y nombre.");
+                }
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "spObtenerPuntajesRequeridos";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter parIDPuesto = new SqlParameter();
+                parIDPuesto.ParameterName = "@idPuesto";
+                parIDPuesto.SqlDbType = SqlDbType.Int;
+                parIDPuesto.Value = idPuesto;
+
+                cmd.Parameters.Add(parIDPuesto);
+
+                cmd.ExecuteNonQuery();
+
+                da = new SqlDataAdapter(cmd);
+
+                da.Fill(ds, "PuntajeRequerido");
+
+                DataTable dt = ds.Tables[0];
+
+                List<int> listaIDCompetencia = dt.AsEnumerable().Select(x => Int32.Parse(x[1].ToString())).ToList();
+
+                List<int> listaPonderacion = dt.AsEnumerable().Select(x => Int32.Parse(x[2].ToString())).ToList();
+
+                for(int i =0; i<listaIDCompetencia.Count; i++)
+                {
+                    Caracteristica c = new Caracteristica();
+                    c.Ponderacion = listaPonderacion[i];
+                    CompetenciaDB compdb = new CompetenciaDB();
+                    c.Competencia = compdb.getCompetencias(listaIDCompetencia[i]);
+                    lc.Add(c);
+                }
+            }
+            catch (Exception ex)
+            {
+                conn.Dispose();
+                conn.Close();
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+            return lc;
+        }
+
         private int obtenerUltimoPuesto(int codigo, string nombre)
         {
             SqlCommand cmd = new SqlCommand();
@@ -47,7 +107,13 @@ namespace CDatos.ClasesDB
 
             cmd.ExecuteNonQuery();
 
-            return (int)parIDPuesto.Value;
+
+            if (parIDPuesto.Value.ToString() == ""){
+                return -1;
+            }
+            else{
+                return (int)parIDPuesto.Value;
+            }
         }
 
         private int obtenerCantidadPuestos(int codigo, string nombre)
@@ -164,14 +230,13 @@ namespace CDatos.ClasesDB
 
         public void alta(Puesto puesto)
         {
-            conn = cn.conectar();
+            conn = cn.obtenerConexion();
             try
             {
-                conn.Open();
-
+                cn.conectar(conn);
                 int cantPuestos = obtenerCantidadPuestos(puesto.Codigo, puesto.Nombre);
 
-                if(cantPuestos == 0)
+                if (cantPuestos == 0)
                 {
                     int idPuesto = insertarPuesto(puesto);
 
@@ -189,7 +254,7 @@ namespace CDatos.ClasesDB
                     throw new ExceptionPersonalizada("Error, el puesto ya existe en la base de datos.");
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 conn.Dispose();
                 conn.Close();

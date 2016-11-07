@@ -11,6 +11,7 @@ namespace CLogica.Gestores
 {
     public class GestorDePuestos
     {
+
         public void alta(Puesto puesto)
         {
             PuestoDB cdatos = new PuestoDB();
@@ -34,6 +35,19 @@ namespace CLogica.Gestores
         public void getPuestos()
         {
             
+        }
+
+        public List<Caracteristica> obtenerCaracteristicasPuesto(int codigo, string nombre)
+        {
+            PuestoDB cdP = new PuestoDB();
+            try
+            {
+                return cdP.obtenerCaracteristicasPuesto(codigo, nombre);
+            }
+            catch(Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
         }
     }
 }

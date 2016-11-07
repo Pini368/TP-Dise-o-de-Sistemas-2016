@@ -34,10 +34,10 @@ namespace Trabajo_práctico
             tbDescripcion.CharacterCasing = CharacterCasing.Upper;
             tbEmpresa.CharacterCasing = CharacterCasing.Upper;
             dgvCaracteristicas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GestorDeCompetencia clog = new GestorDeCompetencia();
+            GestorDeCompetencia clogC = new GestorDeCompetencia();
             try
             {
-                competencias = clog.getCompetencias().Tables[0];
+                competencias = clogC.getCompetencias().Tables[0];
                 cbCompetencias.DataSource = competencias;
                 cbCompetencias.ValueMember = "nombre";
             }
@@ -69,6 +69,7 @@ namespace Trabajo_práctico
                     Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
                     GestorDePuestos clog = new GestorDePuestos();
                     clog.alta(puesto);
+
                     DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
                     limpiarCampos();
                     if (dialogResult == DialogResult.No)

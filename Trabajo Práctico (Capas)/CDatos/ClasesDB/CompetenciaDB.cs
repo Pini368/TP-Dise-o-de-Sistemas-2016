@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CEntidades.Entidades;
 using CEntidades;
 
 namespace CDatos.ClasesDB

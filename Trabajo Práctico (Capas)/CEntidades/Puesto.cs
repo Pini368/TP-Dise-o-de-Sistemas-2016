@@ -14,6 +14,12 @@ namespace CEntidades
     
     public partial class Puesto
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Puesto()
+        {
+            this.Puntaje_Requerido = new HashSet<Puntaje_Requerido>();
+        }
+    
         public int id_puesto { get; set; }
         public int codigo_puesto { get; set; }
         public System.DateTime fecha_ultima_modificacion { get; set; }
@@ -25,13 +31,16 @@ namespace CEntidades
         public Nullable<System.DateTime> fecha_eliminado { get; set; }
     
         public virtual Consultor Consultor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Puntaje_Requerido> Puntaje_Requerido { get; set; }
 
-        public Puesto(int cod, string nom, string desc, string emp)
+        public Puesto(int cod, string nom, string desc, string emp, List<Puntaje_Requerido> listCar)
         {
             codigo_puesto = cod;
             nombre = nom;
             descripcion = desc;
             empresa = emp;
+            Puntaje_Requerido = listCar;
         }
     }
 }

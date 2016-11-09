@@ -83,7 +83,7 @@ namespace CEntidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertarPuntajeRequerido", idPuestoParameter, codigoCompetenciaParameter, ponderacionParameter);
         }
     
-        public virtual int spObtenerCantPuestosCodigoNombre(ObjectParameter cantPuestos, Nullable<int> codigoPuesto, string nombre)
+        public virtual ObjectResult<Nullable<int>> spObtenerCantPuestosCodigoNombre(Nullable<int> codigoPuesto, string nombre)
         {
             var codigoPuestoParameter = codigoPuesto.HasValue ?
                 new ObjectParameter("codigoPuesto", codigoPuesto) :
@@ -93,7 +93,7 @@ namespace CEntidades
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spObtenerCantPuestosCodigoNombre", cantPuestos, codigoPuestoParameter, nombreParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spObtenerCantPuestosCodigoNombre", codigoPuestoParameter, nombreParameter);
         }
     
         public virtual ObjectResult<spObtenerCompetenciaID_Result> spObtenerCompetenciaID(Nullable<int> idComp)

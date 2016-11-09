@@ -17,5 +17,13 @@ namespace CEntidades
         public int id_puesto { get; set; }
         public int codigo_competencia { get; set; }
         public int ponderacion { get; set; }
+    
+        public virtual Competencia Competencia { get; set; }
+        public virtual Puesto Puesto { get; set; }
+
+        public bool Igual(Puntaje_Requerido car)
+        {
+            return (this.ponderacion == car.ponderacion && this.Competencia.Igual(car.Competencia));
+        }
     }
 }

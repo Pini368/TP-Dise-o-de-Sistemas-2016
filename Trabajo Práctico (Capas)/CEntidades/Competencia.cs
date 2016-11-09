@@ -18,6 +18,7 @@ namespace CEntidades
         public Competencia()
         {
             this.Factor = new HashSet<Factor>();
+            this.Puntaje_Requerido = new HashSet<Puntaje_Requerido>();
         }
     
         public int id_competencia { get; set; }
@@ -30,10 +31,11 @@ namespace CEntidades
         public virtual Consultor Consultor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factor> Factor { get; set; }
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Puntaje_Requerido> Puntaje_Requerido { get; set; }
         public bool Igual(Competencia comp)
         {
-            return (this.descripcion == comp.descripcion && this.nombre == comp.nombre && this.id_competencia == comp.id_competencia && this.estado == comp.estado);
+            return (this.id_competencia == comp.id_competencia && this.nombre == comp.nombre && this.descripcion == comp.descripcion && this.estado == comp.estado);
         }
     }
 }

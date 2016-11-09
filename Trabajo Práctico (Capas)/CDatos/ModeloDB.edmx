@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TPDiseñoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TPDiseñoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bloque">
           <Key>
             <PropertyRef Name="id_bloque" />
@@ -379,6 +379,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Puntaje_Requerido_Competencia">
+          <End Role="Competencia" Type="Self.Competencia" Multiplicity="1" />
+          <End Role="Puntaje_Requerido" Type="Self.Puntaje_Requerido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competencia">
+              <PropertyRef Name="id_competencia" />
+            </Principal>
+            <Dependent Role="Puntaje_Requerido">
+              <PropertyRef Name="codigo_competencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Puntaje_Requerido_Puesto">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+          <End Role="Puntaje_Requerido" Type="Self.Puntaje_Requerido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto">
+              <PropertyRef Name="id_puesto" />
+            </Principal>
+            <Dependent Role="Puntaje_Requerido">
+              <PropertyRef Name="id_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Respuesta_OpcionRespuesta">
           <End Role="OpcionRespuesta" Type="Self.OpcionRespuesta" Multiplicity="1" />
           <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="*" />
@@ -464,7 +488,6 @@
           <Parameter Name="ponderacion" Type="int" Mode="In" />
         </Function>
         <Function Name="spObtenerCantPuestosCodigoNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cantPuestos" Type="int" Mode="InOut" />
           <Parameter Name="codigoPuesto" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
@@ -564,6 +587,14 @@
             <End Role="Consultor" EntitySet="Consultor" />
             <End Role="Puesto" EntitySet="Puesto" />
           </AssociationSet>
+          <AssociationSet Name="FK_Puntaje_Requerido_Competencia" Association="Self.FK_Puntaje_Requerido_Competencia">
+            <End Role="Competencia" EntitySet="Competencia" />
+            <End Role="Puntaje_Requerido" EntitySet="Puntaje_Requerido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Puntaje_Requerido_Puesto" Association="Self.FK_Puntaje_Requerido_Puesto">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="Puntaje_Requerido" EntitySet="Puntaje_Requerido" />
+          </AssociationSet>
           <AssociationSet Name="FK_Respuesta_OpcionRespuesta" Association="Self.FK_Respuesta_OpcionRespuesta">
             <End Role="OpcionRespuesta" EntitySet="OpcionRespuesta" />
             <End Role="Respuesta" EntitySet="Respuesta" />
@@ -589,8 +620,7 @@
             <End Role="ValorRespuesta" EntitySet="ValorRespuesta" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TPDiseñoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -637,6 +667,7 @@
           <Property Name="fecha_eliminado" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Consultor" Relationship="Self.FK_Competencia_Consultor" FromRole="Competencia" ToRole="Consultor" />
           <NavigationProperty Name="Factor" Relationship="Self.FK_Factor_Competencia" FromRole="Competencia" ToRole="Factor" />
+          <NavigationProperty Name="Puntaje_Requerido" Relationship="Self.FK_Puntaje_Requerido_Competencia" FromRole="Competencia" ToRole="Puntaje_Requerido" />
         </EntityType>
         <EntityType Name="Consultor">
           <Key>
@@ -757,6 +788,7 @@
           <Property Name="id_consultor" Type="Int32" />
           <Property Name="fecha_eliminado" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Consultor" Relationship="Self.FK_Puesto_Consultor" FromRole="Puesto" ToRole="Consultor" />
+          <NavigationProperty Name="Puntaje_Requerido" Relationship="Self.FK_Puntaje_Requerido_Puesto" FromRole="Puesto" ToRole="Puntaje_Requerido" />
         </EntityType>
         <EntityType Name="Puntaje_Requerido">
           <Key>
@@ -766,6 +798,8 @@
           <Property Name="id_puesto" Type="Int32" Nullable="false" />
           <Property Name="codigo_competencia" Type="Int32" Nullable="false" />
           <Property Name="ponderacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competencia" Relationship="Self.FK_Puntaje_Requerido_Competencia" FromRole="Puntaje_Requerido" ToRole="Competencia" />
+          <NavigationProperty Name="Puesto" Relationship="Self.FK_Puntaje_Requerido_Puesto" FromRole="Puntaje_Requerido" ToRole="Puesto" />
         </EntityType>
         <EntityType Name="Respuesta">
           <Key>
@@ -878,6 +912,18 @@
               <PropertyRef Name="id_competencia" />
             </Principal>
             <Dependent Role="Factor">
+              <PropertyRef Name="codigo_competencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Puntaje_Requerido_Competencia">
+          <End Role="Competencia" Type="Self.Competencia" Multiplicity="1" />
+          <End Role="Puntaje_Requerido" Type="Self.Puntaje_Requerido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competencia">
+              <PropertyRef Name="id_competencia" />
+            </Principal>
+            <Dependent Role="Puntaje_Requerido">
               <PropertyRef Name="codigo_competencia" />
             </Dependent>
           </ReferentialConstraint>
@@ -1026,6 +1072,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Puntaje_Requerido_Puesto">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+          <End Role="Puntaje_Requerido" Type="Self.Puntaje_Requerido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto">
+              <PropertyRef Name="id_puesto" />
+            </Principal>
+            <Dependent Role="Puntaje_Requerido">
+              <PropertyRef Name="id_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RespuestaElegida_Respuesta">
           <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="0..1" />
           <End Role="RespuestaElegida" Type="Self.RespuestaElegida" Multiplicity="*" />
@@ -1096,6 +1154,10 @@
             <End Role="Competencia" EntitySet="Competencia" />
             <End Role="Factor" EntitySet="Factor" />
           </AssociationSet>
+          <AssociationSet Name="FK_Puntaje_Requerido_Competencia" Association="Self.FK_Puntaje_Requerido_Competencia">
+            <End Role="Competencia" EntitySet="Competencia" />
+            <End Role="Puntaje_Requerido" EntitySet="Puntaje_Requerido" />
+          </AssociationSet>
           <AssociationSet Name="FK_Factor_Consultor" Association="Self.FK_Factor_Consultor">
             <End Role="Consultor" EntitySet="Consultor" />
             <End Role="Factor" EntitySet="Factor" />
@@ -1144,6 +1206,10 @@
             <End Role="Pregunta" EntitySet="Pregunta" />
             <End Role="ValorRespuesta" EntitySet="ValorRespuesta" />
           </AssociationSet>
+          <AssociationSet Name="FK_Puntaje_Requerido_Puesto" Association="Self.FK_Puntaje_Requerido_Puesto">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="Puntaje_Requerido" EntitySet="Puntaje_Requerido" />
+          </AssociationSet>
           <AssociationSet Name="FK_RespuestaElegida_Respuesta" Association="Self.FK_RespuestaElegida_Respuesta">
             <End Role="Respuesta" EntitySet="Respuesta" />
             <End Role="RespuestaElegida" EntitySet="RespuestaElegida" />
@@ -1168,16 +1234,15 @@
             <Parameter Name="codigoCompetencia" Mode="In" Type="Int32" />
             <Parameter Name="ponderacion" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spObtenerCantPuestosCodigoNombre">
-            <Parameter Name="cantPuestos" Mode="InOut" Type="Int32" />
+          <FunctionImport Name="spObtenerCantPuestosCodigoNombre" ReturnType="Collection(Int32)">
             <Parameter Name="codigoPuesto" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spObtenerCompetenciaID" ReturnType="Collection(TPDiseñoModel.spObtenerCompetenciaID_Result)">
-            <Parameter Name="idComp" Mode="In" Type="Int32" />
+          <Parameter Name="idComp" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spObtenerPuntajesRequeridos" ReturnType="Collection(TPDiseñoModel.spObtenerPuntajesRequeridos_Result)">
-            <Parameter Name="idPuesto" Mode="In" Type="Int32" />
+          <Parameter Name="idPuesto" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spObtenerTodasCompetencias" ReturnType="Collection(TPDiseñoModel.spObtenerTodasCompetencias_Result)" />
           <FunctionImport Name="spObtenerUltimoIDPuestoCN">

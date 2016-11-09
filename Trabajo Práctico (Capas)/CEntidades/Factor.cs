@@ -33,5 +33,10 @@ namespace CEntidades
         public virtual Consultor Consultor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pregunta> Pregunta { get; set; }
+
+        public bool Equals(Factor fac)
+        {
+            return (this.codigo_competencia == fac.codigo_competencia && this.codigo_factor == fac.codigo_factor && this.nombre == fac.nombre && this.nro_orden == fac.nro_orden && this.estado == fac.estado && this.descripcion == fac.descripcion);
+        }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CEntidades.Entidades;
 using System.Data;
 using CDatos.ClasesDB;
 using CEntidades;

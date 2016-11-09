@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CEntidades.Entidades;
 using CLogica.Gestores;
 using CEntidades;
 
@@ -15,7 +14,7 @@ namespace Trabajo_práctico
 {
     public partial class f11_AltaPuesto : Form
     {
-        List<Caracteristica> listaCar = new List<Caracteristica>();
+        List<Puntaje_Requerido> listaCar = new List<Puntaje_Requerido>();
 
         List<string> excluidos = new List<string>();
 
@@ -74,9 +73,9 @@ namespace Trabajo_práctico
                 int codigo = Int32.Parse(tbCodigo.Text);
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count > 0)
                 {
-                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text);
+                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
                     GestorDePuestos clog = new GestorDePuestos();
-                    clog.alta(puesto, listaCar);
+                    clog.alta(puesto);
 
                     DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
                     limpiarCampos();
@@ -85,7 +84,6 @@ namespace Trabajo_práctico
                         Owner.Show();
                         this.Close();
                     }
-
                 }
                 else
                 {
@@ -156,10 +154,10 @@ namespace Trabajo_práctico
                     {
                         try
                         {
-                            Caracteristica car = new Caracteristica();
+                            Puntaje_Requerido car = new Puntaje_Requerido();
                             car.Competencia = competencias1[0];
-                            car.Ponderacion = Int32.Parse(tbPonderacion.Text);
-                            if (car.Ponderacion > 0 && car.Ponderacion <= 10)
+                            car.ponderacion = Int32.Parse(tbPonderacion.Text);
+                            if (car.ponderacion > 0 && car.ponderacion <= 10)
                             {
                                 listaCar.Add(car);
                                 dgvCaracteristicas.Rows.Add(cbCompetencias.Text, tbPonderacion.Text);
@@ -208,9 +206,9 @@ namespace Trabajo_práctico
             {
                 try
                 {
-                    Caracteristica car = new Caracteristica();
+                    Puntaje_Requerido car = new Puntaje_Requerido();
                     car.Competencia = competencias1[0];
-                    car.Ponderacion = Int32.Parse(tbPonderacion.Text);
+                    car.ponderacion = Int32.Parse(tbPonderacion.Text);
                     int i = 0;
                     bool encontrado = false;
                     while (i < listaCar.Count() && !encontrado)

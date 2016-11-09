@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CEntidades.Entidades;
 using CLogica.Gestores;
+using CEntidades;
 
 namespace Trabajo_práctico
 {
     public partial class f11_AltaPuesto : Form
     {
         List<Caracteristica> listaCar = new List<Caracteristica>();
-        DataTable competencias;
+
         List<string> excluidos = new List<string>();
+
+        List<Competencia> competencias = new List<Competencia>();
         public f11_AltaPuesto()
         {
             InitializeComponent();
@@ -35,11 +38,16 @@ namespace Trabajo_práctico
             tbEmpresa.CharacterCasing = CharacterCasing.Upper;
             dgvCaracteristicas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GestorDeCompetencia clogC = new GestorDeCompetencia();
+            GestorDePuestos clogP = new GestorDePuestos();
             try
             {
-                competencias = clogC.getCompetencias().Tables[0];
-                cbCompetencias.DataSource = competencias;
-                cbCompetencias.ValueMember = "nombre";
+                competencias = clogC.getCompetencias();
+                List<string> listaNom = new List<string>();
+                foreach(var comp in competencias)
+                {
+                    listaNom.Add(comp.nombre);
+                }
+                cbCompetencias.DataSource = listaNom;
             }
             catch (Exception ex)
             {
@@ -66,9 +74,9 @@ namespace Trabajo_práctico
                 int codigo = Int32.Parse(tbCodigo.Text);
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count > 0)
                 {
-                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
+                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text);
                     GestorDePuestos clog = new GestorDePuestos();
-                    clog.alta(puesto);
+                    clog.alta(puesto, listaCar);
 
                     DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
                     limpiarCampos();
@@ -132,8 +140,15 @@ namespace Trabajo_práctico
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            DataRow[] competencias1 = competencias.Select("nombre = '" + cbCompetencias.Text + "'");
-            if (competencias1.Length == 1)
+            List<Competencia> competencias1 = new List<Competencia>();
+            foreach (var item in competencias)
+            {
+                if (item.nombre == cbCompetencias.Text)
+                {
+                    competencias1.Add(item);
+                }
+            }
+            if (competencias1.Count == 1)
             {
                 try
                 {
@@ -141,9 +156,8 @@ namespace Trabajo_práctico
                     {
                         try
                         {
-                            Competencia competencia = new Competencia(Int32.Parse(competencias1[0].ItemArray[0].ToString()), competencias1[0].ItemArray[1].ToString(), competencias1[0].ItemArray[2].ToString(), competencias1[0].ItemArray[3].ToString());
                             Caracteristica car = new Caracteristica();
-                            car.Competencia = competencia;
+                            car.Competencia = competencias1[0];
                             car.Ponderacion = Int32.Parse(tbPonderacion.Text);
                             if (car.Ponderacion > 0 && car.Ponderacion <= 10)
                             {
@@ -182,14 +196,20 @@ namespace Trabajo_práctico
         private void btnSacar_Click(object sender, EventArgs e)
         {
             int indice = dgvCaracteristicas.SelectedRows[0].Index;
-            DataRow[] competencias1 = competencias.Select("nombre = '" + dgvCaracteristicas.Rows[indice].Cells[0].Value.ToString() + "'");
-            if (competencias1.Length == 1)
+            List<Competencia> competencias1 = new List<Competencia>();
+            foreach (var item in competencias)
+            {
+                if(item.nombre == dgvCaracteristicas.Rows[indice].Cells[0].Value.ToString())
+                {
+                    competencias1.Add(item);
+                }
+            }
+            if (competencias1.Count == 1)
             {
                 try
                 {
-                    Competencia competencia = new Competencia(Int32.Parse(competencias1[0].ItemArray[0].ToString()), competencias1[0].ItemArray[1].ToString(), competencias1[0].ItemArray[2].ToString(), competencias1[0].ItemArray[3].ToString());
                     Caracteristica car = new Caracteristica();
-                    car.Competencia = competencia;
+                    car.Competencia = competencias1[0];
                     car.Ponderacion = Int32.Parse(tbPonderacion.Text);
                     int i = 0;
                     bool encontrado = false;

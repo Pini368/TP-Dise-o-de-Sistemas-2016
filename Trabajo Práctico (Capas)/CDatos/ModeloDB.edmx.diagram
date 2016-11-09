@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e39b993bfbf24036b879c587a5708d13" Name="Diagram1">
+        <EntityTypeShape EntityType="TPDiseñoModel.Bloque" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Candidato" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Competencia" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Consultor" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Cuestionario" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Estado_Cuestionario" Width="1.5" PointX="9.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Evaluacion" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Factor" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.LogProcesos" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.OpcionRespuesta" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Pregunta" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Puesto" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Puntaje_Requerido" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.Respuesta" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.RespuestaElegida" Width="1.5" PointX="12" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.TablaDeParametros" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPDiseñoModel.ValorRespuesta" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Bloque_Cuestionario" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_RespuestaElegida_Bloque" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Candidato_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Cuestionario_Candidato" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Competencia_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Factor_Competencia" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Factor_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_OpcionRespuesta_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Pregunta_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Puesto_Consultor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Cuestionario_Evaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Estado_Cuestionario_Cuestionario" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_LogProcesos_Cuestionario" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Pregunta_Factor" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Pregunta_OpcionRespuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_Respuesta_OpcionRespuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_RespuestaElegida_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_ValorRespuesta_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_RespuestaElegida_Respuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.FK_ValorRespuesta_Respuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="TPDiseñoModel.Evaluacion_Candidato" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

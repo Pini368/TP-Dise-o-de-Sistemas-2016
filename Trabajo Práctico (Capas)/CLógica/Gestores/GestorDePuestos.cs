@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using CEntidades.Entidades;
 using System.Windows.Forms;
 using CDatos.ClasesDB;
+using CEntidades;
 
 namespace CLogica.Gestores
 {
     public class GestorDePuestos
     {
 
-        public void alta(Puesto puesto)
+        public void alta(Puesto puesto, List<Caracteristica> lc)
         {
             PuestoDB cdatos = new PuestoDB();
             try
             {
-                cdatos.alta(puesto);
+                cdatos.alta(puesto, lc);
             }
             catch (Exception ex)
             {

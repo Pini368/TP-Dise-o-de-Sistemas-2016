@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using CEntidades.Entidades;
 using System.Data;
 using CDatos.ClasesDB;
+using CEntidades;
+using System.Windows.Forms;
 
 namespace CLogica.Gestores
 {
@@ -23,14 +25,12 @@ namespace CLogica.Gestores
         {
 
         }
-        public DataSet getCompetencias()
+        public List<Competencia> getCompetencias()
         {
             CompetenciaDB cdatos = new CompetenciaDB();
-            DataSet ds;
             try
             {
-                ds = cdatos.getCompetencias();
-                return ds;
+                return cdatos.getCompetencias();
             }
             catch (Exception ex)
             {

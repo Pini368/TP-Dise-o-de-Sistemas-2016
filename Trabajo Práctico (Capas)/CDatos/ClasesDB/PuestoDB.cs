@@ -14,6 +14,16 @@ namespace CDatos.ClasesDB
     public class PuestoDB
     {
 
+        public void actualizarPuesto(int codigo, string nombre)
+        {
+            using (TPDiseñoEntities db = new TPDiseñoEntities())
+            {
+                Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == codigo && pu.nombre == nombre) select pu).FirstOrDefault();
+                p.fecha_ultima_modificacion = DateTime.Now;
+                db.SaveChanges();
+            }
+        }
+
         public Puesto obtenerPuesto(int codigoPuesto, string nombrePuesto)
         {
             try
@@ -36,6 +46,21 @@ namespace CDatos.ClasesDB
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
                     return db.Puesto.SingleOrDefault<Puesto>(p => p.id_puesto == idPuesto && !(p.fecha_eliminado.HasValue));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public List<Puesto> obtenerPuesto()
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.Puesto.ToList();
                 }
             }
             catch (Exception ex)
@@ -98,5 +123,6 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
     }
 }

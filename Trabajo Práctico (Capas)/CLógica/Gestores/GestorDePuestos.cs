@@ -62,5 +62,31 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public List<Puesto> getPuesto()
+        {
+            PuestoDB cdP = new PuestoDB();
+            try
+            {
+                return cdP.obtenerPuesto();
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public void actualizarPuesto(int codigo, string nombre)
+        {
+            PuestoDB cdP = new PuestoDB();
+            try
+            {
+                cdP.actualizarPuesto(codigo, nombre);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

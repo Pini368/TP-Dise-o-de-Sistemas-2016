@@ -135,7 +135,7 @@
           </Key>
           <Property Name="id_puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="codigo_puesto" Type="int" Nullable="false" />
-          <Property Name="fecha_ultima_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ultima_modificacion" Type="datetime" />
           <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="descripcion" Type="text" />
           <Property Name="estado" Type="varchar" MaxLength="25" Nullable="false" />
@@ -475,35 +475,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="spInsertarPuesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idPuesto" Type="int" Mode="InOut" />
-          <Parameter Name="codigoPuesto" Type="int" Mode="In" />
-          <Parameter Name="nombre" Type="varchar" Mode="In" />
-          <Parameter Name="empresa" Type="varchar" Mode="In" />
-          <Parameter Name="descripcion" Type="text" Mode="In" />
-        </Function>
-        <Function Name="spInsertarPuntajeRequerido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idPuesto" Type="int" Mode="In" />
-          <Parameter Name="codigoCompetencia" Type="int" Mode="In" />
-          <Parameter Name="ponderacion" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spObtenerCantPuestosCodigoNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="codigoPuesto" Type="int" Mode="In" />
-          <Parameter Name="nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="spObtenerCompetenciaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idComp" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spObtenerPuntajesRequeridos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idPuesto" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spObtenerTodasCompetencias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spObtenerUltimoIDPuestoCN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idPuesto" Type="int" Mode="InOut" />
           <Parameter Name="codigoPuesto" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="spResetearIdentidadPuesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="TPDiseñoModelStoreContainer">
           <EntitySet Name="Bloque" EntityType="Self.Bloque" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Candidato" EntityType="Self.Candidato" Schema="dbo" store:Type="Tables" />
@@ -780,7 +755,7 @@
           </Key>
           <Property Name="id_puesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codigo_puesto" Type="Int32" Nullable="false" />
-          <Property Name="fecha_ultima_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_ultima_modificacion" Type="DateTime" Precision="3" />
           <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1222,35 +1197,10 @@
             <End Role="Candidato" EntitySet="Candidato" />
             <End Role="Evaluacion" EntitySet="Evaluacion" />
           </AssociationSet>
-          <FunctionImport Name="spInsertarPuesto">
-            <Parameter Name="idPuesto" Mode="InOut" Type="Int32" />
-            <Parameter Name="codigoPuesto" Mode="In" Type="Int32" />
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="empresa" Mode="In" Type="String" />
-            <Parameter Name="descripcion" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spInsertarPuntajeRequerido">
-            <Parameter Name="idPuesto" Mode="In" Type="Int32" />
-            <Parameter Name="codigoCompetencia" Mode="In" Type="Int32" />
-            <Parameter Name="ponderacion" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spObtenerCantPuestosCodigoNombre" ReturnType="Collection(Int32)">
+          <FunctionImport Name="spObtenerUltimoIDPuestoCN" ReturnType="Collection(Int32)">
             <Parameter Name="codigoPuesto" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spObtenerCompetenciaID" ReturnType="Collection(TPDiseñoModel.spObtenerCompetenciaID_Result)">
-          <Parameter Name="idComp" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spObtenerPuntajesRequeridos" ReturnType="Collection(TPDiseñoModel.spObtenerPuntajesRequeridos_Result)">
-          <Parameter Name="idPuesto" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spObtenerTodasCompetencias" ReturnType="Collection(TPDiseñoModel.spObtenerTodasCompetencias_Result)" />
-          <FunctionImport Name="spObtenerUltimoIDPuestoCN">
-            <Parameter Name="idPuesto" Mode="InOut" Type="Int32" />
-            <Parameter Name="codigoPuesto" Mode="In" Type="Int32" />
-            <Parameter Name="nombre" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spResetearIdentidadPuesto" />
         </EntityContainer>
         <ComplexType Name="spObtenerCompetenciaID_Result">
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="20" />
@@ -1472,41 +1422,7 @@
               <ScalarProperty Name="id_evaluacion" ColumnName="id_evaluacion" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="spInsertarPuesto" FunctionName="TPDiseñoModel.Store.spInsertarPuesto" />
-          <FunctionImportMapping FunctionImportName="spInsertarPuntajeRequerido" FunctionName="TPDiseñoModel.Store.spInsertarPuntajeRequerido" />
-          <FunctionImportMapping FunctionImportName="spObtenerCantPuestosCodigoNombre" FunctionName="TPDiseñoModel.Store.spObtenerCantPuestosCodigoNombre" />
-          <FunctionImportMapping FunctionImportName="spObtenerCompetenciaID" FunctionName="TPDiseñoModel.Store.spObtenerCompetenciaID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="TPDiseñoModel.spObtenerCompetenciaID_Result">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spObtenerPuntajesRequeridos" FunctionName="TPDiseñoModel.Store.spObtenerPuntajesRequeridos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="TPDiseñoModel.spObtenerPuntajesRequeridos_Result">
-                <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
-                <ScalarProperty Name="codigo_competencia" ColumnName="codigo_competencia" />
-                <ScalarProperty Name="ponderacion" ColumnName="ponderacion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spObtenerTodasCompetencias" FunctionName="TPDiseñoModel.Store.spObtenerTodasCompetencias">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="TPDiseñoModel.spObtenerTodasCompetencias_Result">
-                <ScalarProperty Name="id_competencia" ColumnName="id_competencia" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="id_consultor" ColumnName="id_consultor" />
-                <ScalarProperty Name="fecha_eliminado" ColumnName="fecha_eliminado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spObtenerUltimoIDPuestoCN" FunctionName="TPDiseñoModel.Store.spObtenerUltimoIDPuestoCN" />
-          <FunctionImportMapping FunctionImportName="spResetearIdentidadPuesto" FunctionName="TPDiseñoModel.Store.spResetearIdentidadPuesto" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

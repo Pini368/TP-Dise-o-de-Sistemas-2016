@@ -65,6 +65,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDB.Context.tt</DependentUpon>
+      <CustomToolNamespace>CEntidades</CustomToolNamespace>
     </Compile>
     <Compile Include="ModeloDB.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -85,6 +86,7 @@
     <EntityDeploy Include="ModeloDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDB.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>CEntidades</CustomToolNamespace>
     </EntityDeploy>
     <None Include="ModeloDB.edmx.diagram">
       <DependentUpon>ModeloDB.edmx</DependentUpon>

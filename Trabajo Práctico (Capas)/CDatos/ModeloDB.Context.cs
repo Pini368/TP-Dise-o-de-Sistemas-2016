@@ -45,7 +45,7 @@ namespace CEntidades
         public virtual DbSet<TablaDeParametros> TablaDeParametros { get; set; }
         public virtual DbSet<ValorRespuesta> ValorRespuesta { get; set; }
     
-        public virtual int spInsertarPuesto(ObjectParameter idPuesto, Nullable<int> codigoPuesto, string nombre, string empresa, string descripcion)
+        public virtual ObjectResult<Nullable<int>> spObtenerUltimoIDPuestoCN(Nullable<int> codigoPuesto, string nombre)
         {
             var codigoPuestoParameter = codigoPuesto.HasValue ?
                 new ObjectParameter("codigoPuesto", codigoPuesto) :
@@ -55,86 +55,7 @@ namespace CEntidades
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
     
-            var empresaParameter = empresa != null ?
-                new ObjectParameter("empresa", empresa) :
-                new ObjectParameter("empresa", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("descripcion", descripcion) :
-                new ObjectParameter("descripcion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertarPuesto", idPuesto, codigoPuestoParameter, nombreParameter, empresaParameter, descripcionParameter);
-        }
-    
-        public virtual int spInsertarPuntajeRequerido(Nullable<int> idPuesto, Nullable<int> codigoCompetencia, Nullable<int> ponderacion)
-        {
-            var idPuestoParameter = idPuesto.HasValue ?
-                new ObjectParameter("idPuesto", idPuesto) :
-                new ObjectParameter("idPuesto", typeof(int));
-    
-            var codigoCompetenciaParameter = codigoCompetencia.HasValue ?
-                new ObjectParameter("codigoCompetencia", codigoCompetencia) :
-                new ObjectParameter("codigoCompetencia", typeof(int));
-    
-            var ponderacionParameter = ponderacion.HasValue ?
-                new ObjectParameter("ponderacion", ponderacion) :
-                new ObjectParameter("ponderacion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertarPuntajeRequerido", idPuestoParameter, codigoCompetenciaParameter, ponderacionParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> spObtenerCantPuestosCodigoNombre(Nullable<int> codigoPuesto, string nombre)
-        {
-            var codigoPuestoParameter = codigoPuesto.HasValue ?
-                new ObjectParameter("codigoPuesto", codigoPuesto) :
-                new ObjectParameter("codigoPuesto", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spObtenerCantPuestosCodigoNombre", codigoPuestoParameter, nombreParameter);
-        }
-    
-        public virtual ObjectResult<spObtenerCompetenciaID_Result> spObtenerCompetenciaID(Nullable<int> idComp)
-        {
-            var idCompParameter = idComp.HasValue ?
-                new ObjectParameter("idComp", idComp) :
-                new ObjectParameter("idComp", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerCompetenciaID_Result>("spObtenerCompetenciaID", idCompParameter);
-        }
-    
-        public virtual ObjectResult<spObtenerPuntajesRequeridos_Result> spObtenerPuntajesRequeridos(Nullable<int> idPuesto)
-        {
-            var idPuestoParameter = idPuesto.HasValue ?
-                new ObjectParameter("idPuesto", idPuesto) :
-                new ObjectParameter("idPuesto", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerPuntajesRequeridos_Result>("spObtenerPuntajesRequeridos", idPuestoParameter);
-        }
-    
-        public virtual ObjectResult<spObtenerTodasCompetencias_Result> spObtenerTodasCompetencias()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerTodasCompetencias_Result>("spObtenerTodasCompetencias");
-        }
-    
-        public virtual int spObtenerUltimoIDPuestoCN(ObjectParameter idPuesto, Nullable<int> codigoPuesto, string nombre)
-        {
-            var codigoPuestoParameter = codigoPuesto.HasValue ?
-                new ObjectParameter("codigoPuesto", codigoPuesto) :
-                new ObjectParameter("codigoPuesto", typeof(int));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spObtenerUltimoIDPuestoCN", idPuesto, codigoPuestoParameter, nombreParameter);
-        }
-    
-        public virtual int spResetearIdentidadPuesto()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spResetearIdentidadPuesto");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spObtenerUltimoIDPuestoCN", codigoPuestoParameter, nombreParameter);
         }
     }
 }

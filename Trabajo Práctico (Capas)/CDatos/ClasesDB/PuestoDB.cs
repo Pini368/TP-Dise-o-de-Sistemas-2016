@@ -29,22 +29,28 @@ namespace CDatos.ClasesDB
             }
         }
 
-        private int obtenerUltimoPuesto(int codigo, string nombre)
+        public Puesto obtenerPuesto(int idPuesto)
         {
             try
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    ObjectParameter parIDPuesto = new ObjectParameter("idPuesto", typeof(Int32));
-                    var results = db.spObtenerUltimoIDPuestoCN(parIDPuesto, codigo, nombre);
-                    if (parIDPuesto.Value.ToString() == "")
-                    {
-                        return -1;
-                    }
-                    else
-                    {
-                        return (int)parIDPuesto.Value;
-                    }
+                    return db.Puesto.SingleOrDefault<Puesto>(p => p.id_puesto == idPuesto && !(p.fecha_eliminado.HasValue));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public int obtenerUltimoIDPuesto(int codigo, string nombre)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.spObtenerUltimoIDPuestoCN(codigo, nombre).FirstOrDefault().Value;
                 }
             }
             catch (Exception ex)
@@ -59,39 +65,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.spObtenerCantPuestosCodigoNombre(codigo, nombre).FirstOrDefault().Value;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
-
-        private int insertarPuesto(Puesto puesto)
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    ObjectParameter parIDPuesto = new ObjectParameter("idPuesto", typeof(Int32));
-                    var results = db.spInsertarPuesto(parIDPuesto, puesto.codigo_puesto, puesto.nombre, puesto.descripcion, puesto.empresa);
-                    return (int)parIDPuesto.Value;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
-
-        private void insertarCaracteristica(int idPuesto, int idCompetencia, int ponderacion)
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    db.spInsertarPuntajeRequerido(idPuesto, idCompetencia, ponderacion);
+                    return db.Puesto.ToList().Select(p => p.codigo_puesto == codigo && p.nombre == nombre && !(p.fecha_eliminado.HasValue)).Count();
                 }
             }
             catch (Exception ex)
@@ -104,14 +78,13 @@ namespace CDatos.ClasesDB
         {
             try
             {
-                /*
                 int cantPuestos = obtenerCantidadPuestos(puesto.codigo_puesto, puesto.nombre);
 
                 if (cantPuestos == 0)
                 {
                     using (TPDiseñoEntities db = new TPDiseñoEntities())
                     {
-                        db.Puesto.Attach(puesto);
+                        db.Puesto.Add(puesto);
                         db.SaveChanges();
                     }
                 }
@@ -119,25 +92,6 @@ namespace CDatos.ClasesDB
                 {
                     throw new ExceptionPersonalizada("Error, el puesto ya existe en la base de datos.");
                 }
-                */
-
-
-                
-                int cantPuestos = obtenerCantidadPuestos(puesto.codigo_puesto, puesto.nombre);
-
-                if (cantPuestos == 0)
-                {
-                    int idPuesto = insertarPuesto(puesto);
-                    for (int i = 0; i < puesto.Puntaje_Requerido.ToList().Count(); i++)
-                    {
-                        insertarCaracteristica(idPuesto, puesto.Puntaje_Requerido.ToList()[i].Competencia.id_competencia, puesto.Puntaje_Requerido.ToList()[i].ponderacion);
-                    }
-                }
-                else
-                {
-                    throw new ExceptionPersonalizada("Ya existe un puesto con ese mismo código y nombre.");
-                }
-                
             }
             catch (Exception ex)
             {

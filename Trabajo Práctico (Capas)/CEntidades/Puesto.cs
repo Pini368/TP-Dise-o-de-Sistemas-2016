@@ -11,7 +11,8 @@ namespace CEntidades
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Forms;
+
     public partial class Puesto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,7 @@ namespace CEntidades
     
         public int id_puesto { get; set; }
         public int codigo_puesto { get; set; }
-        public System.DateTime fecha_ultima_modificacion { get; set; }
+        public Nullable<System.DateTime> fecha_ultima_modificacion { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public string estado { get; set; }
@@ -34,13 +35,15 @@ namespace CEntidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Puntaje_Requerido> Puntaje_Requerido { get; set; }
 
-        public Puesto(int cod, string nom, string desc, string emp, List<Puntaje_Requerido> listCar)
+        public Puesto(int cod, string nom, string desc, string emp, List<Puntaje_Requerido> lpr)
         {
             codigo_puesto = cod;
             nombre = nom;
             descripcion = desc;
             empresa = emp;
-            Puntaje_Requerido = listCar;
+            Puntaje_Requerido = lpr;
+            estado = "Activo";
+            fecha_ultima_modificacion = DateTime.Now;
         }
     }
 }

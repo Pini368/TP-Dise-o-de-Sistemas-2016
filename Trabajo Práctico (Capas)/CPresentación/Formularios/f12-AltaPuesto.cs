@@ -154,9 +154,7 @@ namespace Trabajo_práctico
                     {
                         try
                         {
-                            Puntaje_Requerido car = new Puntaje_Requerido();
-                            car.Competencia = competencias1[0];
-                            car.ponderacion = Int32.Parse(tbPonderacion.Text);
+                            Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(tbPonderacion.Text));
                             if (car.ponderacion > 0 && car.ponderacion <= 10)
                             {
                                 listaCar.Add(car);
@@ -206,9 +204,7 @@ namespace Trabajo_práctico
             {
                 try
                 {
-                    Puntaje_Requerido car = new Puntaje_Requerido();
-                    car.Competencia = competencias1[0];
-                    car.ponderacion = Int32.Parse(tbPonderacion.Text);
+                    Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(tbPonderacion.Text));
                     int i = 0;
                     bool encontrado = false;
                     while (i < listaCar.Count() && !encontrado)

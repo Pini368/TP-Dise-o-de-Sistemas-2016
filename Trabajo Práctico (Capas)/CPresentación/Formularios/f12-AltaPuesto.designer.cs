@@ -70,7 +70,7 @@ namespace Trabajo_práctico
             this.cbCompetencias.Location = new System.Drawing.Point(43, 246);
             this.cbCompetencias.Name = "cbCompetencias";
             this.cbCompetencias.Size = new System.Drawing.Size(121, 21);
-            this.cbCompetencias.TabIndex = 9;
+            this.cbCompetencias.TabIndex = 1;
             // 
             // tbPonderacion
             // 
@@ -78,7 +78,7 @@ namespace Trabajo_práctico
             this.tbPonderacion.Location = new System.Drawing.Point(187, 288);
             this.tbPonderacion.Name = "tbPonderacion";
             this.tbPonderacion.Size = new System.Drawing.Size(37, 20);
-            this.tbPonderacion.TabIndex = 11;
+            this.tbPonderacion.TabIndex = 2;
             this.tbPonderacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPonderacion_KeyPress);
             // 
             // splitter1
@@ -101,7 +101,8 @@ namespace Trabajo_práctico
             this.dgvCaracteristicas.Name = "dgvCaracteristicas";
             this.dgvCaracteristicas.ReadOnly = true;
             this.dgvCaracteristicas.Size = new System.Drawing.Size(436, 85);
-            this.dgvCaracteristicas.TabIndex = 15;
+            this.dgvCaracteristicas.TabIndex = 6;
+            this.dgvCaracteristicas.TabStop = false;
             // 
             // Competencia
             // 
@@ -134,7 +135,7 @@ namespace Trabajo_práctico
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(675, 121);
-            this.panel1.TabIndex = 56;
+            this.panel1.TabIndex = 0;
             // 
             // tbNombre
             // 
@@ -143,7 +144,7 @@ namespace Trabajo_práctico
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(347, 23);
-            this.tbNombre.TabIndex = 65;
+            this.tbNombre.TabIndex = 1;
             // 
             // tbCodigo
             // 
@@ -152,7 +153,7 @@ namespace Trabajo_práctico
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(423, 23);
-            this.tbCodigo.TabIndex = 64;
+            this.tbCodigo.TabIndex = 0;
             this.tbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigo_KeyPress);
             // 
             // tbDescripcion
@@ -163,7 +164,7 @@ namespace Trabajo_práctico
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(394, 40);
-            this.tbDescripcion.TabIndex = 16;
+            this.tbDescripcion.TabIndex = 3;
             // 
             // label11
             // 
@@ -174,7 +175,7 @@ namespace Trabajo_práctico
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 18);
-            this.label11.TabIndex = 14;
+            this.label11.TabIndex = 6;
             this.label11.Text = "Descripción";
             // 
             // label9
@@ -186,7 +187,7 @@ namespace Trabajo_práctico
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 18);
-            this.label9.TabIndex = 10;
+            this.label9.TabIndex = 5;
             this.label9.Text = "Empresa";
             // 
             // tbEmpresa
@@ -196,7 +197,7 @@ namespace Trabajo_práctico
             this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmpresa.Name = "tbEmpresa";
             this.tbEmpresa.Size = new System.Drawing.Size(412, 23);
-            this.tbEmpresa.TabIndex = 13;
+            this.tbEmpresa.TabIndex = 2;
             // 
             // label10
             // 
@@ -207,7 +208,7 @@ namespace Trabajo_práctico
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 18);
-            this.label10.TabIndex = 9;
+            this.label10.TabIndex = 4;
             this.label10.Text = "Código";
             // 
             // label12
@@ -219,7 +220,7 @@ namespace Trabajo_práctico
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 18);
-            this.label12.TabIndex = 8;
+            this.label12.TabIndex = 4;
             this.label12.Text = "Nombre del Puesto";
             // 
             // menuStrip1
@@ -231,7 +232,7 @@ namespace Trabajo_práctico
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(737, 24);
-            this.menuStrip1.TabIndex = 57;
+            this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
@@ -260,7 +261,7 @@ namespace Trabajo_práctico
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(174, 33);
-            this.label1.TabIndex = 58;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Alta Puesto";
             // 
             // label3
@@ -272,7 +273,7 @@ namespace Trabajo_práctico
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(196, 18);
-            this.label3.TabIndex = 59;
+            this.label3.TabIndex = 8;
             this.label3.Text = "Característica del puesto";
             // 
             // label2
@@ -284,7 +285,7 @@ namespace Trabajo_práctico
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 18);
-            this.label2.TabIndex = 60;
+            this.label2.TabIndex = 9;
             this.label2.Text = "Ponderación";
             // 
             // btnCargar
@@ -301,7 +302,7 @@ namespace Trabajo_práctico
             this.btnCargar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(30, 32);
-            this.btnCargar.TabIndex = 62;
+            this.btnCargar.TabIndex = 3;
             this.btnCargar.Text = ">";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -320,7 +321,7 @@ namespace Trabajo_práctico
             this.btnSacar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSacar.Name = "btnSacar";
             this.btnSacar.Size = new System.Drawing.Size(30, 32);
-            this.btnSacar.TabIndex = 61;
+            this.btnSacar.TabIndex = 4;
             this.btnSacar.Text = "<";
             this.btnSacar.UseVisualStyleBackColor = false;
             this.btnSacar.Click += new System.EventHandler(this.btnSacar_Click);
@@ -336,7 +337,7 @@ namespace Trabajo_práctico
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(375, 41);
-            this.panel3.TabIndex = 63;
+            this.panel3.TabIndex = 5;
             // 
             // btnCancelar
             // 
@@ -352,7 +353,7 @@ namespace Trabajo_práctico
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 32);
-            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
@@ -371,7 +372,7 @@ namespace Trabajo_práctico
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(112, 32);
-            this.btnAceptar.TabIndex = 20;
+            this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);

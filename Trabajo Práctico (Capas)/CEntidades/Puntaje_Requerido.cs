@@ -23,7 +23,7 @@ namespace CEntidades
 
         public bool Igual(Puntaje_Requerido pr)
         {
-            return (this.Competencia.Igual(pr.Competencia) && this.ponderacion == pr.ponderacion);
+            return (this.codigo_competencia == pr.codigo_competencia && this.ponderacion == pr.ponderacion);
         }
 
         public Puntaje_Requerido(Competencia comp, int pond)

@@ -50,7 +50,7 @@ namespace Trabajo_práctico
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Se ha producido un error:\n" + ex.ToString());
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -105,7 +105,7 @@ namespace Trabajo_práctico
                         errorString += "Debe cargar al menos una característica.\n";
                     }
                     errorString.Remove(errorString.LastIndexOf('\n'));
-                    MessageBox.Show(errorString);
+                    MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (FormatException exfm)
@@ -128,11 +128,11 @@ namespace Trabajo_práctico
                     errorString += "Debe cargar al menos una característica.\n";
                 }
                 errorString.Remove(errorString.LastIndexOf('\n'));
-                MessageBox.Show(errorString);
+                MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error:\n" + ex.ToString());
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,28 +164,28 @@ namespace Trabajo_práctico
                             else
                             {
                                 string errorString = "El campo ponderación debe ser un número entre 0 y 10.";
-                                MessageBox.Show(errorString);
+                                MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                         catch (Exception ex)
                         {
                             string errorString = "El campo ponderación debe ser un número o estar completo.";
-                            MessageBox.Show(errorString);
+                            MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Error, usted ya ha cargado esa competencia.");
+                        MessageBox.Show("Error, usted ya ha cargado esa competencia.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error:\n" + ex.ToString());
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre");
+                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -231,12 +231,12 @@ namespace Trabajo_práctico
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error:\n" + ex.ToString());
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre");
+                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

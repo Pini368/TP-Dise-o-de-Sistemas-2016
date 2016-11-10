@@ -77,7 +77,7 @@ namespace Trabajo_práctico
                     GestorDePuestos clog = new GestorDePuestos();
                     clog.alta(puesto);
 
-                    DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult =  MessageBox.Show("El puesto " + tbNombre.Text + " se ha creado correctamente ¿Desea cargar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     limpiarCampos();
                     if (dialogResult == DialogResult.No)
                     {

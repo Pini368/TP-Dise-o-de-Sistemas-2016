@@ -84,13 +84,13 @@ namespace CDatos.ClasesDB
             }
         }
 
-        private int obtenerCantidadPuestos(int codigo, string nombre)
+        private int obtenerCantidadPuestos(int codigo, string nombre, string empresa)
         {
             try
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Puesto.ToList().Select(p => p.codigo_puesto == codigo && p.nombre == nombre && !(p.fecha_eliminado.HasValue)).Count();
+                    return (from pu in db.Puesto where ((pu.codigo_puesto == codigo || pu.nombre == nombre) && pu.empresa == empresa && pu.fecha_eliminado == null) select pu).ToList().Count();
                 }
             }
             catch (Exception ex)
@@ -103,7 +103,7 @@ namespace CDatos.ClasesDB
         {
             try
             {
-                int cantPuestos = obtenerCantidadPuestos(puesto.codigo_puesto, puesto.nombre);
+                int cantPuestos = obtenerCantidadPuestos(puesto.codigo_puesto, puesto.nombre, puesto.empresa);
 
                 if (cantPuestos == 0)
                 {

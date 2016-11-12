@@ -32,43 +32,11 @@
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pnMovForm = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.p_com_apr = new System.Windows.Forms.Panel();
-            this.p_com_desapr = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.p_incomp = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.p_com_all = new System.Windows.Forms.Panel();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCompletosCumplieron = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +46,8 @@
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_com_desapr = new System.Windows.Forms.Panel();
+            this.dgvCompletosNoCumplieron = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +57,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_incomp = new System.Windows.Forms.Panel();
+            this.dgvIncompletos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +67,8 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_com_all = new System.Windows.Forms.Panel();
+            this.dgvTodas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,19 +79,22 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCompletosCumplieron = new System.Windows.Forms.Button();
+            this.btnCompletosNoCumplieron = new System.Windows.Forms.Button();
+            this.btnEvaluacionesIncompletas = new System.Windows.Forms.Button();
+            this.btnTodasEvaluaciones = new System.Windows.Forms.Button();
+            this.pnOpciones = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnMovForm.SuspendLayout();
             this.p_com_apr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosCumplieron)).BeginInit();
             this.p_com_desapr.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosNoCumplieron)).BeginInit();
             this.p_incomp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncompletos)).BeginInit();
             this.p_com_all.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTodas)).BeginInit();
+            this.pnOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // archivoToolStripMenuItem
@@ -125,13 +102,13 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cerrarProgramaToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.archivoToolStripMenuItem.Text = "Sesión";
             // 
             // cerrarProgramaToolStripMenuItem
             // 
             this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             // 
             // menuStrip1
@@ -141,9 +118,9 @@
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
-            this.menuStrip1.TabIndex = 58;
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // label1
@@ -153,328 +130,82 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(333, 32);
+            this.label1.Location = new System.Drawing.Point(250, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(302, 42);
-            this.label1.TabIndex = 71;
+            this.label1.Size = new System.Drawing.Size(240, 33);
+            this.label1.TabIndex = 6;
             this.label1.Text = "Orden de Mérito";
             // 
-            // panel3
+            // pnMovForm
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(272, 500);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(500, 50);
-            this.panel3.TabIndex = 73;
+            this.pnMovForm.BackColor = System.Drawing.Color.Transparent;
+            this.pnMovForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnMovForm.Controls.Add(this.btnCerrar);
+            this.pnMovForm.Controls.Add(this.btnImprimir);
+            this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnMovForm.Location = new System.Drawing.Point(204, 406);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Name = "pnMovForm";
+            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.TabIndex = 1;
             // 
-            // button3
+            // btnCerrar
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(69, 5);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 39);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Cerrar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCerrar.BackColor = System.Drawing.Color.White;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnCerrar.FlatAppearance.BorderSize = 3;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.Location = new System.Drawing.Point(52, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(112, 32);
+            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnImprimir
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button4.FlatAppearance.BorderSize = 3;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(280, 5);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 39);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Imprimir";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(137, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 24);
-            this.label2.TabIndex = 75;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Location = new System.Drawing.Point(25, 79);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(949, 71);
-            this.panel2.TabIndex = 75;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button2.FlatAppearance.BorderSize = 3;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(712, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 65);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Evaluaciones Incompletas";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(481, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 65);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Completos que no cumplieron \r\ncon la ponderación mínima";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.White;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button9.FlatAppearance.BorderSize = 3;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button9.Location = new System.Drawing.Point(250, 2);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(225, 65);
-            this.button9.TabIndex = 34;
-            this.button9.Text = "Completos que cumplieron";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column7,
-            this.Column6,
-            this.Column8,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView1.TabIndex = 71;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.btnImprimir.BackColor = System.Drawing.Color.White;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnImprimir.FlatAppearance.BorderSize = 3;
+            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.Location = new System.Drawing.Point(210, 4);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(112, 32);
+            this.btnImprimir.TabIndex = 0;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.button4_Click);
             // 
             // p_com_apr
             // 
             this.p_com_apr.BackColor = System.Drawing.Color.Transparent;
             this.p_com_apr.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.p_com_apr.Controls.Add(this.dataGridView4);
-            this.p_com_apr.Controls.Add(this.dataGridView1);
-            this.p_com_apr.Location = new System.Drawing.Point(291, 158);
-            this.p_com_apr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p_com_apr.Controls.Add(this.dgvCompletosCumplieron);
+            this.p_com_apr.Location = new System.Drawing.Point(218, 128);
+            this.p_com_apr.Margin = new System.Windows.Forms.Padding(2);
             this.p_com_apr.Name = "p_com_apr";
-            this.p_com_apr.Size = new System.Drawing.Size(225, 338);
-            this.p_com_apr.TabIndex = 74;
+            this.p_com_apr.Size = new System.Drawing.Size(169, 275);
+            this.p_com_apr.TabIndex = 3;
             this.p_com_apr.Visible = false;
             this.p_com_apr.Paint += new System.Windows.Forms.PaintEventHandler(this.p_com_apr_Paint);
             // 
-            // p_com_desapr
+            // dgvCompletosCumplieron
             // 
-            this.p_com_desapr.BackColor = System.Drawing.Color.Transparent;
-            this.p_com_desapr.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.p_com_desapr.Controls.Add(this.dataGridView2);
-            this.p_com_desapr.Location = new System.Drawing.Point(519, 158);
-            this.p_com_desapr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.p_com_desapr.Name = "p_com_desapr";
-            this.p_com_desapr.Size = new System.Drawing.Size(225, 338);
-            this.p_com_desapr.TabIndex = 75;
-            this.p_com_desapr.Visible = false;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.Column9});
-            this.dataGridView2.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView2.TabIndex = 71;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // p_incomp
-            // 
-            this.p_incomp.BackColor = System.Drawing.Color.Transparent;
-            this.p_incomp.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.p_incomp.Controls.Add(this.dataGridView3);
-            this.p_incomp.Location = new System.Drawing.Point(747, 158);
-            this.p_incomp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.p_incomp.Name = "p_incomp";
-            this.p_incomp.Size = new System.Drawing.Size(225, 338);
-            this.p_incomp.TabIndex = 76;
-            this.p_incomp.Visible = false;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.Column10});
-            this.dataGridView3.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView3.TabIndex = 71;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button5.FlatAppearance.BorderSize = 3;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(19, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(225, 65);
-            this.button5.TabIndex = 37;
-            this.button5.Text = "Todas las evaluaciones";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Tipo Dto";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Nº Dto";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Apellido";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Nombre";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "Puntaje Obtenido";
-            this.Column5.Name = "Column5";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Fecha inicio";
-            this.Column7.Name = "Column7";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Fecha fin";
-            this.Column6.Name = "Column6";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Cant. Accesos";
-            this.Column8.Name = "Column8";
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCompletosCumplieron.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompletosCumplieron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18,
@@ -484,113 +215,11 @@
             this.dataGridViewTextBoxColumn22,
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24});
-            this.dataGridView4.Location = new System.Drawing.Point(6, 4);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView4.TabIndex = 72;
-            // 
-            // p_com_all
-            // 
-            this.p_com_all.BackColor = System.Drawing.Color.Transparent;
-            this.p_com_all.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.p_com_all.Controls.Add(this.dataGridView5);
-            this.p_com_all.Controls.Add(this.dataGridView6);
-            this.p_com_all.Location = new System.Drawing.Point(51, 156);
-            this.p_com_all.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.p_com_all.Name = "p_com_all";
-            this.p_com_all.Size = new System.Drawing.Size(905, 338);
-            this.p_com_all.TabIndex = 77;
-            this.p_com_all.Visible = false;
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30,
-            this.dataGridViewTextBoxColumn31,
-            this.Column11,
-            this.dataGridViewTextBoxColumn32,
-            this.dataGridViewTextBoxColumn33});
-            this.dataGridView5.Location = new System.Drawing.Point(6, 4);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView5.TabIndex = 72;
-            // 
-            // dataGridView6
-            // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn34,
-            this.dataGridViewTextBoxColumn35,
-            this.dataGridViewTextBoxColumn36,
-            this.dataGridViewTextBoxColumn37,
-            this.dataGridViewTextBoxColumn38,
-            this.dataGridViewTextBoxColumn39,
-            this.dataGridViewTextBoxColumn40,
-            this.dataGridViewTextBoxColumn41,
-            this.dataGridViewTextBoxColumn42});
-            this.dataGridView6.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(892, 331);
-            this.dataGridView6.TabIndex = 71;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn34.HeaderText = "Tipo Dto";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn35.HeaderText = "Nº Dto";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn36.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            // 
-            // dataGridViewTextBoxColumn37
-            // 
-            this.dataGridViewTextBoxColumn37.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn37.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
-            // 
-            // dataGridViewTextBoxColumn38
-            // 
-            this.dataGridViewTextBoxColumn38.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn38.HeaderText = "Puntaje Obtenido";
-            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
-            // 
-            // dataGridViewTextBoxColumn39
-            // 
-            this.dataGridViewTextBoxColumn39.HeaderText = "Fecha inicio";
-            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            // 
-            // dataGridViewTextBoxColumn40
-            // 
-            this.dataGridViewTextBoxColumn40.HeaderText = "Fecha fin";
-            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            // 
-            // dataGridViewTextBoxColumn41
-            // 
-            this.dataGridViewTextBoxColumn41.HeaderText = "Cant. Accesos";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            // 
-            // dataGridViewTextBoxColumn42
-            // 
-            this.dataGridViewTextBoxColumn42.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            this.dgvCompletosCumplieron.Location = new System.Drawing.Point(3, 4);
+            this.dgvCompletosCumplieron.Name = "dgvCompletosCumplieron";
+            this.dgvCompletosCumplieron.Size = new System.Drawing.Size(669, 269);
+            this.dgvCompletosCumplieron.TabIndex = 0;
+            this.dgvCompletosCumplieron.TabStop = false;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -644,6 +273,38 @@
             this.dataGridViewTextBoxColumn24.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             // 
+            // p_com_desapr
+            // 
+            this.p_com_desapr.BackColor = System.Drawing.Color.Transparent;
+            this.p_com_desapr.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.p_com_desapr.Controls.Add(this.dgvCompletosNoCumplieron);
+            this.p_com_desapr.Location = new System.Drawing.Point(389, 128);
+            this.p_com_desapr.Margin = new System.Windows.Forms.Padding(2);
+            this.p_com_desapr.Name = "p_com_desapr";
+            this.p_com_desapr.Size = new System.Drawing.Size(169, 275);
+            this.p_com_desapr.TabIndex = 4;
+            this.p_com_desapr.Visible = false;
+            // 
+            // dgvCompletosNoCumplieron
+            // 
+            this.dgvCompletosNoCumplieron.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompletosNoCumplieron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.Column9});
+            this.dgvCompletosNoCumplieron.Location = new System.Drawing.Point(3, 3);
+            this.dgvCompletosNoCumplieron.Name = "dgvCompletosNoCumplieron";
+            this.dgvCompletosNoCumplieron.Size = new System.Drawing.Size(669, 269);
+            this.dgvCompletosNoCumplieron.TabIndex = 0;
+            this.dgvCompletosNoCumplieron.TabStop = false;
+            this.dgvCompletosNoCumplieron.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -696,6 +357,37 @@
             this.Column9.HeaderText = "Estado";
             this.Column9.Name = "Column9";
             // 
+            // p_incomp
+            // 
+            this.p_incomp.BackColor = System.Drawing.Color.Transparent;
+            this.p_incomp.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.p_incomp.Controls.Add(this.dgvIncompletos);
+            this.p_incomp.Location = new System.Drawing.Point(560, 128);
+            this.p_incomp.Margin = new System.Windows.Forms.Padding(2);
+            this.p_incomp.Name = "p_incomp";
+            this.p_incomp.Size = new System.Drawing.Size(169, 275);
+            this.p_incomp.TabIndex = 5;
+            this.p_incomp.Visible = false;
+            // 
+            // dgvIncompletos
+            // 
+            this.dgvIncompletos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncompletos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.Column10});
+            this.dgvIncompletos.Location = new System.Drawing.Point(3, 3);
+            this.dgvIncompletos.Name = "dgvIncompletos";
+            this.dgvIncompletos.Size = new System.Drawing.Size(669, 269);
+            this.dgvIncompletos.TabIndex = 0;
+            this.dgvIncompletos.TabStop = false;
+            this.dgvIncompletos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -741,6 +433,38 @@
             this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column10.HeaderText = "Estado";
             this.Column10.Name = "Column10";
+            // 
+            // p_com_all
+            // 
+            this.p_com_all.BackColor = System.Drawing.Color.Transparent;
+            this.p_com_all.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.p_com_all.Controls.Add(this.dgvTodas);
+            this.p_com_all.Location = new System.Drawing.Point(38, 127);
+            this.p_com_all.Margin = new System.Windows.Forms.Padding(2);
+            this.p_com_all.Name = "p_com_all";
+            this.p_com_all.Size = new System.Drawing.Size(679, 275);
+            this.p_com_all.TabIndex = 2;
+            this.p_com_all.Visible = false;
+            // 
+            // dgvTodas
+            // 
+            this.dgvTodas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.Column11,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33});
+            this.dgvTodas.Location = new System.Drawing.Point(0, 5);
+            this.dgvTodas.Name = "dgvTodas";
+            this.dgvTodas.Size = new System.Drawing.Size(669, 269);
+            this.dgvTodas.TabIndex = 0;
+            this.dgvTodas.TabStop = false;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -802,44 +526,143 @@
             this.dataGridViewTextBoxColumn33.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             // 
+            // btnCompletosCumplieron
+            // 
+            this.btnCompletosCumplieron.BackColor = System.Drawing.Color.White;
+            this.btnCompletosCumplieron.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCompletosCumplieron.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompletosCumplieron.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnCompletosCumplieron.FlatAppearance.BorderSize = 3;
+            this.btnCompletosCumplieron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnCompletosCumplieron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnCompletosCumplieron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompletosCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCompletosCumplieron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCompletosCumplieron.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCompletosCumplieron.Location = new System.Drawing.Point(188, 2);
+            this.btnCompletosCumplieron.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCompletosCumplieron.Name = "btnCompletosCumplieron";
+            this.btnCompletosCumplieron.Size = new System.Drawing.Size(169, 53);
+            this.btnCompletosCumplieron.TabIndex = 1;
+            this.btnCompletosCumplieron.Text = "Completos que cumplieron";
+            this.btnCompletosCumplieron.UseVisualStyleBackColor = false;
+            this.btnCompletosCumplieron.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // btnCompletosNoCumplieron
+            // 
+            this.btnCompletosNoCumplieron.BackColor = System.Drawing.Color.White;
+            this.btnCompletosNoCumplieron.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCompletosNoCumplieron.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompletosNoCumplieron.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnCompletosNoCumplieron.FlatAppearance.BorderSize = 3;
+            this.btnCompletosNoCumplieron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnCompletosNoCumplieron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnCompletosNoCumplieron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompletosNoCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCompletosNoCumplieron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCompletosNoCumplieron.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCompletosNoCumplieron.Location = new System.Drawing.Point(361, 2);
+            this.btnCompletosNoCumplieron.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCompletosNoCumplieron.Name = "btnCompletosNoCumplieron";
+            this.btnCompletosNoCumplieron.Size = new System.Drawing.Size(169, 53);
+            this.btnCompletosNoCumplieron.TabIndex = 2;
+            this.btnCompletosNoCumplieron.Text = "Completos que no cumplieron \r\ncon la ponderación mínima";
+            this.btnCompletosNoCumplieron.UseVisualStyleBackColor = false;
+            this.btnCompletosNoCumplieron.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnEvaluacionesIncompletas
+            // 
+            this.btnEvaluacionesIncompletas.BackColor = System.Drawing.Color.White;
+            this.btnEvaluacionesIncompletas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEvaluacionesIncompletas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEvaluacionesIncompletas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnEvaluacionesIncompletas.FlatAppearance.BorderSize = 3;
+            this.btnEvaluacionesIncompletas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnEvaluacionesIncompletas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnEvaluacionesIncompletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEvaluacionesIncompletas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEvaluacionesIncompletas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEvaluacionesIncompletas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEvaluacionesIncompletas.Location = new System.Drawing.Point(534, 2);
+            this.btnEvaluacionesIncompletas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEvaluacionesIncompletas.Name = "btnEvaluacionesIncompletas";
+            this.btnEvaluacionesIncompletas.Size = new System.Drawing.Size(169, 53);
+            this.btnEvaluacionesIncompletas.TabIndex = 3;
+            this.btnEvaluacionesIncompletas.Text = "Evaluaciones Incompletas";
+            this.btnEvaluacionesIncompletas.UseVisualStyleBackColor = false;
+            this.btnEvaluacionesIncompletas.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnTodasEvaluaciones
+            // 
+            this.btnTodasEvaluaciones.BackColor = System.Drawing.Color.White;
+            this.btnTodasEvaluaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTodasEvaluaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTodasEvaluaciones.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnTodasEvaluaciones.FlatAppearance.BorderSize = 3;
+            this.btnTodasEvaluaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnTodasEvaluaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnTodasEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTodasEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnTodasEvaluaciones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTodasEvaluaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTodasEvaluaciones.Location = new System.Drawing.Point(14, 2);
+            this.btnTodasEvaluaciones.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTodasEvaluaciones.Name = "btnTodasEvaluaciones";
+            this.btnTodasEvaluaciones.Size = new System.Drawing.Size(169, 53);
+            this.btnTodasEvaluaciones.TabIndex = 0;
+            this.btnTodasEvaluaciones.Text = "Todas las evaluaciones";
+            this.btnTodasEvaluaciones.UseVisualStyleBackColor = false;
+            this.btnTodasEvaluaciones.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pnOpciones
+            // 
+            this.pnOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.pnOpciones.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.pnOpciones.Controls.Add(this.btnTodasEvaluaciones);
+            this.pnOpciones.Controls.Add(this.btnEvaluacionesIncompletas);
+            this.pnOpciones.Controls.Add(this.btnCompletosNoCumplieron);
+            this.pnOpciones.Controls.Add(this.btnCompletosCumplieron);
+            this.pnOpciones.Location = new System.Drawing.Point(17, 61);
+            this.pnOpciones.Margin = new System.Windows.Forms.Padding(2);
+            this.pnOpciones.Name = "pnOpciones";
+            this.pnOpciones.Size = new System.Drawing.Size(712, 58);
+            this.pnOpciones.TabIndex = 0;
+            this.pnOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
             // f20_OrdenDeMérito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(984, 559);
+            this.ClientSize = new System.Drawing.Size(740, 461);
             this.Controls.Add(this.p_incomp);
             this.Controls.Add(this.p_com_desapr);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pnOpciones);
             this.Controls.Add(this.p_com_apr);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnMovForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.p_com_all);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1002, 606);
-            this.MinimumSize = new System.Drawing.Size(1002, 606);
+            this.MaximumSize = new System.Drawing.Size(756, 500);
+            this.MinimumSize = new System.Drawing.Size(756, 500);
             this.Name = "f20_OrdenDeMérito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orden de Mérito";
             this.Load += new System.EventHandler(this.ordenDeMérito_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pnMovForm.ResumeLayout(false);
             this.p_com_apr.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosCumplieron)).EndInit();
             this.p_com_desapr.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosNoCumplieron)).EndInit();
             this.p_incomp.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncompletos)).EndInit();
             this.p_com_all.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTodas)).EndInit();
+            this.pnOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -850,52 +673,15 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel pnMovForm;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Panel p_com_apr;
         private System.Windows.Forms.Panel p_com_desapr;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvCompletosNoCumplieron;
         private System.Windows.Forms.Panel p_incomp;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dgvIncompletos;
         private System.Windows.Forms.Panel p_com_all;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -913,6 +699,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Button btnCompletosCumplieron;
+        private System.Windows.Forms.Button btnCompletosNoCumplieron;
+        private System.Windows.Forms.Button btnEvaluacionesIncompletas;
+        private System.Windows.Forms.Button btnTodasEvaluaciones;
+        private System.Windows.Forms.Panel pnOpciones;
+        private System.Windows.Forms.DataGridView dgvCompletosCumplieron;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridView dgvTodas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;

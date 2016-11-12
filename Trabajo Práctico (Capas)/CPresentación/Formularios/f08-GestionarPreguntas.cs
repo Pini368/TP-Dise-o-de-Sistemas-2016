@@ -96,5 +96,6 @@ namespace Trabajo_práctico.Formularios
             f10_ModificarPregunta mp = new f10_ModificarPregunta();
             mp.Show(this);
         }
+
     }
 }

@@ -28,88 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.pnDatos = new System.Windows.Forms.Panel();
+            this.rbRespuesta3 = new System.Windows.Forms.RadioButton();
+            this.rbRespuesta2 = new System.Windows.Forms.RadioButton();
+            this.rbRespuesta1 = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbPregunta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.pnMovForm = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSigBloque = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.pnOpciones = new System.Windows.Forms.Panel();
+            this.btnAntPregunta = new System.Windows.Forms.Button();
+            this.btnSigPregunta = new System.Windows.Forms.Button();
+            this.btnPreg2 = new System.Windows.Forms.Button();
+            this.btnPreg1 = new System.Windows.Forms.Button();
+            this.btnPregN = new System.Windows.Forms.Button();
+            this.btnPreg3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.lbTiempoRestante = new System.Windows.Forms.Label();
+            this.pnDatos.SuspendLayout();
+            this.pnMovForm.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnDatos
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.panel1.Location = new System.Drawing.Point(75, 106);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 244);
-            this.panel1.TabIndex = 57;
+            this.pnDatos.BackColor = System.Drawing.Color.Transparent;
+            this.pnDatos.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.pnDatos.Controls.Add(this.rbRespuesta3);
+            this.pnDatos.Controls.Add(this.rbRespuesta2);
+            this.pnDatos.Controls.Add(this.rbRespuesta1);
+            this.pnDatos.Controls.Add(this.label10);
+            this.pnDatos.Controls.Add(this.tbPregunta);
+            this.pnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.pnDatos.Location = new System.Drawing.Point(75, 106);
+            this.pnDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.pnDatos.Name = "pnDatos";
+            this.pnDatos.Size = new System.Drawing.Size(597, 244);
+            this.pnDatos.TabIndex = 6;
             // 
-            // radioButton3
+            // rbRespuesta3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.radioButton3.ForeColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(54, 172);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(109, 22);
-            this.radioButton3.TabIndex = 13;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Respuesta 3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbRespuesta3.AutoSize = true;
+            this.rbRespuesta3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rbRespuesta3.ForeColor = System.Drawing.Color.White;
+            this.rbRespuesta3.Location = new System.Drawing.Point(54, 172);
+            this.rbRespuesta3.Name = "rbRespuesta3";
+            this.rbRespuesta3.Size = new System.Drawing.Size(109, 22);
+            this.rbRespuesta3.TabIndex = 4;
+            this.rbRespuesta3.TabStop = true;
+            this.rbRespuesta3.Text = "Respuesta 3";
+            this.rbRespuesta3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbRespuesta2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(54, 145);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(109, 22);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Respuesta 2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbRespuesta2.AutoSize = true;
+            this.rbRespuesta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rbRespuesta2.ForeColor = System.Drawing.Color.White;
+            this.rbRespuesta2.Location = new System.Drawing.Point(54, 145);
+            this.rbRespuesta2.Name = "rbRespuesta2";
+            this.rbRespuesta2.Size = new System.Drawing.Size(109, 22);
+            this.rbRespuesta2.TabIndex = 3;
+            this.rbRespuesta2.TabStop = true;
+            this.rbRespuesta2.Text = "Respuesta 2";
+            this.rbRespuesta2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbRespuesta1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(54, 118);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(109, 22);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Respuesta 1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbRespuesta1.AutoSize = true;
+            this.rbRespuesta1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.rbRespuesta1.ForeColor = System.Drawing.Color.White;
+            this.rbRespuesta1.Location = new System.Drawing.Point(54, 118);
+            this.rbRespuesta1.Name = "rbRespuesta1";
+            this.rbRespuesta1.Size = new System.Drawing.Size(109, 22);
+            this.rbRespuesta1.TabIndex = 2;
+            this.rbRespuesta1.TabStop = true;
+            this.rbRespuesta1.Text = "Respuesta 1";
+            this.rbRespuesta1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -120,83 +120,83 @@
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 18);
-            this.label10.TabIndex = 10;
+            this.label10.TabIndex = 1;
             this.label10.Text = "Pregunta";
             // 
-            // textBox1
+            // tbPregunta
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(414, 82);
-            this.textBox1.TabIndex = 0;
+            this.tbPregunta.Location = new System.Drawing.Point(121, 31);
+            this.tbPregunta.Multiline = true;
+            this.tbPregunta.Name = "tbPregunta";
+            this.tbPregunta.ReadOnly = true;
+            this.tbPregunta.Size = new System.Drawing.Size(414, 82);
+            this.tbPregunta.TabIndex = 0;
+            this.tbPregunta.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("AlleynW01-Bold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(141, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(485, 34);
-            this.label1.TabIndex = 58;
+            this.label1.Size = new System.Drawing.Size(448, 33);
+            this.label1.TabIndex = 8;
             this.label1.Text = "Bloque Nº XX / Pregunta N° XX";
             // 
-            // panel3
+            // pnMovForm
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(196, 406);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(375, 41);
-            this.panel3.TabIndex = 59;
+            this.pnMovForm.BackColor = System.Drawing.Color.Transparent;
+            this.pnMovForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnMovForm.Controls.Add(this.btnCancelar);
+            this.pnMovForm.Controls.Add(this.btnSigBloque);
+            this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnMovForm.Location = new System.Drawing.Point(196, 406);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Name = "pnMovForm";
+            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.TabIndex = 5;
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(2, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 32);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 3;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.Location = new System.Drawing.Point(2, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(163, 32);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // btnSigBloque
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button4.FlatAppearance.BorderSize = 3;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(210, 4);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(163, 32);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Siguiente Bloque";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnSigBloque.BackColor = System.Drawing.Color.White;
+            this.btnSigBloque.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSigBloque.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnSigBloque.FlatAppearance.BorderSize = 3;
+            this.btnSigBloque.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnSigBloque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnSigBloque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSigBloque.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSigBloque.Location = new System.Drawing.Point(210, 4);
+            this.btnSigBloque.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSigBloque.Name = "btnSigBloque";
+            this.btnSigBloque.Size = new System.Drawing.Size(163, 32);
+            this.btnSigBloque.TabIndex = 0;
+            this.btnSigBloque.Text = "Siguiente Bloque";
+            this.btnSigBloque.UseVisualStyleBackColor = false;
             // 
             // menuStrip1
             // 
@@ -207,7 +207,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(740, 24);
-            this.menuStrip1.TabIndex = 60;
+            this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
@@ -224,153 +224,150 @@
             this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             // 
-            // panel2
+            // pnOpciones
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(196, 353);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(375, 41);
-            this.panel2.TabIndex = 60;
+            this.pnOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.pnOpciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnOpciones.Controls.Add(this.btnAntPregunta);
+            this.pnOpciones.Controls.Add(this.btnSigPregunta);
+            this.pnOpciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnOpciones.Location = new System.Drawing.Point(196, 353);
+            this.pnOpciones.Margin = new System.Windows.Forms.Padding(2);
+            this.pnOpciones.Name = "pnOpciones";
+            this.pnOpciones.Size = new System.Drawing.Size(375, 41);
+            this.pnOpciones.TabIndex = 4;
             // 
-            // button2
+            // btnAntPregunta
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button2.FlatAppearance.BorderSize = 3;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(2, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 32);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Anterior Pregunta";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAntPregunta.BackColor = System.Drawing.Color.White;
+            this.btnAntPregunta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAntPregunta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnAntPregunta.FlatAppearance.BorderSize = 3;
+            this.btnAntPregunta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnAntPregunta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnAntPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAntPregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnAntPregunta.Location = new System.Drawing.Point(2, 4);
+            this.btnAntPregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAntPregunta.Name = "btnAntPregunta";
+            this.btnAntPregunta.Size = new System.Drawing.Size(163, 32);
+            this.btnAntPregunta.TabIndex = 0;
+            this.btnAntPregunta.Text = "Anterior Pregunta";
+            this.btnAntPregunta.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnSigPregunta
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(210, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 32);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Siguiente Pregunta";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSigPregunta.BackColor = System.Drawing.Color.White;
+            this.btnSigPregunta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSigPregunta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnSigPregunta.FlatAppearance.BorderSize = 3;
+            this.btnSigPregunta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnSigPregunta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnSigPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSigPregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSigPregunta.Location = new System.Drawing.Point(210, 4);
+            this.btnSigPregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSigPregunta.Name = "btnSigPregunta";
+            this.btnSigPregunta.Size = new System.Drawing.Size(163, 32);
+            this.btnSigPregunta.TabIndex = 1;
+            this.btnSigPregunta.Text = "Siguiente Pregunta";
+            this.btnSigPregunta.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnPreg2
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button5.FlatAppearance.BorderSize = 3;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button5.Location = new System.Drawing.Point(25, 123);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 32);
-            this.button5.TabIndex = 73;
-            this.button5.Text = "2";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnPreg2.BackColor = System.Drawing.Color.White;
+            this.btnPreg2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreg2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnPreg2.FlatAppearance.BorderSize = 3;
+            this.btnPreg2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnPreg2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnPreg2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreg2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnPreg2.Location = new System.Drawing.Point(25, 123);
+            this.btnPreg2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPreg2.Name = "btnPreg2";
+            this.btnPreg2.Size = new System.Drawing.Size(30, 32);
+            this.btnPreg2.TabIndex = 1;
+            this.btnPreg2.Text = "2";
+            this.btnPreg2.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnPreg1
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button6.FlatAppearance.BorderSize = 3;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button6.Location = new System.Drawing.Point(25, 88);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(30, 32);
-            this.button6.TabIndex = 72;
-            this.button6.Text = "1";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnPreg1.BackColor = System.Drawing.Color.White;
+            this.btnPreg1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreg1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnPreg1.FlatAppearance.BorderSize = 3;
+            this.btnPreg1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnPreg1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnPreg1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnPreg1.Location = new System.Drawing.Point(25, 88);
+            this.btnPreg1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPreg1.Name = "btnPreg1";
+            this.btnPreg1.Size = new System.Drawing.Size(30, 32);
+            this.btnPreg1.TabIndex = 0;
+            this.btnPreg1.Text = "1";
+            this.btnPreg1.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnPregN
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button7.FlatAppearance.BorderSize = 3;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button7.Location = new System.Drawing.Point(25, 193);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(30, 32);
-            this.button7.TabIndex = 75;
-            this.button7.Text = "N";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnPregN.BackColor = System.Drawing.Color.White;
+            this.btnPregN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPregN.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnPregN.FlatAppearance.BorderSize = 3;
+            this.btnPregN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnPregN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnPregN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnPregN.Location = new System.Drawing.Point(25, 193);
+            this.btnPregN.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPregN.Name = "btnPregN";
+            this.btnPregN.Size = new System.Drawing.Size(30, 32);
+            this.btnPregN.TabIndex = 3;
+            this.btnPregN.Text = "N";
+            this.btnPregN.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnPreg3
             // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button8.FlatAppearance.BorderSize = 3;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button8.Location = new System.Drawing.Point(25, 158);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(30, 32);
-            this.button8.TabIndex = 74;
-            this.button8.Text = "3";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnPreg3.BackColor = System.Drawing.Color.White;
+            this.btnPreg3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreg3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnPreg3.FlatAppearance.BorderSize = 3;
+            this.btnPreg3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnPreg3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnPreg3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreg3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnPreg3.Location = new System.Drawing.Point(25, 158);
+            this.btnPreg3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPreg3.Name = "btnPreg3";
+            this.btnPreg3.Size = new System.Drawing.Size(30, 32);
+            this.btnPreg3.TabIndex = 2;
+            this.btnPreg3.Text = "3";
+            this.btnPreg3.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(6, 67);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 18);
-            this.label5.TabIndex = 76;
+            this.label5.Size = new System.Drawing.Size(99, 18);
+            this.label5.TabIndex = 9;
             this.label5.Text = "Pregunta N°";
             // 
-            // label2
+            // lbTiempoRestante
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Neo Sans Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(276, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 19);
-            this.label2.TabIndex = 77;
-            this.label2.Text = "Tiempo restante MM:SS";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbTiempoRestante.AutoSize = true;
+            this.lbTiempoRestante.BackColor = System.Drawing.Color.Transparent;
+            this.lbTiempoRestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTiempoRestante.Location = new System.Drawing.Point(276, 67);
+            this.lbTiempoRestante.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTiempoRestante.Name = "lbTiempoRestante";
+            this.lbTiempoRestante.Size = new System.Drawing.Size(201, 20);
+            this.lbTiempoRestante.TabIndex = 7;
+            this.lbTiempoRestante.Text = "Tiempo restante MM:SS";
             // 
             // Cuestionario
             // 
@@ -378,29 +375,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
             this.ClientSize = new System.Drawing.Size(740, 462);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbTiempoRestante);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnPregN);
+            this.Controls.Add(this.btnPreg3);
+            this.Controls.Add(this.btnPreg2);
+            this.Controls.Add(this.btnPreg1);
+            this.Controls.Add(this.pnOpciones);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnMovForm);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnDatos);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(756, 501);
             this.MinimumSize = new System.Drawing.Size(756, 501);
             this.Name = "Cuestionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuestionario";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.pnDatos.ResumeLayout(false);
+            this.pnDatos.PerformLayout();
+            this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.pnOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,27 +405,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox tbPregunta;
+        private System.Windows.Forms.Panel pnMovForm;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSigBloque;
+        private System.Windows.Forms.RadioButton rbRespuesta3;
+        private System.Windows.Forms.RadioButton rbRespuesta2;
+        private System.Windows.Forms.RadioButton rbRespuesta1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel pnOpciones;
+        private System.Windows.Forms.Button btnAntPregunta;
+        private System.Windows.Forms.Button btnSigPregunta;
+        private System.Windows.Forms.Button btnPreg2;
+        private System.Windows.Forms.Button btnPreg1;
+        private System.Windows.Forms.Button btnPregN;
+        private System.Windows.Forms.Button btnPreg3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbTiempoRestante;
     }
 }

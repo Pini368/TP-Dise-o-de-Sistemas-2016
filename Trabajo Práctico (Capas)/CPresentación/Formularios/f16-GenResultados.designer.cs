@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pnOpciones = new System.Windows.Forms.Panel();
+            this.btnEmitirOrdenMerito = new System.Windows.Forms.Button();
+            this.btnReporteComparativo = new System.Windows.Forms.Button();
+            this.btnExportarResultados = new System.Windows.Forms.Button();
+            this.pnMovForm = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnOpciones.SuspendLayout();
+            this.pnMovForm.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,121 +47,122 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("AlleynW01-Bold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(305, 42);
+            this.label1.Location = new System.Drawing.Point(229, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(390, 44);
-            this.label1.TabIndex = 32;
+            this.label1.Size = new System.Drawing.Size(294, 33);
+            this.label1.TabIndex = 2;
             this.label1.Text = "Generar Resultados";
             // 
-            // panel1
+            // pnOpciones
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(80, 138);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(823, 230);
-            this.panel1.TabIndex = 31;
+            this.pnOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.pnOpciones.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
+            this.pnOpciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnOpciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnOpciones.Controls.Add(this.btnEmitirOrdenMerito);
+            this.pnOpciones.Controls.Add(this.btnReporteComparativo);
+            this.pnOpciones.Controls.Add(this.btnExportarResultados);
+            this.pnOpciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnOpciones.Location = new System.Drawing.Point(60, 112);
+            this.pnOpciones.Margin = new System.Windows.Forms.Padding(0);
+            this.pnOpciones.Name = "pnOpciones";
+            this.pnOpciones.Size = new System.Drawing.Size(618, 188);
+            this.pnOpciones.TabIndex = 0;
             // 
-            // button7
+            // btnEmitirOrdenMerito
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button7.FlatAppearance.BorderSize = 3;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(279, 148);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(260, 65);
-            this.button7.TabIndex = 38;
-            this.button7.Text = "Emitir Orden de Mérito";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnEmitirOrdenMerito.BackColor = System.Drawing.Color.White;
+            this.btnEmitirOrdenMerito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEmitirOrdenMerito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmitirOrdenMerito.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnEmitirOrdenMerito.FlatAppearance.BorderSize = 3;
+            this.btnEmitirOrdenMerito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnEmitirOrdenMerito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnEmitirOrdenMerito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmitirOrdenMerito.Location = new System.Drawing.Point(209, 120);
+            this.btnEmitirOrdenMerito.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEmitirOrdenMerito.Name = "btnEmitirOrdenMerito";
+            this.btnEmitirOrdenMerito.Size = new System.Drawing.Size(195, 53);
+            this.btnEmitirOrdenMerito.TabIndex = 2;
+            this.btnEmitirOrdenMerito.Text = "Emitir Orden de Mérito";
+            this.btnEmitirOrdenMerito.UseVisualStyleBackColor = false;
+            this.btnEmitirOrdenMerito.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button3
+            // btnReporteComparativo
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(447, 25);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(260, 65);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "Emitir Reporte Comparativo";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnReporteComparativo.BackColor = System.Drawing.Color.White;
+            this.btnReporteComparativo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReporteComparativo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteComparativo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnReporteComparativo.FlatAppearance.BorderSize = 3;
+            this.btnReporteComparativo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnReporteComparativo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnReporteComparativo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteComparativo.Location = new System.Drawing.Point(335, 20);
+            this.btnReporteComparativo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReporteComparativo.Name = "btnReporteComparativo";
+            this.btnReporteComparativo.Size = new System.Drawing.Size(195, 53);
+            this.btnReporteComparativo.TabIndex = 1;
+            this.btnReporteComparativo.Text = "Emitir Reporte Comparativo";
+            this.btnReporteComparativo.UseVisualStyleBackColor = false;
+            this.btnReporteComparativo.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnExportarResultados
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button4.FlatAppearance.BorderSize = 3;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(117, 25);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(260, 65);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Exportar Resultados";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnExportarResultados.BackColor = System.Drawing.Color.White;
+            this.btnExportarResultados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExportarResultados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportarResultados.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnExportarResultados.FlatAppearance.BorderSize = 3;
+            this.btnExportarResultados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnExportarResultados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnExportarResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportarResultados.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExportarResultados.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExportarResultados.Location = new System.Drawing.Point(88, 20);
+            this.btnExportarResultados.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportarResultados.Name = "btnExportarResultados";
+            this.btnExportarResultados.Size = new System.Drawing.Size(195, 53);
+            this.btnExportarResultados.TabIndex = 0;
+            this.btnExportarResultados.Text = "Exportar Resultados";
+            this.btnExportarResultados.UseVisualStyleBackColor = false;
+            this.btnExportarResultados.Click += new System.EventHandler(this.button4_Click);
             // 
-            // panel4
+            // pnMovForm
             // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(15, 497);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(121, 50);
-            this.panel4.TabIndex = 41;
+            this.pnMovForm.BackColor = System.Drawing.Color.Transparent;
+            this.pnMovForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnMovForm.Controls.Add(this.btnSalir);
+            this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnMovForm.Location = new System.Drawing.Point(11, 404);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Name = "pnMovForm";
+            this.pnMovForm.Size = new System.Drawing.Size(91, 41);
+            this.pnMovForm.TabIndex = 1;
             // 
-            // button2
+            // btnSalir
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.button2.FlatAppearance.BorderSize = 3;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Neo Sans Std", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(3, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 39);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Salir";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSalir.BackColor = System.Drawing.Color.White;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.btnSalir.FlatAppearance.BorderSize = 3;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.Location = new System.Drawing.Point(2, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(82, 32);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.button2_Click);
             // 
             // menuStrip1
             // 
@@ -170,9 +171,9 @@
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
-            this.menuStrip1.TabIndex = 58;
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
@@ -180,35 +181,34 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cerrarProgramaToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.archivoToolStripMenuItem.Text = "Sesión";
             // 
             // cerrarProgramaToolStripMenuItem
             // 
             this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             // 
             // f16_GenResultados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(740, 462);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnMovForm);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Controls.Add(this.pnOpciones);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1002, 608);
-            this.MinimumSize = new System.Drawing.Size(1002, 608);
+            this.MaximumSize = new System.Drawing.Size(756, 501);
+            this.MinimumSize = new System.Drawing.Size(756, 501);
             this.Name = "f16_GenResultados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generar Resultados";
-            this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.pnOpciones.ResumeLayout(false);
+            this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -219,12 +219,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel pnOpciones;
+        private System.Windows.Forms.Button btnEmitirOrdenMerito;
+        private System.Windows.Forms.Button btnReporteComparativo;
+        private System.Windows.Forms.Button btnExportarResultados;
+        private System.Windows.Forms.Panel pnMovForm;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;

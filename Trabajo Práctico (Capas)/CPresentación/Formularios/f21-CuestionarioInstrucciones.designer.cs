@@ -159,6 +159,7 @@
             this.Name = "f21_CuestionarioInstrucciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intrucciones de Cuestionario";
+            this.Load += new System.EventHandler(this.f21_CuestionarioInstrucciones_Load);
             this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

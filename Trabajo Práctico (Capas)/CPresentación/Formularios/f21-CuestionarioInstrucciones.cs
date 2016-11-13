@@ -29,5 +29,10 @@ namespace Trabajo_práctico
             Owner.Show();
             this.Close();
         }
+
+        private void f21_CuestionarioInstrucciones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

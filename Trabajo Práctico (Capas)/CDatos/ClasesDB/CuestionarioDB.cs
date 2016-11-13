@@ -23,5 +23,20 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public void generarCuestionario(Cuestionario cuest)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    db.Cuestionario.Add(cuest);
+                    db.SaveChanges();
+                }
+            }
+            catch(Exception ex){
+                throw new ExceptionPersonalizada(ex.Message);
+
+            }
+        }
     }
 }

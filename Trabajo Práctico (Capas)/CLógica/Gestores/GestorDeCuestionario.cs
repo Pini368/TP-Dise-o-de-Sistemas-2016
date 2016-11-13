@@ -22,5 +22,18 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public void generarCuestionario(Cuestionario cuest)
+        {
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                cdatos.generarCuestionario(cuest);
+            }
+            catch(Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

@@ -85,16 +85,39 @@ namespace Trabajo_práctico
             return tabPagePregunta;
         }
 
+        private Cuestionario generarCuestionario()
+        {
+            GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+            Cuestionario cuest = new Cuestionario();
+
+            Evaluacion eval = new Evaluacion(); //Cambiar esto para que sea la evaluacion que se esta evaluando actualmente
+
+            try
+            {
+                cuest.id_evaluacion = eval.id_evaluacion;
+                cuest.cantidad_accesos = 0;
+                cuest.nroCandidato = GestorDeAutenticacion.obtenerCandidatoActual().nroCandidato;
+                cuest.fecha_inicio = DateTime.Now;
+                cuest.ultimo_acceso = DateTime.Now;
+                clogCuest.generarCuestionario(cuest);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return cuest;
+        }
+
         private void Cuestionario_Load(object sender, EventArgs e)
         {
+
             GestorDeCuestionario clogCuest = new GestorDeCuestionario();
 
             bloqueAc = 0;
 
             try
             {
-                Candidato cand = GestorDeAutenticacion.obtenerCandidatoActual();
-                Cuestionario cuest = clogCuest.obtenerCuestionario(cand);
+                Cuestionario cuest = generarCuestionario();
 
                 bloquesCuest = cuest.Bloque.ToList();
                 Bloque bloqueActual = bloquesCuest[bloqueAc];

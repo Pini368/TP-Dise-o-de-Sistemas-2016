@@ -50,6 +50,19 @@ namespace CLogica.Gestores
             }
         }
 
+        public Puesto getPuestos(int idPuesto)
+        {
+            PuestoDB cdP = new PuestoDB();
+            try
+            {
+                return cdP.obtenerPuesto(idPuesto);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
         public Puesto getUltimoPuesto(int codigo, string nombre)
         {
             PuestoDB cdP = new PuestoDB();

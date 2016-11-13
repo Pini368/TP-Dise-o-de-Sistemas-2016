@@ -10,6 +10,11 @@ namespace CLogica.Gestores
 {
     public class GestorDeCuestionario
     {
+
+        public string obtenerUltimoEstado(Cuestionario cuest)
+        {
+            return cuest.Estado_Cuestionario.Where(est => est.fecha_mod == cuest.Estado_Cuestionario.Max(est1 => est1.fecha_mod)).FirstOrDefault().estadoActual;
+        }
         public Cuestionario obtenerCuestionario(Candidato cand)
         {
             try

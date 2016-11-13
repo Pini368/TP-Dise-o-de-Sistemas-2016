@@ -14,11 +14,16 @@ namespace Trabajo_práctico
 {
     public partial class f22Cuestionario : Form
     {
+        public Evaluacion evaluacion;
+        int bloqueAc;
+        int nroPregunta;
+        Cuestionario cuest;
 
-        private int nroBloque;
-        private int nroPregunta;
-        private int bloqueAc;
-        List<Bloque> bloquesCuest;
+        public f22Cuestionario(Evaluacion eval)
+        {
+            InitializeComponent();
+            evaluacion = eval;
+        }
 
         public f22Cuestionario()
         {
@@ -85,27 +90,70 @@ namespace Trabajo_práctico
             return tabPagePregunta;
         }
 
-        private Cuestionario generarCuestionario()
+        private void generarBloquesCuestionario(Cuestionario cuest)
         {
-            GestorDeCuestionario clogCuest = new GestorDeCuestionario();
-            Cuestionario cuest = new Cuestionario();
-
-            Evaluacion eval = new Evaluacion(); //Cambiar esto para que sea la evaluacion que se esta evaluando actualmente
-
             try
             {
-                cuest.id_evaluacion = eval.id_evaluacion;
-                cuest.cantidad_accesos = 0;
-                cuest.nroCandidato = GestorDeAutenticacion.obtenerCandidatoActual().nroCandidato;
-                cuest.fecha_inicio = DateTime.Now;
-                cuest.ultimo_acceso = DateTime.Now;
-                clogCuest.generarCuestionario(cuest);
+                GestorDePuestos clogPuestos = new GestorDePuestos();
+                Puesto puesto = clogPuestos.getPuestos(evaluacion.id_puesto);
+                List<Competencia> lcomp = new List<Competencia>();
+                puesto.Puntaje_Requerido.ToList().ForEach(pr => lcomp.Add(pr.Competencia));
+                List<Factor> lfac = new List<Factor>();
+                lcomp.ForEach(comp => comp.Factor.ToList().ForEach(fac => lfac.Add(fac)));
+                List<Pregunta> preguntas = new List<Pregunta>();
+
+                RespuestaElegida rel = new RespuestaElegida();
+
+                foreach (Factor fac in lfac)
+                {
+                    Random rnd = new Random();
+                    int aleatorio = rnd.Next(0, (fac.Pregunta.Count - 1));
+                    preguntas.Add(fac.Pregunta.ToList()[aleatorio]);
+                    int aleatorio1;
+                    do
+                    {
+                        aleatorio1 = rnd.Next(0, (fac.Pregunta.Count - 1));
+                    }
+                    while (aleatorio1 == aleatorio);
+                    preguntas.Add(fac.Pregunta.ToList()[aleatorio1]);
+                }
+
+                int nroBloque = 0;
+
+                List<Bloque> bloques = new List<Bloque>();
+
+                Bloque bloq = new Bloque();
+                bloq.id_cuestionario = cuest.id_cuestionario;
+                bloq.num_bloque = nroBloque+1;
+                bloques[nroBloque] = bloq;
+
+                int i = 0;
+
+                int cantidadPreguntasBloque = 3; //Esto es una variable que va a ir en la tabla de parametros
+
+                foreach(Pregunta preg in preguntas)
+                {
+                    if (i < cantidadPreguntasBloque)
+                    {
+                        RespuestaElegida resp = new RespuestaElegida();
+                        resp.id_pregunta = preg.id_pregunta;
+                        bloques[nroBloque].RespuestaElegida.Add(resp);
+                    }
+                    else{
+                        i = 0;
+                        cuest.Bloque.Add(bloques[nroBloque]);
+                        nroBloque++;
+                        Bloque bloque = new Bloque();
+                        bloque.id_cuestionario = cuest.id_cuestionario;
+                        bloque.num_bloque = nroBloque + 1;
+                        bloques[nroBloque] = bloque;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return cuest;
         }
 
         private void Cuestionario_Load(object sender, EventArgs e)
@@ -117,12 +165,15 @@ namespace Trabajo_práctico
 
             try
             {
-                Cuestionario cuest = generarCuestionario();
+                cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
+                if (clogCuest.obtenerUltimoEstado(cuest) == "Activo")
+                {
+                    generarBloquesCuestionario(cuest);
+                }
 
-                bloquesCuest = cuest.Bloque.ToList();
-                Bloque bloqueActual = bloquesCuest[bloqueAc];
+                Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
 
-                nroBloque = bloqueActual.num_bloque;
+                int nroBloque = bloqueActual.num_bloque;
                 nroPregunta = 1;
 
 
@@ -135,10 +186,10 @@ namespace Trabajo_práctico
                 //La lista listStr se llena con los nombres de las respuestas posibles a esa pregunta
                 cargarRespuestas(lsbRespuestas1, listStr);
 
-                for (int N = 2; N < bloquesCuest[bloqueAc].RespuestaElegida.Count(); N++)
+                for (int N = 2; N < cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.Count(); N++)
                 {
                     listStr = new List<string>();
-                    listStr = (from re in bloquesCuest[bloqueAc].RespuestaElegida where re.id_pregunta == pregunta.id_pregunta select re.Respuesta.nombre).ToList();
+                    listStr = (from re in cuest.Bloque.ToList()[bloqueAc].RespuestaElegida where re.id_pregunta == pregunta.id_pregunta select re.Respuesta.nombre).ToList();
                     //La lista listStr se llena con los nombres de las respuestas posibles a esa pregunta
                     tbcPreguntas.TabPages.Add(generarPreguntaFormulario(N, listStr, pregunta));
                 }
@@ -173,9 +224,9 @@ namespace Trabajo_práctico
         {
             try
             {
-                bloqueAc += 1;
-                Bloque bloqueActual = bloquesCuest[bloqueAc];
-                nroBloque = bloqueActual.num_bloque;
+                bloqueAc++;
+                Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
+                int nroBloque = bloqueActual.num_bloque;
                 lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
             }
             catch (Exception ex)

@@ -20,7 +20,7 @@ namespace Trabajo_práctico
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Cuestionario cu = new Cuestionario();
+            f22Cuestionario cu = new f22Cuestionario();
             cu.Show(this);
         }
 

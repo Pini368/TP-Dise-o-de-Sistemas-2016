@@ -49,6 +49,7 @@
     <Compile Include="ExceptionPersonalizada.cs" />
     <Compile Include="Gestores\GestorDeAutenticacion.cs" />
     <Compile Include="Gestores\GestorDeCompetencia.cs" />
+    <Compile Include="Gestores\GestorDeCuestionario.cs" />
     <Compile Include="Gestores\GestorDePuestos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

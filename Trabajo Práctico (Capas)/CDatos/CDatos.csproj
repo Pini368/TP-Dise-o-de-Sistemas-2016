@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClasesDB\CompetenciaDB.cs" />
+    <Compile Include="ClasesDB\CuestionarioDB.cs" />
     <Compile Include="ClasesDB\PuestoDB.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ExceptionPersonalizada.cs" />

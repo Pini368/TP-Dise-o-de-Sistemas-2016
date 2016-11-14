@@ -86,7 +86,7 @@ namespace CDatos.ClasesDB
             }
         }
 
-        public int obtenerCantidadPuestos(int codigo, string nombre, string empresa)
+        private int obtenerCantidadPuestos(int codigo, string nombre, string empresa)
         {
             try
             {

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CDatos.ClasesDB;
+using CDatos.ClasesDAO;
 using CEntidades;
+using CDatos.ClasesDB;
 
 namespace CLogica.Gestores
 {
@@ -14,7 +15,7 @@ namespace CLogica.Gestores
 
         public void alta(Puesto puesto)
         {
-            PuestoDB cdatos = new PuestoDB();
+            PuestoDAO cdatos = new PuestoDB();
             try
             {
                 cdatos.alta(puesto);
@@ -39,7 +40,7 @@ namespace CLogica.Gestores
 
         public Puesto getPuestos(int codigo, string nombre)
         {
-            PuestoDB cdP = new PuestoDB();
+            PuestoDAO cdP = new PuestoDB();
             try
             {
                 return cdP.obtenerPuesto(codigo, nombre);
@@ -52,7 +53,7 @@ namespace CLogica.Gestores
 
         public Puesto getPuestos(int idPuesto)
         {
-            PuestoDB cdP = new PuestoDB();
+            PuestoDAO cdP = new PuestoDB();
             try
             {
                 return cdP.obtenerPuesto(idPuesto);
@@ -65,7 +66,7 @@ namespace CLogica.Gestores
 
         public Puesto getUltimoPuesto(int codigo, string nombre)
         {
-            PuestoDB cdP = new PuestoDB();
+            PuestoDAO cdP = new PuestoDB();
             try
             {
                 return cdP.obtenerPuesto(cdP.obtenerUltimoIDPuesto(codigo, nombre));
@@ -78,7 +79,7 @@ namespace CLogica.Gestores
 
         public List<Puesto> getPuesto()
         {
-            PuestoDB cdP = new PuestoDB();
+            PuestoDAO cdP = new PuestoDB();
             try
             {
                 return cdP.obtenerPuesto();
@@ -91,7 +92,7 @@ namespace CLogica.Gestores
 
         public void actualizarPuesto(int codigo, string nombre)
         {
-            PuestoDB cdP = new PuestoDB();
+            PuestoDAO cdP = new PuestoDB();
             try
             {
                 cdP.actualizarPuesto(codigo, nombre);

@@ -279,5 +279,10 @@ namespace Trabajo_práctico
             }
 
         }
+
+        private void cbCompetencias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

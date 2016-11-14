@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CEntidades;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class CompetenciaDB
+    public class CompetenciaDB : CompetenciaDAO
     {
 
 
@@ -41,6 +42,21 @@ namespace CDatos.ClasesDB
             {
                 throw new ExceptionPersonalizada(ex.Message);
             }
+        }
+
+        public void alta()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void baja()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void modificacion()
+        {
+            throw new NotImplementedException();
         }
     }
 }

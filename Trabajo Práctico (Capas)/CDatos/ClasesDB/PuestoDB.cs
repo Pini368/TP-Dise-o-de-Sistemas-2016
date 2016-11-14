@@ -8,10 +8,11 @@ using System.Data;
 using System.Windows.Forms;
 using CEntidades;
 using System.Data.Entity.Core.Objects;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class PuestoDB
+    public class PuestoDB : PuestoDAO
     {
 
         public void actualizarPuesto(int codigo, string nombre)
@@ -85,7 +86,7 @@ namespace CDatos.ClasesDB
             }
         }
 
-        private int obtenerCantidadPuestos(int codigo, string nombre, string empresa)
+        public int obtenerCantidadPuestos(int codigo, string nombre, string empresa)
         {
             try
             {

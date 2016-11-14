@@ -72,6 +72,7 @@ namespace Trabajo_práctico
             this.cbCompetencias.Name = "cbCompetencias";
             this.cbCompetencias.Size = new System.Drawing.Size(121, 21);
             this.cbCompetencias.TabIndex = 1;
+            this.cbCompetencias.SelectedIndexChanged += new System.EventHandler(this.cbCompetencias_SelectedIndexChanged);
             // 
             // tbPonderacion
             // 

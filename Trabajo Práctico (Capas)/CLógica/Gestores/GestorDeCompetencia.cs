@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using CDatos.ClasesDB;
+using CDatos.ClasesDAO;
 using CEntidades;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace CLogica.Gestores
         }
         public List<Competencia> getCompetencias()
         {
-            CompetenciaDB cdatos = new CompetenciaDB();
+            CompetenciaDAO cdatos = new CompetenciaDB();
             try
             {
                 return cdatos.getCompetencias();

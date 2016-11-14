@@ -31,5 +31,7 @@ namespace CEntidades
             codigo_competencia = comp.id_competencia;
             ponderacion = pond;
         }
+
+        public Puntaje_Requerido() { }
     }
 }

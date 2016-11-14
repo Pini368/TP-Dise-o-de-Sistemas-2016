@@ -18,7 +18,7 @@ namespace CDatos.ClasesDB
         {
             using (TPDiseñoEntities db = new TPDiseñoEntities())
             {
-                Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == codigo && pu.nombre == nombre) select pu).FirstOrDefault();
+                Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == codigo && pu.nombre == nombre && pu.fecha_eliminado == null) select pu).FirstOrDefault();
                 p.fecha_ultima_modificacion = DateTime.Now;
                 db.SaveChanges();
             }
@@ -30,7 +30,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Puesto.SingleOrDefault<Puesto>(p => p.codigo_puesto == codigoPuesto && p.nombre == nombrePuesto && !(p.fecha_eliminado.HasValue));
+                    return db.Puesto.SingleOrDefault<Puesto>(p => p.codigo_puesto == codigoPuesto && p.nombre == nombrePuesto && p.fecha_eliminado == null);
                 }
             }
             catch (Exception ex)
@@ -45,7 +45,8 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Puesto.SingleOrDefault<Puesto>(p => p.id_puesto == idPuesto && !(p.fecha_eliminado.HasValue));
+                    List<Puesto> lp = db.Puesto.Include("Puntaje_Requerido.Competencia.Factor.Pregunta").ToList();
+                    return lp.SingleOrDefault<Puesto>(p => p.id_puesto == idPuesto && p.fecha_eliminado == null);
                 }
             }
             catch (Exception ex)

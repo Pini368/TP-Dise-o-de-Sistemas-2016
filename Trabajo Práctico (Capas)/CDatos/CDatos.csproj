@@ -57,9 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasesDB\BloqueDB.cs" />
+    <Compile Include="ClasesDB\CandidatoDB.cs" />
     <Compile Include="ClasesDB\CompetenciaDB.cs" />
     <Compile Include="ClasesDB\CuestionarioDB.cs" />
+    <Compile Include="ClasesDB\EvaluacionDB.cs" />
+    <Compile Include="ClasesDB\PreguntaDB.cs" />
     <Compile Include="ClasesDB\PuestoDB.cs" />
+    <Compile Include="ClasesDB\RespuestaDB.cs" />
+    <Compile Include="ClasesDB\TablaDeParametrosDB.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ExceptionPersonalizada.cs" />
     <Compile Include="ModeloDB.Context.cs">

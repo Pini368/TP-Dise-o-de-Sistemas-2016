@@ -48,9 +48,15 @@
   <ItemGroup>
     <Compile Include="ExceptionPersonalizada.cs" />
     <Compile Include="Gestores\GestorDeAutenticacion.cs" />
+    <Compile Include="Gestores\GestorDeBloque.cs" />
+    <Compile Include="Gestores\GestorDeCandidato.cs" />
     <Compile Include="Gestores\GestorDeCompetencia.cs" />
     <Compile Include="Gestores\GestorDeCuestionario.cs" />
+    <Compile Include="Gestores\GestorDeEvaluacion.cs" />
+    <Compile Include="Gestores\GestorDePregunta.cs" />
     <Compile Include="Gestores\GestorDePuestos.cs" />
+    <Compile Include="Gestores\GestorDeRespuesta.cs" />
+    <Compile Include="Gestores\GestorTablaDeParametros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

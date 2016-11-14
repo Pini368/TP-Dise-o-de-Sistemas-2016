@@ -15,7 +15,8 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return (from cu in db.Cuestionario where (from est in cu.Estado_Cuestionario where ((est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod)) select est).Count() > 0 select cu).FirstOrDefault(); ;
+                    List<Cuestionario> lc = db.Cuestionario.Include("Bloque.RespuestaElegida").Include("Estado_Cuestionario").Include("Evaluacion").ToList();
+                    return lc.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -35,7 +36,39 @@ namespace CDatos.ClasesDB
             }
             catch(Exception ex){
                 throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
 
+        public void modificarCuestionario(Cuestionario cuest)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    db.Cuestionario.Attach(cuest);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public void agregarBloques(Cuestionario cuest, List<Bloque> listaBloques)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    Cuestionario c = (from cu in db.Cuestionario where (cu.id_cuestionario == cuest.id_cuestionario) select cu).FirstOrDefault();
+                    c.Bloque = listaBloques;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
             }
         }
     }

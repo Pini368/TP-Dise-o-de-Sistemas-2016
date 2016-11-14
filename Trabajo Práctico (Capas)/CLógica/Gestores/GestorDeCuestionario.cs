@@ -40,5 +40,31 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public void modificarCuestionario(Cuestionario cuest)
+        {
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                cdatos.modificarCuestionario(cuest);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public void agregarBloques(Cuestionario cuest, List<Bloque> listaBloques)
+        {
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                cdatos.agregarBloques(cuest, listaBloques);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

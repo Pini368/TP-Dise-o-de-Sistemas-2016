@@ -12,6 +12,48 @@ namespace CLogica.Gestores
     public class GestorDeCuestionario
     {
 
+        public int obtenerPuntajeCuestionario(Cuestionario cuest)
+        {
+            int puntTotal = 0;
+            Dictionary<Factor, int> puntFac = new Dictionary<Factor, int>();
+            Dictionary<Competencia, int> puntComp = new Dictionary<Competencia, int>();
+            foreach (Bloque bl in cuest.Bloque)
+            {
+                foreach(RespuestaElegida re in bl.RespuestaElegida)
+                {
+                    if (re.id_respuesta != null)
+                    {
+                        if (!puntFac.ContainsKey(re.Pregunta.Factor))
+                        {
+                            puntFac.Add(re.Pregunta.Factor, re.Respuesta.ValorRespuesta.Where(vr => vr.id_pregunta == re.id_pregunta).First().ponderacion);
+                        }
+                        else
+                        {
+                            puntFac[re.Pregunta.Factor] += re.Respuesta.ValorRespuesta.Where(vr => vr.id_pregunta == re.id_pregunta).First().ponderacion;
+                        }
+                    }
+                }
+            }
+            foreach(Factor key in puntFac.Keys)
+            {
+                puntFac[key] = puntFac[key] / 2;
+                if (!puntComp.ContainsKey(key.Competencia))
+                {
+                    puntComp.Add(key.Competencia, puntFac[key]);
+                }
+                else
+                {
+                    puntComp[key.Competencia] += puntFac[key];
+                }
+            }
+            foreach(Competencia key in puntComp.Keys)
+            {
+                puntComp[key] = puntComp[key] / puntFac.Keys.Where(fac => fac.codigo_competencia == key.id_competencia).Count();
+                puntTotal += puntComp[key];
+            }
+            return puntTotal;
+        }
+
         public string obtenerUltimoEstado(Cuestionario cuest)
         {
             return cuest.Estado_Cuestionario.Where(est => est.fecha_mod == cuest.Estado_Cuestionario.Max(est1 => est1.fecha_mod)).FirstOrDefault().estadoActual;

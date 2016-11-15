@@ -311,6 +311,8 @@ namespace Trabajo_práctico
                     }
                     else
                     {
+                        int puntaje = clogCuest.obtenerPuntajeCuestionario(cuest);
+                        MessageBox.Show("Puntaje Obtenido:  " + puntaje.ToString());
                         clogCuest.modificarEstado(cuest, "Completado");
                         MessageBox.Show("Felicitaciones, usted ha completado el cuestionario", "Cuestionario completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();

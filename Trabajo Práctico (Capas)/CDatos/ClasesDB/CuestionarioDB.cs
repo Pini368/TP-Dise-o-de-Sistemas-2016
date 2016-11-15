@@ -16,7 +16,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    List<Cuestionario> lc = db.Cuestionario.Include("Bloque.RespuestaElegida.Respuesta").Include("Estado_Cuestionario").Include("Evaluacion").ToList();
+                    List<Cuestionario> lc = db.Cuestionario.Include("Bloque.RespuestaElegida.Respuesta.ValorRespuesta").Include("Bloque.RespuestaElegida.Pregunta.Factor.Competencia").Include("Estado_Cuestionario").Include("Evaluacion").ToList();
                     return lc.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
                 }
             }

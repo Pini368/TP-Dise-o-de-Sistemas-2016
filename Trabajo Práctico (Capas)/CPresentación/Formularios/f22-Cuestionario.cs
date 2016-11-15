@@ -186,7 +186,7 @@ namespace Trabajo_práctico
                 {
                     string str = ("lsbRespuestas" + (N + 1).ToString());
                     ListBox lsb = (ListBox)tbcPreguntas.TabPages[N].Controls[0].Controls[str];
-                    lsb.SelectedItem = bloqueActual.RespuestaElegida.ToList()[N].Respuesta.nombre;
+                    lsb.SelectedItem = bloqueActual.RespuestaElegida.ToList()[N].Respuesta.nombre.ToUpper();
                 }
             }
         }
@@ -291,6 +291,7 @@ namespace Trabajo_práctico
                     GestorDeRespuesta clogResp = new GestorDeRespuesta();
                     GestorDeBloque clogBloque = new GestorDeBloque();
                     GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+                    GestorDeCandidato clogCand = new GestorDeCandidato();
                     int i = 0;
                     Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                     foreach (RespuestaElegida re in bloqueActual.RespuestaElegida.ToList())
@@ -298,10 +299,12 @@ namespace Trabajo_práctico
                         string str = ("lsbRespuestas" + (i + 1).ToString());
                         ListBox lsb = (ListBox)tbcPreguntas.TabPages[i].Controls[0].Controls[str];
                         Respuesta resp = clogResp.getRespuestas(lsb.SelectedItem.ToString()).First();
-                        re.id_respuesta = resp.id_respuesta;
+                        cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.ToList()[i].id_respuesta = resp.id_respuesta;
                         clogBloque.modificarRespuestaElegida(re, resp.id_respuesta);
                         i++;
                     }
+                    //cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
+                    cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(1));
 
                     if (bloqueAc < (cuest.Bloque.Count() - 1))
                     {
@@ -311,10 +314,9 @@ namespace Trabajo_práctico
                     }
                     else
                     {
-                        int puntaje = clogCuest.obtenerPuntajeCuestionario(cuest);
-                        MessageBox.Show("Puntaje Obtenido:  " + puntaje.ToString());
+                        float puntaje = clogCuest.obtenerPuntajeCuestionario(cuest);
                         clogCuest.modificarEstado(cuest, "Completado");
-                        MessageBox.Show("Felicitaciones, usted ha completado el cuestionario", "Cuestionario completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Felicitaciones, usted ha completado el cuestionario\nSu puntaje fue de " + puntaje.ToString() + " puntos", "Cuestionario completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }

@@ -12,11 +12,11 @@ namespace CLogica.Gestores
     public class GestorDeCuestionario
     {
 
-        public int obtenerPuntajeCuestionario(Cuestionario cuest)
+        public float obtenerPuntajeCuestionario(Cuestionario cuest)
         {
-            int puntTotal = 0;
-            Dictionary<Factor, int> puntFac = new Dictionary<Factor, int>();
-            Dictionary<Competencia, int> puntComp = new Dictionary<Competencia, int>();
+            float puntTotal = 0;
+            Dictionary<Factor, float> puntFac = new Dictionary<Factor, float>();
+            Dictionary<Competencia, float> puntComp = new Dictionary<Competencia, float>();
             foreach (Bloque bl in cuest.Bloque)
             {
                 foreach(RespuestaElegida re in bl.RespuestaElegida)
@@ -34,8 +34,9 @@ namespace CLogica.Gestores
                     }
                 }
             }
-            foreach(Factor key in puntFac.Keys)
+            for(int i=0; i<puntFac.Count(); i++)
             {
+                Factor key = puntFac.Keys.ToList()[i];
                 puntFac[key] = puntFac[key] / 2;
                 if (!puntComp.ContainsKey(key.Competencia))
                 {
@@ -46,8 +47,9 @@ namespace CLogica.Gestores
                     puntComp[key.Competencia] += puntFac[key];
                 }
             }
-            foreach(Competencia key in puntComp.Keys)
+            for(int i = 0; i < puntComp.Count(); i++)
             {
+                Competencia key = puntComp.Keys.ToList()[i];
                 puntComp[key] = puntComp[key] / puntFac.Keys.Where(fac => fac.codigo_competencia == key.id_competencia).Count();
                 puntTotal += puntComp[key];
             }

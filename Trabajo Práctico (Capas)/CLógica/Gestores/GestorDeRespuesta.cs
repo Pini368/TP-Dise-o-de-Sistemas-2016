@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDB;
+using CDatos.ClasesDAO;
 
 namespace CLogica.Gestores
 {
@@ -12,7 +13,7 @@ namespace CLogica.Gestores
     {
         public List<Respuesta> getRespuestas(string nombre)
         {
-            RespuestaDB capaDatos = new RespuestaDB();
+            RespuestaDAO capaDatos = new RespuestaDB();
             try
             {
                 return capaDatos.getRespuestas(nombre);

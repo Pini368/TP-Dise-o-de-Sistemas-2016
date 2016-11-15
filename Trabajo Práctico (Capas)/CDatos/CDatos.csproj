@@ -57,7 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasesDAO\BloqueDAO.cs" />
+    <Compile Include="ClasesDAO\CandidatoDAO.cs" />
     <Compile Include="ClasesDAO\CompetenciaDAO.cs" />
+    <Compile Include="ClasesDAO\CuestionarioDAO.cs" />
+    <Compile Include="ClasesDAO\EvaluacionDAO.cs" />
+    <Compile Include="ClasesDAO\PreguntaDAO.cs" />
+    <Compile Include="ClasesDAO\RespuestaDAO.cs" />
+    <Compile Include="ClasesDAO\TablaDeParametrosDAO.cs" />
     <Compile Include="ClasesDB\BloqueDB.cs" />
     <Compile Include="ClasesDB\CandidatoDB.cs" />
     <Compile Include="ClasesDB\CompetenciaDB.cs" />

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class CuestionarioDB
+    public class CuestionarioDB : CuestionarioDAO
     {
         public Cuestionario obtenerCuestionario(Candidato cand)
         {

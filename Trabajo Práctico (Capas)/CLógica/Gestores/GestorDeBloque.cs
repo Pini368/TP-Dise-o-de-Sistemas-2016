@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDB;
+using CDatos.ClasesDAO;
 
 namespace CLogica.Gestores
 {
@@ -33,7 +34,7 @@ namespace CLogica.Gestores
         }
         public void modificarBloque(Bloque bloque)
         {
-            BloqueDB cdatos = new BloqueDB();
+            BloqueDAO cdatos = new BloqueDB();
             try
             {
                 cdatos.modificarBloque(bloque);
@@ -46,7 +47,7 @@ namespace CLogica.Gestores
 
         public void modificarRespuestaElegida(RespuestaElegida rtaEleg, int idRespuesta)
         {
-            BloqueDB cdatos = new BloqueDB();
+            BloqueDAO cdatos = new BloqueDB();
             try
             {
                 cdatos.modificarRespuestaElegida(rtaEleg, idRespuesta);

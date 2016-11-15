@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class BloqueDB
+    public class BloqueDB : BloqueDAO
     {
         public void modificarBloque(Bloque bloque)
         {

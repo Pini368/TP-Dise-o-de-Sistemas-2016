@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class TablaDeParametrosDB
+    public class TablaDeParametrosDB : TablaDeParametrosDAO
     {
         public int obtenerParametroEntero(string nombre)
         {

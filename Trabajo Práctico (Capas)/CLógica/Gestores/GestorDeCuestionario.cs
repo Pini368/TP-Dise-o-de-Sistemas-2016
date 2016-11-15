@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDB;
+using CDatos.ClasesDAO;
 
 namespace CLogica.Gestores
 {
@@ -19,7 +20,7 @@ namespace CLogica.Gestores
         {
             try
             {
-                CuestionarioDB cdatos = new CuestionarioDB();
+                CuestionarioDAO cdatos = new CuestionarioDB();
                 return cdatos.obtenerCuestionario(cand);
             }
             catch (Exception ex)

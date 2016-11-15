@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
+using CDatos.ClasesDAO;
 
 namespace CDatos.ClasesDB
 {
-    public class EvaluacionDB
+    public class EvaluacionDB : EvaluacionDAO
     {
         public Evaluacion getEvaluaciones(int idEvaluacion)
         {

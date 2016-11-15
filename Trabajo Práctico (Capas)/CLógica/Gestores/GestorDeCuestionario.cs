@@ -28,6 +28,55 @@ namespace CLogica.Gestores
             }
         }
 
+
+        public void agregarAcceso(Cuestionario cuest)
+        {
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                cdatos.agregarAcceso(cuest);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public int obtenerBloqueACargar(Cuestionario cuest)
+        {
+            GestorDeBloque clogBloque = new GestorDeBloque();
+            try
+            {
+                int nroBloque = 0;
+                for (int i=0; i<cuest.Bloque.Count(); i++)
+                {
+                    if (!clogBloque.verificarCompleto(cuest.Bloque.ToList()[i]))
+                    {
+                        nroBloque = i;
+                        break;
+                    }
+                }
+                return nroBloque;
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public void modificarEstado(Cuestionario cuest, string estado)
+        {
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                cdatos.modificarEstado(cuest, estado);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
         public void generarCuestionario(Cuestionario cuest)
         {
             CuestionarioDB cdatos = new CuestionarioDB();

@@ -50,6 +50,7 @@
             this.tbpPregunta1 = new System.Windows.Forms.TabPage();
             this.pnDatos = new System.Windows.Forms.Panel();
             this.tbTiempoRestante = new System.Windows.Forms.TextBox();
+            this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.pnMovForm.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnOpciones.SuspendLayout();
@@ -265,6 +266,7 @@
             this.tbcPreguntas.SelectedIndex = 0;
             this.tbcPreguntas.Size = new System.Drawing.Size(696, 258);
             this.tbcPreguntas.TabIndex = 11;
+            this.tbcPreguntas.SelectedIndexChanged += new System.EventHandler(this.tbcPreguntas_SelectedIndexChanged);
             // 
             // tbpPregunta1
             // 
@@ -302,6 +304,11 @@
             this.tbTiempoRestante.TabIndex = 12;
             this.tbTiempoRestante.Text = "MM:SS";
             this.tbTiempoRestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Temporizador
+            // 
+            this.Temporizador.Interval = 1000;
+            this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
             // 
             // f22Cuestionario
             // 
@@ -358,5 +365,6 @@
         private System.Windows.Forms.TabPage tbpPregunta1;
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.TextBox tbTiempoRestante;
+        private System.Windows.Forms.Timer Temporizador;
     }
 }

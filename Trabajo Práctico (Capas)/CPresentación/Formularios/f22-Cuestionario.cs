@@ -40,7 +40,7 @@ namespace Trabajo_práctico
         {
             foreach (string str in opciones)
             {
-                lsb.Items.Add(str);
+                lsb.Items.Add(str.ToUpper());
             }
         }
 
@@ -56,6 +56,7 @@ namespace Trabajo_práctico
 
             TextBox textoPregunta = new TextBox();
             textoPregunta.Name = "tbPregunta" + (N+1).ToString();
+            textoPregunta.CharacterCasing = CharacterCasing.Upper;
             textoPregunta.Text = pregunta.interrogante;
             textoPregunta.Location = new Point(121, 31);
             textoPregunta.Size = new Size(541, 82);
@@ -132,9 +133,7 @@ namespace Trabajo_práctico
 
                 GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
 
-                //int cantidadPreguntasBloque = clogTablaPar.obtenerParametroEntero("PreguntasPorBloque");
-                int cantidadPreguntasBloque = 3; //Va el de arriba (el comentado) en realidad pero todavia no esta cargado en la bd
-
+                int cantidadPreguntasBloque = clogTablaPar.obtenerParametroEntero("PreguntasPorBloque");
                 foreach (Pregunta preg in preguntas)
                 {
                     if (i < cantidadPreguntasBloque)
@@ -162,6 +161,36 @@ namespace Trabajo_práctico
             }
         }
 
+        private void mostrarBloque(Bloque bloqueActual)
+        {
+            GestorDePregunta clogPreg = new GestorDePregunta();
+
+            nroPregunta = 0;
+            int nroBloque = bloqueActual.num_bloque;
+
+            lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + (nroPregunta + 1).ToString();
+
+            tbcPreguntas.Controls.Clear();
+
+            Pregunta pregunta;
+
+            List<string> listStr = new List<string>();
+
+            for (int N = 0; N < cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.Count(); N++)
+            {
+                nroPregunta = N;
+                pregunta = clogPreg.getPreguntas(bloqueActual.RespuestaElegida.ToList()[nroPregunta].id_pregunta);
+                listStr = pregunta.OpcionRespuesta.Respuesta.Select(rta => rta.nombre).ToList();
+                tbcPreguntas.TabPages.Add(generarPreguntaFormulario(N, listStr, pregunta));
+                if (bloqueActual.RespuestaElegida.ToList()[N].id_respuesta != null)
+                {
+                    string str = ("lsbRespuestas" + (N + 1).ToString());
+                    ListBox lsb = (ListBox)tbcPreguntas.TabPages[N].Controls[0].Controls[str];
+                    lsb.SelectedItem = bloqueActual.RespuestaElegida.ToList()[N].Respuesta.nombre;
+                }
+            }
+        }
+
         private void Cuestionario_Load(object sender, EventArgs e)
         {
             GestorDeCuestionario clogCuest = new GestorDeCuestionario();
@@ -169,43 +198,59 @@ namespace Trabajo_práctico
             GestorDeCandidato clogCand = new GestorDeCandidato();
             GestorDePregunta clogPreg = new GestorDePregunta();
 
-            bloqueAc = 0;
-
             try
             {
                 //cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
                 cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(1));
-                evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
-                if (clogCuest.obtenerUltimoEstado(cuest) == "Activo")
+                if (cuest != null)
                 {
-                    generarBloquesCuestionario(cuest);
+                    GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
+
+                    int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
+                    if ((DateTime.Now - cuest.fecha_inicio).TotalSeconds < tiempoPermitido)
+                    {
+                        evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
+                        if (clogCuest.obtenerUltimoEstado(cuest) == "Activo")
+                        {
+                            int tiempoActivoPerm = clogTablaPar.obtenerParametroEntero("TiempoEstActivo");
+                            if ((DateTime.Now - cuest.fecha_inicio).TotalSeconds < tiempoActivoPerm)
+                            {
+                                generarBloquesCuestionario(cuest);
+                                clogCuest.modificarEstado(cuest, "En Proceso");
+                            }
+                            else
+                            {
+                                MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para el estado Activo del cuestionario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                clogCuest.modificarEstado(cuest, "Sin Contestar");
+                                this.Close();
+                            }
+                        }
+                        clogCuest.agregarAcceso(cuest);
+
+                        bloqueAc = clogCuest.obtenerBloqueACargar(cuest);
+
+                        Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
+                        mostrarBloque(bloqueActual);
+                        tbTiempoRestante.Text = ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio).TotalSeconds) / 60)).ToString() + ":" + ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio).TotalSeconds) % 60)).ToString();
+                        Temporizador.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para completar el cuestiopnario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        clogCuest.modificarEstado(cuest, "Incompleto");
+                        this.Close();
+                    }
                 }
-
-                Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
-
-                int nroBloque = bloqueActual.num_bloque;
-                nroPregunta = 0;
-
-
-                lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + (nroPregunta+1).ToString();
-
-                Pregunta pregunta = clogPreg.getPreguntas(bloqueActual.RespuestaElegida.ToList()[nroPregunta].id_pregunta);
-
-                List<string> listStr = pregunta.OpcionRespuesta.Respuesta.Select(rta => rta.nombre).ToList();
-                tbPregunta1.Text = pregunta.interrogante;
-                cargarRespuestas(lsbRespuestas1, listStr);
-
-                for (int N = 1; N < cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.Count(); N++)
+                else
                 {
-                    nroPregunta = N;
-                    pregunta = clogPreg.getPreguntas(bloqueActual.RespuestaElegida.ToList()[nroPregunta].id_pregunta);
-                    listStr = pregunta.OpcionRespuesta.Respuesta.Select(rta => rta.nombre).ToList();
-                    tbcPreguntas.TabPages.Add(generarPreguntaFormulario(N, listStr, pregunta));
+                    MessageBox.Show(("Se ha producido un error:\n" + "No existe ningún cuestionario activo relacionado con el candidato logeado actualmente"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -217,7 +262,7 @@ namespace Trabajo_práctico
                 Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                 int nroBloque = bloqueActual.num_bloque;
                 tbcPreguntas.SelectedIndex += 1;
-                lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + (nroPregunta+1).ToString();
+                lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
             }
         }
 
@@ -229,7 +274,7 @@ namespace Trabajo_práctico
                 Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                 int nroBloque = bloqueActual.num_bloque;
                 tbcPreguntas.SelectedIndex -= 1;
-                lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + (nroPregunta+1).ToString();
+                lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
             }
         }
 
@@ -241,6 +286,7 @@ namespace Trabajo_práctico
                 {
                     GestorDeRespuesta clogResp = new GestorDeRespuesta();
                     GestorDeBloque clogBloque = new GestorDeBloque();
+                    GestorDeCuestionario clogCuest = new GestorDeCuestionario();
                     int i = 0;
                     Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                     foreach (RespuestaElegida re in bloqueActual.RespuestaElegida.ToList())
@@ -257,8 +303,13 @@ namespace Trabajo_práctico
                     {
                         bloqueAc++;
                         bloqueActual = cuest.Bloque.ToList()[bloqueAc];
-                        int nroBloque = bloqueActual.num_bloque;
-                        lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
+                        mostrarBloque(bloqueActual);
+                    }
+                    else
+                    {
+                        clogCuest.modificarEstado(cuest, "Completado");
+                        MessageBox.Show("Felicitaciones, usted ha completado el cuestionario", "Cuestionario completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                 }
                 else
@@ -288,6 +339,39 @@ namespace Trabajo_práctico
                 i++;
             }
             return completos;
+        }
+
+        private void Temporizador_Tick(object sender, EventArgs e)
+        {
+            string[] tiempo = tbTiempoRestante.Text.Split(':');
+            if (Int32.Parse(tiempo[0]) * 60 + Int32.Parse(tiempo[1]) - 1 > 0)
+            {
+                string tiempo2 = ((int)((Int32.Parse(tiempo[0]) * 60 + Int32.Parse(tiempo[1]) - 1) / 60)).ToString() + ":" + ((int)((Int32.Parse(tiempo[0]) * 60 + Int32.Parse(tiempo[1]) - 1) % 60)).ToString();
+                tbTiempoRestante.Text = tiempo2;
+            }
+            else
+            {
+                Temporizador.Enabled = false;
+                GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+                MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para completar el cuestiopnario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clogCuest.modificarEstado(cuest, "Incompleto");
+                this.Close();
+            }
+        }
+
+        private void tbcPreguntas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tbcPreguntas.SelectedIndex == -1)
+            {
+                nroPregunta = 1;
+            }
+            else
+            {
+                nroPregunta = tbcPreguntas.SelectedIndex + 1;
+            }
+            Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
+            int nroBloque = bloqueActual.num_bloque;
+            lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
         }
     }
 }

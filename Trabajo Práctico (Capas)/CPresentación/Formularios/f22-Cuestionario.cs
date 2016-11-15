@@ -237,7 +237,11 @@ namespace Trabajo_práctico
                     else
                     {
                         MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para completar el cuestiopnario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        clogCuest.modificarEstado(cuest, "Incompleto");
+                        string estadoCuest = clogCuest.obtenerUltimoEstado(cuest);
+                        if (estadoCuest == "Activo" || estadoCuest == "En Proceso")
+                        {
+                            clogCuest.modificarEstado(cuest, "Incompleto");
+                        }
                         this.Close();
                     }
                 }

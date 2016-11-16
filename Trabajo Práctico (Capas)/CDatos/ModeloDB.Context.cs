@@ -20,6 +20,7 @@ namespace CEntidades
         public TPDiseñoEntities()
             : base("name=TPDiseñoEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -12,14 +12,14 @@ using CEntidades;
 
 namespace Trabajo_práctico
 {
-    public partial class f11_AltaPuesto : Form
+    public partial class f12_AltaPuesto : Form
     {
         List<Puntaje_Requerido> listaCar = new List<Puntaje_Requerido>();
 
         List<string> excluidos = new List<string>();
 
         List<Competencia> competencias = new List<Competencia>();
-        public f11_AltaPuesto()
+        public f12_AltaPuesto()
         {
             InitializeComponent();
         }

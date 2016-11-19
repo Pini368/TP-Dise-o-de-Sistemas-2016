@@ -51,7 +51,7 @@ namespace Trabajo_práctico
         private void button9_Click(object sender, EventArgs e)
         {
             this.Hide();
-            f11_AltaPuesto altaPuesto = new f11_AltaPuesto();
+            f12_AltaPuesto altaPuesto = new f12_AltaPuesto();
             altaPuesto.Show(this);
         }
 

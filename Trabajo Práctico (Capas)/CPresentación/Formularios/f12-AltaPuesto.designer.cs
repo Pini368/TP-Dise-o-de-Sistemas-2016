@@ -2,7 +2,7 @@
 
 namespace Trabajo_práctico
 {
-    partial class f11_AltaPuesto
+    partial class f12_AltaPuesto
     {
         /// <summary>
         /// Required designer variable.

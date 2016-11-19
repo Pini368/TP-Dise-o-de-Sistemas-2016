@@ -381,6 +381,7 @@
             this.Name = "f13_ModificarPuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Puesto";
+            this.Load += new System.EventHandler(this.f13_ModificarPuesto_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnMovForm.ResumeLayout(false);

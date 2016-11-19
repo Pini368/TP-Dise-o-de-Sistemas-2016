@@ -50,8 +50,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPuntajesRequeridos = new System.Windows.Forms.DataGridView();
-            this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pond = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbPonderacion = new System.Windows.Forms.TextBox();
             this.cmbCompetencias = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
@@ -245,8 +243,10 @@
             this.tbCodigo.Location = new System.Drawing.Point(176, 6);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.ReadOnly = true;
             this.tbCodigo.Size = new System.Drawing.Size(423, 23);
             this.tbCodigo.TabIndex = 0;
+            this.tbCodigo.TextChanged += new System.EventHandler(this.tbCodigo_TextChanged);
             // 
             // tbDescripcion
             // 
@@ -317,27 +317,13 @@
             // 
             // dgvPuntajesRequeridos
             // 
+            this.dgvPuntajesRequeridos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuntajesRequeridos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPuntajesRequeridos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Competencia,
-            this.Pond});
             this.dgvPuntajesRequeridos.Location = new System.Drawing.Point(285, 275);
             this.dgvPuntajesRequeridos.Name = "dgvPuntajesRequeridos";
             this.dgvPuntajesRequeridos.Size = new System.Drawing.Size(436, 85);
             this.dgvPuntajesRequeridos.TabIndex = 6;
             this.dgvPuntajesRequeridos.TabStop = false;
-            // 
-            // Competencia
-            // 
-            this.Competencia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Competencia.HeaderText = "Competencia";
-            this.Competencia.Name = "Competencia";
-            // 
-            // Pond
-            // 
-            this.Pond.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Pond.HeaderText = "Pond";
-            this.Pond.Name = "Pond";
             // 
             // tbPonderacion
             // 
@@ -413,8 +399,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvPuntajesRequeridos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pond;
         private System.Windows.Forms.TextBox tbPonderacion;
         private System.Windows.Forms.ComboBox cmbCompetencias;
         private System.Windows.Forms.TextBox tbNombre;

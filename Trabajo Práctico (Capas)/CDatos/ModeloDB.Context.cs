@@ -20,7 +20,6 @@ namespace CEntidades
         public TPDiseñoEntities()
             : base("name=TPDiseñoEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -57,6 +56,11 @@ namespace CEntidades
                 new ObjectParameter("nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spObtenerUltimoIDPuestoCN", codigoPuestoParameter, nombreParameter);
+        }
+    
+        public virtual int spResetearIdentidadPuesto()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spResetearIdentidadPuesto");
         }
     }
 }

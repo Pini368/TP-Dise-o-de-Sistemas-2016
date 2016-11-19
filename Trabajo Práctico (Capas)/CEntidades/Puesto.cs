@@ -11,13 +11,13 @@ namespace CEntidades
 {
     using System;
     using System.Collections.Generic;
-    using System.Windows.Forms;
-
+    
     public partial class Puesto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Puesto()
         {
+            this.Evaluacion = new HashSet<Evaluacion>();
             this.Puntaje_Requerido = new HashSet<Puntaje_Requerido>();
         }
     
@@ -32,6 +32,8 @@ namespace CEntidades
         public Nullable<System.DateTime> fecha_eliminado { get; set; }
     
         public virtual Consultor Consultor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Evaluacion> Evaluacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Puntaje_Requerido> Puntaje_Requerido { get; set; }
 

@@ -25,6 +25,23 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public List<Cuestionario> obtenerCuestionarios(Puesto puesto)
+        {
+            List<Cuestionario> lc = new List<Cuestionario>();
+            foreach (Evaluacion ev in puesto.Evaluacion) {
+                foreach(Cuestionario cu in ev.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual == "Activo" || cu.Estado_Cuestionario.Last().estadoActual == "En Proceso"))
+                {
+                    lc.Add(cu);
+                }
+            }
+            return lc;
+        }
+
+        public bool contieneCuestionarios(Puesto puesto)
+        {
+            return (this.obtenerCuestionarios(puesto).Count() > 0);
+        }
         public void baja()
         {
 
@@ -67,7 +84,7 @@ namespace CLogica.Gestores
             {
                 return cdP.getPuestos(pu);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new ExceptionPersonalizada(ex.Message);
             }

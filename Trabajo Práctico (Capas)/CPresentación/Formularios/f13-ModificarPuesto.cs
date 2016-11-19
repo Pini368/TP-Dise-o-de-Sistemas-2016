@@ -54,12 +54,15 @@ namespace Trabajo_práctico.Formularios
                 {
                     listaNom.Add(comp.nombre);
                 }
+                cmbCompetencias.DataSource = listaNom;
+                dgvPuntajesRequeridos.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion }).ToList();
+                Competencia compSeleccionada = puestoActual.Puntaje_Requerido.Where(pr => pr.Competencia.nombre == dgvPuntajesRequeridos.SelectedRows[dgvPuntajesRequeridos.SelectedRows[0].Index].Cells[0].Value.ToString()).Select(pr => pr.Competencia).First();
+                clogP.contieneCuestionarios(puestoActual);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            cmbCompetencias.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion });
         }
 
         private void tbCodigo_TextChanged(object sender, EventArgs e)

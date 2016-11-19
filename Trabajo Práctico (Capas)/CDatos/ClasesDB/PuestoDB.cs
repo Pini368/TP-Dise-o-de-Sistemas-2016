@@ -30,18 +30,18 @@ namespace CDatos.ClasesDB
                         }
                         else
                         {
-                            lp = db.Puesto.Where(pu => pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.codigo_puesto == pues.codigo_puesto).ToList();
                         }
                     }
                     else
                     {
                         if (pues.codigo_puesto == -1)
                         {
-                            lp = db.Puesto.Where(pu => pu.empresa == pues.empresa).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa).ToList();
                         }
                         else
                         {
-                            lp = db.Puesto.Where(pu => pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
                         }
                     }
                 }
@@ -51,22 +51,22 @@ namespace CDatos.ClasesDB
                     {
                         if (pues.codigo_puesto == -1)
                         {
-                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre).ToList();
                         }
                         else
                         {
-                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.codigo_puesto == pues.codigo_puesto).ToList();
                         }
                     }
                     else
                     {
                         if (pues.codigo_puesto == -1)
                         {
-                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa).ToList();
                         }
                         else
                         {
-                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
                         }
                     }
                 }

@@ -108,7 +108,7 @@ namespace Trabajo_práctico
                 puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
                 puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
-                clogPuestos.baja(puestoSeleccionado);
+                //clogPuestos.baja(puestoSeleccionado);
                 MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

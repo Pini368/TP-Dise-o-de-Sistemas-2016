@@ -33,10 +33,5 @@ namespace CEntidades
         public virtual ICollection<Factor> Factor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Puntaje_Requerido> Puntaje_Requerido { get; set; }
-
-        public bool Igual(Competencia comp)
-        {
-            return (this.id_competencia == comp.id_competencia && this.nombre.Equals(comp.nombre) && this.descripcion.Equals(comp.descripcion) && this.estado.Equals(comp.estado));
-        }
     }
 }

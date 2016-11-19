@@ -20,18 +20,15 @@ namespace CEntidades
     
         public virtual Competencia Competencia { get; set; }
         public virtual Puesto Puesto { get; set; }
-
-        public bool Igual(Puntaje_Requerido pr)
-        {
-            return (this.codigo_competencia == pr.codigo_competencia && this.ponderacion == pr.ponderacion);
-        }
-
         public Puntaje_Requerido(Competencia comp, int pond)
         {
-            codigo_competencia = comp.id_competencia;
-            ponderacion = pond;
+            this.codigo_competencia = comp.id_competencia;
+            this.ponderacion = pond;
         }
-
         public Puntaje_Requerido() { }
+        public bool Igual(Puntaje_Requerido pr)
+        {
+            return (this.codigo_competencia == pr.codigo_competencia && this.ponderacion == pr.ponderacion && this.id_puesto == pr.id_puesto);
+        }
     }
 }

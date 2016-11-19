@@ -15,6 +15,65 @@ namespace CDatos.ClasesDB
     public class PuestoDB : PuestoDAO
     {
 
+        public List<Puesto> getPuestos(Puesto pues)
+        {
+            using (TPDiseñoEntities db = new TPDiseñoEntities())
+            {
+                List<Puesto> lp = new List<Puesto>();
+                if (pues.nombre == "")
+                {
+                    if(pues.empresa == "")
+                    {
+                        if(pues.codigo_puesto == -1)
+                        {
+                            lp = db.Puesto.ToList();
+                        }
+                        else
+                        {
+                            lp = db.Puesto.Where(pu => pu.codigo_puesto == pues.codigo_puesto).ToList();
+                        }
+                    }
+                    else
+                    {
+                        if (pues.codigo_puesto == -1)
+                        {
+                            lp = db.Puesto.Where(pu => pu.empresa == pues.empresa).ToList();
+                        }
+                        else
+                        {
+                            lp = db.Puesto.Where(pu => pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                        }
+                    }
+                }
+                else
+                {
+                    if (pues.empresa == "")
+                    {
+                        if (pues.codigo_puesto == -1)
+                        {
+                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre).ToList();
+                        }
+                        else
+                        {
+                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                        }
+                    }
+                    else
+                    {
+                        if (pues.codigo_puesto == -1)
+                        {
+                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa).ToList();
+                        }
+                        else
+                        {
+                            lp = db.Puesto.Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                        }
+                    }
+                }
+                return lp;
+            }
+        }
+
         public void actualizarPuesto(int codigo, string nombre)
         {
             using (TPDiseñoEntities db = new TPDiseñoEntities())

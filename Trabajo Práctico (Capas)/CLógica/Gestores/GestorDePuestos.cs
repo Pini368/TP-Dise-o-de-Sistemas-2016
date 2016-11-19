@@ -33,10 +33,6 @@ namespace CLogica.Gestores
         {
 
         }
-        public void getPuestos()
-        {
-            
-        }
 
         public Puesto getPuestos(int codigo, string nombre)
         {
@@ -64,6 +60,19 @@ namespace CLogica.Gestores
             }
         }
 
+        public List<Puesto> getPuestos(Puesto pu)
+        {
+            PuestoDAO cdP = new PuestoDB();
+            try
+            {
+                return cdP.getPuestos(pu);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
         public Puesto getUltimoPuesto(int codigo, string nombre)
         {
             PuestoDAO cdP = new PuestoDB();
@@ -77,7 +86,7 @@ namespace CLogica.Gestores
             }
         }
 
-        public List<Puesto> getPuesto()
+        public List<Puesto> getPuestos()
         {
             PuestoDAO cdP = new PuestoDB();
             try

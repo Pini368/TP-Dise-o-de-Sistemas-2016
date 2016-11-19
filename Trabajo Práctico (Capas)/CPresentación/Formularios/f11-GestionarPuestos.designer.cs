@@ -30,9 +30,6 @@
         private void InitializeComponent()
         {
             this.dgvPuestos = new System.Windows.Forms.DataGridView();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.pnDatos = new System.Windows.Forms.Panel();
             this.tbEmpresa = new System.Windows.Forms.TextBox();
@@ -60,40 +57,15 @@
             this.dgvPuestos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvPuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuestos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPuestos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Código,
-            this.empresa,
-            this.nombreEmpresa});
             this.dgvPuestos.Location = new System.Drawing.Point(38, 188);
             this.dgvPuestos.Name = "dgvPuestos";
+            this.dgvPuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuestos.Size = new System.Drawing.Size(675, 214);
             this.dgvPuestos.TabIndex = 3;
             this.dgvPuestos.TabStop = false;
-            this.dgvPuestos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Código
-            // 
-            this.Código.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Código.HeaderText = "codigo";
-            this.Código.Name = "Código";
-            this.Código.ReadOnly = true;
-            // 
-            // empresa
-            // 
-            this.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.empresa.HeaderText = "Empresa";
-            this.empresa.Name = "empresa";
-            this.empresa.ReadOnly = true;
-            // 
-            // nombreEmpresa
-            // 
-            this.nombreEmpresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreEmpresa.HeaderText = "Nombre Empresa";
-            this.nombreEmpresa.Name = "nombreEmpresa";
-            this.nombreEmpresa.ReadOnly = true;
             // 
             // label4
             // 
@@ -153,6 +125,7 @@
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(294, 23);
             this.tbCodigo.TabIndex = 0;
+            this.tbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigo_KeyPress);
             // 
             // label5
             // 
@@ -224,6 +197,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pnOpciones
             // 
@@ -276,6 +250,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -345,9 +320,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvPuestos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreEmpresa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.TextBox tbEmpresa;

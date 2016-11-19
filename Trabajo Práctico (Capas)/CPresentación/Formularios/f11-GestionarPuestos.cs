@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CEntidades;
+using CLogica.Gestores;
+
 
 namespace Trabajo_práctico
 {
@@ -19,27 +22,11 @@ namespace Trabajo_práctico
 
         private void gestionarCandidatos_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            tbNombre.CharacterCasing = CharacterCasing.Upper;
+            tbEmpresa.CharacterCasing = CharacterCasing.Upper;
+            GestorDePuestos clogPuesto = new GestorDePuestos();
+            List<Puesto> lp = clogPuesto.getPuestos();
+            dgvPuestos.DataSource = lp.Select(pu => new { pu.nombre, pu.empresa, pu.codigo_puesto }).ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,9 +44,76 @@ namespace Trabajo_práctico
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Formularios.f13_ModificarPuesto altaPuesto = new Formularios.f13_ModificarPuesto();
-            altaPuesto.Show(this);
+                this.Hide();
+                GestorDePuestos clogPuestos = new GestorDePuestos();
+                Puesto puestoSeleccionado = new Puesto();
+                puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
+                puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
+                puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
+                Formularios.f13_ModificarPuesto altaPuesto = new Formularios.f13_ModificarPuesto(puestoSeleccionado);
+                altaPuesto.Show(this);
         }
+
+        private void tbCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try {
+                Puesto pues = new Puesto();
+                if(tbCodigo.Text == "")
+                {
+                    pues.codigo_puesto = -1;
+                }
+                else
+                {
+                    pues.codigo_puesto = Int32.Parse(tbCodigo.Text);
+                }
+                pues.nombre = tbNombre.Text;
+                pues.empresa = tbEmpresa.Text;
+                GestorDePuestos clogPuesto = new GestorDePuestos();
+                List<Puesto> lp = clogPuesto.getPuestos(pues);
+                dgvPuestos.DataSource = lp.Select(pu => new { pu.nombre, pu.empresa, pu.codigo_puesto }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            GestorDePuestos clogPuestos = new GestorDePuestos();
+            Puesto puestoSeleccionado = new Puesto();
+            try
+            {
+                puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
+                puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
+                puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
+                clogPuestos.baja(puestoSeleccionado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
     }
 }

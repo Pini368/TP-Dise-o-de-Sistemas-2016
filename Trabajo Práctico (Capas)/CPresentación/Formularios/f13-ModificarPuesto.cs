@@ -20,7 +20,6 @@ namespace Trabajo_práctico.Formularios
         {
             InitializeComponent();
         }
-
         public f13_ModificarPuesto(Puesto p)
         {
             puestoActual = p;

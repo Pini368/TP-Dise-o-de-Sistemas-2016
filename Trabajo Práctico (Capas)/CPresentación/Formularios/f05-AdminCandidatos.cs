@@ -107,5 +107,10 @@ namespace Trabajo_práctico
             Owner.Show();
             this.Close();
         }
+
+        private void f5_AdminCandidatos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

@@ -112,5 +112,10 @@ namespace Trabajo_práctico
             p_com_desapr.Visible = false;
             p_incomp.Visible = false;
         }
+
+        private void f20_OrdenDeMérito_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

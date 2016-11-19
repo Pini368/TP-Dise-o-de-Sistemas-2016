@@ -381,5 +381,10 @@ namespace Trabajo_práctico
             int nroBloque = bloqueActual.num_bloque;
             lblNroBloquePreg.Text = "Bloque Nº " + nroBloque + " Pregunta N° " + nroPregunta.ToString();
         }
+
+        private void f22Cuestionario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

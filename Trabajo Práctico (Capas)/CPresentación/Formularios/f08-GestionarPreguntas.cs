@@ -97,5 +97,9 @@ namespace Trabajo_práctico.Formularios
             mp.Show(this);
         }
 
+        private void f8_GestionarPreguntas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

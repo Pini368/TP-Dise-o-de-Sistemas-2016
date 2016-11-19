@@ -15,7 +15,6 @@ namespace Trabajo_práctico
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -379,7 +378,7 @@ namespace Trabajo_práctico
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // f11_AltaPuesto
+            // f12_AltaPuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -401,9 +400,10 @@ namespace Trabajo_práctico
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(756, 501);
             this.MinimumSize = new System.Drawing.Size(756, 501);
-            this.Name = "f11_AltaPuesto";
+            this.Name = "f12_AltaPuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f12_AltaPuesto_FormClosed);
             this.Load += new System.EventHandler(this.f11_AltaPuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).EndInit();
             this.pnDatos.ResumeLayout(false);

@@ -25,8 +25,14 @@ namespace Trabajo_práctico
             tbNombre.CharacterCasing = CharacterCasing.Upper;
             tbEmpresa.CharacterCasing = CharacterCasing.Upper;
             GestorDePuestos clogPuesto = new GestorDePuestos();
-            List<Puesto> lp = clogPuesto.getPuestos();
-            dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
+            try
+            {
+                dgvPuestos.DataSource = clogPuesto.getPuestos().Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -44,6 +50,8 @@ namespace Trabajo_práctico
 
         private void button8_Click(object sender, EventArgs e)
         {
+            try
+            {
                 this.Hide();
                 GestorDePuestos clogPuestos = new GestorDePuestos();
                 Puesto puestoSeleccionado = new Puesto();
@@ -53,6 +61,11 @@ namespace Trabajo_práctico
                 puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
                 Formularios.f13_ModificarPuesto altaPuesto = new Formularios.f13_ModificarPuesto(puestoSeleccionado);
                 altaPuesto.Show(this);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tbCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -116,5 +129,10 @@ namespace Trabajo_práctico
                 MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 }
+
+        private void f11_GestionarPuestos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

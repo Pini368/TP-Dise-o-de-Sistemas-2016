@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -208,6 +207,7 @@
             this.Name = "f16_GenResultados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generar Resultados";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f16_GenResultados_FormClosed);
             this.pnOpciones.ResumeLayout(false);
             this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);

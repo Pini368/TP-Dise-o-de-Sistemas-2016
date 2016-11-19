@@ -92,5 +92,10 @@ namespace Trabajo_práctico.Formularios
         {
 
         }
+
+        private void f9_NuevaPregunta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

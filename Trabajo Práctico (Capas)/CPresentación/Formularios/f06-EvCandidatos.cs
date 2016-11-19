@@ -57,5 +57,10 @@ namespace Trabajo_práctico
             f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos();
             ev_candidatos2.Show(Owner);
         }
+
+        private void f6_EvCandidatos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

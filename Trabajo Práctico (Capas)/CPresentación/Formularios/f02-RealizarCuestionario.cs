@@ -58,5 +58,10 @@ namespace Trabajo_práctico
             f21_CuestionarioInstrucciones cui = new f21_CuestionarioInstrucciones();
             cui.Show(this);
         }
+
+        private void f2_RealizarCuestionario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

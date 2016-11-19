@@ -86,5 +86,10 @@ namespace Trabajo_práctico.Formularios
         {
 
         }
+
+        private void f4_MainConsultor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

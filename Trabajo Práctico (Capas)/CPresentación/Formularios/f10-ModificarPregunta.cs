@@ -16,5 +16,10 @@ namespace Trabajo_práctico.Formularios
         {
             InitializeComponent();
         }
+
+        private void f10_ModificarPregunta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

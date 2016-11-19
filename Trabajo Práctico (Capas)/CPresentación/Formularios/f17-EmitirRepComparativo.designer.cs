@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -304,6 +303,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emitir Reporte Comparativo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f17_EmitirRepComparativo_FormClosed);
             this.Load += new System.EventHandler(this.emitirOrdenComparativa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidato)).EndInit();

@@ -46,5 +46,10 @@ namespace Trabajo_práctico
         {
 
         }
+
+        private void f18_EvaluacionesPuesto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

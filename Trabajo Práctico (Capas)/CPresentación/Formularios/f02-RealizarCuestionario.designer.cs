@@ -13,7 +13,6 @@
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -254,6 +253,7 @@
             this.Name = "f2_RealizarCuestionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajo práctico";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f2_RealizarCuestionario_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnCampos.ResumeLayout(false);

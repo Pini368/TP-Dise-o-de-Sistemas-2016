@@ -57,14 +57,19 @@ namespace Trabajo_práctico
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Formularios.f4_MainConsultor MainConsultor1 = new Formularios.f4_MainConsultor();
             MainConsultor1.Show(Owner);
-            this.Close();
         }
 
         private void ingresoConsultor_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void f3_IngresoConsultor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
         }
     }
 }

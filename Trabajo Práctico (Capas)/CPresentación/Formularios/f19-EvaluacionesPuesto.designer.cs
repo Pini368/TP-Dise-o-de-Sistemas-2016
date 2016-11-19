@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -254,6 +253,7 @@
             this.Name = "f18_EvaluacionesPuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluación de Puesto";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f18_EvaluacionesPuesto_FormClosed);
             this.Load += new System.EventHandler(this.evaluacionesPuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluacionesCargadas)).EndInit();

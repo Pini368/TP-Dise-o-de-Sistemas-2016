@@ -42,5 +42,10 @@ namespace Trabajo_práctico
         {
 
         }
+
+        private void AltaOpcionRespuesta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

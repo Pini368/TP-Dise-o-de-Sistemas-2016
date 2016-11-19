@@ -41,5 +41,10 @@ namespace Trabajo_práctico
             Owner.Show();
             this.Close();
         }
+
+        private void f16_GenResultados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

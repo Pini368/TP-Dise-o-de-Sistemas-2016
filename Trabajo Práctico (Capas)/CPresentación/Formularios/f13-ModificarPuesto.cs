@@ -69,5 +69,10 @@ namespace Trabajo_práctico.Formularios
         {
 
         }
+
+        private void f13_ModificarPuesto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

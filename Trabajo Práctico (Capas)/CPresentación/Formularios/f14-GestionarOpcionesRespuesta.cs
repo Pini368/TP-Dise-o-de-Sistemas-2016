@@ -34,5 +34,10 @@ namespace Trabajo_práctico
             Owner.Show();
             this.Close();
         }
+
+        private void f14_GestionarOpcionesRespuesta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

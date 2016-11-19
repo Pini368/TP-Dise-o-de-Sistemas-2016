@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -366,6 +365,7 @@
             this.Name = "AltaOpcionRespuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaOpcionRespuesta";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AltaOpcionRespuesta_FormClosed);
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescripciones)).EndInit();

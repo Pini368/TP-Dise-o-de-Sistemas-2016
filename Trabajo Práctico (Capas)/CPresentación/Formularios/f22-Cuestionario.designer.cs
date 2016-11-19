@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -329,6 +328,7 @@
             this.Name = "f22Cuestionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuestionario";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f22Cuestionario_FormClosed);
             this.Load += new System.EventHandler(this.Cuestionario_Load);
             this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);

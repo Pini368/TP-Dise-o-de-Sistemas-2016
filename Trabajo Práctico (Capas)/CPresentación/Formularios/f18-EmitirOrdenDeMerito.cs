@@ -47,5 +47,10 @@ namespace Trabajo_práctico
             Owner.Show();
             this.Close();
         }
+
+        private void f19_EmitirOrdenDeMerito_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

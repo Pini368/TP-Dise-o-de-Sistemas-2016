@@ -13,7 +13,6 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            Owner.Show();
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -321,6 +320,7 @@
             this.Name = "f19_EmitirOrdenDeMerito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emitir Orden de Mérito";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f19_EmitirOrdenDeMerito_FormClosed);
             this.Load += new System.EventHandler(this.emitirOrdenDeMerito_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenMerito)).EndInit();
             this.menuStrip1.ResumeLayout(false);

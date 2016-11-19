@@ -62,5 +62,10 @@ namespace Trabajo_práctico
             //reporteComparativo rpC = new reporteComparativo();
             // rpC.Show(this);
         }
+
+        private void f17_EmitirRepComparativo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

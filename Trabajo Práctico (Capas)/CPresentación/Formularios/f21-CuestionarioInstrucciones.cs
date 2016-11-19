@@ -34,5 +34,10 @@ namespace Trabajo_práctico
         {
 
         }
+
+        private void f21_CuestionarioInstrucciones_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

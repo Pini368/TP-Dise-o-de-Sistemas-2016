@@ -284,5 +284,10 @@ namespace Trabajo_práctico
         {
 
         }
+
+        private void f12_AltaPuesto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

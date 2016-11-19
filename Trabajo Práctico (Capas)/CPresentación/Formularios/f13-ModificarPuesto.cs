@@ -54,10 +54,12 @@ namespace Trabajo_práctico.Formularios
                 {
                     listaNom.Add(comp.nombre);
                 }
-                cmbCompetencias.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion });
             }
-            /*listaCarInic.Add()
-            dgvPuntajesRequeridos.DataSource=*/
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cmbCompetencias.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion });
         }
 
         private void tbCodigo_TextChanged(object sender, EventArgs e)

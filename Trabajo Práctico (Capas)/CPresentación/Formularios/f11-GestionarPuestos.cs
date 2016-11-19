@@ -26,7 +26,7 @@ namespace Trabajo_práctico
             tbEmpresa.CharacterCasing = CharacterCasing.Upper;
             GestorDePuestos clogPuesto = new GestorDePuestos();
             List<Puesto> lp = clogPuesto.getPuestos();
-            dgvPuestos.DataSource = lp.Select(pu => new { pu.nombre, pu.empresa, pu.codigo_puesto }).ToList();
+            dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace Trabajo_práctico
                 pues.empresa = tbEmpresa.Text;
                 GestorDePuestos clogPuesto = new GestorDePuestos();
                 List<Puesto> lp = clogPuesto.getPuestos(pues);
-                dgvPuestos.DataSource = lp.Select(pu => new { pu.nombre, pu.empresa, pu.codigo_puesto }).ToList();
+                dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
             }
             catch (Exception ex)
             {
@@ -108,7 +108,7 @@ namespace Trabajo_práctico
                 puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
                 puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
-                clogPuestos.baja(puestoSeleccionado);
+              //  clogPuestos.baja(puestoSeleccionado);
             }
             catch (Exception ex)
             {

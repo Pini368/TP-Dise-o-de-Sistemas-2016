@@ -128,5 +128,18 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public void modificar(Puesto puesto)
+        {
+            PuestoDAO cdatos = new PuestoDB();
+            try
+            {
+                cdatos.modificar(puesto);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

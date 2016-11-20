@@ -159,7 +159,7 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-
+      
         public void alta(Puesto puesto)
         {
             try
@@ -184,6 +184,22 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-
+        public void modificar(Puesto puesto)
+        {
+             try
+            {
+                
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    db.Puesto.Add(puesto);
+                    db.SaveChanges();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

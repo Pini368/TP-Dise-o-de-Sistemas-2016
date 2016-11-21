@@ -71,14 +71,18 @@ namespace Trabajo_práctico.Formularios
                     listaNom.Add(comp.nombre);
                 }
                 cmbCompetencias.DataSource = listaNom;
-                dgvPuntajesRequeridos.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion }).ToList();
+                //dgvPuntajesRequeridos.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion }).ToList();
+                foreach(var car in listaCar)
+                {
+                    dgvPuntajesRequeridos.Rows.Add(car.Competencia.nombre, car.ponderacion); 
+                }
                 Competencia compSeleccionada = puestoActual.Puntaje_Requerido.Where(pr => pr.Competencia.nombre == dgvPuntajesRequeridos.SelectedRows[dgvPuntajesRequeridos.SelectedRows[0].Index].Cells[0].Value.ToString()).Select(pr => pr.Competencia).First();
                 /*if (clogP.contieneCuestionarios(puestoActual))
                 {
                     MessageBox.Show(("Ya existen cuestionarios generados para el puesto :\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }*/
                 ;
-                
+
             }
             catch (Exception ex)
             {
@@ -98,7 +102,7 @@ namespace Trabajo_práctico.Formularios
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            /*List<Competencia> competencias1 = new List<Competencia>();
+            List<Competencia> competencias1 = new List<Competencia>();
             foreach (var item in competencias)
             {
                 if (item.nombre == cmbCompetencias.Text)
@@ -146,7 +150,7 @@ namespace Trabajo_práctico.Formularios
             else
             {
                 MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
+            }
         }
 
         private void cmbCompetencias_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,6 +230,57 @@ namespace Trabajo_práctico.Formularios
             catch (Exception ex)
             {
                 MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSacar_Click(object sender, EventArgs e)
+        {
+            int indice = dgvPuntajesRequeridos.SelectedRows[0].Index;
+            List<Competencia> competencias1 = new List<Competencia>();
+            foreach (var item in competencias)
+            {
+                if (item.nombre == dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString())
+                {
+                    competencias1.Add(item);
+                }
+            }
+            if (competencias1.Count == 1)
+            {
+                try
+                {
+                    Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(tbPonderacion.Text));
+                    int i = 0;
+                    bool encontrado = false;
+                    while (i < listaCar.Count() && !encontrado)
+                    {
+                        if (listaCar[i].Igual(car))
+                        {
+                            listaCar.RemoveAt(i);
+                            encontrado = true;
+                        }
+                        i++;
+                    }
+                    encontrado = false;
+                    i = 0;
+                    while (i < excluidos.Count() && !encontrado)
+                    {
+                        if (excluidos[i].Equals(dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString()))
+                        {
+                            excluidos.RemoveAt(i);
+                            encontrado = true;
+                        }
+                        i++;
+                    }
+                    dgvPuntajesRequeridos.Rows.RemoveAt(dgvPuntajesRequeridos.CurrentRow.Index);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

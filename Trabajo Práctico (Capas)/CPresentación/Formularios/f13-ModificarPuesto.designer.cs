@@ -51,6 +51,8 @@
             this.dgvPuntajesRequeridos = new System.Windows.Forms.DataGridView();
             this.tbPonderacion = new System.Windows.Forms.TextBox();
             this.cmbCompetencias = new System.Windows.Forms.ComboBox();
+            this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ponderacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             this.pnDatos.SuspendLayout();
@@ -170,13 +172,14 @@
             this.btnSacar.TabIndex = 4;
             this.btnSacar.Text = "<";
             this.btnSacar.UseVisualStyleBackColor = false;
+            this.btnSacar.Click += new System.EventHandler(this.btnSacar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(104, 292);
+            this.label2.Location = new System.Drawing.Point(33, 292);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 18);
@@ -320,6 +323,9 @@
             // 
             this.dgvPuntajesRequeridos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuntajesRequeridos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPuntajesRequeridos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Competencia,
+            this.Ponderacion});
             this.dgvPuntajesRequeridos.Location = new System.Drawing.Point(285, 275);
             this.dgvPuntajesRequeridos.Name = "dgvPuntajesRequeridos";
             this.dgvPuntajesRequeridos.Size = new System.Drawing.Size(436, 85);
@@ -338,13 +344,23 @@
             // cmbCompetencias
             // 
             this.cmbCompetencias.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cmbCompetencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompetencias.FormattingEnabled = true;
             this.cmbCompetencias.Location = new System.Drawing.Point(36, 253);
             this.cmbCompetencias.Name = "cmbCompetencias";
             this.cmbCompetencias.Size = new System.Drawing.Size(121, 21);
             this.cmbCompetencias.TabIndex = 1;
-            this.cmbCompetencias.Text = "Competencias";
             this.cmbCompetencias.SelectedIndexChanged += new System.EventHandler(this.cmbCompetencias_SelectedIndexChanged);
+            // 
+            // Competencia
+            // 
+            this.Competencia.HeaderText = "Competencia";
+            this.Competencia.Name = "Competencia";
+            // 
+            // Ponderacion
+            // 
+            this.Ponderacion.HeaderText = "Ponderacion";
+            this.Ponderacion.Name = "Ponderacion";
             // 
             // f13_ModificarPuesto
             // 
@@ -407,5 +423,7 @@
         private System.Windows.Forms.ComboBox cmbCompetencias;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.TextBox tbCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ponderacion;
     }
 }

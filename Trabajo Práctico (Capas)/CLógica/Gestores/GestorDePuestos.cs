@@ -45,11 +45,10 @@ namespace CLogica.Gestores
         public void baja(Puesto puesto)
         {
             PuestoDAO cdatos = new PuestoDB();
-            GestorDeAutenticacion gestorAut = new GestorDeAutenticacion();
             Consultor consultorActual = new Consultor();
 
             consultorActual.nombreUsuario = 1223334444;//1223334444 es un id consultor auxiliar hasta que implementemos el gestor de autenticación.
-            //consultorActual = gestorAut.obtenerConsultorActual();
+            //consultorActual = GestorDeAutenticacion.obtenerConsultorActual();
 
             if (puesto.Evaluacion.Count() == 0)
             {
@@ -77,7 +76,12 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                return cdP.obtenerPuesto(codigo, nombre);
+                Puesto p = new Puesto();
+                p.codigo_puesto = codigo;
+                p.nombre = nombre;
+                p.empresa = "";
+                p.id_puesto = -1;
+                return cdP.getPuestos(p).First();
             }
             catch(Exception ex)
             {
@@ -90,7 +94,9 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                return cdP.obtenerPuesto(idPuesto);
+                Puesto p = new Puesto();
+                p.id_puesto = idPuesto;
+                return cdP.getPuestos(p).First();
             }
             catch (Exception ex)
             {
@@ -116,7 +122,9 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                return cdP.obtenerPuesto(cdP.obtenerUltimoIDPuesto(codigo, nombre));
+                Puesto p = new Puesto();
+                p.id_puesto = cdP.obtenerUltimoIDPuesto(codigo, nombre);
+                return cdP.getPuestos(p).First();
             }
             catch (Exception ex)
             {
@@ -129,7 +137,12 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                return cdP.obtenerPuesto();
+                Puesto p = new Puesto();
+                p.codigo_puesto = -1;
+                p.nombre = "";
+                p.empresa = "";
+                p.id_puesto = -1;
+                return cdP.getPuestos(p);
             }
             catch (Exception ex)
             {
@@ -137,18 +150,6 @@ namespace CLogica.Gestores
             }
         }
 
-        public void actualizarPuesto(int codigo, string nombre)
-        {
-            PuestoDAO cdP = new PuestoDB();
-            try
-            {
-                cdP.actualizarPuesto(codigo, nombre);
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
 
         public void modificar(Puesto puesto)
         {

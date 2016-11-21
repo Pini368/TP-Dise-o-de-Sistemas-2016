@@ -20,113 +20,64 @@ namespace CDatos.ClasesDB
             using (TPDiseñoEntities db = new TPDiseñoEntities())
             {
                 List<Puesto> lp = new List<Puesto>();
-                if (pues.nombre == "")
+                if (pues.id_puesto != -1)
                 {
-                    if(pues.empresa == "")
-                    {
-                        if(pues.codigo_puesto == -1)
-                        {
-                            lp = db.Puesto.ToList();
-                        }
-                        else
-                        {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.codigo_puesto == pues.codigo_puesto).ToList();
-                        }
-                    }
-                    else
-                    {
-                        if (pues.codigo_puesto == -1)
-                        {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa).ToList();
-                        }
-                        else
-                        {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
-                        }
-                    }
+                    lp = db.Puesto.Where(pu => pu.id_puesto == pues.id_puesto && pu.id_consultor == null && pu.fecha_ultima_modificacion == db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa  && pues1.id_consultor == null).Max(pues2 => pues2.fecha_ultima_modificacion)).ToList();
                 }
                 else
                 {
-                    if (pues.empresa == "")
+                    if (pues.nombre == "")
                     {
-                        if (pues.codigo_puesto == -1)
+                        if (pues.empresa == "")
                         {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre).ToList();
+                            if (pues.codigo_puesto == -1)
+                            {
+                                lp = db.Puesto.Where(pu => pu.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
+                            else
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.codigo_puesto == pues.codigo_puesto && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
                         }
                         else
                         {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            if (pues.codigo_puesto == -1)
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
+                            else
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
                         }
                     }
                     else
                     {
-                        if (pues.codigo_puesto == -1)
+                        if (pues.empresa == "")
                         {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa).ToList();
+                            if (pues.codigo_puesto == -1)
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
+                            else
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.codigo_puesto == pues.codigo_puesto && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
                         }
                         else
                         {
-                            lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto).ToList();
+                            if (pues.codigo_puesto == -1)
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
+                            else
+                            {
+                                lp = db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(pu => pu.nombre == pues.nombre && pu.empresa == pues.empresa && pu.codigo_puesto == pues.codigo_puesto && pues.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value).ToList();
+                            }
                         }
                     }
                 }
                 return lp;
-            }
-        }
-
-        public void actualizarPuesto(int codigo, string nombre)
-        {
-            using (TPDiseñoEntities db = new TPDiseñoEntities())
-            {
-                Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == codigo && pu.nombre == nombre && pu.fecha_eliminado == null) select pu).FirstOrDefault();
-                p.fecha_ultima_modificacion = DateTime.Now;
-                db.SaveChanges();
-            }
-        }
-
-        public Puesto obtenerPuesto(int codigoPuesto, string nombrePuesto)
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    return db.Puesto.SingleOrDefault<Puesto>(p => p.codigo_puesto == codigoPuesto && p.nombre == nombrePuesto && p.fecha_eliminado == null);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
-
-        public Puesto obtenerPuesto(int idPuesto)
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    List<Puesto> lp = db.Puesto.Include("Puntaje_Requerido.Competencia.Factor.Pregunta").ToList();
-                    return lp.SingleOrDefault<Puesto>(p => p.id_puesto == idPuesto && p.fecha_eliminado == null);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
-
-        public List<Puesto> obtenerPuesto()
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    return db.Puesto.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
             }
         }
 
@@ -190,14 +141,11 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    //Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == puesto.codigo_puesto && pu.nombre == puesto.nombre && pu.fecha_eliminado == null) select pu).FirstOrDefault();
-
-                    //Puesto p = db.Puesto.Find(puesto.id_puesto);
-
-                    puesto.fecha_eliminado = DateTime.Now;
-                    puesto.fecha_ultima_modificacion = DateTime.Now;
-                    puesto.estado = "NoActivo";
-                    puesto.id_consultor = consultorActual.nombreUsuario;
+                    Puesto p = (from pu in db.Puesto where (pu.id_puesto == puesto.id_puesto && pu.fecha_eliminado == null) select pu).FirstOrDefault();
+                    p.fecha_eliminado = DateTime.Now;
+                    p.fecha_ultima_modificacion = DateTime.Now;
+                    p.estado = "NoActivo";
+                    p.id_consultor = consultorActual.nombreUsuario;
                     db.SaveChanges();
                 }
 
@@ -214,6 +162,7 @@ namespace CDatos.ClasesDB
                 
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
+                    puesto.fecha_ultima_modificacion = DateTime.Now;
                     db.Puesto.Add(puesto);
                     db.SaveChanges();
                 }

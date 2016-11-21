@@ -10,10 +10,11 @@ namespace CDatos.ClasesDAO
 {
     public interface PuestoDAO
     {
-        void actualizarPuesto(int codigo, string nombre);
+        /*
         Puesto obtenerPuesto(int codigoPuesto, string nombrePuesto);
         Puesto obtenerPuesto(int idPuesto);
         List<Puesto> obtenerPuesto();
+        */
         int obtenerUltimoIDPuesto(int codigo, string nombre);
         List<Puesto> getPuestos(Puesto pu);
         void alta(Puesto puesto);

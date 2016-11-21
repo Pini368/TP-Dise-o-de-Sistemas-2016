@@ -58,6 +58,7 @@ namespace Trabajo_práctico
                 puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
                 puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                puestoSeleccionado.id_puesto = -1;
                 puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
                 Formularios.f13_ModificarPuesto altaPuesto = new Formularios.f13_ModificarPuesto(puestoSeleccionado);
                 altaPuesto.Show(this);
@@ -101,6 +102,7 @@ namespace Trabajo_práctico
                 }
                 pues.nombre = tbNombre.Text;
                 pues.empresa = tbEmpresa.Text;
+                pues.id_puesto = -1;
                 GestorDePuestos clogPuesto = new GestorDePuestos();
                 List<Puesto> lp = clogPuesto.getPuestos(pues);
                 dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
@@ -120,6 +122,7 @@ namespace Trabajo_práctico
                 puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
                 puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                puestoSeleccionado.id_puesto = -1;
                 puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
                 clogPuestos.baja(puestoSeleccionado);
                 MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);

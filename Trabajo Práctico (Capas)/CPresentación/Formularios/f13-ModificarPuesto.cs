@@ -64,25 +64,28 @@ namespace Trabajo_práctico.Formularios
             try
             {
                 competencias = clogC.getCompetencias();
-                listaCar = puestoActual.Puntaje_Requerido.ToList();
+                foreach (Puntaje_Requerido car in puestoActual.Puntaje_Requerido.ToList())
+                {
+                    Puntaje_Requerido pr = new Puntaje_Requerido();
+                    pr.codigo_competencia = car.codigo_competencia;
+                    pr.ponderacion = car.ponderacion;
+                    listaCar.Add(pr);
+                }
                 List<string> listaNom = new List<string>();
                 foreach (var comp in competencias)
                 {
                     listaNom.Add(comp.nombre);
+                    excluidos.Add(comp.nombre);
                 }
                 cmbCompetencias.DataSource = listaNom;
-                //dgvPuntajesRequeridos.DataSource = puestoActual.Puntaje_Requerido.Select(pr => new { pr.Competencia.nombre, pr.ponderacion }).ToList();
-                foreach(var car in listaCar)
+                foreach(var car in puestoActual.Puntaje_Requerido.ToList())
                 {
                     dgvPuntajesRequeridos.Rows.Add(car.Competencia.nombre, car.ponderacion); 
                 }
-                Competencia compSeleccionada = puestoActual.Puntaje_Requerido.Where(pr => pr.Competencia.nombre == dgvPuntajesRequeridos.SelectedRows[dgvPuntajesRequeridos.SelectedRows[0].Index].Cells[0].Value.ToString()).Select(pr => pr.Competencia).First();
                 /*if (clogP.contieneCuestionarios(puestoActual))
                 {
                     MessageBox.Show(("Ya existen cuestionarios generados para el puesto :\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }*/
-                ;
-
             }
             catch (Exception ex)
             {

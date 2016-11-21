@@ -184,6 +184,29 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public void baja(Puesto puesto, Consultor consultorActual)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    //Puesto p = (from pu in db.Puesto where (pu.codigo_puesto == puesto.codigo_puesto && pu.nombre == puesto.nombre && pu.fecha_eliminado == null) select pu).FirstOrDefault();
+
+                    //Puesto p = db.Puesto.Find(puesto.id_puesto);
+
+                    puesto.fecha_eliminado = DateTime.Now;
+                    puesto.fecha_ultima_modificacion = DateTime.Now;
+                    puesto.estado = "NoActivo";
+                    puesto.id_consultor = consultorActual.nombreUsuario;
+                    db.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
         public void modificar(Puesto puesto)
         {
              try

@@ -17,6 +17,7 @@ namespace CDatos.ClasesDAO
         int obtenerUltimoIDPuesto(int codigo, string nombre);
         List<Puesto> getPuestos(Puesto pu);
         void alta(Puesto puesto);
+        void baja(Puesto puesto, Consultor consultorActual);
         void modificar(Puesto puesto);
     }
 }

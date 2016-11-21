@@ -42,9 +42,30 @@ namespace CLogica.Gestores
         {
             return (this.obtenerCuestionarios(puesto).Count() > 0);
         }
-        public void baja()
+        public void baja(Puesto puesto)
         {
+            PuestoDAO cdatos = new PuestoDB();
+            GestorDeAutenticacion gestorAut = new GestorDeAutenticacion();
+            Consultor consultorActual = new Consultor();
 
+            consultorActual.nombreUsuario = 1223334444;//1223334444 es un id consultor auxiliar hasta que implementemos el gestor de autenticación.
+            //consultorActual = gestorAut.obtenerConsultorActual();
+
+            if (puesto.Evaluacion.Count() == 0)
+            {
+                try
+                {
+                    cdatos.baja(puesto, consultorActual);
+                }
+                catch (Exception ex)
+                {
+                    throw new ExceptionPersonalizada(ex.Message);
+                }
+            }
+            else
+            {
+                throw new ExceptionPersonalizada("El puesto" + puesto.nombre + "está siendo usado en la base de datos y no puede eliminarse");
+            }
         }
         public void modificacion()
         {

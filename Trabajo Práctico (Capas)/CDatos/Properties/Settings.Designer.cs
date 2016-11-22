@@ -27,7 +27,8 @@ namespace CDatos.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=disenioutnfrsf.database.windows.net;Initial Catalog=TPDiseño;Persist " +
-            "Security Info=True;User ID=admin1234;Password=diseño2016!")]
+            "Security Info=True;User ID=admin1234;Password=diseño2016!;Connect Timeout=10;Con" +
+            "nectRetryCount=2;ConnectRetryInterval=5")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

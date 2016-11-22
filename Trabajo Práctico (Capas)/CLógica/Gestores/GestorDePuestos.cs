@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CDatos.ClasesDAO;
 using CEntidades;
 using CDatos.ClasesDB;
+using System.Linq.Expressions;
 
 namespace CLogica.Gestores
 {
@@ -16,9 +17,19 @@ namespace CLogica.Gestores
         public void alta(Puesto puesto)
         {
             PuestoDAO cdatos = new PuestoDB();
+
             try
             {
-                cdatos.alta(puesto);
+                int cantPuestos = getPuestos(puesto.codigo_puesto, puesto.nombre, puesto.empresa).Count();
+                if (cantPuestos == 0)
+                {
+
+                    cdatos.alta(puesto);
+                }
+                else
+                {
+                    throw new ExceptionPersonalizada("Error, el puesto ya existe en la base de datos.");
+                }
             }
             catch (Exception ex)
             {
@@ -71,17 +82,16 @@ namespace CLogica.Gestores
 
         }
 
+
+        //Expression<Func<Puesto, bool>> filtro = (pu => pu.id_consultor == null && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value);
+
         public Puesto getPuestos(int codigo, string nombre)
         {
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Puesto p = new Puesto();
-                p.codigo_puesto = codigo;
-                p.nombre = nombre;
-                p.empresa = "";
-                p.id_puesto = -1;
-                return cdP.getPuestos(p).First();
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre == nombre);
+                return cdP.getPuestos(filtro).First();
             }
             catch(Exception ex)
             {
@@ -94,9 +104,8 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Puesto p = new Puesto();
-                p.id_puesto = idPuesto;
-                return cdP.getPuestos(p).First();
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.id_puesto == idPuesto);
+                return cdP.getPuestos(filtro).First();
             }
             catch (Exception ex)
             {
@@ -104,27 +113,77 @@ namespace CLogica.Gestores
             }
         }
 
-        public List<Puesto> getPuestos(Puesto pu)
+        public List<Puesto> getPuestos(int codigo, string nombre, string empresa)
         {
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                return cdP.getPuestos(pu);
+                Expression<Func<Puesto, bool>> filtro;
+                if (nombre == "")
+                {
+                    if (empresa == "")
+                    {
+                        if (codigo == -1)
+                        {
+                            filtro = null;
+                        }
+                        else
+                        {
+                            filtro = (pu => pu.codigo_puesto == codigo);
+                        }
+                    }
+                    else
+                    {
+                        if (codigo == -1)
+                        {
+                            filtro = (pu => pu.empresa == empresa);
+                        }
+                        else
+                        {
+                            filtro = (pu => pu.empresa == empresa && pu.codigo_puesto == codigo);
+                        }
+                    }
+                }
+                else
+                {
+                    if (empresa == "")
+                    {
+                        if (codigo == -1)
+                        {
+                            filtro = (pu => pu.nombre == nombre);
+                        }
+                        else
+                        {
+                            filtro = (pu => pu.nombre == nombre && pu.codigo_puesto == codigo);
+                        }
+                    }
+                    else
+                    {
+                        if (codigo == -1)
+                        {
+                            filtro = (pu => pu.nombre == nombre && pu.empresa == empresa);
+                        }
+                        else
+                        {
+                            filtro = (pu => pu.nombre == nombre && pu.empresa == empresa && pu.codigo_puesto == codigo);
+                        }
+                    }
+                }
+                return cdP.getPuestos(filtro);
             }
             catch(Exception ex)
             {
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-
+        
         public Puesto getUltimoPuesto(int codigo, string nombre)
         {
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Puesto p = new Puesto();
-                p.id_puesto = cdP.obtenerUltimoIDPuesto(codigo, nombre);
-                return cdP.getPuestos(p).First();
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre == nombre);
+                return cdP.getPuestos(filtro).First();
             }
             catch (Exception ex)
             {
@@ -137,12 +196,8 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Puesto p = new Puesto();
-                p.codigo_puesto = -1;
-                p.nombre = "";
-                p.empresa = "";
-                p.id_puesto = -1;
-                return cdP.getPuestos(p);
+                Expression<Func<Puesto, bool>> filtro = null;
+                return cdP.getPuestos(filtro);
             }
             catch (Exception ex)
             {

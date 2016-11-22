@@ -49,10 +49,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPuntajesRequeridos = new System.Windows.Forms.DataGridView();
-            this.tbPonderacion = new System.Windows.Forms.TextBox();
-            this.cmbCompetencias = new System.Windows.Forms.ComboBox();
             this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ponderacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbPonderacion = new System.Windows.Forms.TextBox();
+            this.cmbCompetencias = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             this.pnDatos.SuspendLayout();
@@ -321,6 +321,8 @@
             // 
             // dgvPuntajesRequeridos
             // 
+            this.dgvPuntajesRequeridos.AllowUserToAddRows = false;
+            this.dgvPuntajesRequeridos.AllowUserToDeleteRows = false;
             this.dgvPuntajesRequeridos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuntajesRequeridos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPuntajesRequeridos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -331,6 +333,16 @@
             this.dgvPuntajesRequeridos.Size = new System.Drawing.Size(436, 85);
             this.dgvPuntajesRequeridos.TabIndex = 6;
             this.dgvPuntajesRequeridos.TabStop = false;
+            // 
+            // Competencia
+            // 
+            this.Competencia.HeaderText = "Competencia";
+            this.Competencia.Name = "Competencia";
+            // 
+            // Ponderacion
+            // 
+            this.Ponderacion.HeaderText = "Ponderacion";
+            this.Ponderacion.Name = "Ponderacion";
             // 
             // tbPonderacion
             // 
@@ -351,16 +363,6 @@
             this.cmbCompetencias.Size = new System.Drawing.Size(121, 21);
             this.cmbCompetencias.TabIndex = 1;
             this.cmbCompetencias.SelectedIndexChanged += new System.EventHandler(this.cmbCompetencias_SelectedIndexChanged);
-            // 
-            // Competencia
-            // 
-            this.Competencia.HeaderText = "Competencia";
-            this.Competencia.Name = "Competencia";
-            // 
-            // Ponderacion
-            // 
-            this.Ponderacion.HeaderText = "Ponderacion";
-            this.Ponderacion.Name = "Ponderacion";
             // 
             // f13_ModificarPuesto
             // 

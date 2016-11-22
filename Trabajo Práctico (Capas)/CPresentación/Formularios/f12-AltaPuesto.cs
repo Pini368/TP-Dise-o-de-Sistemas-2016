@@ -107,7 +107,7 @@ namespace Trabajo_práctico
                     MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (FormatException exfm)
+            catch (FormatException)
             {
                 string errorString = "El campo código debe ser un número o estar completo.\n";
                 if (tbNombre.Text == "")
@@ -153,9 +153,10 @@ namespace Trabajo_práctico
                     {
                         try
                         {
-                            Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(tbPonderacion.Text));
-                            if (car.ponderacion > 0 && car.ponderacion <= 10)
+                            int ponderacion = Int32.Parse(tbPonderacion.Text);
+                            if (ponderacion > 0 && ponderacion <= 10)
                             {
+                                Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], ponderacion);
                                 listaCar.Add(car);
                                 dgvCaracteristicas.Rows.Add(cbCompetencias.Text, tbPonderacion.Text);
                                 excluidos.Add(cbCompetencias.Text);
@@ -166,7 +167,7 @@ namespace Trabajo_práctico
                                 MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             string errorString = "El campo ponderación debe ser un número o estar completo.";
                             MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -203,7 +204,7 @@ namespace Trabajo_práctico
             {
                 try
                 {
-                    Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(tbPonderacion.Text));
+                    Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(dgvCaracteristicas.Rows[indice].Cells[1].Value.ToString()));
                     int i = 0;
                     bool encontrado = false;
                     while (i < listaCar.Count() && !encontrado)

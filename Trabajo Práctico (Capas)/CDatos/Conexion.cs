@@ -18,7 +18,7 @@ namespace CDatos
             {
                 conn.Open();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 try
                 {

@@ -21,7 +21,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Competencia.SingleOrDefault<Competencia>(c => c.id_competencia == idComp);
+                    return db.Competencia.SingleOrDefault<Competencia>(c => c.id_competencia == idComp && c.id_consultor == null);
                 }
             }
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Competencia.ToList();
+                    return db.Competencia.Where(c => c.id_consultor == null).ToList();
                 }
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CEntidades;
 using CLogica.Gestores;
-
+using System.Linq.Expressions;
 
 namespace Trabajo_práctico
 {
@@ -55,11 +55,10 @@ namespace Trabajo_práctico
                 this.Hide();
                 GestorDePuestos clogPuestos = new GestorDePuestos();
                 Puesto puestoSeleccionado = new Puesto();
-                puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
-                puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
-                puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
-                puestoSeleccionado.id_puesto = -1;
-                puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
+                int codigoPuesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
+                string nombrePuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
+                string empresaPuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                puestoSeleccionado = clogPuestos.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto).First();
                 Formularios.f13_ModificarPuesto altaPuesto = new Formularios.f13_ModificarPuesto(puestoSeleccionado);
                 altaPuesto.Show(this);
             }
@@ -91,20 +90,19 @@ namespace Trabajo_práctico
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try {
-                Puesto pues = new Puesto();
-                if(tbCodigo.Text == "")
+                int codigoPuesto;
+                if (tbCodigo.Text == "")
                 {
-                    pues.codigo_puesto = -1;
+                    codigoPuesto = -1;
                 }
                 else
                 {
-                    pues.codigo_puesto = Int32.Parse(tbCodigo.Text);
+                    codigoPuesto = Int32.Parse(tbCodigo.Text);
                 }
-                pues.nombre = tbNombre.Text;
-                pues.empresa = tbEmpresa.Text;
-                pues.id_puesto = -1;
+                string nombrePuesto = tbNombre.Text;
+                string empresaPuesto = tbEmpresa.Text;
                 GestorDePuestos clogPuesto = new GestorDePuestos();
-                List<Puesto> lp = clogPuesto.getPuestos(pues);
+                List<Puesto> lp = clogPuesto.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto);
                 dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
             }
             catch (Exception ex)
@@ -119,11 +117,11 @@ namespace Trabajo_práctico
             Puesto puestoSeleccionado = new Puesto();
             try
             {
-                puestoSeleccionado.codigo_puesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
-                puestoSeleccionado.nombre = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
-                puestoSeleccionado.empresa = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
-                puestoSeleccionado.id_puesto = -1;
-                puestoSeleccionado = clogPuestos.getPuestos(puestoSeleccionado).First();
+                int codigoPuesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
+                string nombrePuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
+                string empresaPuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigoPuesto && pu.nombre == nombrePuesto && pu.empresa == empresaPuesto);
+                puestoSeleccionado = clogPuestos.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto).First();
                 clogPuestos.baja(puestoSeleccionado);
                 MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

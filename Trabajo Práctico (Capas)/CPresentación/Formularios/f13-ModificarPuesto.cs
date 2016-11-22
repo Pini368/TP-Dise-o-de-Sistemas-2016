@@ -239,52 +239,56 @@ namespace Trabajo_práctico.Formularios
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            int indice = dgvPuntajesRequeridos.SelectedRows[0].Index;
-            List<Competencia> competencias1 = new List<Competencia>();
-            foreach (var item in competencias)
+            if (dgvPuntajesRequeridos.RowCount > 0)
             {
-                if (item.nombre == dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString())
+
+                int indice = dgvPuntajesRequeridos.SelectedRows[0].Index;
+                List<Competencia> competencias1 = new List<Competencia>();
+                foreach (var item in competencias)
                 {
-                    competencias1.Add(item);
-                }
-            }
-            if (competencias1.Count == 1)
-            {
-                try
-                {
-                    Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(dgvPuntajesRequeridos.Rows[indice].Cells[1].Value.ToString()));
-                    int i = 0;
-                    bool encontrado = false;
-                    while (i < listaCar.Count() && !encontrado)
+                    if (item.nombre == dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString())
                     {
-                        if (listaCar[i].Igual(car))
-                        {
-                            listaCar.RemoveAt(i);
-                            encontrado = true;
-                        }
-                        i++;
+                        competencias1.Add(item);
                     }
-                    encontrado = false;
-                    i = 0;
-                    while (i < excluidos.Count() && !encontrado)
-                    {
-                        if (excluidos[i].Equals(dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString()))
-                        {
-                            excluidos.RemoveAt(i);
-                            encontrado = true;
-                        }
-                        i++;
-                    }
-                    dgvPuntajesRequeridos.Rows.RemoveAt(dgvPuntajesRequeridos.CurrentRow.Index);
                 }
-                catch (Exception ex)
+                if (competencias1.Count == 1)
                 {
-                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        Puntaje_Requerido car = new Puntaje_Requerido(competencias1[0], Int32.Parse(dgvPuntajesRequeridos.Rows[indice].Cells[1].Value.ToString()));
+                        int i = 0;
+                        bool encontrado = false;
+                        while (i < listaCar.Count() && !encontrado)
+                        {
+                            if (listaCar[i].Igual(car))
+                            {
+                                listaCar.RemoveAt(i);
+                                encontrado = true;
+                            }
+                            i++;
+                        }
+                        encontrado = false;
+                        i = 0;
+                        while (i < excluidos.Count() && !encontrado)
+                        {
+                            if (excluidos[i].Equals(dgvPuntajesRequeridos.Rows[indice].Cells[0].Value.ToString()))
+                            {
+                                excluidos.RemoveAt(i);
+                                encontrado = true;
+                            }
+                            i++;
+                        }
+                        dgvPuntajesRequeridos.Rows.RemoveAt(dgvPuntajesRequeridos.CurrentRow.Index);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

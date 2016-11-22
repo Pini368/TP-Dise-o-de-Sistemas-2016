@@ -191,6 +191,7 @@ namespace Trabajo_práctico
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
+            if(dgvCaracteristicas.RowCount > 0) { 
             int indice = dgvCaracteristicas.SelectedRows[0].Index;
             List<Competencia> competencias1 = new List<Competencia>();
             foreach (var item in competencias)
@@ -200,6 +201,7 @@ namespace Trabajo_práctico
                     competencias1.Add(item);
                 }
             }
+            
             if (competencias1.Count == 1)
             {
                 try
@@ -237,6 +239,7 @@ namespace Trabajo_práctico
             else
             {
                 MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             }
         }
 

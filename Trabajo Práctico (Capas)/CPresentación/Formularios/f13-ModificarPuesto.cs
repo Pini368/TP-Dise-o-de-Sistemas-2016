@@ -20,6 +20,7 @@ namespace Trabajo_práctico.Formularios
         
         List<Puntaje_Requerido> listaCar = new List<Puntaje_Requerido>();
         List<string> excluidos = new List<string>();
+        bool funcionesMod = false;
 
         public f13_ModificarPuesto()
         {
@@ -61,6 +62,7 @@ namespace Trabajo_práctico.Formularios
             tbDescripcion.Text = puestoActual.descripcion;
             GestorDeCompetencia clogC = new GestorDeCompetencia();
             GestorDePuestos clogP = new GestorDePuestos();
+            bool funcionesMod = false;
             try
             {
                 competencias = clogC.getCompetencias();
@@ -70,7 +72,9 @@ namespace Trabajo_práctico.Formularios
                     pr.codigo_competencia = car.codigo_competencia;
                     pr.ponderacion = car.ponderacion;
                     listaCar.Add(pr);
+                    listaCarInic.Add(pr);
                 }
+                //Llenamos el comboBox de competencias con los nombres de todas las competencias
                 List<string> listaNom = new List<string>();
                 foreach (var comp in competencias)
                 {
@@ -82,10 +86,7 @@ namespace Trabajo_práctico.Formularios
                     dgvPuntajesRequeridos.Rows.Add(car.Competencia.nombre, car.ponderacion);
                     excluidos.Add(car.Competencia.nombre);
                 }
-                /*if (clogP.contieneCuestionarios(puestoActual))
-                {
-                    MessageBox.Show(("Ya existen cuestionarios generados para el puesto :\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+                
             }
             catch (Exception ex)
             {
@@ -106,6 +107,7 @@ namespace Trabajo_práctico.Formularios
         private void btnCargar_Click(object sender, EventArgs e)
         {
             List<Competencia> competencias1 = new List<Competencia>();
+            //Guardo la competencia seleccionada en una lista de competencias1
             foreach (var item in competencias)
             {
                 if (item.nombre == cmbCompetencias.Text)
@@ -113,10 +115,12 @@ namespace Trabajo_práctico.Formularios
                     competencias1.Add(item);
                 }
             }
+            //Si solo selecciono una competencia
             if (competencias1.Count == 1)
             {
                 try
                 {
+                    //Si no esta dentro de las caracteristicas que se deben excluir
                     if (!excluidos.Contains(cmbCompetencias.Text))
                     {
                         try
@@ -172,11 +176,47 @@ namespace Trabajo_práctico.Formularios
             try
             {
                 int codigo = Int32.Parse(tbCodigo.Text);
-                if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "")
+                //validarDatosCompletos
+                if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count>0 ) 
                 {
-                    Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
-                    GestorDePuestos clog = new GestorDePuestos();
-                    clog.modificar(puesto);
+                    //Se fija si las funciones fueron modificadas
+                    foreach (var carI in listaCarInic)
+                    {
+                        foreach (var carN in listaCar)
+                        {
+                            if (carI.codigo_competencia == carN.codigo_competencia && carI.ponderacion != carN.ponderacion)
+                            //if(!carI.Equals(carN))
+                            {
+                                funcionesMod = true;
+                            }
+                        }
+                    }
+                    if (listaCarInic.Count() != listaCar.Count())
+                    {
+                        funcionesMod = true;
+                    }
+
+                    if(funcionesMod == true) {
+                        GestorDePuestos clogP = new GestorDePuestos();
+                        if (clogP.contieneCuestionarios(puestoActual))
+                        {
+                        MessageBox.Show(("Ya existen cuestionarios generados para el puesto \n"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else { 
+                            Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
+                            GestorDePuestos clog = new GestorDePuestos();
+                            clog.modificarCFunc(puesto,puestoActual);
+                        }
+                    }
+            
+                    if (funcionesMod == false)
+                    {
+                        puestoActual.nombre = tbNombre.Text;
+                        puestoActual.descripcion = tbDescripcion.Text;
+                        puestoActual.empresa = tbEmpresa.Text;
+                        GestorDePuestos clog = new GestorDePuestos();
+                        clog.modificarSFunc(puestoActual);                        
+                    }
 
                     DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     limpiarCampos();
@@ -185,6 +225,7 @@ namespace Trabajo_práctico.Formularios
                         Owner.Show();
                         this.Close();
                     }
+                    
                 }
                 else
                 {
@@ -290,6 +331,11 @@ namespace Trabajo_práctico.Formularios
                     MessageBox.Show("Error, no existe o existe más de una competencia con ese nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

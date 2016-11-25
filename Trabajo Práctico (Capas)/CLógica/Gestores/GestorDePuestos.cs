@@ -206,12 +206,24 @@ namespace CLogica.Gestores
         }
 
 
-        public void modificar(Puesto puesto)
+        public void modificarSFunc(Puesto puesto)
         {
             PuestoDAO cdatos = new PuestoDB();
             try
             {
-                cdatos.modificar(puesto);
+                cdatos.modificarSFunc(puesto);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+        public void modificarCFunc(Puesto puesto, Puesto puestoSinMod)
+        {
+            PuestoDAO cdatos = new PuestoDB();
+            try
+            {
+                cdatos.modificarCFunc(puesto, puestoSinMod);
             }
             catch (Exception ex)
             {

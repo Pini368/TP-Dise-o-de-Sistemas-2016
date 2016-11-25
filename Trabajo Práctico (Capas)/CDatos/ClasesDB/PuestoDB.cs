@@ -81,18 +81,40 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-        public void modificar(Puesto puesto)
+        public void modificarSFunc(Puesto puesto)
         {
              try
             {
-                
+
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
+                    Puesto p = (from pu in db.Puesto where (pu.id_puesto == puesto.id_puesto && pu.fecha_eliminado == null) select pu).FirstOrDefault();
+                    p.fecha_ultima_modificacion = DateTime.Now;
+                    p.nombre = puesto.nombre;
+                    p.empresa = puesto.empresa;
+                    p.descripcion = puesto.descripcion;
+                    db.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+        public void modificarCFunc(Puesto puesto,Puesto puestoSinMod)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    Puesto p = (from pu in db.Puesto where (pu.id_puesto == puestoSinMod.id_puesto && pu.fecha_eliminado == null) select pu).FirstOrDefault();
+                    p.estado = "NoActivo";
+                    db.Entry(p).State = System.Data.Entity.EntityState.Modified;
                     puesto.fecha_ultima_modificacion = DateTime.Now;
                     db.Puesto.Add(puesto);
                     db.SaveChanges();
                 }
-                
             }
             catch (Exception ex)
             {

@@ -20,6 +20,7 @@ namespace CDatos.ClasesDAO
         List<Puesto> getPuestos(Expression<Func<Puesto, bool>> filtro);
         void alta(Puesto puesto);
         void baja(Puesto puesto, Consultor consultorActual);
-        void modificar(Puesto puesto);
+        void modificarSFunc(Puesto puesto);
+        void modificarCFunc(Puesto puesto, Puesto puestoSinMod);
     }
 }

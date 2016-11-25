@@ -62,7 +62,6 @@ namespace Trabajo_práctico.Formularios
             tbDescripcion.Text = puestoActual.descripcion;
             GestorDeCompetencia clogC = new GestorDeCompetencia();
             GestorDePuestos clogP = new GestorDePuestos();
-            bool funcionesMod = false;
             try
             {
                 competencias = clogC.getCompetencias();

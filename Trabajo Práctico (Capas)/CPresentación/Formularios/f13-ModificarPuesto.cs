@@ -183,8 +183,8 @@ namespace Trabajo_práctico.Formularios
                     {
                         foreach (var carN in listaCar)
                         {
-                            if (carI.codigo_competencia == carN.codigo_competencia && carI.ponderacion != carN.ponderacion)
-                            //if(!carI.Equals(carN))
+                            //if ((carI.codigo_competencia == carN.codigo_competencia && carI.ponderacion != carN.ponderacion)
+                            if(!carI.Equals(carN))
                             {
                                 funcionesMod = true;
                             }
@@ -205,26 +205,31 @@ namespace Trabajo_práctico.Formularios
                             Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
                             GestorDePuestos clog = new GestorDePuestos();
                             clog.modificarCFunc(puesto,puestoActual);
+                            DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            limpiarCampos();
+                            if (dialogResult == DialogResult.No)
+                            {
+                                Owner.Show();
+                                this.Close();
+                            }
                         }
                     }
-            
                     if (funcionesMod == false)
                     {
                         puestoActual.nombre = tbNombre.Text;
                         puestoActual.descripcion = tbDescripcion.Text;
                         puestoActual.empresa = tbEmpresa.Text;
                         GestorDePuestos clog = new GestorDePuestos();
-                        clog.modificarSFunc(puestoActual);                        
-                    }
+                        clog.modificarSFunc(puestoActual);
 
-                    DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    limpiarCampos();
-                    if (dialogResult == DialogResult.No)
-                    {
-                        Owner.Show();
-                        this.Close();
+                        DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        limpiarCampos();
+                        if (dialogResult == DialogResult.No)
+                        {
+                            Owner.Show();
+                            this.Close();
+                        }
                     }
-                    
                 }
                 else
                 {

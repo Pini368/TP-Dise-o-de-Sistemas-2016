@@ -20,7 +20,6 @@ namespace Trabajo_práctico.Formularios
         
         List<Puntaje_Requerido> listaCar = new List<Puntaje_Requerido>();
         List<string> excluidos = new List<string>();
-        bool funcionesMod = false;
 
         public f13_ModificarPuesto()
         {
@@ -174,6 +173,7 @@ namespace Trabajo_práctico.Formularios
         {
             try
             {
+                bool funcionesMod = true;
                 int codigo = Int32.Parse(tbCodigo.Text);
                 //validarDatosCompletos
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count>0 ) 
@@ -184,9 +184,10 @@ namespace Trabajo_práctico.Formularios
                         foreach (var carN in listaCar)
                         {
                             //if ((carI.codigo_competencia == carN.codigo_competencia && carI.ponderacion != carN.ponderacion)
-                            if(!carI.Equals(carN))
+                            if(carI.Igual(carN))
                             {
-                                funcionesMod = true;
+                                funcionesMod = false;
+                                break;
                             }
                         }
                     }
@@ -199,7 +200,7 @@ namespace Trabajo_práctico.Formularios
                         GestorDePuestos clogP = new GestorDePuestos();
                         if (clogP.contieneCuestionarios(puestoActual))
                         {
-                        MessageBox.Show(("Ya existen cuestionarios generados para el puesto \n"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(("Ya existen cuestionarios generados para el puesto \n"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else { 
                             Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);

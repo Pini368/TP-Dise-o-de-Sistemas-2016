@@ -41,14 +41,14 @@ namespace CLogica.Gestores
         {
             List<Cuestionario> lc = new List<Cuestionario>();
             foreach (Evaluacion ev in puesto.Evaluacion) {
-                //foreach(Cuestionario cu in ev.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual == "Activo" || cu.Estado_Cuestionario.Last().estadoActual == "En Proceso"))
-                foreach (Cuestionario cu in ev.Cuestionario)
-                    {
+                foreach(Cuestionario cu in ev.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual == "Activo" || cu.Estado_Cuestionario.Last().estadoActual == "En Proceso"))
+                {
                     lc.Add(cu);
                 }
             }
             return lc;
         }
+
 
         public bool contieneCuestionarios(Puesto puesto)
         {
@@ -59,8 +59,7 @@ namespace CLogica.Gestores
             PuestoDAO cdatos = new PuestoDB();
             Consultor consultorActual = new Consultor();
 
-            consultorActual.nombreUsuario = 1223334444;//1223334444 es un id consultor auxiliar hasta que implementemos el gestor de autenticación.
-            //consultorActual = GestorDeAutenticacion.obtenerConsultorActual();
+            consultorActual = GestorDeAutenticacion.obtenerConsultorActual();
 
             if (puesto.Evaluacion.Count() == 0)
             {

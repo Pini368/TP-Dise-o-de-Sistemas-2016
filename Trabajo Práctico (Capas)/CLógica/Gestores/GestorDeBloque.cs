@@ -17,7 +17,7 @@ namespace CLogica.Gestores
             try
             {
                 bool completo = true;
-                foreach (RespuestaElegida re in bloc.RespuestaElegida)
+                foreach (ItemBloque re in bloc.ItemBloque)
                 {
                     if(re.id_respuesta == null)
                     {
@@ -45,7 +45,7 @@ namespace CLogica.Gestores
             }
         }
 
-        public void modificarRespuestaElegida(RespuestaElegida rtaEleg, int idRespuesta)
+        public void modificarRespuestaElegida(ItemBloque rtaEleg, int idRespuesta)
         {
             BloqueDAO cdatos = new BloqueDB();
             try

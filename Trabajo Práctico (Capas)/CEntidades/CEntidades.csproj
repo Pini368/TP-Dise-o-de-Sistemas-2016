@@ -70,6 +70,12 @@
     <Compile Include="Factor.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ItemBloque.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LDAP.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="LogProcesos.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
@@ -93,9 +99,6 @@
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Respuesta.cs">
-      <DependentUpon>ModeloDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RespuestaElegida.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="TablaDeParametros.cs">

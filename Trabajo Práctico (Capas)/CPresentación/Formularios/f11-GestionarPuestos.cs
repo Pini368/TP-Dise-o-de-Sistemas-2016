@@ -120,7 +120,6 @@ namespace Trabajo_práctico
                 int codigoPuesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
                 string nombrePuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 string empresaPuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
-                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigoPuesto && pu.nombre == nombrePuesto && pu.empresa == empresaPuesto);
                 puestoSeleccionado = clogPuestos.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto).First();
                 clogPuestos.baja(puestoSeleccionado);
                 MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);

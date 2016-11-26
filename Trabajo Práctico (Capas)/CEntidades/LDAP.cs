@@ -12,11 +12,9 @@ namespace CEntidades
     using System;
     using System.Collections.Generic;
     
-    public partial class LogProcesos
+    public partial class LDAP
     {
-        public int id_log_proceso { get; set; }
-        public System.DateTime fechaHora { get; set; }
-        public string accion { get; set; }
-        public int id_cuestionario { get; set; }
+        public string nombreUsuario { get; set; }
+        public string contraseña { get; set; }
     }
 }

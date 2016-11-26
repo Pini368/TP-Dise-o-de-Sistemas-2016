@@ -104,7 +104,7 @@ namespace Trabajo_práctico
                 lcomp.ForEach(comp => comp.Factor.ToList().ForEach(fac => lfac.Add(fac)));
                 List<Pregunta> preguntas = new List<Pregunta>();
 
-                RespuestaElegida rel = new RespuestaElegida();
+                ItemBloque rel = new ItemBloque();
 
                 foreach (Factor fac in lfac)
                 {
@@ -138,9 +138,9 @@ namespace Trabajo_práctico
                 {
                     if (i < cantidadPreguntasBloque)
                     {
-                        RespuestaElegida resp = new RespuestaElegida();
+                        ItemBloque resp = new ItemBloque();
                         resp.id_pregunta = preg.id_pregunta;
-                        bloques[nroBloque].RespuestaElegida.Add(resp);
+                        bloques[nroBloque].ItemBloque.Add(resp);
                     }
                     else{
                         i = 0;
@@ -176,17 +176,17 @@ namespace Trabajo_práctico
 
             List<string> listStr = new List<string>();
 
-            for (int N = 0; N < cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.Count(); N++)
+            for (int N = 0; N < cuest.Bloque.ToList()[bloqueAc].ItemBloque.Count(); N++)
             {
                 nroPregunta = N;
-                pregunta = clogPreg.getPreguntas(bloqueActual.RespuestaElegida.ToList()[nroPregunta].id_pregunta);
+                pregunta = clogPreg.getPreguntas(bloqueActual.ItemBloque.ToList()[nroPregunta].id_pregunta);
                 listStr = pregunta.OpcionRespuesta.Respuesta.Select(rta => rta.nombre).ToList();
                 tbcPreguntas.TabPages.Add(generarPreguntaFormulario(N, listStr, pregunta));
-                if (bloqueActual.RespuestaElegida.ToList()[N].id_respuesta != null)
+                if (bloqueActual.ItemBloque.ToList()[N].id_respuesta != null)
                 {
                     string str = ("lsbRespuestas" + (N + 1).ToString());
                     ListBox lsb = (ListBox)tbcPreguntas.TabPages[N].Controls[0].Controls[str];
-                    lsb.SelectedItem = bloqueActual.RespuestaElegida.ToList()[N].Respuesta.nombre.ToUpper();
+                    lsb.SelectedItem = bloqueActual.ItemBloque.ToList()[N].Respuesta.nombre.ToUpper();
                 }
             }
         }
@@ -294,12 +294,12 @@ namespace Trabajo_práctico
                     GestorDeCandidato clogCand = new GestorDeCandidato();
                     int i = 0;
                     Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
-                    foreach (RespuestaElegida re in bloqueActual.RespuestaElegida.ToList())
+                    foreach (ItemBloque re in bloqueActual.ItemBloque.ToList())
                     {
                         string str = ("lsbRespuestas" + (i + 1).ToString());
                         ListBox lsb = (ListBox)tbcPreguntas.TabPages[i].Controls[0].Controls[str];
                         Respuesta resp = clogResp.getRespuestas(lsb.SelectedItem.ToString()).First();
-                        cuest.Bloque.ToList()[bloqueAc].RespuestaElegida.ToList()[i].id_respuesta = resp.id_respuesta;
+                        cuest.Bloque.ToList()[bloqueAc].ItemBloque.ToList()[i].id_respuesta = resp.id_respuesta;
                         clogBloque.modificarRespuestaElegida(re, resp.id_respuesta);
                         i++;
                     }

@@ -19,7 +19,7 @@ namespace CLogica.Gestores
             Dictionary<Competencia, float> puntComp = new Dictionary<Competencia, float>();
             foreach (Bloque bl in cuest.Bloque)
             {
-                foreach(RespuestaElegida re in bl.RespuestaElegida)
+                foreach(ItemBloque re in bl.ItemBloque)
                 {
                     if (re.id_respuesta != null)
                     {

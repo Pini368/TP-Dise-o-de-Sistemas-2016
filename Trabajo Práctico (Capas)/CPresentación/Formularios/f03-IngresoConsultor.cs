@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CEntidades;
+using CLogica.Gestores;
 
 namespace Trabajo_práctico
 {
@@ -57,9 +59,36 @@ namespace Trabajo_práctico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Formularios.f4_MainConsultor MainConsultor1 = new Formularios.f4_MainConsultor();
-            MainConsultor1.Show(Owner);
+            if (tbNomUs.Text != "" && tbContra.Text != "")
+            {
+                try
+                {
+                    Consultor cons = new Consultor();
+                    cons.nombreUsuario = tbNomUs.Text;
+                    GestorDeAutenticacion.autenticarUsuario(cons, tbContra.Text);
+                    this.Hide();
+                    Formularios.f4_MainConsultor MainConsultor1 = new Formularios.f4_MainConsultor();
+                    MainConsultor1.Show(Owner);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                string errorString = "";
+                if(tbNomUs.Text == "")
+                {
+                    errorString += "No puede dejar el campo nombre de usuario vacío.\n";
+                }
+                if (tbContra.Text == "")
+                {
+                    errorString += "No puede dejar el campo contraseña vacío.\n";
+                }
+                errorString.Remove(errorString.LastIndexOf('\n'));
+                MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ingresoConsultor_Load(object sender, EventArgs e)

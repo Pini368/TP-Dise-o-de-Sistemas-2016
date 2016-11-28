@@ -72,7 +72,7 @@ namespace Trabajo_práctico
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

@@ -88,7 +88,7 @@ namespace Trabajo_práctico.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -150,7 +150,7 @@ namespace Trabajo_práctico.Formularios
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -279,7 +279,7 @@ namespace Trabajo_práctico.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -328,7 +328,7 @@ namespace Trabajo_práctico.Formularios
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(("Se ha producido un error:\n" + ex.ToString()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else

@@ -20,7 +20,7 @@ namespace CLogica.Gestores
 
             try
             {
-                int cantPuestos = getPuestos(puesto.codigo_puesto, puesto.nombre, puesto.empresa).Count();
+                int cantPuestos = getPuestosAlta(puesto.codigo_puesto, puesto.nombre, puesto.empresa).Count();
                 if (cantPuestos == 0)
                 {
 
@@ -28,7 +28,7 @@ namespace CLogica.Gestores
                 }
                 else
                 {
-                    throw new ExceptionPersonalizada("Error, el puesto ya existe en la base de datos.");
+                    throw new ExceptionPersonalizada("Error, el codigo y/o nombre ya existen.");
                 }
             }
             catch (Exception ex)
@@ -176,7 +176,21 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-        
+        public List<Puesto> getPuestosAlta(int codigo, string nombre, string empresa)
+        {
+            PuestoDAO cdP = new PuestoDB();
+            try
+            {
+                Expression<Func<Puesto, bool>> filtro;
+                filtro = (pu => (pu.nombre == nombre || pu.codigo_puesto == codigo) && pu.empresa == empresa);
+                return cdP.getPuestos(filtro);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
         public Puesto getUltimoPuesto(int codigo, string nombre)
         {
             PuestoDAO cdP = new PuestoDB();

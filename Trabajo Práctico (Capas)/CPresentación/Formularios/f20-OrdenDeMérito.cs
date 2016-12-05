@@ -117,5 +117,10 @@ namespace Trabajo_práctico
         {
             Owner.Show();
         }
+
+        private void dgvTodas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

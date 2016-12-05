@@ -465,6 +465,7 @@
             this.dgvTodas.Size = new System.Drawing.Size(669, 269);
             this.dgvTodas.TabIndex = 0;
             this.dgvTodas.TabStop = false;
+            this.dgvTodas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodas_CellContentClick);
             // 
             // dataGridViewTextBoxColumn25
             // 

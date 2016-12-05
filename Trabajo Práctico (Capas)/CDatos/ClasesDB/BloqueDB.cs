@@ -18,7 +18,7 @@ namespace CDatos.ClasesDB
                 db.SaveChanges();
             }
         }
-        public void modificarRespuestaElegida(ItemBloque rtaEleg, int idRespuesta)
+        public void modificarItemBloque(ItemBloque rtaEleg, int idRespuesta)
         {
             try
             {

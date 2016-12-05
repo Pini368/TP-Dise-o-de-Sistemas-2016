@@ -10,21 +10,6 @@ namespace CDatos.ClasesDB
 {
     public class CuestionarioDB : CuestionarioDAO
     {
-        public Cuestionario obtenerCuestionario(Candidato cand)
-        {
-            try
-            {
-                using (TPDiseñoEntities db = new TPDiseñoEntities())
-                {
-                    List<Cuestionario> lc = db.Cuestionario.Include("Bloque.ItemBloque.Respuesta.ValorRespuesta").Include("Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Estado_Cuestionario").Include("Evaluacion").ToList();
-                    return lc.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new ExceptionPersonalizada(ex.Message);
-            }
-        }
         public void generarCuestionario(Cuestionario cuest)
         {
             try

@@ -300,7 +300,7 @@ namespace Trabajo_práctico
                         ListBox lsb = (ListBox)tbcPreguntas.TabPages[i].Controls[0].Controls[str];
                         Respuesta resp = clogResp.getRespuestas(lsb.SelectedItem.ToString()).First();
                         cuest.Bloque.ToList()[bloqueAc].ItemBloque.ToList()[i].id_respuesta = resp.id_respuesta;
-                        clogBloque.modificarRespuestaElegida(re, resp.id_respuesta);
+                        clogBloque.modificarItemBloque(re, resp.id_respuesta);
                         i++;
                     }
                     //cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());

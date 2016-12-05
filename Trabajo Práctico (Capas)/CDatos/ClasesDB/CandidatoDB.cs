@@ -16,7 +16,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Candidato.SingleOrDefault<Candidato>(can => can.nroCandidato == idCandidato);
+                    return db.Candidato.Include("Cuestionario.Estado_Cuestionario").SingleOrDefault<Candidato>(can => can.nroCandidato == idCandidato);
                 }
             }
             catch (Exception ex)

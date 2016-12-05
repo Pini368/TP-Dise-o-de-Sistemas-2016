@@ -45,12 +45,12 @@ namespace CLogica.Gestores
             }
         }
 
-        public void modificarRespuestaElegida(ItemBloque rtaEleg, int idRespuesta)
+        public void modificarItemBloque(ItemBloque rtaEleg, int idRespuesta)
         {
             BloqueDAO cdatos = new BloqueDB();
             try
             {
-                cdatos.modificarRespuestaElegida(rtaEleg, idRespuesta);
+                cdatos.modificarItemBloque(rtaEleg, idRespuesta);
             }
             catch (Exception ex)
             {

@@ -11,6 +11,6 @@ namespace CDatos.ClasesDAO
     public interface BloqueDAO
     {
         void modificarBloque(Bloque bloque);
-        void modificarRespuestaElegida(ItemBloque rtaEleg, int idRespuesta);
+        void modificarItemBloque(ItemBloque rtaEleg, int idRespuesta);
     }
 }

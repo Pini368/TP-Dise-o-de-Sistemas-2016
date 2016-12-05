@@ -64,8 +64,7 @@ namespace CLogica.Gestores
         {
             try
             {
-                CuestionarioDAO cdatos = new CuestionarioDB();
-                return cdatos.obtenerCuestionario(cand);
+                return cand.Cuestionario.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
             }
             catch (Exception ex)
             {

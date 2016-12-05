@@ -141,6 +141,7 @@ namespace Trabajo_práctico
                         ItemBloque resp = new ItemBloque();
                         resp.id_pregunta = preg.id_pregunta;
                         bloques[nroBloque].ItemBloque.Add(resp);
+                        i++;
                     }
                     else{
                         i = 0;
@@ -150,6 +151,7 @@ namespace Trabajo_práctico
                         bloque.id_cuestionario = cuest.id_cuestionario;
                         bloque.num_bloque = nroBloque + 1;
                         bloques.Add(bloque);
+                        i++;
                     }
                 }
                 cuest.Bloque = bloques;

@@ -37,9 +37,6 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvCandiadtos = new System.Windows.Forms.DataGridView();
-            this.c_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_n_can = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCandidatosAEvaluar = new System.Windows.Forms.DataGridView();
             this.c_apellido2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_nombre2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -199,10 +196,6 @@
             this.dgvCandiadtos.AllowUserToResizeRows = false;
             this.dgvCandiadtos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCandiadtos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCandiadtos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.c_apellido,
-            this.c_nombre,
-            this.c_n_can});
             this.dgvCandiadtos.Location = new System.Drawing.Point(2, 158);
             this.dgvCandiadtos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCandiadtos.Name = "dgvCandiadtos";
@@ -211,21 +204,6 @@
             this.dgvCandiadtos.TabIndex = 5;
             this.dgvCandiadtos.TabStop = false;
             this.dgvCandiadtos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // c_apellido
-            // 
-            this.c_apellido.HeaderText = "Apellido";
-            this.c_apellido.Name = "c_apellido";
-            // 
-            // c_nombre
-            // 
-            this.c_nombre.HeaderText = "Nombre";
-            this.c_nombre.Name = "c_nombre";
-            // 
-            // c_n_can
-            // 
-            this.c_n_can.HeaderText = "N° Candidato";
-            this.c_n_can.Name = "c_n_can";
             // 
             // dgvCandidatosAEvaluar
             // 
@@ -471,6 +449,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administración de candidatos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f5_AdminCandidatos_FormClosed);
+            this.Load += new System.EventHandler(this.f5_AdminCandidatos_Load);
             this.pnOpciones.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -496,9 +475,6 @@
         private System.Windows.Forms.Button btnImportarCandidatos;
         private System.Windows.Forms.Button btnGesCandidatos;
         private System.Windows.Forms.DataGridView dgvCandiadtos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_n_can;
         private System.Windows.Forms.DataGridView dgvCandidatosAEvaluar;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_apellido2;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_nombre2;

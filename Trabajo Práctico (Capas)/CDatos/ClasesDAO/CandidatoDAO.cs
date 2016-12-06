@@ -10,5 +10,6 @@ namespace CDatos.ClasesDAO
     public interface CandidatoDAO
     {
         Candidato getCandidatos(int idCandidato);
+        List<Candidato> getCandidatos();
     }
 }

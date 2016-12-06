@@ -23,5 +23,17 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public List<Candidato> getCandidatos()
+        {
+            CandidatoDAO cdatos = new CandidatoDB();
+            try
+            {
+                return cdatos.getCandidatos();
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

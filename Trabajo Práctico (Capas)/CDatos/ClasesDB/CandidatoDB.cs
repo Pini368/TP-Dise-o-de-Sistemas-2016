@@ -24,5 +24,19 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public List<Candidato> getCandidatos()
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.Candidato.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

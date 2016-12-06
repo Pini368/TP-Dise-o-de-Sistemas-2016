@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CEntidades;
+using CLogica.Gestores;
 
 namespace Trabajo_práctico
 {
@@ -78,6 +80,10 @@ namespace Trabajo_práctico
         {
             panel_EC.Size = new Size(551, 410);
             panel_EC.Visible = true;
+
+            GestorDeCandidato clogCand = new GestorDeCandidato();
+            dgvCandiadtos.DataSource = clogCand.getCandidatos().Select(ca => new { ca.apellido, ca.nombre, ca.nroCandidato }).ToList();
+
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -111,6 +117,11 @@ namespace Trabajo_práctico
         private void f5_AdminCandidatos_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();
+        }
+
+        private void f5_AdminCandidatos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

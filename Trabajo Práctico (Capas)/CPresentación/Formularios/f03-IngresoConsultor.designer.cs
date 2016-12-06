@@ -119,6 +119,7 @@
             this.tbContra.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbContra.Location = new System.Drawing.Point(124, 73);
             this.tbContra.Margin = new System.Windows.Forms.Padding(2);
+            this.tbContra.MaxLength = 20;
             this.tbContra.Name = "tbContra";
             this.tbContra.PasswordChar = '*';
             this.tbContra.Size = new System.Drawing.Size(238, 23);
@@ -130,6 +131,7 @@
             this.tbNomUs.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNomUs.Location = new System.Drawing.Point(154, 29);
             this.tbNomUs.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNomUs.MaxLength = 15;
             this.tbNomUs.Name = "tbNomUs";
             this.tbNomUs.Size = new System.Drawing.Size(208, 23);
             this.tbNomUs.TabIndex = 0;

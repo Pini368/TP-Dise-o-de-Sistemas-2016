@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDAO;
+using System.Linq.Expressions;
 
 namespace CDatos.ClasesDB
 {
@@ -24,13 +25,20 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-        public List<Candidato> getCandidatos()
+        public List<Candidato> getCandidatos(Expression<Func<Candidato, bool>> filtro)
         {
             try
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Candidato.ToList();
+                    if (filtro != null)
+                    {
+                        return db.Candidato.Where(filtro).ToList();
+                    }
+                    else
+                    {
+                        return db.Candidato.ToList();
+                    }
                 }
             }
             catch (Exception ex)

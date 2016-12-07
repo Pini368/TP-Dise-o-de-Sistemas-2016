@@ -173,7 +173,7 @@ namespace Trabajo_práctico.Formularios
         {
             try
             {
-                bool funcionesMod = true;
+                bool funcionesMod = false;
                 int codigo = Int32.Parse(tbCodigo.Text);
                 //validarDatosCompletos
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count>0 ) 
@@ -184,9 +184,9 @@ namespace Trabajo_práctico.Formularios
                         foreach (var carN in listaCar)
                         {
                             //if ((carI.codigo_competencia == carN.codigo_competencia && carI.ponderacion != carN.ponderacion)
-                            if(carI.Igual(carN))
+                            if(!carI.Igual(carN))
                             {
-                                funcionesMod = false;
+                                funcionesMod = true;
                                 break;
                             }
                         }
@@ -201,18 +201,17 @@ namespace Trabajo_práctico.Formularios
                         if (clogP.contieneCuestionarios(puestoActual))
                         {
                             MessageBox.Show(("Ya existen cuestionarios generados para el puesto \n"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Owner.Show();
+                            this.Close();
                         }
                         else { 
                             Puesto puesto = new Puesto(codigo, tbNombre.Text, tbDescripcion.Text, tbEmpresa.Text, listaCar);
                             GestorDePuestos clog = new GestorDePuestos();
                             clog.modificarCFunc(puesto,puestoActual);
-                            DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             limpiarCampos();
-                            if (dialogResult == DialogResult.No)
-                            {
-                                Owner.Show();
-                                this.Close();
-                            }
+                            DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Owner.Show();
+                            this.Close();
                         }
                     }
                     if (funcionesMod == false)
@@ -222,14 +221,11 @@ namespace Trabajo_práctico.Formularios
                         puestoActual.empresa = tbEmpresa.Text;
                         GestorDePuestos clog = new GestorDePuestos();
                         clog.modificarSFunc(puestoActual);
-
-                        DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente ¿Desea modificar otro ?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         limpiarCampos();
-                        if (dialogResult == DialogResult.No)
-                        {
-                            Owner.Show();
-                            this.Close();
-                        }
+                        DialogResult dialogResult = MessageBox.Show("El puesto " + tbNombre.Text + " se ha modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Owner.Show();
+                        this.Close();
+                        
                     }
                 }
                 else

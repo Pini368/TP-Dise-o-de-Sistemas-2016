@@ -23,7 +23,7 @@ namespace CDatos.ClasesDB
                 Expression<Func<Puesto, bool>> predicadoGeneral = (pu => pu.id_consultor == null && pu.estado != "NoActivo"/* && pu.fecha_ultima_modificacion == (db.Puesto.Where(pues1 => pues1.codigo_puesto == pu.codigo_puesto && pues1.nombre == pu.nombre && pues1.empresa == pu.empresa && pues1.id_consultor == null)).Max(pues2 => pues2.fecha_ultima_modificacion).Value*/);
                 if(filtro != null)
                 {
-                    return db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Where(filtro).Where(predicadoGeneral).ToList();
+                    return db.Puesto.Include("Puntaje_Requerido.Competencia").Include("Evaluacion.Cuestionario").Include("Evaluacion.Cuestionario.Estado_Cuestionario").Where(filtro).Where(predicadoGeneral).ToList();
                 }
                 else
                 {

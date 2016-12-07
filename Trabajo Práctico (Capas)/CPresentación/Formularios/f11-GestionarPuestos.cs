@@ -110,7 +110,19 @@ namespace Trabajo_práctico
                 MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void cargarGridInicial()
+        {
+            try
+            {
+                GestorDePuestos clogPuesto = new GestorDePuestos();
+                List<Puesto> lp = clogPuesto.getPuestos(-1, "", "");
+                dgvPuestos.DataSource = lp.Select(pu => new { pu.codigo_puesto, pu.nombre, pu.empresa }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             GestorDePuestos clogPuestos = new GestorDePuestos();
@@ -120,9 +132,14 @@ namespace Trabajo_práctico
                 int codigoPuesto = (int)dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value;
                 string nombrePuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 string empresaPuesto = dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[2].Value.ToString();
-                puestoSeleccionado = clogPuestos.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto).First();
-                clogPuestos.baja(puestoSeleccionado);
-                MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Los datos del puesto " + tbNombre.Text + " seran eliminados del sistema.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    puestoSeleccionado = clogPuestos.getPuestos(codigoPuesto, nombrePuesto, empresaPuesto).First();
+                    clogPuestos.baja(puestoSeleccionado);
+                    MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                cargarGridInicial();
             }
             catch (Exception ex)
             {

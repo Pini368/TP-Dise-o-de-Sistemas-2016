@@ -20,7 +20,7 @@ namespace CLogica.Gestores
 
             try
             {
-                int cantPuestos = getPuestosAlta(puesto.codigo_puesto, puesto.nombre, puesto.empresa).Count();
+                int cantPuestos = getPuestosAlta(puesto.codigo_puesto, puesto.nombre).Count();
                 if (cantPuestos == 0)
                 {
 
@@ -41,7 +41,7 @@ namespace CLogica.Gestores
         {
             List<Cuestionario> lc = new List<Cuestionario>();
             foreach (Evaluacion ev in puesto.Evaluacion) {
-                foreach(Cuestionario cu in ev.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual == "Activo" || cu.Estado_Cuestionario.Last().estadoActual == "En Proceso"))
+                foreach(Cuestionario cu in ev.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual.ToUpper() == "ACTIVO" || cu.Estado_Cuestionario.Last().estadoActual.ToUpper() == "EN PROCESO"))
                 {
                     lc.Add(cu);
                 }
@@ -176,13 +176,28 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
-        public List<Puesto> getPuestosAlta(int codigo, string nombre, string empresa)
+        public List<Puesto> getPuestosAlta(int codigo, string nombre)
         {
             PuestoDAO cdP = new PuestoDB();
             try
             {
                 Expression<Func<Puesto, bool>> filtro;
-                filtro = (pu => (pu.nombre == nombre || pu.codigo_puesto == codigo) && pu.empresa == empresa);
+                filtro = (pu => pu.nombre == nombre || pu.codigo_puesto == codigo);
+                return cdP.getPuestos(filtro);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public List<Puesto> getPuestosMod(int codigo, string nombre)
+        {
+            PuestoDAO cdP = new PuestoDB();
+            try
+            {
+                Expression<Func<Puesto, bool>> filtro;
+                filtro = (pu => pu.nombre == nombre && pu.codigo_puesto != codigo);
                 return cdP.getPuestos(filtro);
             }
             catch (Exception ex)

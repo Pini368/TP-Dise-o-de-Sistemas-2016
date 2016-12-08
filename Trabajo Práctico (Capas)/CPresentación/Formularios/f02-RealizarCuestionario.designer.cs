@@ -256,6 +256,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajo práctico";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f2_RealizarCuestionario_FormClosed);
+            this.Load += new System.EventHandler(this.f2_RealizarCuestionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnCampos.ResumeLayout(false);

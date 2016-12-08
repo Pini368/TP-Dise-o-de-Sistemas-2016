@@ -404,5 +404,28 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public bool verificarCuestionariosActivos(Candidato ca)
+        {
+            bool exito;
+            CuestionarioDB cdatos = new CuestionarioDB();
+            try
+            {
+                List<Cuestionario> lc = ca.Cuestionario.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).ToList();
+                if (lc.Count() == 0)
+                {
+                    exito = false;
+                    GestorDeAutenticacion.setCandidatoActual(null);
+                }
+                else
+                {
+                    exito = true;
+                }
+                return exito;
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

@@ -5,18 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDAO;
-using CEntidades;
 using CDatos.ClasesDB;
 using System.Linq.Expressions;
 
 
 namespace CLogica.Gestores
 {
-    bool exito;
+    
     public class GestorDeAutenticacion
     {
+        public bool exito;
         public static Candidato candActual;
         public static Consultor consActual;
+
+        public static void setCandidatoActual(Candidato cand)
+        {
+            candActual = cand;
+        }
 
         public static bool autenticarUsuario(Candidato cand)
         {
@@ -31,7 +36,7 @@ namespace CLogica.Gestores
                     if (lc.First().contraseña == cand.contraseña)
                     {
                         exito = true;
-                        candActual = cand;
+                        candActual = lc.First();
                         return exito;
                     }
                     else
@@ -45,9 +50,12 @@ namespace CLogica.Gestores
                     exito = false;
                     return exito;
                 }
-                
             }
-            
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+
         }
 
         public static void autenticarUsuario(Consultor cons, string contra)

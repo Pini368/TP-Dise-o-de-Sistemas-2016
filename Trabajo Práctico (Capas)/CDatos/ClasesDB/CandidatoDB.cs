@@ -33,7 +33,7 @@ namespace CDatos.ClasesDB
                 {
                     if (filtro != null)
                     {
-                        return db.Candidato.Where(filtro).ToList();
+                        return db.Candidato.Include("Cuestionario.Estado_Cuestionario").Include("Cuestionario.Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Cuestionario.Bloque.ItemBloque.Respuesta.ValorRespuesta").Where(filtro).ToList();
                     }
                     else
                     {

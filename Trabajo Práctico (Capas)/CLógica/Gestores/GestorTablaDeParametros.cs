@@ -22,5 +22,18 @@ namespace CLogica.Gestores
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public string obtenerParametroString(string nombre)
+        {
+            TablaDeParametrosDAO cdatos = new TablaDeParametrosDB();
+            try
+            {
+                return cdatos.obtenerParametroString(nombre);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

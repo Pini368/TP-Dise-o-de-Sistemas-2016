@@ -308,6 +308,7 @@
             this.Text = "Gestionar Puestos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f11_GestionarPuestos_FormClosed);
             this.Load += new System.EventHandler(this.gestionarCandidatos_Load);
+            this.VisibleChanged += new System.EventHandler(this.f11_GestionarPuestos_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuestos)).EndInit();
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();

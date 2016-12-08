@@ -10,5 +10,7 @@ namespace CDatos.ClasesDAO
     public interface TablaDeParametrosDAO
     {
         int obtenerParametroEntero(string nombre);
+
+        string obtenerParametroString(string nombre);
     }
 }

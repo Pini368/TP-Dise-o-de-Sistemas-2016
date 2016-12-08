@@ -24,5 +24,20 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+
+        public string obtenerParametroString(string nombre)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.TablaDeParametros.FirstOrDefault<TablaDeParametros>(tp => tp.nombre == nombre).valor;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

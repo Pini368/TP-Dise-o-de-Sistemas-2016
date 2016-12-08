@@ -6,11 +6,199 @@ using System.Threading.Tasks;
 using CEntidades;
 using CDatos.ClasesDB;
 using CDatos.ClasesDAO;
+using System.Windows.Forms;
 
 namespace CLogica.Gestores
 {
     public class GestorDeCuestionario
     {
+        Evaluacion evaluacion;
+
+
+        public void terminarCuestionario(Cuestionario cuest)
+        {
+            try
+            {
+                this.modificarEstado(cuest, "Completado");
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+        public int siguienteBloque(TabControl tbc, int bloqueAc, Cuestionario cuest)
+        {
+            try
+            {
+                if (verificarRespuestasCompletas(tbc))
+                {
+                    GestorDeRespuesta clogResp = new GestorDeRespuesta();
+                    GestorDeBloque clogBloque = new GestorDeBloque();
+                    GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+                    GestorDeCandidato clogCand = new GestorDeCandidato();
+                    int i = 0;
+                    Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
+                    foreach (ItemBloque re in bloqueActual.ItemBloque.ToList())
+                    {
+                        string str = ("lsbRespuestas" + (i + 1).ToString());
+                        ListBox lsb = (ListBox)tbc.TabPages[i].Controls[0].Controls[str];
+                        Respuesta resp = clogResp.getRespuestas(lsb.SelectedItem.ToString()).First();
+                        cuest.Bloque.ToList()[bloqueAc].ItemBloque.ToList()[i].id_respuesta = resp.id_respuesta;
+                        clogBloque.modificarItemBloque(re, resp.id_respuesta);
+                        i++;
+                    }
+                    return bloqueAc;
+                }
+                else
+                {
+                    throw new ExceptionPersonalizada("Debe responder a todas las preguntas");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+
+        private bool verificarRespuestasCompletas(TabControl tbc)
+        {
+            bool completos = true;
+            int i = 0;
+            foreach (TabPage tp in tbc.TabPages)
+            {
+                string str = ("lsbRespuestas" + (i + 1).ToString());
+                ListBox lsb = (ListBox)tp.Controls[0].Controls[str];
+                if (lsb.SelectedIndex == -1)
+                {
+                    completos = false;
+                    break;
+                }
+                i++;
+            }
+            return completos;
+        }
+
+        private void generarBloquesCuestionario(Cuestionario cuest)
+        {
+            try
+            {
+                GestorDePuestos clogPuestos = new GestorDePuestos();
+                Puesto puesto = clogPuestos.getPuestos(evaluacion.id_puesto);
+                List<Competencia> lcomp = new List<Competencia>();
+                puesto.Puntaje_Requerido.ToList().ForEach(pr => lcomp.Add(pr.Competencia));
+                List<Factor> lfac = new List<Factor>();
+                lcomp.ForEach(comp => comp.Factor.ToList().ForEach(fac => lfac.Add(fac)));
+                List<Pregunta> preguntas = new List<Pregunta>();
+
+                ItemBloque rel = new ItemBloque();
+
+                foreach (Factor fac in lfac)
+                {
+                    Random rnd = new Random();
+                    int aleatorio = rnd.Next(0, fac.Pregunta.Count - 1);
+                    preguntas.Add(fac.Pregunta.ToList()[aleatorio]);
+                    int aleatorio1;
+                    do
+                    {
+                        aleatorio1 = rnd.Next(0, fac.Pregunta.Count);
+                    }
+                    while (aleatorio1 == aleatorio);
+                    preguntas.Add(fac.Pregunta.ToList()[aleatorio1]);
+                }
+
+                int nroBloque = 0;
+
+                List<Bloque> bloques = new List<Bloque>();
+
+                Bloque bloq = new Bloque();
+                bloq.id_cuestionario = cuest.id_cuestionario;
+                bloq.num_bloque = nroBloque + 1;
+                bloques.Add(bloq);
+
+                int i = 0;
+
+                GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
+
+                int cantidadPreguntasBloque = clogTablaPar.obtenerParametroEntero("PreguntasPorBloque");
+                foreach (Pregunta preg in preguntas)
+                {
+                    if (i < cantidadPreguntasBloque)
+                    {
+                        ItemBloque resp = new ItemBloque();
+                        resp.id_pregunta = preg.id_pregunta;
+                        bloques[nroBloque].ItemBloque.Add(resp);
+                    }
+                    else
+                    {
+                        i = 0;
+                        cuest.Bloque.Add(bloques[nroBloque]);
+                        nroBloque++;
+                        Bloque bloque = new Bloque();
+                        bloque.id_cuestionario = cuest.id_cuestionario;
+                        bloque.num_bloque = nroBloque + 1;
+                        bloques.Add(bloque);
+                    }
+                }
+                cuest.Bloque = bloques;
+                this.agregarBloques(cuest, bloques);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
+
+
+        public Cuestionario empezarCuestionario()
+        {
+            GestorDeEvaluacion clogEval = new GestorDeEvaluacion();
+            GestorDeCandidato clogCand = new GestorDeCandidato();
+            GestorDePregunta clogPreg = new GestorDePregunta();
+            
+            try
+            {
+                Cuestionario cuest = this.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
+                GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
+
+                int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
+                if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido)
+                {
+                    evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
+                    if (this.obtenerUltimoEstado(cuest) == "Activo")
+                    {
+                        int tiempoActivoPerm = clogTablaPar.obtenerParametroEntero("TiempoEstActivo");
+                        if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoActivoPerm)
+                        {
+                            generarBloquesCuestionario(cuest);
+                            this.modificarEstado(cuest, "En Proceso");
+                        }
+                        else
+                        {
+                            this.modificarEstado(cuest, "Sin Contestar");
+                            throw new ExceptionPersonalizada("Se ha excedido el tiempo para el estado Activo del cuestionario");
+                        }
+                    }
+
+                    this.agregarAcceso(cuest);
+                    return cuest;
+                }
+                else
+                {
+                    string estadoCuest = this.obtenerUltimoEstado(cuest);
+                    if (estadoCuest == "Activo" || estadoCuest == "En Proceso")
+                    {
+                        this.modificarEstado(cuest, "Incompleto");
+                    }
+                    throw new ExceptionPersonalizada("Se ha excedido el tiempo para completar el cuestiopnario.");
+         
+                }
+            }
+            catch (Exception ex){
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
 
         public float obtenerPuntajeCuestionario(Cuestionario cuest)
         {

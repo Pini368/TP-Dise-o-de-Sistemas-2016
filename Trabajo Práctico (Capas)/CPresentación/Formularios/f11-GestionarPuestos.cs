@@ -139,6 +139,7 @@ namespace Trabajo_práctico
                     clogPuestos.baja(puestoSeleccionado);
                     MessageBox.Show(("Los datos del puesto " + puestoSeleccionado.nombre + " han sido eliminado del sistema."), "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                limpiarCampos();
                 cargarGridInicial();
             }
             catch (Exception ex)
@@ -155,6 +156,24 @@ namespace Trabajo_práctico
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void f11_GestionarPuestos_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                limpiarCampos();
+                cargarGridInicial();
+            }
+        }
+
+        private void limpiarCampos()
+        {
+            dgvPuestos.DataSource = null;
+            dgvPuestos.Rows.Clear();
+            tbCodigo.Text = "";
+            tbEmpresa.Text = "";
+            tbNombre.Text = "";
         }
     }
 }

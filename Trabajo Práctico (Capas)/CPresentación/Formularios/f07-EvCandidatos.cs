@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CEntidades;
 using CLogica.Gestores;
 
+
 namespace Trabajo_práctico
 {
     public partial class f7_EvCandidatos : Form
@@ -48,9 +49,25 @@ namespace Trabajo_práctico
         private void button4_Click(object sender, EventArgs e)
         {
             GestorDeCuestionario clogCu = new GestorDeCuestionario();
-            clogCu.finalizar(evaluacion,listaCuest,listaCand); 
-            Owner.Show();
-            this.Close();
+            clogCu.finalizar(evaluacion,listaCuest,listaCand);
+            DialogResult dialogResult = MessageBox.Show("¿Desea exportar los datos de los candidatos con sus claves a un archivo Excel?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.No)
+            {
+                Owner.Show();
+                this.Close();
+            }
+            else
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
+                    clogEv.exportarAExcel(evaluacion, dgvCandidatos, fbd);
+                }
+                Owner.Show();
+                this.Close();
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

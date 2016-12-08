@@ -32,6 +32,7 @@ namespace Trabajo_práctico
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string papa = DateTime.Now.ToString("yyyy-mm-dd-hh-mm");
             this.Hide();
             f3_IngresoConsultor ingresoConsultor1 = new f3_IngresoConsultor();
             ingresoConsultor1.Show(this);

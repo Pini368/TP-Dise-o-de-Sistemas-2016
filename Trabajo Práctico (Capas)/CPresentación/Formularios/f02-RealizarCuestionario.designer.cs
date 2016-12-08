@@ -117,6 +117,7 @@
             this.pnCampos.Name = "pnCampos";
             this.pnCampos.Size = new System.Drawing.Size(376, 163);
             this.pnCampos.TabIndex = 0;
+            this.pnCampos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnCampos_Paint);
             // 
             // tbClave
             // 
@@ -146,6 +147,7 @@
             this.tbTipo.Name = "tbTipo";
             this.tbTipo.Size = new System.Drawing.Size(264, 23);
             this.tbTipo.TabIndex = 0;
+            this.tbTipo.TextChanged += new System.EventHandler(this.tbTipo_TextChanged);
             // 
             // label5
             // 

@@ -4,19 +4,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CEntidades;
-using CDatos.ClasesDB;
 using CDatos.ClasesDAO;
+using CEntidades;
+using CDatos.ClasesDB;
+using System.Linq.Expressions;
+
 
 namespace CLogica.Gestores
 {
+    bool exito;
     public class GestorDeAutenticacion
     {
         public static Candidato candActual;
         public static Consultor consActual;
 
-        public static void autenticarUsuario(Candidato cand)
+        public static bool autenticarUsuario(Candidato cand)
         {
-            candActual = cand;
+            bool exito;
+            try
+            {
+                CandidatoDAO cdatosC = new CandidatoDB();
+                Expression<Func<Candidato, bool>> filtro = (ca => ca.nro_documento == cand.nro_documento && ca.tipo_documento == cand.tipo_documento);
+                List<Candidato> lc = cdatosC.getCandidatos(filtro);
+                if (lc.Count() == 1)
+                {
+                    if (lc.First().contraseña == cand.contraseña)
+                    {
+                        exito = true;
+                        candActual = cand;
+                        return exito;
+                    }
+                    else
+                    {
+                        exito = false;
+                        return exito;
+                    }
+                }
+                else
+                {
+                    exito = false;
+                    return exito;
+                }
+                
+            }
+            
         }
 
         public static void autenticarUsuario(Consultor cons, string contra)

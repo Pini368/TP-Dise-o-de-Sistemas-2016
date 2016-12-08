@@ -6,12 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms
+using CEntidades;
+using CLogica.Gestores;
 
 namespace Trabajo_práctico
 {
     public partial class f2_RealizarCuestionario : Form
     {
+        bool exito;
         public f2_RealizarCuestionario()
         {
             InitializeComponent();
@@ -55,13 +58,58 @@ namespace Trabajo_práctico
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            f21_CuestionarioInstrucciones cui = new f21_CuestionarioInstrucciones();
-            cui.Show(this);
+            if (tbTipo.Text != "" && tbNroDto.Text != "" && tbTipo.Text != "")
+            {
+                try
+                {
+                    Candidato cand = new Candidato();
+                    cand.tipo_documento = tbTipo.Text;
+                    cand.nro_documento = tbNroDto.Text;
+                    cand.contraseña = tbClave.Text;
+                    if (GestorDeAutenticacion.autenticarUsuario(cand))
+                    {
+                        GestorDeCandidato clogCand = new GestorDeCandidato();
+                        List <Cuestionario> = clogCand.getCuestionariosActivos(cand);
+                        
+                    }
+                    else
+                    {
+                        exito = false;
+                    }
+                    if(exito == true)
+                    {
+                        this.Hide();
+                        f21_CuestionarioInstrucciones cui = new f21_CuestionarioInstrucciones();
+                        cui.Show(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show(("Los datos ingresados no son válidos o no existe un cuestionario para el Candidato:\n"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
+
         }
 
         private void f2_RealizarCuestionario_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();
+        }
+
+        private void tbTipo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnCampos_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

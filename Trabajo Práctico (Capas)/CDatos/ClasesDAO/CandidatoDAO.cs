@@ -12,5 +12,6 @@ namespace CDatos.ClasesDAO
     {
         Candidato getCandidatos(int idCandidato);
         List<Candidato> getCandidatos(Expression<Func<Candidato, bool>> filtro);
+        void cambiarContraseña(List<Candidato> listCandidato, TPDiseñoEntities db);
     }
 }

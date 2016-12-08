@@ -36,11 +36,6 @@
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCandidatos = new System.Windows.Forms.DataGridView();
-            this.c_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_n_can = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NDdocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClaveIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).BeginInit();
@@ -141,46 +136,21 @@
             // 
             // dgvCandidatos
             // 
+            this.dgvCandidatos.AllowUserToAddRows = false;
+            this.dgvCandidatos.AllowUserToDeleteRows = false;
             this.dgvCandidatos.AllowUserToResizeRows = false;
             this.dgvCandidatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCandidatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.c_apellido,
-            this.c_nombre,
-            this.c_n_can,
-            this.NDdocumento,
-            this.ClaveIngreso});
             this.dgvCandidatos.Location = new System.Drawing.Point(38, 65);
             this.dgvCandidatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCandidatos.MultiSelect = false;
             this.dgvCandidatos.Name = "dgvCandidatos";
+            this.dgvCandidatos.ReadOnly = true;
             this.dgvCandidatos.RowTemplate.Height = 24;
+            this.dgvCandidatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCandidatos.Size = new System.Drawing.Size(675, 331);
             this.dgvCandidatos.TabIndex = 0;
-            // 
-            // c_apellido
-            // 
-            this.c_apellido.HeaderText = "Apellido";
-            this.c_apellido.Name = "c_apellido";
-            // 
-            // c_nombre
-            // 
-            this.c_nombre.HeaderText = "Nombre";
-            this.c_nombre.Name = "c_nombre";
-            // 
-            // c_n_can
-            // 
-            this.c_n_can.HeaderText = "Tipo de documento";
-            this.c_n_can.Name = "c_n_can";
-            // 
-            // NDdocumento
-            // 
-            this.NDdocumento.HeaderText = "N° de documento";
-            this.NDdocumento.Name = "NDdocumento";
-            // 
-            // ClaveIngreso
-            // 
-            this.ClaveIngreso.HeaderText = "Clave de Ingreso";
-            this.ClaveIngreso.Name = "ClaveIngreso";
+            this.dgvCandidatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCandidatos_CellContentClick);
             // 
             // f7_EvCandidatos
             // 
@@ -201,6 +171,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluación de candidatos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f7_EvCandidatos_FormClosed);
+            this.Load += new System.EventHandler(this.f7_EvCandidatos_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.pnMovForm.ResumeLayout(false);
@@ -219,10 +190,5 @@
         private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvCandidatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_n_can;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NDdocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClaveIngreso;
     }
 }

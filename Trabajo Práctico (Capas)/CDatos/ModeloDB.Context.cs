@@ -22,11 +22,6 @@ namespace CEntidades
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
         public virtual DbSet<Bloque> Bloque { get; set; }
         public virtual DbSet<Candidato> Candidato { get; set; }
         public virtual DbSet<Competencia> Competencia { get; set; }
@@ -57,6 +52,14 @@ namespace CEntidades
                 new ObjectParameter("nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spObtenerUltimoIDPuestoCN", codigoPuestoParameter, nombreParameter);
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new CDatos.EvaluacionMap());
+
+            modelBuilder.Configurations.Add(new CDatos.CandidatoMap());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

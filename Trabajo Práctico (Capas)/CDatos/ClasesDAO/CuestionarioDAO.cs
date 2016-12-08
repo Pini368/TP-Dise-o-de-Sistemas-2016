@@ -14,5 +14,6 @@ namespace CDatos.ClasesDAO
         void modificarEstado(Cuestionario cuest, string estado);
         void agregarBloques(Cuestionario cuest, List<Bloque> listaBloques);
         void agregarAcceso(Cuestionario cuest);
+        void altaCuestionarios(List<Cuestionario> listaCuest, TPDiseñoEntities db);
     }
 }

@@ -36,11 +36,9 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvPuntajesRequeridos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ponderacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPuestos = new System.Windows.Forms.DataGridView();
-            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntajesRequeridos)).BeginInit();
@@ -142,53 +140,48 @@
             // 
             // dgvPuntajesRequeridos
             // 
+            this.dgvPuntajesRequeridos.AllowUserToAddRows = false;
+            this.dgvPuntajesRequeridos.AllowUserToDeleteRows = false;
+            this.dgvPuntajesRequeridos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuntajesRequeridos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPuntajesRequeridos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.Competencia,
+            this.Ponderacion});
             this.dgvPuntajesRequeridos.Location = new System.Drawing.Point(405, 61);
             this.dgvPuntajesRequeridos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPuntajesRequeridos.MultiSelect = false;
             this.dgvPuntajesRequeridos.Name = "dgvPuntajesRequeridos";
+            this.dgvPuntajesRequeridos.ReadOnly = true;
             this.dgvPuntajesRequeridos.RowTemplate.Height = 24;
+            this.dgvPuntajesRequeridos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuntajesRequeridos.Size = new System.Drawing.Size(300, 325);
             this.dgvPuntajesRequeridos.TabIndex = 1;
+            this.dgvPuntajesRequeridos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPuntajesRequeridos_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // Competencia
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Competencias";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.Competencia.HeaderText = "Competencia";
+            this.Competencia.Name = "Competencia";
             // 
-            // dataGridViewTextBoxColumn2
+            // Ponderacion
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Ponderación";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.Ponderacion.HeaderText = "Ponderacion";
+            this.Ponderacion.Name = "Ponderacion";
             // 
             // dgvPuestos
             // 
+            this.dgvPuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPuestos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Puesto,
-            this.Empresa});
             this.dgvPuestos.Location = new System.Drawing.Point(30, 61);
             this.dgvPuestos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPuestos.MultiSelect = false;
             this.dgvPuestos.Name = "dgvPuestos";
+            this.dgvPuestos.ReadOnly = true;
             this.dgvPuestos.RowTemplate.Height = 24;
+            this.dgvPuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuestos.Size = new System.Drawing.Size(300, 325);
             this.dgvPuestos.TabIndex = 0;
-            // 
-            // Puesto
-            // 
-            this.Puesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Puesto.HeaderText = "Puesto";
-            this.Puesto.Name = "Puesto";
-            // 
-            // Empresa
-            // 
-            this.Empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
+            this.dgvPuestos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPuestos_CellMouseDoubleClick);
             // 
             // f6_EvCandidatos
             // 
@@ -210,6 +203,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluación de candidatos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f6_EvCandidatos_FormClosed);
+            this.Load += new System.EventHandler(this.f6_EvCandidatos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnMovForm.ResumeLayout(false);
@@ -229,10 +223,8 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvPuntajesRequeridos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridView dgvPuestos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ponderacion;
     }
 }

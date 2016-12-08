@@ -46,5 +46,18 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public void cambiarContraseña(List<Candidato> listCandidato, TPDiseñoEntities db)
+        {
+            
+            using (db)
+            {
+            
+                foreach (Candidato cand in listCandidato)
+                {
+                    Candidato c = (from ca in db.Candidato where (ca.nroCandidato == cand.nroCandidato) select ca).FirstOrDefault();
+                    c.contraseña = cand.contraseña;
+                }
+            }
+        }
     }
 }

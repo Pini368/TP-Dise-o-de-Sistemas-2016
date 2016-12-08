@@ -113,6 +113,30 @@ namespace CLogica.Gestores
             }
         }
 
+        public List<Competencia> getCompetenciasNoEvaluables(Puesto pues)
+        {
+            List<Competencia> lc = new List<Competencia>();
+            foreach(Puntaje_Requerido pr in pues.Puntaje_Requerido)
+            {
+                if(pr.Competencia.Factor.Count() == 0)
+                {
+                    lc.Add(pr.Competencia);
+                }
+                else
+                {
+                    foreach (Factor fac in pr.Competencia.Factor)
+                    {
+                        if (fac.Pregunta.Count() < 2)
+                        {
+                            lc.Add(pr.Competencia);
+                            break;
+                        }
+                    }
+                }
+            }
+            return lc;
+        }
+
         public List<Puesto> getPuestos(int codigo, string nombre, string empresa)
         {
             PuestoDAO cdP = new PuestoDB();

@@ -80,6 +80,7 @@ namespace Trabajo_práctico
 
         private void llenarDataGrid(string apellido, string nombre, string nroCandidato, DataGridView dgv)
         {
+            dgv.Rows.Clear();
             GestorDeCandidato clogCand = new GestorDeCandidato();
             List<Candidato> lc = clogCand.getCandidatos(apellido, nombre, nroCandidato);
             foreach (Candidato cand in lc)
@@ -92,7 +93,7 @@ namespace Trabajo_práctico
         {
             panel_EC.Size = new Size(551, 410);
             panel_EC.Visible = true;
-            llenarDataGrid("", "", "", dgvCandiadtos);
+            llenarDataGrid("", "", "", dgvCandidatos);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -108,8 +109,26 @@ namespace Trabajo_práctico
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            f6_EvCandidatos ev_candidatos1 = new f6_EvCandidatos();
-            ev_candidatos1.Show(this);
+            //listaCand es la lista de candidatos a evaluar.
+            GestorDeCandidato clogCand = new GestorDeCandidato();
+            List<Candidato> lcand = clogCand.getCandidatosCuestionariosActivos(listaCand);
+            if (lcand.Count() == 0)
+            {
+                f6_EvCandidatos ev_candidatos1 = new f6_EvCandidatos(listaCand);
+                ev_candidatos1.Show(this);
+            }
+            else
+            {
+                string mensaje = "Los siguientes candidatos poseen cuestionarios activos y no pueden ser evaluados momentaneamente:\n";
+                foreach(Candidato cand in lcand)
+                {
+                    mensaje += cand.apellido.ToUpper() + " " + cand.nombre.ToUpper() + "\n";
+                }
+                mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
+                MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Owner.Show();
+                this.Close();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,44 +155,48 @@ namespace Trabajo_práctico
         private void tbApellido_TextChanged(object sender, EventArgs e)
         {
             GestorDeCandidato clogCand = new GestorDeCandidato();
-            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatosAEvaluar);
+            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatos);
         }
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
             GestorDeCandidato clogCand = new GestorDeCandidato();
-            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatosAEvaluar);
+            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatos);
         }
 
         private void tbNroCandidato_TextChanged(object sender, EventArgs e)
         {
             GestorDeCandidato clogCand = new GestorDeCandidato();
-            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatosAEvaluar);
+            llenarDataGrid(tbApellido.Text, tbNombre.Text, tbNroCandidato.Text, dgvCandidatos);
         }
 
         private void btnBajar_Click(object sender, EventArgs e)
         {
-            string apellido = dgvCandiadtos.Rows[dgvCandiadtos.SelectedRows[0].Index].Cells[0].Value.ToString();
-            string nombre = dgvCandiadtos.Rows[dgvCandiadtos.SelectedRows[0].Index].Cells[1].Value.ToString();
-            int nroCand = (int)dgvCandiadtos.Rows[dgvCandiadtos.SelectedRows[0].Index].Cells[2].Value;
-            bool contiene = false;
-            foreach(Candidato can in listaCand)
+            if (dgvCandidatos.SelectedRows.Count > 0)
             {
-                if (can.nroCandidato == nroCand)
+                string apellido = dgvCandidatos.Rows[dgvCandidatos.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string nombre = dgvCandidatos.Rows[dgvCandidatos.SelectedRows[0].Index].Cells[1].Value.ToString();
+                int nroCand = (int)dgvCandidatos.Rows[dgvCandidatos.SelectedRows[0].Index].Cells[2].Value;
+                bool contiene = false;
+                foreach (Candidato can in listaCand)
                 {
-                    contiene = true;
-                    break;
+                    if (can.nroCandidato == nroCand)
+                    {
+                        contiene = true;
+                        break;
+                    }
                 }
-            }
-            if (!contiene)
-            {
-                GestorDeCandidato clogCand = new GestorDeCandidato();
-                listaCand.Add(clogCand.getCandidatos(nroCand));
-                dgvCandidatosAEvaluar.Rows.Add(apellido, nombre, nroCand);
-            }
-            else
-            {
-                MessageBox.Show("Error, ese candidato ya está cargado en la lista de candidatos a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (!contiene)
+                {
+                    GestorDeCandidato clogCand = new GestorDeCandidato();
+                    listaCand.Add(clogCand.getCandidatos(nroCand));
+                    dgvCandidatosAEvaluar.Rows.Add(apellido, nombre, nroCand);
+                    dgvCandidatos.Rows.RemoveAt(dgvCandidatos.SelectedRows[0].Index);
+                }
+                else
+                {
+                    MessageBox.Show("Error, ese candidato ya está cargado en la lista de candidatos a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -194,6 +217,7 @@ namespace Trabajo_práctico
                     i++;
                 }
                 listaCand.RemoveAt(i);
+                dgvCandidatos.Rows.Add(apellido, nombre, nroCand);
                 dgvCandidatosAEvaluar.Rows.RemoveAt(dgvCandidatosAEvaluar.SelectedRows[0].Index);
             }
         }

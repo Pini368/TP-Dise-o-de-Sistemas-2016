@@ -56,6 +56,55 @@ namespace CLogica.Gestores
             return puntTotal;
         }
 
+        public void finalizar(Evaluacion evaluacion, List<Cuestionario> listaCuest)
+        {
+            EvaluacionDAO cdatos = new EvaluacionDB();
+            cdatos.alta(evaluacion, listaCuest);
+
+        }
+
+        public List<Cuestionario> generarCuestionarios(Evaluacion ev)
+        {
+            List<Cuestionario> listaCuest = new List<Cuestionario>();
+            foreach(Candidato ca in ev.Candidato)
+            {
+                Cuestionario cu = new Cuestionario();
+                cu.nroCandidato = ca.nroCandidato;
+                cu.cantidad_accesos = 0;
+                cu.ultimo_acceso = DateTime.Now;
+                cu.id_evaluacion=ev.id_evaluacion;
+                Estado_Cuestionario EstCu = new Estado_Cuestionario();
+                EstCu.estadoActual = "Activo";
+                EstCu.estadoAnterior = "Activo";
+                EstCu.fecha_mod = DateTime.Now;
+                cu.Estado_Cuestionario.Add(EstCu);
+                ca.contraseña = generarContraseña(8);
+            }
+            return listaCuest;
+        }
+
+        private string generarContraseña(int longitud)
+        {
+            Random rnd = new Random();
+            string contraseña = "";
+            for(int i=0; i<longitud; i++)
+            {
+                int nroLetra = rnd.Next() % 2;
+                if (nroLetra == 0)
+                {
+                    int nro = rnd.Next()%10;
+                    contraseña += nro.ToString();
+                }
+                else
+                {
+                    int letraASCII = rnd.Next() % 26;
+                    char letra = (char)(letraASCII + 65);
+                    contraseña += letra;
+                }
+            }
+            return contraseña;
+        }
+
         public string obtenerUltimoEstado(Cuestionario cuest)
         {
             return cuest.Estado_Cuestionario.Where(est => est.fecha_mod == cuest.Estado_Cuestionario.Max(est1 => est1.fecha_mod)).FirstOrDefault().estadoActual;

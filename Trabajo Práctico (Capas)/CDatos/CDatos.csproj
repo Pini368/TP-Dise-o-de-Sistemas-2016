@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidatoMap.cs" />
     <Compile Include="ClasesDAO\BloqueDAO.cs" />
     <Compile Include="ClasesDAO\CandidatoDAO.cs" />
     <Compile Include="ClasesDAO\CompetenciaDAO.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="ClasesDB\RespuestaDB.cs" />
     <Compile Include="ClasesDB\TablaDeParametrosDB.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="EvaluacionMap.cs" />
     <Compile Include="ExceptionPersonalizada.cs" />
     <Compile Include="ModeloDB.Context.cs">
       <AutoGen>True</AutoGen>

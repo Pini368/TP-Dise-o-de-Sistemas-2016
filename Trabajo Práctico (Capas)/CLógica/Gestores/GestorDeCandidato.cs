@@ -12,7 +12,19 @@ namespace CLogica.Gestores
 {
     public class GestorDeCandidato
     {
-
+        public List<Candidato> getCandidatosCuestionariosActivos(List<Candidato> lcand)
+        {
+            List<Candidato> lc = new List<Candidato>();
+            foreach (Candidato ca in lcand)
+            {
+                if(ca.Cuestionario.Where(cu => cu.Estado_Cuestionario.Last().estadoActual.ToUpper() == "ACTIVO" || cu.Estado_Cuestionario.Last().estadoActual.ToUpper() == "EN PROCESO").Count() > 0)
+                {
+                    lc.Add(ca);
+                }
+            }
+            return lc;
+        }
+  
         public Candidato getCandidatos(int idCandidato)
         {
             CandidatoDAO cdatos = new CandidatoDB();

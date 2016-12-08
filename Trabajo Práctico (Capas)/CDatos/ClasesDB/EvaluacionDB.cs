@@ -24,5 +24,28 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public void alta(Evaluacion evaluacion, List<Cuestionario> listaCuest)
+        {
+            using (TPDiseñoEntities db = new TPDiseñoEntities())
+            {
+                using (var dbContextTransaction = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        CuestionarioDAO cdatosCuest = new CuestionarioDB();
+                        cdatosCuest.altaCuestionarios(listaCuest, db);
+                        CandidatoDAO cdatosCand = new CandidatoDB();
+                        cdatosCand.cambiarContraseña(evaluacion.Candidato.ToList(),db);
+                        db.Evaluacion.Add(evaluacion);
+                        db.SaveChanges();
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+                }
+            }
+        }
     }
 }

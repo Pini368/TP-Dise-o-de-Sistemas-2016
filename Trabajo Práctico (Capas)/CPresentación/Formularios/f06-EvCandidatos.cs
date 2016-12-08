@@ -7,13 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CLogica.Gestores;
+using CEntidades;
 
 namespace Trabajo_práctico
 {
     public partial class f6_EvCandidatos : Form
     {
+        List<Candidato> listaCand;
+        List<Puesto> listaPuestos;
         public f6_EvCandidatos()
         {
+            InitializeComponent();
+        }
+        public f6_EvCandidatos(List<Candidato> lcand)
+        {
+            listaCand = lcand;
             InitializeComponent();
         }
 
@@ -54,13 +63,79 @@ namespace Trabajo_práctico
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos();
+            Evaluacion ev = new Evaluacion();
+            foreach(Candidato cand in listaCand)
+            {
+                ev.Candidato.Add(cand);
+            }
+            //ev.Candidato = listaCand;
+            Puesto puestoSeleccionado = listaPuestos.First(pu => pu.nombre.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value) && pu.empresa.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value));
+            ev.id_puesto = puestoSeleccionado.id_puesto;
+            GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
+            f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos(ev);
             ev_candidatos2.Show(Owner);
         }
 
         private void f6_EvCandidatos_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();
+        }
+
+        private void f6_EvCandidatos_Load(object sender, EventArgs e)
+        {
+            GestorDePuestos clogPuesto = new GestorDePuestos();
+            try
+            {
+                listaPuestos = clogPuesto.getPuestos();
+                dgvPuestos.DataSource = listaPuestos.Select(pu => new { pu.nombre, pu.empresa }).ToList();
+                dgvPuestos.Columns[0].HeaderText = "Puesto";
+                dgvPuestos.Columns[1].HeaderText = "Empresa";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvPuestos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void llenarDataGrid(Puesto pues, DataGridView dgv)
+        {
+            foreach(Puntaje_Requerido pr in pues.Puntaje_Requerido)
+            {
+                dgv.Rows.Add(pr.Competencia.nombre, pr.ponderacion);
+            }
+        }
+
+
+        private void dgvPuestos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvPuntajesRequeridos.Rows.Clear();
+            Puesto puestoSeleccionado = listaPuestos.First(pu => pu.nombre.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value) && pu.empresa.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value));
+            GestorDePuestos clogPues = new GestorDePuestos();
+            List<Competencia> compNoEvaluables = clogPues.getCompetenciasNoEvaluables(puestoSeleccionado);
+            if (compNoEvaluables.Count() == 0)
+            {
+                llenarDataGrid(puestoSeleccionado, dgvPuntajesRequeridos);
+            }
+            else
+            {
+                string mensaje = "Las siguiente competencias no pueden ser evaluadas:\n";
+                foreach (Competencia comp in compNoEvaluables)
+                {
+                    mensaje += comp.nombre + "\n";
+                }
+                mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
+                MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvPuntajesRequeridos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

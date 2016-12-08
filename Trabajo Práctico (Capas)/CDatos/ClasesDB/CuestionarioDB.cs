@@ -97,5 +97,19 @@ namespace CDatos.ClasesDB
                 throw new ExceptionPersonalizada(ex.Message);
             }
         }
+        public void altaCuestionarios(List<Cuestionario> listaCuest, TPDiseñoEntities db)
+        {
+            
+            using (db)
+            {
+            
+                foreach (Cuestionario cuest in listaCuest)
+                {
+                    db.Cuestionario.Add(cuest);
+                }
+            }
+                
+        }
+
     }
 }

@@ -93,7 +93,7 @@ namespace CLogica.Gestores
 
         private string generarContraseña(int longitud)
         {
-            Random rnd = new Random();
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
             string contraseña = "";
             for(int i=0; i<longitud; i++)
             {

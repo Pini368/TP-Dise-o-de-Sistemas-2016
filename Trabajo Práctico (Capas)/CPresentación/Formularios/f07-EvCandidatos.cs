@@ -16,12 +16,14 @@ namespace Trabajo_práctico
     {
         Evaluacion evaluacion;
         List<Cuestionario> listaCuest;
+        List<Candidato> listaCand;
         public f7_EvCandidatos()
         {
             InitializeComponent();
         }
-        public f7_EvCandidatos(Evaluacion ev)
+        public f7_EvCandidatos(Evaluacion ev, List<Candidato> lc)
         {
+            listaCand = lc;
             evaluacion = ev;
             InitializeComponent();
         }
@@ -46,7 +48,7 @@ namespace Trabajo_práctico
         private void button4_Click(object sender, EventArgs e)
         {
             GestorDeCuestionario clogCu = new GestorDeCuestionario();
-            clogCu.finalizar(evaluacion,listaCuest); 
+            clogCu.finalizar(evaluacion,listaCuest,listaCand); 
             Owner.Show();
             this.Close();
         }
@@ -65,18 +67,13 @@ namespace Trabajo_práctico
         private void f7_EvCandidatos_Load(object sender, EventArgs e)
         {
             GestorDeCuestionario clogCu = new GestorDeCuestionario();
-            listaCuest = clogCu.generarCuestionarios(evaluacion);
-            dgvCandidatos.DataSource = evaluacion.Candidato.Select(ca => new { ca.apellido,ca.nombre,ca.tipo_documento,ca.nro_documento,ca.contraseña }).ToList();
+            listaCuest = clogCu.generarCuestionarios(evaluacion, listaCand);
+            dgvCandidatos.DataSource = listaCand.Select(ca => new { ca.apellido,ca.nombre,ca.tipo_documento,ca.nro_documento,ca.contraseña }).ToList();
             dgvCandidatos.Columns[0].HeaderText = "Apellido";
             dgvCandidatos.Columns[1].HeaderText = "Nombre";
             dgvCandidatos.Columns[2].HeaderText = "Tipo de documento";
             dgvCandidatos.Columns[3].HeaderText = "Nro de documento";
             dgvCandidatos.Columns[4].HeaderText = "Clave de ingreso";
-        }
-
-        private void dgvCandidatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

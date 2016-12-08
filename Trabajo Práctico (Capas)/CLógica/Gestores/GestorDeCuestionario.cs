@@ -56,19 +56,26 @@ namespace CLogica.Gestores
             return puntTotal;
         }
 
-        public void finalizar(Evaluacion evaluacion, List<Cuestionario> listaCuest)
+        public void finalizar(Evaluacion evaluacion, List<Cuestionario> listaCuest, List<Candidato> listaCand)
         {
             EvaluacionDAO cdatos = new EvaluacionDB();
-            cdatos.alta(evaluacion, listaCuest);
-
+            try
+            {
+                cdatos.alta(evaluacion, listaCuest, listaCand);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
         }
 
-        public List<Cuestionario> generarCuestionarios(Evaluacion ev)
+        public List<Cuestionario> generarCuestionarios(Evaluacion ev, List<Candidato> lc)
         {
             List<Cuestionario> listaCuest = new List<Cuestionario>();
-            foreach(Candidato ca in ev.Candidato)
+            foreach(Candidato ca in lc)
             {
                 Cuestionario cu = new Cuestionario();
+                cu.fecha_inicio = DateTime.Now;
                 cu.nroCandidato = ca.nroCandidato;
                 cu.cantidad_accesos = 0;
                 cu.ultimo_acceso = DateTime.Now;
@@ -79,6 +86,7 @@ namespace CLogica.Gestores
                 EstCu.fecha_mod = DateTime.Now;
                 cu.Estado_Cuestionario.Add(EstCu);
                 ca.contraseña = generarContraseña(8);
+                listaCuest.Add(cu);
             }
             return listaCuest;
         }

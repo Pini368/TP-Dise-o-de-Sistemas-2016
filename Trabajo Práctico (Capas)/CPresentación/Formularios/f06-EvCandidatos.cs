@@ -62,18 +62,21 @@ namespace Trabajo_práctico
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Evaluacion ev = new Evaluacion();
-            foreach(Candidato cand in listaCand)
+            if (dgvPuntajesRequeridos.Rows.Count > 0)
             {
-                ev.Candidato.Add(cand);
+                this.Hide();
+                Evaluacion ev = new Evaluacion();
+                //ev.Candidato = listaCand;
+                Puesto puestoSeleccionado = listaPuestos.First(pu => pu.nombre.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value) && pu.empresa.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value));
+                ev.id_puesto = puestoSeleccionado.id_puesto;
+                GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
+                f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos(ev, listaCand);
+                ev_candidatos2.Show(Owner);
             }
-            //ev.Candidato = listaCand;
-            Puesto puestoSeleccionado = listaPuestos.First(pu => pu.nombre.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[0].Value) && pu.empresa.Equals(dgvPuestos.Rows[dgvPuestos.SelectedRows[0].Index].Cells[1].Value));
-            ev.id_puesto = puestoSeleccionado.id_puesto;
-            GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
-            f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos(ev);
-            ev_candidatos2.Show(Owner);
+            else
+            {
+                MessageBox.Show("Usted no ha seleccionado ningún puesto a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void f6_EvCandidatos_FormClosed(object sender, FormClosedEventArgs e)

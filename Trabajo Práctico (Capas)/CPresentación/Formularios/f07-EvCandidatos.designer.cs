@@ -150,7 +150,6 @@
             this.dgvCandidatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCandidatos.Size = new System.Drawing.Size(675, 331);
             this.dgvCandidatos.TabIndex = 0;
-            this.dgvCandidatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCandidatos_CellContentClick);
             // 
             // f7_EvCandidatos
             // 

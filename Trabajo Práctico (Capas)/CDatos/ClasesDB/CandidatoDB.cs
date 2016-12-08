@@ -17,7 +17,7 @@ namespace CDatos.ClasesDB
             {
                 using (TPDiseñoEntities db = new TPDiseñoEntities())
                 {
-                    return db.Candidato.Include("Cuestionario.Estado_Cuestionario").SingleOrDefault<Candidato>(can => can.nroCandidato == idCandidato);
+                    return db.Candidato.Include("Cuestionario.Estado_Cuestionario").Include("Cuestionario.Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Cuestionario.Bloque.ItemBloque.Respuesta.ValorRespuesta").SingleOrDefault<Candidato>(can => can.nroCandidato == idCandidato);
                 }
             }
             catch (Exception ex)
@@ -47,16 +47,11 @@ namespace CDatos.ClasesDB
             }
         }
         public void cambiarContraseña(List<Candidato> listCandidato, TPDiseñoEntities db)
-        {
-            
-            using (db)
+        {            
+            foreach (Candidato cand in listCandidato)
             {
-            
-                foreach (Candidato cand in listCandidato)
-                {
-                    Candidato c = (from ca in db.Candidato where (ca.nroCandidato == cand.nroCandidato) select ca).FirstOrDefault();
-                    c.contraseña = cand.contraseña;
-                }
+                Candidato c = (from ca in db.Candidato where (ca.nroCandidato == cand.nroCandidato) select ca).FirstOrDefault();
+                c.contraseña = cand.contraseña;
             }
         }
     }

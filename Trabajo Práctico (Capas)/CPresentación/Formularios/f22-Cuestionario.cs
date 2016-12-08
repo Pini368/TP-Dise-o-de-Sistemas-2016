@@ -201,19 +201,19 @@ namespace Trabajo_práctico
             try
             {
                 //cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
-                cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(1));
+                cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(2));
                 if (cuest != null)
                 {
                     GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
 
                     int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
-                    if ((DateTime.Now - cuest.fecha_inicio).TotalSeconds < tiempoPermitido)
+                    if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido)
                     {
                         evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
                         if (clogCuest.obtenerUltimoEstado(cuest) == "Activo")
                         {
                             int tiempoActivoPerm = clogTablaPar.obtenerParametroEntero("TiempoEstActivo");
-                            if ((DateTime.Now - cuest.fecha_inicio).TotalSeconds < tiempoActivoPerm)
+                            if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoActivoPerm)
                             {
                                 generarBloquesCuestionario(cuest);
                                 clogCuest.modificarEstado(cuest, "En Proceso");
@@ -231,7 +231,7 @@ namespace Trabajo_práctico
 
                         Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                         mostrarBloque(bloqueActual);
-                        tbTiempoRestante.Text = ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio).TotalSeconds) / 60)).ToString() + ":" + ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio).TotalSeconds) % 60)).ToString();
+                        tbTiempoRestante.Text = ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds) / 60)).ToString() + ":" + ((int)((tiempoPermitido - (int)(DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds) % 60)).ToString();
                         Temporizador.Enabled = true;
                     }
                     else
@@ -304,7 +304,7 @@ namespace Trabajo_práctico
                         i++;
                     }
                     //cuest = clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
-                    cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(1));
+                    cuest = clogCuest.obtenerCuestionario(clogCand.getCandidatos(2));
 
                     if (bloqueAc < (cuest.Bloque.Count() - 1))
                     {

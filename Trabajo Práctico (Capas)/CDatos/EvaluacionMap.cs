@@ -21,7 +21,7 @@ namespace CDatos
                 {
                     mc.MapLeftKey("id_evaluacion");
                     mc.MapRightKey("nroCandidato");
-                    mc.ToTable("EvaluacionCandidato");
+                    mc.ToTable("Evaluacion_Candidato");
                 });
         }
     }

@@ -22,7 +22,7 @@ namespace CEntidades
         }
     
         public int id_cuestionario { get; set; }
-        public System.DateTime fecha_inicio { get; set; }
+        public Nullable<System.DateTime> fecha_inicio { get; set; }
         public int cantidad_accesos { get; set; }
         public Nullable<System.DateTime> ultimo_acceso { get; set; }
         public int nroCandidato { get; set; }

@@ -108,26 +108,33 @@ namespace Trabajo_práctico
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            //listaCand es la lista de candidatos a evaluar.
-            GestorDeCandidato clogCand = new GestorDeCandidato();
-            List<Candidato> lcand = clogCand.getCandidatosCuestionariosActivos(listaCand);
-            if (lcand.Count() == 0)
+            if(listaCand.Count > 0)
             {
-                f6_EvCandidatos ev_candidatos1 = new f6_EvCandidatos(listaCand);
-                ev_candidatos1.Show(this);
+                this.Hide();
+                //listaCand es la lista de candidatos a evaluar.
+                GestorDeCandidato clogCand = new GestorDeCandidato();
+                List<Candidato> lcand = clogCand.getCandidatosCuestionariosActivos(listaCand);
+                if (lcand.Count() == 0)
+                {
+                    f6_EvCandidatos ev_candidatos1 = new f6_EvCandidatos(listaCand);
+                    ev_candidatos1.Show(this);
+                }
+                else
+                {
+                    string mensaje = "Los siguientes candidatos poseen cuestionarios activos y no pueden ser evaluados momentaneamente:\n";
+                    foreach (Candidato cand in lcand)
+                    {
+                        mensaje += cand.apellido.ToUpper() + " " + cand.nombre.ToUpper() + "\n";
+                    }
+                    mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
+                    MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Owner.Show();
+                    this.Close();
+                }
             }
             else
             {
-                string mensaje = "Los siguientes candidatos poseen cuestionarios activos y no pueden ser evaluados momentaneamente:\n";
-                foreach(Candidato cand in lcand)
-                {
-                    mensaje += cand.apellido.ToUpper() + " " + cand.nombre.ToUpper() + "\n";
-                }
-                mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
-                MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Owner.Show();
-                this.Close();
+                MessageBox.Show("Usted no ha seleccionado ningún candidato a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

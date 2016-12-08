@@ -99,17 +99,10 @@ namespace CDatos.ClasesDB
         }
         public void altaCuestionarios(List<Cuestionario> listaCuest, TPDiseñoEntities db)
         {
-            
-            using (db)
+            foreach (Cuestionario cuest in listaCuest)
             {
-            
-                foreach (Cuestionario cuest in listaCuest)
-                {
                     db.Cuestionario.Add(cuest);
-                }
-            }
-                
+            }  
         }
-
     }
 }

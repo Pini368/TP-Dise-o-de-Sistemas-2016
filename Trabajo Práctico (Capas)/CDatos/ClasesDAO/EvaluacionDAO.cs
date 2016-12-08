@@ -10,7 +10,7 @@ namespace CDatos.ClasesDAO
     public interface EvaluacionDAO
     {
         Evaluacion getEvaluaciones(int idEvaluacion);
-        void alta(Evaluacion evaluacion, List<Cuestionario> listaCuest);
+        void alta(Evaluacion evaluacion, List<Cuestionario> listaCuest, List<Candidato> listaCand);
 
     }
 }

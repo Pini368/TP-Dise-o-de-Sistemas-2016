@@ -208,6 +208,10 @@ namespace Trabajo_práctico
                     MessageBox.Show("Error, ese candidato ya está cargado en la lista de candidatos a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else
+            {
+                MessageBox.Show("Se debe seleccionar uno o más candidatos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSubir_Click(object sender, EventArgs e)

@@ -54,5 +54,17 @@ namespace CLogica.Gestores
             string archivo = ubicacion.SelectedPath + "\\" + fecha + funcion + ".xlsx";
             excel.Application.ActiveWorkbook.SaveCopyAs(archivo);
         }
+        public void alta(Evaluacion evaluacion,List <Cuestionario> listaCuest,List<Candidato> listaCand)
+        {
+            EvaluacionDAO cdatos = new EvaluacionDB();
+            try
+            {
+                cdatos.alta(evaluacion, listaCuest, listaCand);
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionPersonalizada(ex.Message);
+            }
+        }
     }
 }

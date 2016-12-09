@@ -68,15 +68,7 @@ namespace Trabajo_práctico
                     cand.tipo_documento = tbTipo.Text;
                     cand.nro_documento = tbNroDto.Text;
                     cand.contraseña = tbClave.Text;
-                    if (GestorDeAutenticacion.autenticarUsuario(cand))
-                    {
-                        GestorDeCuestionario clogCuest = new GestorDeCuestionario();
-                        exito = clogCuest.verificarCuestionariosActivos(GestorDeAutenticacion.obtenerCandidatoActual());
-                    }
-                    else
-                    {
-                        exito = false;
-                    }
+                    exito = GestorDeAutenticacion.autenticarUsuario(cand);
                     if (exito == true)
                     {
                         this.Hide();

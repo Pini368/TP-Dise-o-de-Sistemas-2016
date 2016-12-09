@@ -246,15 +246,16 @@ namespace CLogica.Gestores
 
         public void finalizar(Evaluacion evaluacion, List<Cuestionario> listaCuest, List<Candidato> listaCand)
         {
-            EvaluacionDAO cdatos = new EvaluacionDB();
+            GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
             try
             {
-                cdatos.alta(evaluacion, listaCuest, listaCand);
+                clogEv.alta(evaluacion, listaCuest, listaCand);
             }
             catch (Exception ex)
             {
                 throw new ExceptionPersonalizada(ex.Message);
             }
+           
         }
 
         public List<Cuestionario> generarCuestionarios(Evaluacion ev, List<Candidato> lc)
@@ -406,21 +407,21 @@ namespace CLogica.Gestores
         }
         public bool verificarCuestionariosActivos(Candidato ca)
         {
-            bool exito;
+            bool tiene;
             CuestionarioDB cdatos = new CuestionarioDB();
             try
             {
                 List<Cuestionario> lc = ca.Cuestionario.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).ToList();
                 if (lc.Count() == 0)
                 {
-                    exito = false;
+                    tiene = false;
                     GestorDeAutenticacion.setCandidatoActual(null);
                 }
                 else
                 {
-                    exito = true;
+                    tiene = true;
                 }
-                return exito;
+                return tiene;
             }
             catch (Exception ex)
             {

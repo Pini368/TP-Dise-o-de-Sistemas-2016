@@ -101,5 +101,12 @@ namespace Trabajo_práctico.Formularios
         {
             Owner.Show();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            tbCompetencia.Text = tbCompetencia.Text.Trim(' ');
+            tbFactor.Text = tbFactor.Text.Trim(' ');
+            tbPregunta.Text = tbPregunta.Text.Trim(' ');
+        }
     }
 }

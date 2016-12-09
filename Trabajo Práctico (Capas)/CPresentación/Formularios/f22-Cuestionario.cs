@@ -127,6 +127,12 @@ namespace Trabajo_práctico
             try
             {
                 cuest = clogCuest.empezarCuestionario();
+                GestorDeLogProceso clogProc = new GestorDeLogProceso();
+                LogProcesos log = new LogProcesos();
+                log.id_cuestionario = cuest.id_cuestionario;
+                log.fechaHora = DateTime.Now;
+                log.accion = "Abierto";
+                clogProc.agregarLog(log);
                 bloqueAc = clogCuest.obtenerBloqueACargar(cuest);
                 Bloque bloqueActual = cuest.Bloque.ToList()[bloqueAc];
                 mostrarBloque(bloqueActual);
@@ -230,6 +236,12 @@ namespace Trabajo_práctico
         private void f22Cuestionario_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();
+            GestorDeLogProceso clogProc = new GestorDeLogProceso();
+            LogProcesos log = new LogProcesos();
+            log.id_cuestionario = cuest.id_cuestionario;
+            log.fechaHora = DateTime.Now;
+            log.accion = "Cerrado";
+            clogProc.agregarLog(log);
         }
     }
 }

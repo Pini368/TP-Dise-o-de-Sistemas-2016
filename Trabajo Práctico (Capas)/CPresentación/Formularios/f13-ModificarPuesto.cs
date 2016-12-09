@@ -174,6 +174,11 @@ namespace Trabajo_práctico.Formularios
             try
             {
                 bool funcionesMod = false;
+                tbCodigo.Text = tbCodigo.Text.Trim(' ');
+                tbDescripcion.Text = tbDescripcion.Text.Trim(' ');
+                tbEmpresa.Text = tbEmpresa.Text.Trim(' ');
+                tbNombre.Text = tbNombre.Text.Trim(' ');
+                tbPonderacion.Text = tbPonderacion.Text.Trim(' ');
                 int codigo = Int32.Parse(tbCodigo.Text);
                 //validarDatosCompletos
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count>0 ) 

@@ -63,6 +63,8 @@ namespace Trabajo_práctico
             {
                 try
                 {
+                    tbContra.Text = tbContra.Text.Trim(' ');
+                    tbNomUs.Text = tbNomUs.Text.Trim(' ');
                     Consultor cons = new Consultor();
                     cons.nombreUsuario = tbNomUs.Text;
                     GestorDeAutenticacion.autenticarUsuario(cons, tbContra.Text);

@@ -138,6 +138,7 @@
             this.tbNroDto.Name = "tbNroDto";
             this.tbNroDto.Size = new System.Drawing.Size(204, 23);
             this.tbNroDto.TabIndex = 1;
+            this.tbNroDto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNroDto_KeyPress);
             // 
             // tbTipo
             // 

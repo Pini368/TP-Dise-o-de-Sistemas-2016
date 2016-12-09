@@ -97,5 +97,12 @@ namespace Trabajo_práctico.Formularios
         {
             Owner.Show();
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            tbDescripcionPregunta.Text = tbDescripcionPregunta.Text.Trim(' ');
+            tbInterrogantePregunta.Text = tbInterrogantePregunta.Text.Trim(' ');
+            tbNombrePregunta.Text = tbNombrePregunta.Text.Trim(' ');
+        }
     }
 }

@@ -70,6 +70,11 @@ namespace Trabajo_práctico
         {
             try
             {
+                tbCodigo.Text = tbCodigo.Text.Trim(' ');
+                tbDescripcion.Text = tbDescripcion.Text.Trim(' ');
+                tbEmpresa.Text = tbEmpresa.Text.Trim(' ');
+                tbNombre.Text = tbNombre.Text.Trim(' ');
+                tbPonderacion.Text = tbPonderacion.Text.Trim(' ');
                 int codigo = Int32.Parse(tbCodigo.Text);
                 if (tbNombre.Text != "" && tbDescripcion.Text != "" && tbEmpresa.Text != "" && listaCar.Count > 0)
                 {

@@ -53,6 +53,7 @@
     <Compile Include="Gestores\GestorDeCompetencia.cs" />
     <Compile Include="Gestores\GestorDeCuestionario.cs" />
     <Compile Include="Gestores\GestorDeEvaluacion.cs" />
+    <Compile Include="Gestores\GestorDeLogProceso.cs" />
     <Compile Include="Gestores\GestorDePregunta.cs" />
     <Compile Include="Gestores\GestorDePuestos.cs" />
     <Compile Include="Gestores\GestorDeRespuesta.cs" />

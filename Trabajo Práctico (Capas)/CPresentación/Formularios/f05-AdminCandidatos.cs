@@ -108,6 +108,9 @@ namespace Trabajo_práctico
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            tbNombre.Text = tbNombre.Text.Trim(' ');
+            tbApellido.Text = tbApellido.Text.Trim(' ');
+            tbNroCandidato.Text = tbNroCandidato.Text.Trim(' ');
             if(listaCand.Count > 0)
             {
                 this.Hide();

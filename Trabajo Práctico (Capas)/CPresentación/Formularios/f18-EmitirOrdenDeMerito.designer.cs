@@ -38,10 +38,10 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnDatos = new System.Windows.Forms.Panel();
-            this.btnNombre = new System.Windows.Forms.TextBox();
-            this.btnCodigo = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnEmpresa = new System.Windows.Forms.TextBox();
+            this.tbEmpresa = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -141,10 +141,10 @@
             // 
             this.pnDatos.BackColor = System.Drawing.Color.Transparent;
             this.pnDatos.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
-            this.pnDatos.Controls.Add(this.btnNombre);
-            this.pnDatos.Controls.Add(this.btnCodigo);
+            this.pnDatos.Controls.Add(this.tbNombre);
+            this.pnDatos.Controls.Add(this.tbCodigo);
             this.pnDatos.Controls.Add(this.label9);
-            this.pnDatos.Controls.Add(this.btnEmpresa);
+            this.pnDatos.Controls.Add(this.tbEmpresa);
             this.pnDatos.Controls.Add(this.label10);
             this.pnDatos.Controls.Add(this.label12);
             this.pnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
@@ -154,23 +154,23 @@
             this.pnDatos.Size = new System.Drawing.Size(675, 82);
             this.pnDatos.TabIndex = 0;
             // 
-            // btnNombre
+            // tbNombre
             // 
-            this.btnNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnNombre.Location = new System.Drawing.Point(252, 29);
-            this.btnNombre.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNombre.Name = "btnNombre";
-            this.btnNombre.Size = new System.Drawing.Size(347, 23);
-            this.btnNombre.TabIndex = 1;
+            this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbNombre.Location = new System.Drawing.Point(252, 29);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(347, 23);
+            this.tbNombre.TabIndex = 1;
             // 
-            // btnCodigo
+            // tbCodigo
             // 
-            this.btnCodigo.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCodigo.Location = new System.Drawing.Point(176, 6);
-            this.btnCodigo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCodigo.Name = "btnCodigo";
-            this.btnCodigo.Size = new System.Drawing.Size(423, 23);
-            this.btnCodigo.TabIndex = 0;
+            this.tbCodigo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbCodigo.Location = new System.Drawing.Point(176, 6);
+            this.tbCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(423, 23);
+            this.tbCodigo.TabIndex = 0;
             // 
             // label9
             // 
@@ -184,14 +184,14 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Empresa";
             // 
-            // btnEmpresa
+            // tbEmpresa
             // 
-            this.btnEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnEmpresa.Location = new System.Drawing.Point(187, 54);
-            this.btnEmpresa.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEmpresa.Name = "btnEmpresa";
-            this.btnEmpresa.Size = new System.Drawing.Size(412, 23);
-            this.btnEmpresa.TabIndex = 2;
+            this.tbEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbEmpresa.Location = new System.Drawing.Point(187, 54);
+            this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
+            this.tbEmpresa.Name = "tbEmpresa";
+            this.tbEmpresa.Size = new System.Drawing.Size(412, 23);
+            this.tbEmpresa.TabIndex = 2;
             // 
             // label10
             // 
@@ -249,6 +249,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pnMovForm
             // 
@@ -345,7 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox btnEmpresa;
+        private System.Windows.Forms.TextBox tbEmpresa;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;
@@ -353,7 +354,7 @@
         private System.Windows.Forms.Panel pnMovForm;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnEmitirOrden;
-        private System.Windows.Forms.TextBox btnNombre;
-        private System.Windows.Forms.TextBox btnCodigo;
+        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.TextBox tbCodigo;
     }
 }

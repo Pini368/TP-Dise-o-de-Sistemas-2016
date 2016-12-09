@@ -64,6 +64,7 @@
     <Compile Include="ClasesDAO\CuestionarioDAO.cs" />
     <Compile Include="ClasesDAO\EvaluacionDAO.cs" />
     <Compile Include="ClasesDAO\LDAPDAO.cs" />
+    <Compile Include="ClasesDAO\LogProcesosDAO.cs" />
     <Compile Include="ClasesDAO\PreguntaDAO.cs" />
     <Compile Include="ClasesDAO\RespuestaDAO.cs" />
     <Compile Include="ClasesDAO\TablaDeParametrosDAO.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="ClasesDB\CuestionarioDB.cs" />
     <Compile Include="ClasesDB\EvaluacionDB.cs" />
     <Compile Include="ClasesDB\LDAPDB.cs" />
+    <Compile Include="ClasesDB\LogProcesosDB.cs" />
     <Compile Include="ClasesDB\PreguntaDB.cs" />
     <Compile Include="ClasesDAO\PuestoDAO.cs" />
     <Compile Include="ClasesDB\PuestoDB.cs" />

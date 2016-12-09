@@ -61,6 +61,9 @@ namespace Trabajo_práctico
             {
                 try
                 {
+                    tbTipo.Text = tbTipo.Text.Trim(' ');
+                    tbNroDto.Text = tbNroDto.Text.Trim(' ');
+                    tbClave.Text = tbClave.Text.Trim(' ');
                     Candidato cand = new Candidato();
                     cand.tipo_documento = tbTipo.Text;
                     cand.nro_documento = tbNroDto.Text;
@@ -131,6 +134,25 @@ namespace Trabajo_práctico
         private void f2_RealizarCuestionario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbNroDto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

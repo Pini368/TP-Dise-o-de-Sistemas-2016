@@ -90,6 +90,9 @@ namespace Trabajo_práctico
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try {
+                tbCodigo.Text = tbCodigo.Text.Trim(' ');
+                tbEmpresa.Text = tbEmpresa.Text.Trim(' ');
+                tbNombre.Text = tbNombre.Text.Trim(' ');
                 int codigoPuesto;
                 if (tbCodigo.Text == "")
                 {

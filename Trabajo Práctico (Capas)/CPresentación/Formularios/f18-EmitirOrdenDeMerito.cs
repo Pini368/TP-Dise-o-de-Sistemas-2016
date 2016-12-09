@@ -52,5 +52,12 @@ namespace Trabajo_práctico
         {
             Owner.Show();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            tbCodigo.Text = tbCodigo.Text.Trim(' ');
+            tbEmpresa.Text = tbEmpresa.Text.Trim(' ');
+            tbNombre.Text = tbNombre.Text.Trim(' ');
+        }
     }
 }

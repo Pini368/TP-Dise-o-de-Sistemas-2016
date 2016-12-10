@@ -35,12 +35,9 @@ namespace CLogica.Gestores
                 {
                     if (lc.First().contraseña == cand.contraseña)
                     {
+                        candActual = lc.First();
                         GestorDeCuestionario clogCuest = new GestorDeCuestionario();
-                        exito = clogCuest.verificarCuestionariosActivos(GestorDeAutenticacion.obtenerCandidatoActual());
-                        if (exito)
-                        {
-                            candActual = lc.First();
-                        }
+                        exito = clogCuest.verificarCuestionariosActivos(obtenerCandidatoActual());
                         return exito;
                     }
                     else

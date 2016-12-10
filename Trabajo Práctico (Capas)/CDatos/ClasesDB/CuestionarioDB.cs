@@ -10,6 +10,36 @@ namespace CDatos.ClasesDB
 {
     public class CuestionarioDB : CuestionarioDAO
     {
+        public List<Cuestionario> obtenerCuestionariosDB(Candidato cand)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.Cuestionario.Include("Estado_Cuestionario").Include("Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Bloque.ItemBloque.Respuesta.ValorRespuesta").Where(cu => cu.nroCandidato == cand.nroCandidato).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public Cuestionario obtenerCuestionarioDB(int idCuest)
+        {
+            try
+            {
+                using (TPDiseñoEntities db = new TPDiseñoEntities())
+                {
+                    return db.Cuestionario.Include("Estado_Cuestionario").Include("Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Bloque.ItemBloque.Respuesta.ValorRespuesta").FirstOrDefault<Cuestionario>(cu => cu.id_cuestionario == idCuest);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public void generarCuestionario(Cuestionario cuest)
         {
             try
@@ -21,7 +51,7 @@ namespace CDatos.ClasesDB
                 }
             }
             catch(Exception ex){
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -37,7 +67,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -59,7 +89,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -76,7 +106,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -94,7 +124,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void altaCuestionarios(List<Cuestionario> listaCuest, TPDiseñoEntities db)

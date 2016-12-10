@@ -33,7 +33,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -69,7 +69,7 @@ namespace CLogica.Gestores
                 }
                 catch (Exception ex)
                 {
-                    throw new ExceptionPersonalizada(ex.Message);
+                    throw ex;
                 }
             }
             else
@@ -95,7 +95,7 @@ namespace CLogica.Gestores
             }
             catch(Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -109,7 +109,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -197,7 +197,7 @@ namespace CLogica.Gestores
             }
             catch(Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public List<Puesto> getPuestosAlta(int codigo, string nombre)
@@ -211,7 +211,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -226,7 +226,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -240,7 +240,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -254,7 +254,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -268,7 +268,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void modificarCFunc(Puesto puesto, Puesto puestoSinMod)
@@ -280,7 +280,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

@@ -22,7 +22,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void alta(Evaluacion evaluacion, List<Cuestionario> listaCuest, List<Candidato> listaCand)
@@ -57,7 +57,7 @@ namespace CDatos.ClasesDB
                         }
                         catch (Exception ex)
                         {
-                            throw new ExceptionPersonalizada(ex.Message);
+                            throw ex;
                         }
                     }
                 }

@@ -14,16 +14,9 @@ namespace Trabajo_práctico
 {
     public partial class f22Cuestionario : Form
     {
-        public Evaluacion evaluacion;
         int bloqueAc;
         int nroPregunta;
         Cuestionario cuest;
-
-        public f22Cuestionario(Evaluacion eval)
-        {
-            InitializeComponent();
-            evaluacion = eval;
-        }
 
         public f22Cuestionario()
         {
@@ -68,6 +61,7 @@ namespace Trabajo_práctico
             listBoxPregunta.Location = new Point(141, 123);
             listBoxPregunta.Size = new Size(521, 89);
             cargarRespuestas(listBoxPregunta, opciones);
+            listBoxPregunta.HorizontalScrollbar = true;
 
             Panel panelPregunta = new Panel();
             panelPregunta.Name = "pnDatos" + (N+1).ToString();
@@ -126,8 +120,7 @@ namespace Trabajo_práctico
 
             try
             {
-                cuest = clogCuest.cargarCuestionario();
-                cuest = clogCuest.empezarCuestionario(cuest);
+                cuest = clogCuest.empezarCuestionario();
                 GestorDeLogProceso clogProc = new GestorDeLogProceso();
                 LogProcesos log = new LogProcesos();
                 log.id_cuestionario = cuest.id_cuestionario;
@@ -189,6 +182,7 @@ namespace Trabajo_práctico
                 }
                 else
                 {
+                    clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
                     float puntaje = clogCuest.obtenerPuntajeCuestionario(cuest);
                     clogCuest.terminarCuestionario(cuest);
                     MessageBox.Show("Felicitaciones, usted ha completado el cuestionario\nSu puntaje fue de " + puntaje.ToString() + " puntos", "Cuestionario Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,11 +205,19 @@ namespace Trabajo_práctico
             }
             else
             {
-                Temporizador.Enabled = false;
-                GestorDeCuestionario clogCuest = new GestorDeCuestionario();
-                MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para completar el cuestiopnario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clogCuest.modificarEstado(cuest, "Incompleto");
-                this.Close();
+                try
+                {
+                    Temporizador.Enabled = false;
+                    GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+                    MessageBox.Show(("Se ha producido un error:\n" + "Se ha excedido el tiempo para completar el cuestiopnario"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clogCuest.modificarEstado(cuest, "Incompleto");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
 
@@ -236,13 +238,32 @@ namespace Trabajo_práctico
 
         private void f22Cuestionario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Owner.Show();
-            GestorDeLogProceso clogProc = new GestorDeLogProceso();
-            LogProcesos log = new LogProcesos();
-            log.id_cuestionario = cuest.id_cuestionario;
-            log.fechaHora = DateTime.Now;
-            log.accion = "Cerrado";
-            clogProc.agregarLog(log);
+            try{
+                if(cuest != null)
+                {
+                    GestorDeLogProceso clogProc = new GestorDeLogProceso();
+                    LogProcesos log = new LogProcesos();
+                    log.id_cuestionario = cuest.id_cuestionario;
+                    log.fechaHora = DateTime.Now;
+                    log.accion = "Cerrado";
+                    clogProc.agregarLog(log);
+                }
+                Owner.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void lsbRespuestas1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

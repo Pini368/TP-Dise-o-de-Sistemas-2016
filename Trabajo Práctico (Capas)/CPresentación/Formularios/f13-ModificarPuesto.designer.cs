@@ -236,6 +236,7 @@
             // tbNombre
             // 
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbNombre.Location = new System.Drawing.Point(252, 29);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
             this.tbNombre.Name = "tbNombre";
@@ -245,6 +246,7 @@
             // tbCodigo
             // 
             this.tbCodigo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCodigo.Location = new System.Drawing.Point(176, 6);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbCodigo.Name = "tbCodigo";
@@ -252,10 +254,12 @@
             this.tbCodigo.Size = new System.Drawing.Size(423, 23);
             this.tbCodigo.TabIndex = 0;
             this.tbCodigo.TextChanged += new System.EventHandler(this.tbCodigo_TextChanged);
+            this.tbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCodigo_KeyPress);
             // 
             // tbDescripcion
             // 
             this.tbDescripcion.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbDescripcion.Location = new System.Drawing.Point(205, 78);
             this.tbDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.tbDescripcion.Multiline = true;
@@ -290,6 +294,7 @@
             // tbEmpresa
             // 
             this.tbEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbEmpresa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbEmpresa.Location = new System.Drawing.Point(187, 54);
             this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmpresa.Name = "tbEmpresa";
@@ -348,11 +353,13 @@
             // tbPonderacion
             // 
             this.tbPonderacion.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbPonderacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbPonderacion.Location = new System.Drawing.Point(196, 292);
             this.tbPonderacion.Name = "tbPonderacion";
             this.tbPonderacion.Size = new System.Drawing.Size(37, 20);
             this.tbPonderacion.TabIndex = 2;
             this.tbPonderacion.TextChanged += new System.EventHandler(this.tbPonderacion_TextChanged);
+            this.tbPonderacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPonderacion_KeyPress);
             // 
             // cmbCompetencias
             // 

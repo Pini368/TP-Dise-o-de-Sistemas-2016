@@ -29,7 +29,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void modificarBloque(Bloque bloque)
@@ -41,7 +41,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -54,7 +54,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

@@ -23,7 +23,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -57,7 +57,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -139,14 +139,18 @@ namespace CLogica.Gestores
                         bloque.id_cuestionario = cuest.id_cuestionario;
                         bloque.num_bloque = nroBloque + 1;
                         bloques.Add(bloque);
+                        ItemBloque resp = new ItemBloque();
+                        resp.id_pregunta = preg.id_pregunta;
+                        bloques[nroBloque].ItemBloque.Add(resp);
                     }
+                    i++;
                 }
                 cuest.Bloque = bloques;
                 this.agregarBloques(cuest, bloques);
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -155,7 +159,7 @@ namespace CLogica.Gestores
             return this.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
         }
 
-        public Cuestionario empezarCuestionario(Cuestionario cuest)
+        public Cuestionario empezarCuestionario()
         {
             GestorDeEvaluacion clogEval = new GestorDeEvaluacion();
             GestorDeCandidato clogCand = new GestorDeCandidato();
@@ -165,52 +169,60 @@ namespace CLogica.Gestores
             {
                 
                 GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
-
-                int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
-                int cantAccesosMaxima = clogTablaPar.obtenerParametroEntero("CantAccesosMaxima");
-                if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido && cuest.cantidad_accesos < cantAccesosMaxima )
+                Cuestionario cuest = this.cargarCuestionario();
+                if(cuest != null)
                 {
-                    evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
-                    if (this.obtenerUltimoEstado(cuest) == "Activo")
+                    int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
+                    int cantAccesosMaxima = clogTablaPar.obtenerParametroEntero("CantAccesosMaxima");
+                    if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido && cuest.cantidad_accesos < cantAccesosMaxima)
                     {
-                        int tiempoActivoPerm = clogTablaPar.obtenerParametroEntero("TiempoEstActivo");
-                        if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoActivoPerm)
+                        evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
+                        if (this.obtenerUltimoEstado(cuest) == "Activo")
                         {
-                            generarBloquesCuestionario(cuest);
-                            this.modificarEstado(cuest, "En Proceso");
+                            int tiempoActivoPerm = clogTablaPar.obtenerParametroEntero("TiempoEstActivo");
+                            if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoActivoPerm)
+                            {
+                                generarBloquesCuestionario(cuest);
+                                this.modificarEstado(cuest, "En Proceso");
+                            }
+                            else
+                            {
+                                this.modificarEstado(cuest, "Sin Contestar");
+                                throw new ExceptionPersonalizada("Se ha excedido el tiempo para el estado Activo del cuestionario");
+                            }
+                            cuest = this.obtenerCuestionarioDB(cuest.id_cuestionario);
                         }
-                        else
-                        {
-                            this.modificarEstado(cuest, "Sin Contestar");
-                            throw new ExceptionPersonalizada("Se ha excedido el tiempo para el estado Activo del cuestionario");
-                        }
+                        this.agregarAcceso(cuest);
+                        return cuest;
                     }
-                    this.agregarAcceso(cuest);
-                    return cuest;
+                    else
+                    {
+                        string estadoCuest = this.obtenerUltimoEstado(cuest);
+                        if (estadoCuest == "Activo" || estadoCuest == "En Proceso")
+                        {
+                            this.modificarEstado(cuest, "Incompleto");
+                        }
+                        string mensaje = "\n";
+                        if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds >= tiempoPermitido)
+                        {
+                            mensaje += "Se ha excedido el tiempo para completar el cuestiopnario.\n";
+                        }
+                        if (cuest.cantidad_accesos >= cantAccesosMaxima)
+                        {
+                            mensaje += "Se ha excedido la cantidad de accesos permitidos.\n";
+                        }
+                        mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
+                        throw new ExceptionPersonalizada(mensaje);
+
+                    }
                 }
                 else
                 {
-                    string estadoCuest = this.obtenerUltimoEstado(cuest);
-                    if (estadoCuest == "Activo" || estadoCuest == "En Proceso")
-                    {
-                        this.modificarEstado(cuest, "Incompleto");
-                    }
-                    string mensaje = "\n";
-                    if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds >= tiempoPermitido)
-                    {
-                        mensaje += "Se ha excedido el tiempo para completar el cuestiopnario.\n";
-                    }
-                    if (cuest.cantidad_accesos >= cantAccesosMaxima)
-                    {
-                        mensaje += "Se ha excedido la cantidad de accesos permitidos.\n";
-                    }
-                    mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
-                    throw new ExceptionPersonalizada(mensaje);
-         
+                    throw new ExceptionPersonalizada("Error, el usuario no tiene un cuestionario a completar asociado a esa cuenta.\n");
                 }
             }
             catch (Exception ex){
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -267,7 +279,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
            
         }
@@ -324,11 +336,38 @@ namespace CLogica.Gestores
         {
             try
             {
-                return cand.Cuestionario.Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
+                return this.obtenerCuestionariosDB(cand).Where(cu => (cu.Estado_Cuestionario.Where(est => (est.estadoActual == "En Proceso" || est.estadoActual == "Activo") && est.fecha_mod == cu.Estado_Cuestionario.Max(estado => estado.fecha_mod))).Count() > 0).FirstOrDefault();
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
+            }
+        }
+
+        public List<Cuestionario> obtenerCuestionariosDB(Candidato cand)
+        {
+            try
+            {
+                CuestionarioDAO clog = new CuestionarioDB();
+                return clog.obtenerCuestionariosDB(cand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Cuestionario obtenerCuestionarioDB(int idCuest)
+        {
+            try
+            {
+                CuestionarioDAO clog = new CuestionarioDB();
+                return clog.obtenerCuestionarioDB(idCuest);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -342,7 +381,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -364,7 +403,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -377,7 +416,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -390,7 +429,7 @@ namespace CLogica.Gestores
             }
             catch(Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -403,7 +442,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 
@@ -416,7 +455,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public bool verificarCuestionariosActivos(Candidato ca)
@@ -439,7 +478,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

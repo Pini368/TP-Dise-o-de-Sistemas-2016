@@ -160,6 +160,7 @@
             this.Text = "Intrucciones de Cuestionario";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f21_CuestionarioInstrucciones_FormClosed);
             this.Load += new System.EventHandler(this.f21_CuestionarioInstrucciones_Load);
+            this.VisibleChanged += new System.EventHandler(this.f21_CuestionarioInstrucciones_VisibleChanged);
             this.pnMovForm.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

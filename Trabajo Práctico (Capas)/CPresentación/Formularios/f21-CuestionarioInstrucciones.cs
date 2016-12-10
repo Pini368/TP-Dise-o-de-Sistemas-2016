@@ -14,6 +14,7 @@ namespace Trabajo_práctico
 {
     public partial class f21_CuestionarioInstrucciones : Form
     {
+        bool completandoCuestionario = false;
         public f21_CuestionarioInstrucciones()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace Trabajo_práctico
 
         private void button4_Click(object sender, EventArgs e)
         {
+            completandoCuestionario = true;
             this.Hide();
             f22Cuestionario cu = new f22Cuestionario();
             cu.Show(this);
@@ -28,7 +30,6 @@ namespace Trabajo_práctico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Owner.Show();
             this.Close();
         }
 
@@ -49,6 +50,13 @@ namespace Trabajo_práctico
         private void f21_CuestionarioInstrucciones_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();
+        }
+
+        private void f21_CuestionarioInstrucciones_VisibleChanged(object sender, EventArgs e)
+        {
+            if(this.Visible && completandoCuestionario) {
+                this.Close();
+            }
         }
     }
 }

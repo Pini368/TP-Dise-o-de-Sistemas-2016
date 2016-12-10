@@ -122,6 +122,7 @@
             // tbClave
             // 
             this.tbClave.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbClave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbClave.Location = new System.Drawing.Point(80, 110);
             this.tbClave.Margin = new System.Windows.Forms.Padding(2);
             this.tbClave.Name = "tbClave";
@@ -143,6 +144,7 @@
             // tbTipo
             // 
             this.tbTipo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbTipo.Location = new System.Drawing.Point(80, 29);
             this.tbTipo.Margin = new System.Windows.Forms.Padding(2);
             this.tbTipo.Name = "tbTipo";

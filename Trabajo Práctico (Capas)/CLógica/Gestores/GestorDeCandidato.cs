@@ -34,7 +34,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public List<Candidato> getCandidatos(string apellido, string nombre, string nroCandidato)
@@ -102,7 +102,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

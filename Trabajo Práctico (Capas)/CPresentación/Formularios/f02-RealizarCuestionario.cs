@@ -15,6 +15,7 @@ namespace Trabajo_práctico
     public partial class f2_RealizarCuestionario : Form
     {
         bool exito;
+
         public f2_RealizarCuestionario()
         {
             InitializeComponent();
@@ -71,9 +72,19 @@ namespace Trabajo_práctico
                     exito = GestorDeAutenticacion.autenticarUsuario(cand);
                     if (exito == true)
                     {
-                        this.Hide();
-                        f21_CuestionarioInstrucciones cui = new f21_CuestionarioInstrucciones();
-                        cui.Show(this);
+                        GestorDeCuestionario clogCuest = new GestorDeCuestionario();
+                        if(clogCuest.obtenerUltimoEstado(clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual())).ToUpper() == "ACTIVO")
+                        {
+                            this.Hide();
+                            f21_CuestionarioInstrucciones cui = new f21_CuestionarioInstrucciones();
+                            cui.Show(this);
+                        }
+                        else
+                        {
+                            this.Hide();
+                            f22Cuestionario cu = new f22Cuestionario();
+                            cu.Show(this);
+                        }
                     }
                     else
                     {

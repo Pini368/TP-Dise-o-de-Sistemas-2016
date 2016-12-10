@@ -23,7 +23,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

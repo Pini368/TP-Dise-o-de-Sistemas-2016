@@ -26,7 +26,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public List<Competencia> getCompetencias()
@@ -40,7 +40,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 

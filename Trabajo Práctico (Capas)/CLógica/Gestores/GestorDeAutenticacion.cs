@@ -29,7 +29,7 @@ namespace CLogica.Gestores
             try
             {
                 CandidatoDAO cdatosC = new CandidatoDB();
-                Expression<Func<Candidato, bool>> filtro = (ca => ca.nro_documento == cand.nro_documento && ca.tipo_documento == cand.tipo_documento);
+                Expression<Func<Candidato, bool>> filtro = (ca => ca.nro_documento == cand.nro_documento && ca.tipo_documento.ToUpper() == cand.tipo_documento);
                 List<Candidato> lc = cdatosC.getCandidatos(filtro);
                 if (lc.Count() == 1)
                 {
@@ -54,7 +54,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
 
         }
@@ -74,7 +74,7 @@ namespace CLogica.Gestores
                 }
             }
             catch (Exception ex){
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
 

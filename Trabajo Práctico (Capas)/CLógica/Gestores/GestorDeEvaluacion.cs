@@ -21,7 +21,7 @@ namespace CLogica.Gestores
                 return cdatos.getEvaluaciones(idEvaluacion);
             }
             catch(Exception ex){
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void exportarAExcel(Evaluacion ev, DataGridView TuDataGrid,FolderBrowserDialog ubicacion)
@@ -63,7 +63,7 @@ namespace CLogica.Gestores
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
     }

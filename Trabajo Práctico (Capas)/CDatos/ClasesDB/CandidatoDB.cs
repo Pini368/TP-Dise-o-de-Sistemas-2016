@@ -11,6 +11,7 @@ namespace CDatos.ClasesDB
 {
     public class CandidatoDB : CandidatoDAO
     {
+
         public Candidato getCandidatos(int idCandidato)
         {
             try
@@ -22,7 +23,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public List<Candidato> getCandidatos(Expression<Func<Candidato, bool>> filtro)
@@ -43,7 +44,7 @@ namespace CDatos.ClasesDB
             }
             catch (Exception ex)
             {
-                throw new ExceptionPersonalizada(ex.Message);
+                throw ex;
             }
         }
         public void cambiarContraseña(List<Candidato> listCandidato, TPDiseñoEntities db)

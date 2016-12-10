@@ -50,6 +50,7 @@
             this.pnDatos = new System.Windows.Forms.Panel();
             this.tbTiempoRestante = new System.Windows.Forms.TextBox();
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.pnMovForm.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnOpciones.SuspendLayout();
@@ -57,6 +58,7 @@
             this.tbcPreguntas.SuspendLayout();
             this.tbpPregunta1.SuspendLayout();
             this.pnDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNroBloquePreg
@@ -239,11 +241,14 @@
             // lsbRespuestas1
             // 
             this.lsbRespuestas1.FormattingEnabled = true;
+            this.lsbRespuestas1.HorizontalScrollbar = true;
             this.lsbRespuestas1.ItemHeight = 17;
             this.lsbRespuestas1.Location = new System.Drawing.Point(141, 123);
             this.lsbRespuestas1.Name = "lsbRespuestas1";
+            this.lsbRespuestas1.ScrollAlwaysVisible = true;
             this.lsbRespuestas1.Size = new System.Drawing.Size(521, 89);
             this.lsbRespuestas1.TabIndex = 5;
+            this.lsbRespuestas1.SelectedIndexChanged += new System.EventHandler(this.lsbRespuestas1_SelectedIndexChanged);
             // 
             // lbRespuestas
             // 
@@ -339,6 +344,7 @@
             this.tbpPregunta1.ResumeLayout(false);
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,5 +372,6 @@
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.TextBox tbTiempoRestante;
         private System.Windows.Forms.Timer Temporizador;
+        private System.Windows.Forms.BindingSource bindingSource2;
     }
 }

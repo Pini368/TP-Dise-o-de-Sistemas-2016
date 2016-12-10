@@ -323,6 +323,7 @@
             this.tbNroCandidato.Size = new System.Drawing.Size(254, 23);
             this.tbNroCandidato.TabIndex = 2;
             this.tbNroCandidato.TextChanged += new System.EventHandler(this.tbNroCandidato_TextChanged);
+            this.tbNroCandidato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNroCandidato_KeyPress);
             // 
             // tbNombre
             // 

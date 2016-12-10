@@ -163,7 +163,8 @@ namespace CLogica.Gestores
                 GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
 
                 int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
-                if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido)
+                int cantAccesosMaxima = clogTablaPar.obtenerParametroEntero("CantAccesosMaxima");
+                if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds < tiempoPermitido && cuest.cantidad_accesos < cantAccesosMaxima )
                 {
                     evaluacion = clogEval.getEvaluaciones(cuest.id_evaluacion.Value);
                     if (this.obtenerUltimoEstado(cuest) == "Activo")
@@ -191,7 +192,17 @@ namespace CLogica.Gestores
                     {
                         this.modificarEstado(cuest, "Incompleto");
                     }
-                    throw new ExceptionPersonalizada("Se ha excedido el tiempo para completar el cuestiopnario.");
+                    string mensaje = "\n";
+                    if ((DateTime.Now - cuest.fecha_inicio.Value).TotalSeconds >= tiempoPermitido)
+                    {
+                        mensaje += "Se ha excedido el tiempo para completar el cuestiopnario.\n";
+                    }
+                    if (cuest.cantidad_accesos >= cantAccesosMaxima)
+                    {
+                        mensaje += "Se ha excedido la cantidad de accesos permitidos.\n";
+                    }
+                    mensaje = mensaje.Remove(mensaje.LastIndexOf('\n'));
+                    throw new ExceptionPersonalizada(mensaje);
          
                 }
             }

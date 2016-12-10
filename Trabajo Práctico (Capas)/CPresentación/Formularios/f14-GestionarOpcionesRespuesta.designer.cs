@@ -68,6 +68,7 @@
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombre.Location = new System.Drawing.Point(257, 15);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.MaxLength = 20;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(279, 23);
             this.tbNombre.TabIndex = 0;

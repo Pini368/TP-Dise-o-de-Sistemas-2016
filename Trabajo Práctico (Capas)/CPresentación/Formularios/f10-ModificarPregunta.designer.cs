@@ -218,6 +218,7 @@
             this.cmbFactores.FormattingEnabled = true;
             this.cmbFactores.Location = new System.Drawing.Point(120, 30);
             this.cmbFactores.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbFactores.MaxLength = 20;
             this.cmbFactores.Name = "cmbFactores";
             this.cmbFactores.Size = new System.Drawing.Size(429, 25);
             this.cmbFactores.TabIndex = 1;
@@ -249,6 +250,7 @@
             this.tbDescripcionPregunta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbDescripcionPregunta.Location = new System.Drawing.Point(155, 120);
             this.tbDescripcionPregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDescripcionPregunta.MaxLength = 500;
             this.tbDescripcionPregunta.Multiline = true;
             this.tbDescripcionPregunta.Name = "tbDescripcionPregunta";
             this.tbDescripcionPregunta.Size = new System.Drawing.Size(394, 40);
@@ -271,6 +273,7 @@
             this.tbInterrogantePregunta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbInterrogantePregunta.Location = new System.Drawing.Point(137, 79);
             this.tbInterrogantePregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.tbInterrogantePregunta.MaxLength = 200;
             this.tbInterrogantePregunta.Multiline = true;
             this.tbInterrogantePregunta.Name = "tbInterrogantePregunta";
             this.tbInterrogantePregunta.Size = new System.Drawing.Size(412, 40);
@@ -305,6 +308,7 @@
             this.tbNombrePregunta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombrePregunta.Location = new System.Drawing.Point(212, 55);
             this.tbNombrePregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombrePregunta.MaxLength = 30;
             this.tbNombrePregunta.Name = "tbNombrePregunta";
             this.tbNombrePregunta.Size = new System.Drawing.Size(337, 23);
             this.tbNombrePregunta.TabIndex = 2;

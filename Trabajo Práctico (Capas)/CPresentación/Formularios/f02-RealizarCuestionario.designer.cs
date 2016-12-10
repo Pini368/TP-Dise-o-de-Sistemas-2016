@@ -125,6 +125,7 @@
             this.tbClave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbClave.Location = new System.Drawing.Point(80, 110);
             this.tbClave.Margin = new System.Windows.Forms.Padding(2);
+            this.tbClave.MaxLength = 8;
             this.tbClave.Name = "tbClave";
             this.tbClave.PasswordChar = '*';
             this.tbClave.Size = new System.Drawing.Size(264, 23);
@@ -136,6 +137,7 @@
             this.tbNroDto.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNroDto.Location = new System.Drawing.Point(139, 70);
             this.tbNroDto.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNroDto.MaxLength = 8;
             this.tbNroDto.Name = "tbNroDto";
             this.tbNroDto.Size = new System.Drawing.Size(204, 23);
             this.tbNroDto.TabIndex = 1;
@@ -147,6 +149,7 @@
             this.tbTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbTipo.Location = new System.Drawing.Point(80, 29);
             this.tbTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.tbTipo.MaxLength = 4;
             this.tbTipo.Name = "tbTipo";
             this.tbTipo.Size = new System.Drawing.Size(264, 23);
             this.tbTipo.TabIndex = 0;

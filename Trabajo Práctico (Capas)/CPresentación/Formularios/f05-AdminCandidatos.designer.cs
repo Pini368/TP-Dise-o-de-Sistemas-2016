@@ -319,6 +319,7 @@
             this.tbNroCandidato.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNroCandidato.Location = new System.Drawing.Point(208, 57);
             this.tbNroCandidato.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNroCandidato.MaxLength = 8;
             this.tbNroCandidato.Name = "tbNroCandidato";
             this.tbNroCandidato.Size = new System.Drawing.Size(254, 23);
             this.tbNroCandidato.TabIndex = 2;
@@ -330,6 +331,7 @@
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombre.Location = new System.Drawing.Point(182, 30);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.MaxLength = 30;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(280, 23);
             this.tbNombre.TabIndex = 1;
@@ -340,6 +342,7 @@
             this.tbApellido.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbApellido.Location = new System.Drawing.Point(182, 5);
             this.tbApellido.Margin = new System.Windows.Forms.Padding(2);
+            this.tbApellido.MaxLength = 30;
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(280, 23);
             this.tbApellido.TabIndex = 0;

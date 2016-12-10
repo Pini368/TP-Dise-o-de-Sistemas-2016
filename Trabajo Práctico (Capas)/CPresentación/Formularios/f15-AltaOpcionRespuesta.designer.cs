@@ -77,6 +77,7 @@
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombre.Location = new System.Drawing.Point(141, 14);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.MaxLength = 20;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(412, 23);
             this.tbNombre.TabIndex = 0;
@@ -86,6 +87,7 @@
             this.tbDescripcion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbDescripcion.Location = new System.Drawing.Point(159, 41);
             this.tbDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDescripcion.MaxLength = 500;
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(394, 40);
@@ -161,6 +163,7 @@
             this.tbDescripcion1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbDescripcion1.Location = new System.Drawing.Point(41, 235);
             this.tbDescripcion1.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDescripcion1.MaxLength = 500;
             this.tbDescripcion1.Multiline = true;
             this.tbDescripcion1.Name = "tbDescripcion1";
             this.tbDescripcion1.Size = new System.Drawing.Size(232, 111);

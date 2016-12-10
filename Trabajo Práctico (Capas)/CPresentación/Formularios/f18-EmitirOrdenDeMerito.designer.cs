@@ -159,6 +159,7 @@
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombre.Location = new System.Drawing.Point(252, 29);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(347, 23);
             this.tbNombre.TabIndex = 1;
@@ -168,6 +169,7 @@
             this.tbCodigo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbCodigo.Location = new System.Drawing.Point(176, 6);
             this.tbCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCodigo.MaxLength = 20;
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(423, 23);
             this.tbCodigo.TabIndex = 0;
@@ -189,6 +191,7 @@
             this.tbEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbEmpresa.Location = new System.Drawing.Point(187, 54);
             this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
+            this.tbEmpresa.MaxLength = 50;
             this.tbEmpresa.Name = "tbEmpresa";
             this.tbEmpresa.Size = new System.Drawing.Size(412, 23);
             this.tbEmpresa.TabIndex = 2;

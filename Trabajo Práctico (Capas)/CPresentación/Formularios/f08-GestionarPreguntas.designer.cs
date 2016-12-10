@@ -217,6 +217,7 @@
             this.tbPregunta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbPregunta.Location = new System.Drawing.Point(185, 55);
             this.tbPregunta.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPregunta.MaxLength = 30;
             this.tbPregunta.Name = "tbPregunta";
             this.tbPregunta.Size = new System.Drawing.Size(276, 23);
             this.tbPregunta.TabIndex = 2;
@@ -226,6 +227,7 @@
             this.tbFactor.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbFactor.Location = new System.Drawing.Point(170, 30);
             this.tbFactor.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFactor.MaxLength = 20;
             this.tbFactor.Name = "tbFactor";
             this.tbFactor.Size = new System.Drawing.Size(292, 23);
             this.tbFactor.TabIndex = 1;
@@ -235,6 +237,7 @@
             this.tbCompetencia.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbCompetencia.Location = new System.Drawing.Point(214, 5);
             this.tbCompetencia.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCompetencia.MaxLength = 20;
             this.tbCompetencia.Name = "tbCompetencia";
             this.tbCompetencia.Size = new System.Drawing.Size(248, 23);
             this.tbCompetencia.TabIndex = 0;

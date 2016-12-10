@@ -179,6 +179,7 @@
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombre.Location = new System.Drawing.Point(244, 5);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(355, 23);
             this.tbNombre.TabIndex = 0;
@@ -188,6 +189,7 @@
             this.tbEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbEmpresa.Location = new System.Drawing.Point(188, 29);
             this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
+            this.tbEmpresa.MaxLength = 50;
             this.tbEmpresa.Name = "tbEmpresa";
             this.tbEmpresa.Size = new System.Drawing.Size(412, 23);
             this.tbEmpresa.TabIndex = 1;

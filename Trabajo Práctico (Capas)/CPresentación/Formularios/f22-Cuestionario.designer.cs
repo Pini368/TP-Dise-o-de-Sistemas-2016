@@ -73,7 +73,7 @@
             this.lblNroBloquePreg.Name = "lblNroBloquePreg";
             this.lblNroBloquePreg.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblNroBloquePreg.Size = new System.Drawing.Size(448, 33);
-            this.lblNroBloquePreg.TabIndex = 8;
+            this.lblNroBloquePreg.TabIndex = 5;
             this.lblNroBloquePreg.Text = "Bloque Nº XX / Pregunta N° XX";
             // 
             // pnMovForm
@@ -87,7 +87,7 @@
             this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
             this.pnMovForm.Name = "pnMovForm";
             this.pnMovForm.Size = new System.Drawing.Size(375, 41);
-            this.pnMovForm.TabIndex = 5;
+            this.pnMovForm.TabIndex = 1;
             // 
             // btnCancelar
             // 
@@ -136,7 +136,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(740, 24);
-            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
@@ -164,7 +164,7 @@
             this.pnOpciones.Margin = new System.Windows.Forms.Padding(2);
             this.pnOpciones.Name = "pnOpciones";
             this.pnOpciones.Size = new System.Drawing.Size(375, 41);
-            this.pnOpciones.TabIndex = 4;
+            this.pnOpciones.TabIndex = 0;
             // 
             // btnAntPregunta
             // 
@@ -213,7 +213,7 @@
             this.lbTiempoRestante.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTiempoRestante.Name = "lbTiempoRestante";
             this.lbTiempoRestante.Size = new System.Drawing.Size(139, 20);
-            this.lbTiempoRestante.TabIndex = 7;
+            this.lbTiempoRestante.TabIndex = 3;
             this.lbTiempoRestante.Text = "Tiempo restante";
             // 
             // tbPregunta1
@@ -235,7 +235,7 @@
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 18);
-            this.label10.TabIndex = 1;
+            this.label10.TabIndex = 3;
             this.label10.Text = "Pregunta";
             // 
             // lsbRespuestas1
@@ -247,7 +247,8 @@
             this.lsbRespuestas1.Name = "lsbRespuestas1";
             this.lsbRespuestas1.ScrollAlwaysVisible = true;
             this.lsbRespuestas1.Size = new System.Drawing.Size(521, 89);
-            this.lsbRespuestas1.TabIndex = 5;
+            this.lsbRespuestas1.TabIndex = 1;
+            this.lsbRespuestas1.TabStop = false;
             this.lsbRespuestas1.SelectedIndexChanged += new System.EventHandler(this.lsbRespuestas1_SelectedIndexChanged);
             // 
             // lbRespuestas
@@ -259,7 +260,7 @@
             this.lbRespuestas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbRespuestas.Name = "lbRespuestas";
             this.lbRespuestas.Size = new System.Drawing.Size(87, 18);
-            this.lbRespuestas.TabIndex = 6;
+            this.lbRespuestas.TabIndex = 2;
             this.lbRespuestas.Text = "Respuestas";
             // 
             // tbcPreguntas
@@ -269,7 +270,7 @@
             this.tbcPreguntas.Name = "tbcPreguntas";
             this.tbcPreguntas.SelectedIndex = 0;
             this.tbcPreguntas.Size = new System.Drawing.Size(696, 258);
-            this.tbcPreguntas.TabIndex = 11;
+            this.tbcPreguntas.TabIndex = 2;
             this.tbcPreguntas.SelectedIndexChanged += new System.EventHandler(this.tbcPreguntas_SelectedIndexChanged);
             // 
             // tbpPregunta1
@@ -297,7 +298,7 @@
             this.pnDatos.Margin = new System.Windows.Forms.Padding(2);
             this.pnDatos.Name = "pnDatos";
             this.pnDatos.Size = new System.Drawing.Size(681, 225);
-            this.pnDatos.TabIndex = 6;
+            this.pnDatos.TabIndex = 0;
             // 
             // tbTiempoRestante
             // 
@@ -305,7 +306,8 @@
             this.tbTiempoRestante.Name = "tbTiempoRestante";
             this.tbTiempoRestante.ReadOnly = true;
             this.tbTiempoRestante.Size = new System.Drawing.Size(64, 20);
-            this.tbTiempoRestante.TabIndex = 12;
+            this.tbTiempoRestante.TabIndex = 4;
+            this.tbTiempoRestante.TabStop = false;
             this.tbTiempoRestante.Text = "MM:SS";
             this.tbTiempoRestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 

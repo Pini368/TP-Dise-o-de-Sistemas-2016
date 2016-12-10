@@ -126,7 +126,8 @@ namespace Trabajo_práctico
 
             try
             {
-                cuest = clogCuest.empezarCuestionario();
+                cuest = clogCuest.cargarCuestionario();
+                cuest = clogCuest.empezarCuestionario(cuest);
                 GestorDeLogProceso clogProc = new GestorDeLogProceso();
                 LogProcesos log = new LogProcesos();
                 log.id_cuestionario = cuest.id_cuestionario;

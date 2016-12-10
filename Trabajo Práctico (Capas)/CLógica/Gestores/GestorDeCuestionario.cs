@@ -150,8 +150,12 @@ namespace CLogica.Gestores
             }
         }
 
+        public Cuestionario cargarCuestionario()
+        {
+            return this.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
+        }
 
-        public Cuestionario empezarCuestionario()
+        public Cuestionario empezarCuestionario(Cuestionario cuest)
         {
             GestorDeEvaluacion clogEval = new GestorDeEvaluacion();
             GestorDeCandidato clogCand = new GestorDeCandidato();
@@ -159,7 +163,7 @@ namespace CLogica.Gestores
             
             try
             {
-                Cuestionario cuest = this.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
+                
                 GestorTablaDeParametros clogTablaPar = new GestorTablaDeParametros();
 
                 int tiempoPermitido = clogTablaPar.obtenerParametroEntero("TiempoTotalCuest");
@@ -181,7 +185,6 @@ namespace CLogica.Gestores
                             throw new ExceptionPersonalizada("Se ha excedido el tiempo para el estado Activo del cuestionario");
                         }
                     }
-
                     this.agregarAcceso(cuest);
                     return cuest;
                 }

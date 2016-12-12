@@ -14,7 +14,7 @@ namespace CDatos.ClasesDB
         {
             using (TPDiseñoEntities db = new TPDiseñoEntities())
             {
-                return (db.LDAP.Where(ldap => ldap.nombreUsuario == cons.nombreUsuario && ldap.contraseña == contra).Count() == 1);
+                return (db.LDAP.Where(ldap => ldap.nombreUsuario.ToUpper() == cons.nombreUsuario && ldap.contraseña == contra).Count() == 1);
             }
         }
     }

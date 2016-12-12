@@ -129,6 +129,7 @@
             // tbNomUs
             // 
             this.tbNomUs.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbNomUs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbNomUs.Location = new System.Drawing.Point(154, 29);
             this.tbNomUs.Margin = new System.Windows.Forms.Padding(2);
             this.tbNomUs.MaxLength = 15;

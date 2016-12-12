@@ -52,6 +52,7 @@ namespace Trabajo_práctico
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            limpiarCampos();
             Owner.Show();
             this.Close();
         }
@@ -116,7 +117,14 @@ namespace Trabajo_práctico
                 errorString.Remove(errorString.LastIndexOf('\n'));
                 MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            limpiarCampos();
+        }
 
+        private void limpiarCampos()
+        {
+            tbClave.Text = "";
+            tbNroDto.Text = "";
+            tbTipo.Text = "";
         }
 
         private void f2_RealizarCuestionario_FormClosed(object sender, FormClosedEventArgs e)

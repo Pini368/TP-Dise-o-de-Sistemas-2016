@@ -91,6 +91,13 @@ namespace Trabajo_práctico
                 errorString.Remove(errorString.LastIndexOf('\n'));
                 MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            limpiarCampos();
+        }
+
+        private void limpiarCampos()
+        {
+            tbContra.Text = "";
+            tbNomUs.Text = "";
         }
 
         private void ingresoConsultor_Load(object sender, EventArgs e)

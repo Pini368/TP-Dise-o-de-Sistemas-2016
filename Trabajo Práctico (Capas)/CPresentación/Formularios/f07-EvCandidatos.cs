@@ -48,26 +48,34 @@ namespace Trabajo_práctico
 
         private void button4_Click(object sender, EventArgs e)
         {
-            GestorDeCuestionario clogCu = new GestorDeCuestionario();
-            clogCu.finalizar(evaluacion, listaCuest, listaCand);
-            DialogResult dialogResult = MessageBox.Show("¿Desea exportar los datos de los candidatos con sus claves a un archivo Excel?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.No)
+            try
             {
-                Owner.Show();
-                this.Close();
-            }
-            else
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() == DialogResult.OK)
+                GestorDeCuestionario clogCu = new GestorDeCuestionario();
+                DialogResult dialogResult = MessageBox.Show("¿Desea exportar los datos de los candidatos con sus claves a un archivo Excel?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.No)
                 {
-                    GestorExcel clogExc = new GestorExcel();
-                    clogExc.exportarAExcel(evaluacion, dgvCandidatos, fbd);
+                    clogCu.finalizar(evaluacion, listaCuest, listaCand);
+                    Owner.Show();
+                    this.Close();
                 }
-                Owner.Show();
-                this.Close();
-            }
+                else
+                {
+                    FolderBrowserDialog fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        GestorExcel clogExc = new GestorExcel();
+                        clogExc.exportarAExcel(evaluacion, dgvCandidatos, fbd);
+                        clogCu.finalizar(evaluacion, listaCuest, listaCand);
+                        Owner.Show();
+                        this.Close();
+                    }
+                }
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(("Se ha producido un error:\n" + ex.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -821,7 +821,7 @@
           </Key>
           <Property Name="id_parametro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valor" Type="String" MaxLength="1200" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="ValorRespuesta">
           <Key>

@@ -90,7 +90,7 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre == nombre);
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre.StartsWith(nombre));
                 return cdP.getPuestos(filtro).First();
             }
             catch(Exception ex)
@@ -160,11 +160,11 @@ namespace CLogica.Gestores
                     {
                         if (codigo == -1)
                         {
-                            filtro = (pu => pu.empresa == empresa);
+                            filtro = (pu => pu.empresa.StartsWith(empresa));
                         }
                         else
                         {
-                            filtro = (pu => pu.empresa == empresa && pu.codigo_puesto == codigo);
+                            filtro = (pu => pu.empresa.StartsWith(empresa) && pu.codigo_puesto == codigo);
                         }
                     }
                 }
@@ -174,22 +174,22 @@ namespace CLogica.Gestores
                     {
                         if (codigo == -1)
                         {
-                            filtro = (pu => pu.nombre == nombre);
+                            filtro = (pu => pu.nombre.StartsWith(nombre));
                         }
                         else
                         {
-                            filtro = (pu => pu.nombre == nombre && pu.codigo_puesto == codigo);
+                            filtro = (pu => pu.nombre.StartsWith(nombre) && pu.codigo_puesto == codigo);
                         }
                     }
                     else
                     {
                         if (codigo == -1)
                         {
-                            filtro = (pu => pu.nombre == nombre && pu.empresa == empresa);
+                            filtro = (pu => pu.nombre.StartsWith(nombre) && pu.empresa.StartsWith(empresa));
                         }
                         else
                         {
-                            filtro = (pu => pu.nombre == nombre && pu.empresa == empresa && pu.codigo_puesto == codigo);
+                            filtro = (pu => pu.nombre.StartsWith(nombre) && pu.empresa.StartsWith(empresa) && pu.codigo_puesto == codigo);
                         }
                     }
                 }
@@ -206,7 +206,7 @@ namespace CLogica.Gestores
             try
             {
                 Expression<Func<Puesto, bool>> filtro;
-                filtro = (pu => pu.nombre == nombre || pu.codigo_puesto == codigo);
+                filtro = (pu => pu.nombre.StartsWith(nombre) || pu.codigo_puesto == codigo);
                 return cdP.getPuestos(filtro);
             }
             catch (Exception ex)
@@ -221,7 +221,7 @@ namespace CLogica.Gestores
             try
             {
                 Expression<Func<Puesto, bool>> filtro;
-                filtro = (pu => pu.nombre == nombre && pu.codigo_puesto != codigo);
+                filtro = (pu => pu.nombre.StartsWith(nombre) && pu.codigo_puesto != codigo);
                 return cdP.getPuestos(filtro);
             }
             catch (Exception ex)
@@ -235,7 +235,7 @@ namespace CLogica.Gestores
             PuestoDAO cdP = new PuestoDB();
             try
             {
-                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre == nombre);
+                Expression<Func<Puesto, bool>> filtro = (pu => pu.codigo_puesto == codigo && pu.nombre.StartsWith(nombre));
                 return cdP.getPuestos(filtro).First();
             }
             catch (Exception ex)

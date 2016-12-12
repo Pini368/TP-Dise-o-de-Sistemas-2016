@@ -438,7 +438,6 @@
             this.panel_EC.Size = new System.Drawing.Size(564, 415);
             this.panel_EC.TabIndex = 1;
             this.panel_EC.Visible = false;
-            this.panel_EC.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnBajar
             // 
@@ -497,6 +496,7 @@
             this.Text = "Administración de candidatos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f5_AdminCandidatos_FormClosed);
             this.Load += new System.EventHandler(this.f5_AdminCandidatos_Load);
+            this.VisibleChanged += new System.EventHandler(this.f5_AdminCandidatos_VisibleChanged);
             this.pnOpciones.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -34,11 +34,11 @@ namespace CDatos.ClasesDB
                 {
                     if (filtro != null)
                     {
-                        return db.Candidato.Include("Cuestionario.Estado_Cuestionario").Include("Cuestionario.Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Cuestionario.Bloque.ItemBloque.Respuesta.ValorRespuesta").Where(filtro).ToList();
+                        return db.Candidato.Include("Cuestionario.Estado_Cuestionario").Include("Cuestionario.Bloque.ItemBloque.Pregunta.Factor.Competencia").Include("Cuestionario.Bloque.ItemBloque.Respuesta.ValorRespuesta").Where(filtro).OrderBy(cand => cand.nombre).OrderBy(cand => cand.apellido).ToList();
                     }
                     else
                     {
-                        return db.Candidato.ToList();
+                        return db.Candidato.OrderBy(cand => cand.nombre).OrderBy(cand => cand.apellido).ToList();
                     }
                 }
             }

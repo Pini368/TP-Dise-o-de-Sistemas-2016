@@ -27,11 +27,6 @@ namespace Trabajo_práctico
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -173,6 +168,16 @@ namespace Trabajo_práctico
             
         }
 
+        public void limpiarCampos()
+        {
+            listaCand.Clear();
+            dgvCandidatosAEvaluar.DataSource = null;
+            dgvCandidatosAEvaluar.Rows.Clear();
+            tbApellido.Text = "";
+            tbNombre.Text = "";
+            tbNroCandidato.Text = "";
+        }
+
         private void tbApellido_TextChanged(object sender, EventArgs e)
         {
             GestorDeCandidato clogCand = new GestorDeCandidato();
@@ -263,6 +268,16 @@ namespace Trabajo_práctico
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void f5_AdminCandidatos_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                this.Refresh();
+                limpiarCampos();
+                llenarDataGrid("", "", "", dgvCandidatos);
             }
         }
     }

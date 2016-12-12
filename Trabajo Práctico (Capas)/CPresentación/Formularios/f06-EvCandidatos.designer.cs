@@ -162,11 +162,13 @@
             // 
             this.Competencia.HeaderText = "Competencia";
             this.Competencia.Name = "Competencia";
+            this.Competencia.ReadOnly = true;
             // 
             // Ponderacion
             // 
             this.Ponderacion.HeaderText = "Ponderacion";
             this.Ponderacion.Name = "Ponderacion";
+            this.Ponderacion.ReadOnly = true;
             // 
             // dgvPuestos
             // 
@@ -204,6 +206,7 @@
             this.Text = "Evaluación de candidatos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f6_EvCandidatos_FormClosed);
             this.Load += new System.EventHandler(this.f6_EvCandidatos_Load);
+            this.VisibleChanged += new System.EventHandler(this.f6_EvCandidatos_VisibleChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnMovForm.ResumeLayout(false);

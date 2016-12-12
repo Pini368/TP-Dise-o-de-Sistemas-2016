@@ -16,6 +16,7 @@ namespace Trabajo_práctico
     {
         List<Candidato> listaCand;
         List<Puesto> listaPuestos;
+        bool cerrar = false;
         public f6_EvCandidatos()
         {
             InitializeComponent();
@@ -42,13 +43,6 @@ namespace Trabajo_práctico
             Owner.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos();
-            ev_candidatos2.Show(Owner);
-        }
-
         private void cerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -64,6 +58,7 @@ namespace Trabajo_práctico
         {
             if (dgvPuntajesRequeridos.Rows.Count > 0)
             {
+                cerrar = true;
                 this.Hide();
                 Evaluacion ev = new Evaluacion();
                 //ev.Candidato = listaCand;
@@ -71,7 +66,7 @@ namespace Trabajo_práctico
                 ev.id_puesto = puestoSeleccionado.id_puesto;
                 GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
                 f7_EvCandidatos ev_candidatos2 = new f7_EvCandidatos(ev, listaCand);
-                ev_candidatos2.Show(Owner);
+                ev_candidatos2.Show(this);
             }
             else
             {
@@ -79,10 +74,6 @@ namespace Trabajo_práctico
             }
         }
 
-        private void f6_EvCandidatos_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Owner.Show();
-        }
 
         private void f6_EvCandidatos_Load(object sender, EventArgs e)
         {
@@ -139,6 +130,20 @@ namespace Trabajo_práctico
         private void dgvPuntajesRequeridos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void f6_EvCandidatos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Refresh();
+            Owner.Show();
+        }
+
+        private void f6_EvCandidatos_VisibleChanged(object sender, EventArgs e)
+        {
+            if(this.Visible && cerrar)
+            {
+                this.Close();
+            }
         }
     }
 }

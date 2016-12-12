@@ -48,9 +48,8 @@ namespace CLogica.Gestores
                     if(nombre != "")
                     {
                         if(nroCandidato != "")
-                        {
-                            int nroCand = Int32.Parse(nroCandidato);
-                            filtro = (ca => ca.apellido.StartsWith(apellido) && ca.nombre.StartsWith(nombre) && ca.nroCandidato == nroCand);
+                        {                            
+                            filtro = (ca => ca.apellido.StartsWith(apellido) && ca.nombre.StartsWith(nombre) && ca.nroCandidato.ToString().StartsWith(nroCandidato));
                         }
                         else
                         {
@@ -60,9 +59,8 @@ namespace CLogica.Gestores
                     else
                     {
                         if (nroCandidato != "")
-                        {
-                            int nroCand = Int32.Parse(nroCandidato);
-                            filtro = (ca => ca.apellido.StartsWith(apellido) && ca.nroCandidato == nroCand);
+                        { 
+                            filtro = (ca => ca.apellido.StartsWith(apellido) && ca.nroCandidato.ToString().StartsWith(nroCandidato));
                         }
                         else
                         {
@@ -77,8 +75,7 @@ namespace CLogica.Gestores
                     {
                         if (nroCandidato != "")
                         {
-                            int nroCand = Int32.Parse(nroCandidato);
-                            filtro = (ca => ca.nombre.StartsWith(nombre) && ca.nroCandidato == nroCand);
+                            filtro = (ca => ca.nombre.StartsWith(nombre) && ca.nroCandidato.ToString().StartsWith(nroCandidato));
                         }
                         else
                         {
@@ -89,8 +86,7 @@ namespace CLogica.Gestores
                     {
                         if (nroCandidato != "")
                         {
-                            int nroCand = Int32.Parse(nroCandidato);
-                            filtro = (ca => ca.nroCandidato == nroCand);
+                            filtro = (ca => ca.nroCandidato.ToString().StartsWith(nroCandidato));
                         }
                         else
                         {

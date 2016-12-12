@@ -75,7 +75,7 @@ namespace Trabajo_práctico
             }
             else
             {
-                MessageBox.Show("Usted no ha seleccionado ningún puesto a evaluar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Usted no ha seleccionado ningún puesto a evaluar.\nPara seleccionar accione doble click sobre el puesto deseado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -87,6 +87,17 @@ namespace Trabajo_práctico
             {
                 dgv.Rows.Add(cand.apellido, cand.nombre, cand.nroCandidato);
             }
+            foreach (Candidato c in listaCand)
+            {
+                for (int i = 0; i < dgvCandidatos.Rows.Count; i++)
+                {
+                    int nroCandi = (int)dgvCandidatos.Rows[i].Cells[2].Value;
+                    if (nroCandi == c.nroCandidato)
+                    {
+                        dgvCandidatos.Rows.Remove(dgvCandidatos.Rows[i]);
+                    }
+                }
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -159,7 +170,7 @@ namespace Trabajo_práctico
 
         private void f5_AdminCandidatos_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void tbApellido_TextChanged(object sender, EventArgs e)

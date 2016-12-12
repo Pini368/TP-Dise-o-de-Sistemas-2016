@@ -57,6 +57,7 @@
     <Compile Include="Gestores\GestorDePregunta.cs" />
     <Compile Include="Gestores\GestorDePuestos.cs" />
     <Compile Include="Gestores\GestorDeRespuesta.cs" />
+    <Compile Include="Gestores\GestorExcel.cs" />
     <Compile Include="Gestores\GestorTablaDeParametros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

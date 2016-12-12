@@ -49,7 +49,7 @@ namespace Trabajo_práctico
         private void button4_Click(object sender, EventArgs e)
         {
             GestorDeCuestionario clogCu = new GestorDeCuestionario();
-            clogCu.finalizar(evaluacion,listaCuest,listaCand);
+            clogCu.finalizar(evaluacion, listaCuest, listaCand);
             DialogResult dialogResult = MessageBox.Show("¿Desea exportar los datos de los candidatos con sus claves a un archivo Excel?.", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.No)
             {
@@ -61,13 +61,13 @@ namespace Trabajo_práctico
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
-                    GestorDeEvaluacion clogEv = new GestorDeEvaluacion();
-                    clogEv.exportarAExcel(evaluacion, dgvCandidatos, fbd);
+                    GestorExcel clogExc = new GestorExcel();
+                    clogExc.exportarAExcel(evaluacion, dgvCandidatos, fbd);
                 }
                 Owner.Show();
                 this.Close();
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace Trabajo_práctico
         {
             GestorDeCuestionario clogCu = new GestorDeCuestionario();
             listaCuest = clogCu.generarCuestionarios(evaluacion, listaCand);
-            dgvCandidatos.DataSource = listaCand.Select(ca => new { ca.apellido,ca.nombre,ca.tipo_documento,ca.nro_documento,ca.contraseña }).ToList();
+            dgvCandidatos.DataSource = listaCand.Select(ca => new { ca.apellido, ca.nombre, ca.tipo_documento, ca.nro_documento, ca.contraseña }).ToList();
             dgvCandidatos.Columns[0].HeaderText = "Apellido";
             dgvCandidatos.Columns[1].HeaderText = "Nombre";
             dgvCandidatos.Columns[2].HeaderText = "Tipo de documento";

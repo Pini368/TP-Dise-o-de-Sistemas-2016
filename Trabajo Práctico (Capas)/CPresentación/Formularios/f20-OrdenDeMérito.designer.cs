@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.pnMovForm = new System.Windows.Forms.Panel();
@@ -84,7 +82,6 @@
             this.btnEvaluacionesIncompletas = new System.Windows.Forms.Button();
             this.btnTodasEvaluaciones = new System.Windows.Forms.Button();
             this.pnOpciones = new System.Windows.Forms.Panel();
-            this.menuStrip1.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             this.p_com_apr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosCumplieron)).BeginInit();
@@ -97,29 +94,13 @@
             this.pnOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrarProgramaToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.archivoToolStripMenuItem.Text = "Sesión";
-            // 
-            // cerrarProgramaToolStripMenuItem
-            // 
-            this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,11 +111,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(250, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(333, 32);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(240, 33);
+            this.label1.Size = new System.Drawing.Size(302, 42);
             this.label1.TabIndex = 6;
             this.label1.Text = "Orden de Mérito";
             // 
@@ -145,10 +125,10 @@
             this.pnMovForm.Controls.Add(this.btnCerrar);
             this.pnMovForm.Controls.Add(this.btnImprimir);
             this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnMovForm.Location = new System.Drawing.Point(204, 406);
-            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Location = new System.Drawing.Point(272, 500);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnMovForm.Name = "pnMovForm";
-            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.Size = new System.Drawing.Size(500, 50);
             this.pnMovForm.TabIndex = 1;
             // 
             // btnCerrar
@@ -160,11 +140,11 @@
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCerrar.Location = new System.Drawing.Point(52, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(69, 5);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(112, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(149, 39);
             this.btnCerrar.TabIndex = 1;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
@@ -179,11 +159,11 @@
             this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnImprimir.Location = new System.Drawing.Point(210, 4);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(280, 5);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(112, 32);
+            this.btnImprimir.Size = new System.Drawing.Size(149, 39);
             this.btnImprimir.TabIndex = 0;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -194,10 +174,10 @@
             this.p_com_apr.BackColor = System.Drawing.Color.Transparent;
             this.p_com_apr.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
             this.p_com_apr.Controls.Add(this.dgvCompletosCumplieron);
-            this.p_com_apr.Location = new System.Drawing.Point(218, 128);
-            this.p_com_apr.Margin = new System.Windows.Forms.Padding(2);
+            this.p_com_apr.Location = new System.Drawing.Point(291, 158);
+            this.p_com_apr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_com_apr.Name = "p_com_apr";
-            this.p_com_apr.Size = new System.Drawing.Size(169, 275);
+            this.p_com_apr.Size = new System.Drawing.Size(225, 338);
             this.p_com_apr.TabIndex = 3;
             this.p_com_apr.Visible = false;
             this.p_com_apr.Paint += new System.Windows.Forms.PaintEventHandler(this.p_com_apr_Paint);
@@ -215,9 +195,10 @@
             this.dataGridViewTextBoxColumn22,
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24});
-            this.dgvCompletosCumplieron.Location = new System.Drawing.Point(3, 4);
+            this.dgvCompletosCumplieron.Location = new System.Drawing.Point(4, 5);
+            this.dgvCompletosCumplieron.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCompletosCumplieron.Name = "dgvCompletosCumplieron";
-            this.dgvCompletosCumplieron.Size = new System.Drawing.Size(669, 269);
+            this.dgvCompletosCumplieron.Size = new System.Drawing.Size(892, 331);
             this.dgvCompletosCumplieron.TabIndex = 0;
             this.dgvCompletosCumplieron.TabStop = false;
             // 
@@ -278,10 +259,10 @@
             this.p_com_desapr.BackColor = System.Drawing.Color.Transparent;
             this.p_com_desapr.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
             this.p_com_desapr.Controls.Add(this.dgvCompletosNoCumplieron);
-            this.p_com_desapr.Location = new System.Drawing.Point(389, 128);
-            this.p_com_desapr.Margin = new System.Windows.Forms.Padding(2);
+            this.p_com_desapr.Location = new System.Drawing.Point(519, 158);
+            this.p_com_desapr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_com_desapr.Name = "p_com_desapr";
-            this.p_com_desapr.Size = new System.Drawing.Size(169, 275);
+            this.p_com_desapr.Size = new System.Drawing.Size(225, 338);
             this.p_com_desapr.TabIndex = 4;
             this.p_com_desapr.Visible = false;
             // 
@@ -298,9 +279,10 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.Column9});
-            this.dgvCompletosNoCumplieron.Location = new System.Drawing.Point(3, 3);
+            this.dgvCompletosNoCumplieron.Location = new System.Drawing.Point(4, 4);
+            this.dgvCompletosNoCumplieron.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCompletosNoCumplieron.Name = "dgvCompletosNoCumplieron";
-            this.dgvCompletosNoCumplieron.Size = new System.Drawing.Size(669, 269);
+            this.dgvCompletosNoCumplieron.Size = new System.Drawing.Size(892, 331);
             this.dgvCompletosNoCumplieron.TabIndex = 0;
             this.dgvCompletosNoCumplieron.TabStop = false;
             this.dgvCompletosNoCumplieron.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
@@ -362,10 +344,10 @@
             this.p_incomp.BackColor = System.Drawing.Color.Transparent;
             this.p_incomp.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
             this.p_incomp.Controls.Add(this.dgvIncompletos);
-            this.p_incomp.Location = new System.Drawing.Point(560, 128);
-            this.p_incomp.Margin = new System.Windows.Forms.Padding(2);
+            this.p_incomp.Location = new System.Drawing.Point(747, 158);
+            this.p_incomp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_incomp.Name = "p_incomp";
-            this.p_incomp.Size = new System.Drawing.Size(169, 275);
+            this.p_incomp.Size = new System.Drawing.Size(225, 338);
             this.p_incomp.TabIndex = 5;
             this.p_incomp.Visible = false;
             // 
@@ -381,9 +363,10 @@
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.Column10});
-            this.dgvIncompletos.Location = new System.Drawing.Point(3, 3);
+            this.dgvIncompletos.Location = new System.Drawing.Point(4, 4);
+            this.dgvIncompletos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvIncompletos.Name = "dgvIncompletos";
-            this.dgvIncompletos.Size = new System.Drawing.Size(669, 269);
+            this.dgvIncompletos.Size = new System.Drawing.Size(892, 331);
             this.dgvIncompletos.TabIndex = 0;
             this.dgvIncompletos.TabStop = false;
             this.dgvIncompletos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
@@ -439,10 +422,10 @@
             this.p_com_all.BackColor = System.Drawing.Color.Transparent;
             this.p_com_all.BackgroundImage = global::CPresentación.Properties.Resources.Fondo1;
             this.p_com_all.Controls.Add(this.dgvTodas);
-            this.p_com_all.Location = new System.Drawing.Point(38, 127);
-            this.p_com_all.Margin = new System.Windows.Forms.Padding(2);
+            this.p_com_all.Location = new System.Drawing.Point(51, 156);
+            this.p_com_all.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_com_all.Name = "p_com_all";
-            this.p_com_all.Size = new System.Drawing.Size(679, 275);
+            this.p_com_all.Size = new System.Drawing.Size(905, 338);
             this.p_com_all.TabIndex = 2;
             this.p_com_all.Visible = false;
             // 
@@ -460,9 +443,10 @@
             this.Column11,
             this.dataGridViewTextBoxColumn32,
             this.dataGridViewTextBoxColumn33});
-            this.dgvTodas.Location = new System.Drawing.Point(0, 5);
+            this.dgvTodas.Location = new System.Drawing.Point(0, 6);
+            this.dgvTodas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTodas.Name = "dgvTodas";
-            this.dgvTodas.Size = new System.Drawing.Size(669, 269);
+            this.dgvTodas.Size = new System.Drawing.Size(892, 331);
             this.dgvTodas.TabIndex = 0;
             this.dgvTodas.TabStop = false;
             this.dgvTodas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTodas_CellContentClick);
@@ -537,13 +521,13 @@
             this.btnCompletosCumplieron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCompletosCumplieron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCompletosCumplieron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompletosCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCompletosCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompletosCumplieron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCompletosCumplieron.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCompletosCumplieron.Location = new System.Drawing.Point(188, 2);
-            this.btnCompletosCumplieron.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCompletosCumplieron.Location = new System.Drawing.Point(251, 2);
+            this.btnCompletosCumplieron.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCompletosCumplieron.Name = "btnCompletosCumplieron";
-            this.btnCompletosCumplieron.Size = new System.Drawing.Size(169, 53);
+            this.btnCompletosCumplieron.Size = new System.Drawing.Size(225, 65);
             this.btnCompletosCumplieron.TabIndex = 1;
             this.btnCompletosCumplieron.Text = "Completos que cumplieron";
             this.btnCompletosCumplieron.UseVisualStyleBackColor = false;
@@ -559,13 +543,13 @@
             this.btnCompletosNoCumplieron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCompletosNoCumplieron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCompletosNoCumplieron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompletosNoCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCompletosNoCumplieron.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompletosNoCumplieron.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCompletosNoCumplieron.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCompletosNoCumplieron.Location = new System.Drawing.Point(361, 2);
-            this.btnCompletosNoCumplieron.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCompletosNoCumplieron.Location = new System.Drawing.Point(481, 2);
+            this.btnCompletosNoCumplieron.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCompletosNoCumplieron.Name = "btnCompletosNoCumplieron";
-            this.btnCompletosNoCumplieron.Size = new System.Drawing.Size(169, 53);
+            this.btnCompletosNoCumplieron.Size = new System.Drawing.Size(225, 65);
             this.btnCompletosNoCumplieron.TabIndex = 2;
             this.btnCompletosNoCumplieron.Text = "Completos que no cumplieron \r\ncon la ponderación mínima";
             this.btnCompletosNoCumplieron.UseVisualStyleBackColor = false;
@@ -581,13 +565,13 @@
             this.btnEvaluacionesIncompletas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnEvaluacionesIncompletas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnEvaluacionesIncompletas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvaluacionesIncompletas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEvaluacionesIncompletas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvaluacionesIncompletas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnEvaluacionesIncompletas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEvaluacionesIncompletas.Location = new System.Drawing.Point(534, 2);
-            this.btnEvaluacionesIncompletas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEvaluacionesIncompletas.Location = new System.Drawing.Point(712, 2);
+            this.btnEvaluacionesIncompletas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEvaluacionesIncompletas.Name = "btnEvaluacionesIncompletas";
-            this.btnEvaluacionesIncompletas.Size = new System.Drawing.Size(169, 53);
+            this.btnEvaluacionesIncompletas.Size = new System.Drawing.Size(225, 65);
             this.btnEvaluacionesIncompletas.TabIndex = 3;
             this.btnEvaluacionesIncompletas.Text = "Evaluaciones Incompletas";
             this.btnEvaluacionesIncompletas.UseVisualStyleBackColor = false;
@@ -603,13 +587,13 @@
             this.btnTodasEvaluaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnTodasEvaluaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnTodasEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTodasEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnTodasEvaluaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTodasEvaluaciones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnTodasEvaluaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTodasEvaluaciones.Location = new System.Drawing.Point(14, 2);
-            this.btnTodasEvaluaciones.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTodasEvaluaciones.Location = new System.Drawing.Point(19, 2);
+            this.btnTodasEvaluaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTodasEvaluaciones.Name = "btnTodasEvaluaciones";
-            this.btnTodasEvaluaciones.Size = new System.Drawing.Size(169, 53);
+            this.btnTodasEvaluaciones.Size = new System.Drawing.Size(225, 65);
             this.btnTodasEvaluaciones.TabIndex = 0;
             this.btnTodasEvaluaciones.Text = "Todas las evaluaciones";
             this.btnTodasEvaluaciones.UseVisualStyleBackColor = false;
@@ -623,20 +607,20 @@
             this.pnOpciones.Controls.Add(this.btnEvaluacionesIncompletas);
             this.pnOpciones.Controls.Add(this.btnCompletosNoCumplieron);
             this.pnOpciones.Controls.Add(this.btnCompletosCumplieron);
-            this.pnOpciones.Location = new System.Drawing.Point(17, 61);
-            this.pnOpciones.Margin = new System.Windows.Forms.Padding(2);
+            this.pnOpciones.Location = new System.Drawing.Point(23, 75);
+            this.pnOpciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnOpciones.Name = "pnOpciones";
-            this.pnOpciones.Size = new System.Drawing.Size(712, 58);
+            this.pnOpciones.Size = new System.Drawing.Size(949, 71);
             this.pnOpciones.TabIndex = 0;
             this.pnOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // f20_OrdenDeMérito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(740, 461);
+            this.ClientSize = new System.Drawing.Size(984, 558);
             this.Controls.Add(this.p_incomp);
             this.Controls.Add(this.p_com_desapr);
             this.Controls.Add(this.pnOpciones);
@@ -645,16 +629,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.p_com_all);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(756, 500);
-            this.MinimumSize = new System.Drawing.Size(756, 500);
+            this.MaximumSize = new System.Drawing.Size(1002, 605);
+            this.MinimumSize = new System.Drawing.Size(1002, 605);
             this.Name = "f20_OrdenDeMérito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orden de Mérito";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.f20_OrdenDeMérito_FormClosed);
             this.Load += new System.EventHandler(this.ordenDeMérito_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pnMovForm.ResumeLayout(false);
             this.p_com_apr.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletosCumplieron)).EndInit();
@@ -671,8 +654,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnMovForm;

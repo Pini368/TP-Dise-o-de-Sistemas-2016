@@ -34,10 +34,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pnMovForm = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnMovForm.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -47,21 +44,21 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(154, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(205, 28);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(437, 33);
+            this.label1.Size = new System.Drawing.Size(548, 42);
             this.label1.TabIndex = 2;
             this.label1.Text = "Instrucciones del Cuestionario";
             // 
             // tbInstrucciones
             // 
-            this.tbInstrucciones.Location = new System.Drawing.Point(35, 62);
+            this.tbInstrucciones.Location = new System.Drawing.Point(47, 76);
+            this.tbInstrucciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbInstrucciones.Multiline = true;
             this.tbInstrucciones.Name = "tbInstrucciones";
             this.tbInstrucciones.ReadOnly = true;
-            this.tbInstrucciones.Size = new System.Drawing.Size(673, 338);
+            this.tbInstrucciones.Size = new System.Drawing.Size(896, 415);
             this.tbInstrucciones.TabIndex = 1;
             this.tbInstrucciones.TabStop = false;
             // 
@@ -74,11 +71,11 @@
             this.btnAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAceptar.Location = new System.Drawing.Point(210, 4);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(280, 5);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(112, 32);
+            this.btnAceptar.Size = new System.Drawing.Size(149, 39);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -93,11 +90,11 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.Location = new System.Drawing.Point(52, 4);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(69, 5);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 39);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -110,51 +107,36 @@
             this.pnMovForm.Controls.Add(this.btnCancelar);
             this.pnMovForm.Controls.Add(this.btnAceptar);
             this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnMovForm.Location = new System.Drawing.Point(189, 404);
-            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Location = new System.Drawing.Point(252, 497);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnMovForm.Name = "pnMovForm";
-            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.Size = new System.Drawing.Size(500, 50);
             this.pnMovForm.TabIndex = 0;
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrarProgramaToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.archivoToolStripMenuItem.Text = "Sesión";
-            // 
-            // cerrarProgramaToolStripMenuItem
-            // 
-            this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
-            // 
             // f21_CuestionarioInstrucciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(740, 462);
+            this.ClientSize = new System.Drawing.Size(984, 559);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnMovForm);
             this.Controls.Add(this.tbInstrucciones);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(756, 501);
-            this.MinimumSize = new System.Drawing.Size(756, 501);
+            this.MaximumSize = new System.Drawing.Size(1002, 606);
+            this.MinimumSize = new System.Drawing.Size(1002, 606);
             this.Name = "f21_CuestionarioInstrucciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intrucciones de Cuestionario";
@@ -162,8 +144,6 @@
             this.Load += new System.EventHandler(this.f21_CuestionarioInstrucciones_Load);
             this.VisibleChanged += new System.EventHandler(this.f21_CuestionarioInstrucciones_VisibleChanged);
             this.pnMovForm.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,7 +157,5 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel pnMovForm;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
     }
 }

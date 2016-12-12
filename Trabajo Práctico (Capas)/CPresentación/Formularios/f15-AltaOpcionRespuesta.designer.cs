@@ -43,8 +43,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBajar = new System.Windows.Forms.Button();
             this.btnSubir = new System.Windows.Forms.Button();
             this.pnOpciones = new System.Windows.Forms.Panel();
@@ -53,7 +51,6 @@
             this.pnDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescripciones)).BeginInit();
             this.pnMovForm.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.pnOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,31 +63,31 @@
             this.pnDatos.Controls.Add(this.label11);
             this.pnDatos.Controls.Add(this.label10);
             this.pnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.pnDatos.Location = new System.Drawing.Point(41, 72);
-            this.pnDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.pnDatos.Location = new System.Drawing.Point(55, 89);
+            this.pnDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnDatos.Name = "pnDatos";
-            this.pnDatos.Size = new System.Drawing.Size(600, 102);
+            this.pnDatos.Size = new System.Drawing.Size(800, 126);
             this.pnDatos.TabIndex = 0;
             // 
             // tbNombre
             // 
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tbNombre.Location = new System.Drawing.Point(141, 14);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.Location = new System.Drawing.Point(188, 17);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNombre.MaxLength = 20;
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(412, 23);
+            this.tbNombre.Size = new System.Drawing.Size(548, 27);
             this.tbNombre.TabIndex = 0;
             // 
             // tbDescripcion
             // 
             this.tbDescripcion.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tbDescripcion.Location = new System.Drawing.Point(159, 41);
-            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDescripcion.Location = new System.Drawing.Point(212, 50);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescripcion.MaxLength = 500;
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(394, 40);
+            this.tbDescripcion.Size = new System.Drawing.Size(524, 48);
             this.tbDescripcion.TabIndex = 1;
             // 
             // label11
@@ -98,10 +95,9 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(72, 41);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(96, 50);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 18);
+            this.label11.Size = new System.Drawing.Size(110, 24);
             this.label11.TabIndex = 3;
             this.label11.Text = "Descripción";
             // 
@@ -110,10 +106,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(72, 17);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(96, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 18);
+            this.label10.Size = new System.Drawing.Size(79, 24);
             this.label10.TabIndex = 2;
             this.label10.Text = "Nombre";
             // 
@@ -124,11 +119,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(165, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(220, 28);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(377, 33);
+            this.label1.Size = new System.Drawing.Size(477, 42);
             this.label1.TabIndex = 8;
             this.label1.Text = "Alta Opción de Respuesta";
             // 
@@ -138,9 +132,10 @@
             this.dgvDescripciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orden,
             this.descripcion});
-            this.dgvDescripciones.Location = new System.Drawing.Point(314, 214);
+            this.dgvDescripciones.Location = new System.Drawing.Point(419, 263);
+            this.dgvDescripciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDescripciones.Name = "dgvDescripciones";
-            this.dgvDescripciones.Size = new System.Drawing.Size(327, 144);
+            this.dgvDescripciones.Size = new System.Drawing.Size(436, 177);
             this.dgvDescripciones.TabIndex = 6;
             this.dgvDescripciones.TabStop = false;
             this.dgvDescripciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -150,7 +145,7 @@
             this.orden.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.orden.HeaderText = "Orden";
             this.orden.Name = "orden";
-            this.orden.Width = 61;
+            this.orden.Width = 77;
             // 
             // descripcion
             // 
@@ -161,12 +156,12 @@
             // tbDescripcion1
             // 
             this.tbDescripcion1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tbDescripcion1.Location = new System.Drawing.Point(41, 235);
-            this.tbDescripcion1.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDescripcion1.Location = new System.Drawing.Point(55, 289);
+            this.tbDescripcion1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescripcion1.MaxLength = 500;
             this.tbDescripcion1.Multiline = true;
             this.tbDescripcion1.Name = "tbDescripcion1";
-            this.tbDescripcion1.Size = new System.Drawing.Size(232, 111);
+            this.tbDescripcion1.Size = new System.Drawing.Size(308, 136);
             this.tbDescripcion1.TabIndex = 1;
             // 
             // label5
@@ -174,10 +169,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(40, 214);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(53, 263);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 18);
+            this.label5.Size = new System.Drawing.Size(121, 24);
             this.label5.TabIndex = 7;
             this.label5.Text = "Descripción";
             // 
@@ -188,10 +182,10 @@
             this.pnMovForm.Controls.Add(this.btnCancelar);
             this.pnMovForm.Controls.Add(this.btnAceptar);
             this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnMovForm.Location = new System.Drawing.Point(183, 405);
-            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Location = new System.Drawing.Point(244, 498);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnMovForm.Name = "pnMovForm";
-            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.Size = new System.Drawing.Size(500, 50);
             this.pnMovForm.TabIndex = 5;
             // 
             // btnCancelar
@@ -203,11 +197,11 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.Location = new System.Drawing.Point(52, 4);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(69, 5);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 39);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -222,11 +216,11 @@
             this.btnAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAceptar.Location = new System.Drawing.Point(210, 4);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(280, 5);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(112, 32);
+            this.btnAceptar.Size = new System.Drawing.Size(149, 39);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -234,28 +228,12 @@
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrarProgramaToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.archivoToolStripMenuItem.Text = "Sesión";
-            // 
-            // cerrarProgramaToolStripMenuItem
-            // 
-            this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             // 
             // btnBajar
             // 
@@ -267,10 +245,10 @@
             this.btnBajar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBajar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnBajar.Location = new System.Drawing.Point(646, 292);
-            this.btnBajar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBajar.Location = new System.Drawing.Point(861, 359);
+            this.btnBajar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBajar.Name = "btnBajar";
-            this.btnBajar.Size = new System.Drawing.Size(30, 32);
+            this.btnBajar.Size = new System.Drawing.Size(40, 39);
             this.btnBajar.TabIndex = 4;
             this.btnBajar.Text = "↓";
             this.btnBajar.UseVisualStyleBackColor = false;
@@ -286,10 +264,10 @@
             this.btnSubir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnSubir.Location = new System.Drawing.Point(646, 258);
-            this.btnSubir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubir.Location = new System.Drawing.Point(861, 318);
+            this.btnSubir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(30, 32);
+            this.btnSubir.Size = new System.Drawing.Size(40, 39);
             this.btnSubir.TabIndex = 3;
             this.btnSubir.Text = "↑";
             this.btnSubir.UseVisualStyleBackColor = false;
@@ -302,10 +280,10 @@
             this.pnOpciones.Controls.Add(this.btnEliminar);
             this.pnOpciones.Controls.Add(this.btnAgregar);
             this.pnOpciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnOpciones.Location = new System.Drawing.Point(44, 361);
-            this.pnOpciones.Margin = new System.Windows.Forms.Padding(2);
+            this.pnOpciones.Location = new System.Drawing.Point(59, 444);
+            this.pnOpciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnOpciones.Name = "pnOpciones";
-            this.pnOpciones.Size = new System.Drawing.Size(598, 41);
+            this.pnOpciones.Size = new System.Drawing.Size(797, 50);
             this.pnOpciones.TabIndex = 2;
             // 
             // btnEliminar
@@ -317,11 +295,11 @@
             this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.Location = new System.Drawing.Point(484, 4);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(645, 5);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(112, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(149, 39);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -336,22 +314,22 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(117, 4);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(156, 5);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(112, 32);
+            this.btnAgregar.Size = new System.Drawing.Size(149, 39);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // AltaOpcionRespuesta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(740, 462);
+            this.ClientSize = new System.Drawing.Size(984, 559);
             this.Controls.Add(this.pnOpciones);
             this.Controls.Add(this.btnBajar);
             this.Controls.Add(this.btnSubir);
@@ -362,9 +340,10 @@
             this.Controls.Add(this.dgvDescripciones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnDatos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(756, 501);
-            this.MinimumSize = new System.Drawing.Size(756, 501);
+            this.MaximumSize = new System.Drawing.Size(1002, 606);
+            this.MinimumSize = new System.Drawing.Size(1002, 606);
             this.Name = "AltaOpcionRespuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaOpcionRespuesta";
@@ -373,8 +352,6 @@
             this.pnDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescripciones)).EndInit();
             this.pnMovForm.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pnOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -396,8 +373,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn orden;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.Button btnBajar;

@@ -39,8 +39,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnDatos = new System.Windows.Forms.Panel();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbEmpresa = new System.Windows.Forms.TextBox();
@@ -52,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuesto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidato)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.pnDatos.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +60,10 @@
             this.dgvPuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreFuncion,
             this.Empresa});
-            this.dgvPuesto.Location = new System.Drawing.Point(38, 124);
+            this.dgvPuesto.Location = new System.Drawing.Point(51, 153);
+            this.dgvPuesto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPuesto.Name = "dgvPuesto";
-            this.dgvPuesto.Size = new System.Drawing.Size(675, 122);
+            this.dgvPuesto.Size = new System.Drawing.Size(900, 150);
             this.dgvPuesto.TabIndex = 2;
             this.dgvPuesto.TabStop = false;
             this.dgvPuesto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -92,9 +90,10 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvCandidato.Location = new System.Drawing.Point(38, 252);
+            this.dgvCandidato.Location = new System.Drawing.Point(51, 310);
+            this.dgvCandidato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCandidato.Name = "dgvCandidato";
-            this.dgvCandidato.Size = new System.Drawing.Size(675, 122);
+            this.dgvCandidato.Size = new System.Drawing.Size(900, 150);
             this.dgvCandidato.TabIndex = 3;
             this.dgvCandidato.TabStop = false;
             this.dgvCandidato.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
@@ -136,28 +135,12 @@
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrarProgramaToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.archivoToolStripMenuItem.Text = "Sesión";
-            // 
-            // cerrarProgramaToolStripMenuItem
-            // 
-            this.cerrarProgramaToolStripMenuItem.Name = "cerrarProgramaToolStripMenuItem";
-            this.cerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             // 
             // pnDatos
             // 
@@ -168,30 +151,30 @@
             this.pnDatos.Controls.Add(this.label10);
             this.pnDatos.Controls.Add(this.label12);
             this.pnDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.pnDatos.Location = new System.Drawing.Point(38, 62);
-            this.pnDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.pnDatos.Location = new System.Drawing.Point(51, 76);
+            this.pnDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnDatos.Name = "pnDatos";
-            this.pnDatos.Size = new System.Drawing.Size(675, 57);
+            this.pnDatos.Size = new System.Drawing.Size(900, 70);
             this.pnDatos.TabIndex = 0;
             // 
             // tbNombre
             // 
             this.tbNombre.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tbNombre.Location = new System.Drawing.Point(244, 5);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNombre.Location = new System.Drawing.Point(325, 6);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(355, 23);
+            this.tbNombre.Size = new System.Drawing.Size(472, 27);
             this.tbNombre.TabIndex = 0;
             // 
             // tbEmpresa
             // 
             this.tbEmpresa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tbEmpresa.Location = new System.Drawing.Point(188, 29);
-            this.tbEmpresa.Margin = new System.Windows.Forms.Padding(2);
+            this.tbEmpresa.Location = new System.Drawing.Point(251, 36);
+            this.tbEmpresa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmpresa.MaxLength = 50;
             this.tbEmpresa.Name = "tbEmpresa";
-            this.tbEmpresa.Size = new System.Drawing.Size(412, 23);
+            this.tbEmpresa.Size = new System.Drawing.Size(548, 27);
             this.tbEmpresa.TabIndex = 1;
             // 
             // label10
@@ -199,10 +182,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(118, 5);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(157, 6);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(136, 18);
+            this.label10.Size = new System.Drawing.Size(173, 24);
             this.label10.TabIndex = 2;
             this.label10.Text = "Nombre del Puesto";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -212,10 +194,9 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(118, 29);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(157, 36);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 18);
+            this.label12.Size = new System.Drawing.Size(86, 24);
             this.label12.TabIndex = 3;
             this.label12.Text = "Empresa";
             // 
@@ -226,10 +207,10 @@
             this.pnMovForm.Controls.Add(this.btnCancelar);
             this.pnMovForm.Controls.Add(this.btnComparar);
             this.pnMovForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnMovForm.Location = new System.Drawing.Point(188, 406);
-            this.pnMovForm.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMovForm.Location = new System.Drawing.Point(251, 500);
+            this.pnMovForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnMovForm.Name = "pnMovForm";
-            this.pnMovForm.Size = new System.Drawing.Size(375, 41);
+            this.pnMovForm.Size = new System.Drawing.Size(500, 50);
             this.pnMovForm.TabIndex = 1;
             // 
             // btnCancelar
@@ -241,11 +222,11 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.Location = new System.Drawing.Point(52, 4);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(69, 5);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 39);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -260,11 +241,11 @@
             this.btnComparar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aquamarine;
             this.btnComparar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnComparar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnComparar.Location = new System.Drawing.Point(210, 4);
-            this.btnComparar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnComparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComparar.Location = new System.Drawing.Point(280, 5);
+            this.btnComparar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnComparar.Name = "btnComparar";
-            this.btnComparar.Size = new System.Drawing.Size(112, 32);
+            this.btnComparar.Size = new System.Drawing.Size(149, 39);
             this.btnComparar.TabIndex = 0;
             this.btnComparar.Text = "Comparar";
             this.btnComparar.UseVisualStyleBackColor = false;
@@ -277,30 +258,30 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(169, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(225, 30);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(402, 33);
+            this.label1.Size = new System.Drawing.Size(501, 42);
             this.label1.TabIndex = 4;
             this.label1.Text = "Emitir Reporte Comparativo";
             // 
             // f17_EmitirRepComparativo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
             this.BackgroundImage = global::CPresentación.Properties.Resources.Fondo;
-            this.ClientSize = new System.Drawing.Size(740, 462);
+            this.ClientSize = new System.Drawing.Size(984, 559);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnMovForm);
             this.Controls.Add(this.pnDatos);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dgvCandidato);
             this.Controls.Add(this.dgvPuesto);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(756, 501);
-            this.MinimumSize = new System.Drawing.Size(756, 501);
+            this.MaximumSize = new System.Drawing.Size(1002, 606);
+            this.MinimumSize = new System.Drawing.Size(1002, 606);
             this.Name = "f17_EmitirRepComparativo";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -309,8 +290,6 @@
             this.Load += new System.EventHandler(this.emitirOrdenComparativa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidato)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();
             this.pnMovForm.ResumeLayout(false);
@@ -331,8 +310,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;

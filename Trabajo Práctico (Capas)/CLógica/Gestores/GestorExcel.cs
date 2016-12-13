@@ -16,7 +16,8 @@ namespace CLogica.Gestores
         public void exportarAExcel(Evaluacion ev, DataGridView TuDataGrid, FolderBrowserDialog ubicacion)
 
         {
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            //Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            var excel = new Microsoft.Office.Interop.Excel.Application();
             excel.Application.Workbooks.Add(true);
             int ColumnIndex = 0;
             foreach (DataGridViewColumn col in TuDataGrid.Columns)

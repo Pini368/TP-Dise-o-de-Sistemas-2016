@@ -30,6 +30,7 @@ namespace Trabajo_práctico
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbCompetencias = new System.Windows.Forms.ComboBox();
             this.tbPonderacion = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -54,9 +55,11 @@ namespace Trabajo_práctico
             this.pnMovForm = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.errorProv = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.pnMovForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCompetencias
@@ -65,7 +68,7 @@ namespace Trabajo_práctico
             this.cbCompetencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCompetencias.FormattingEnabled = true;
             this.cbCompetencias.Location = new System.Drawing.Point(57, 303);
-            this.cbCompetencias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCompetencias.Margin = new System.Windows.Forms.Padding(4);
             this.cbCompetencias.Name = "cbCompetencias";
             this.cbCompetencias.Size = new System.Drawing.Size(160, 24);
             this.cbCompetencias.TabIndex = 1;
@@ -75,7 +78,7 @@ namespace Trabajo_práctico
             // 
             this.tbPonderacion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbPonderacion.Location = new System.Drawing.Point(249, 354);
-            this.tbPonderacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPonderacion.Margin = new System.Windows.Forms.Padding(4);
             this.tbPonderacion.MaxLength = 2;
             this.tbPonderacion.Name = "tbPonderacion";
             this.tbPonderacion.Size = new System.Drawing.Size(48, 22);
@@ -85,7 +88,7 @@ namespace Trabajo_práctico
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 559);
             this.splitter1.TabIndex = 12;
@@ -100,7 +103,7 @@ namespace Trabajo_práctico
             this.Competencia,
             this.Pond});
             this.dgvCaracteristicas.Location = new System.Drawing.Point(389, 331);
-            this.dgvCaracteristicas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCaracteristicas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCaracteristicas.Name = "dgvCaracteristicas";
             this.dgvCaracteristicas.ReadOnly = true;
             this.dgvCaracteristicas.Size = new System.Drawing.Size(581, 105);
@@ -232,7 +235,7 @@ namespace Trabajo_práctico
             this.menuStrip1.Location = new System.Drawing.Point(4, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(980, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(980, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -361,6 +364,12 @@ namespace Trabajo_práctico
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // errorProv
+            // 
+            this.errorProv.BlinkRate = 0;
+            this.errorProv.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProv.ContainerControl = this;
+            // 
             // f12_AltaPuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,7 +389,7 @@ namespace Trabajo_práctico
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.tbPonderacion);
             this.Controls.Add(this.cbCompetencias);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1002, 606);
             this.MinimumSize = new System.Drawing.Size(1002, 606);
@@ -393,6 +402,7 @@ namespace Trabajo_práctico
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();
             this.pnMovForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +438,6 @@ namespace Trabajo_práctico
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.TextBox tbCodigo;
+        private System.Windows.Forms.ErrorProvider errorProv;
     }
 }

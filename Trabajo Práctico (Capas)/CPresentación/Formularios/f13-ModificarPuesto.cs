@@ -235,48 +235,93 @@ namespace Trabajo_práctico.Formularios
                 }
                 else
                 {
-                    string errorString = "";
+                    //string errorString = "";
                     if (tbNombre.Text == "")
                     {
-                        errorString += "No puede dejar el campo nombre vacío.\n";
+                        errorProv.SetError(tbNombre, "No puede dejar el campo nombre vacío.");
+                        //errorString += "No puede dejar el campo nombre vacío.\n";
+                    }
+                    else
+                    {
+                        errorProv.SetError(tbNombre, null);
                     }
                     if (tbDescripcion.Text == "")
                     {
-                        errorString += "No puede dejar el campo descripción vacío.\n";
+                        errorProv.SetError(tbDescripcion, "No puede dejar el campo descripción vacío.");
+                        //errorString += "No puede dejar el campo descripción vacío.\n";
                     }
+                    else
+                    {
+                        errorProv.SetError(tbDescripcion, null);
+                    }
+
                     if (tbEmpresa.Text == "")
                     {
-                        errorString += "No puede dejar el campo empresa vacío.\n";
+                        errorProv.SetError(tbEmpresa, "No puede dejar el campo empresa vacío.");
+                        //errorString += "No puede dejar el campo empresa vacío.\n";
                     }
+                    else
+                    {
+                        errorProv.SetError(tbEmpresa, null);
+                    }
+
                     if (listaCar.Count == 0)
                     {
-                        errorString += "Debe cargar al menos una característica.\n";
+                        errorProv.SetError(dgvCaracteristicas, "Debe cargar al menos una característica.");
+                        //errorString += "Debe cargar al menos una característica.\n";
                     }
-                    errorString.Remove(errorString.LastIndexOf('\n'));
-                    MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                    {
+                        errorProv.SetError(dgvCaracteristicas, null);
+                    }
+                    //errorString.Remove(errorString.LastIndexOf('\n'));
+                    //MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (FormatException)
             {
-                string errorString = "El campo código debe ser un número o estar completo.\n";
+                errorProv.SetError(tbCodigo, "El campo código debe ser un número o estar completo.");
+                //string errorString = "El campo código debe ser un número o estar completo.\n";
                 if (tbNombre.Text == "")
                 {
-                    errorString += "No puede dejar el campo nombre vacío.\n";
+                    errorProv.SetError(tbNombre, "No puede dejar el campo nombre vacío.");
+                    //errorString += "No puede dejar el campo nombre vacío.\n";
+                }
+                else
+                {
+                    errorProv.SetError(tbNombre, null);
                 }
                 if (tbDescripcion.Text == "")
                 {
-                    errorString += "No puede dejar el campo descripción vacío.\n";
+                    errorProv.SetError(tbDescripcion, "No puede dejar el campo descripción vacío.");
+                    //errorString += "No puede dejar el campo descripción vacío.\n";
                 }
+                else
+                {
+                    errorProv.SetError(tbDescripcion, null);
+                }
+
                 if (tbEmpresa.Text == "")
                 {
-                    errorString += "No puede dejar el campo empresa vacío.\n";
+                    errorProv.SetError(tbEmpresa, "No puede dejar el campo empresa vacío.");
+                    //errorString += "No puede dejar el campo empresa vacío.\n";
                 }
+                else
+                {
+                    errorProv.SetError(tbEmpresa, null);
+                }
+
                 if (listaCar.Count == 0)
                 {
-                    errorString += "Debe cargar al menos una característica.\n";
+                    errorProv.SetError(dgvCaracteristicas, "Debe cargar al menos una característica.");
+                    //errorString += "Debe cargar al menos una característica.\n";
                 }
-                errorString.Remove(errorString.LastIndexOf('\n'));
-                MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    errorProv.SetError(dgvCaracteristicas, null);
+                }
+                //errorString.Remove(errorString.LastIndexOf('\n'));
+                //MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {

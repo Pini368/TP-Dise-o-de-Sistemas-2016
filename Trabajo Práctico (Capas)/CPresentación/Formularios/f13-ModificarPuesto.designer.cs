@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,10 +54,12 @@
             this.Ponderacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbPonderacion = new System.Windows.Forms.TextBox();
             this.cmbCompetencias = new System.Windows.Forms.ComboBox();
+            this.errorProv = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.pnMovForm.SuspendLayout();
             this.pnDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntajesRequeridos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -332,7 +335,7 @@
             this.Competencia,
             this.Ponderacion});
             this.dgvPuntajesRequeridos.Location = new System.Drawing.Point(380, 338);
-            this.dgvPuntajesRequeridos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPuntajesRequeridos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPuntajesRequeridos.Name = "dgvPuntajesRequeridos";
             this.dgvPuntajesRequeridos.Size = new System.Drawing.Size(581, 105);
             this.dgvPuntajesRequeridos.TabIndex = 6;
@@ -353,7 +356,7 @@
             this.tbPonderacion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbPonderacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbPonderacion.Location = new System.Drawing.Point(261, 359);
-            this.tbPonderacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPonderacion.Margin = new System.Windows.Forms.Padding(4);
             this.tbPonderacion.MaxLength = 2;
             this.tbPonderacion.Name = "tbPonderacion";
             this.tbPonderacion.Size = new System.Drawing.Size(48, 22);
@@ -367,11 +370,15 @@
             this.cmbCompetencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompetencias.FormattingEnabled = true;
             this.cmbCompetencias.Location = new System.Drawing.Point(48, 311);
-            this.cmbCompetencias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCompetencias.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCompetencias.Name = "cmbCompetencias";
             this.cmbCompetencias.Size = new System.Drawing.Size(160, 24);
             this.cmbCompetencias.TabIndex = 1;
             this.cmbCompetencias.SelectedIndexChanged += new System.EventHandler(this.cmbCompetencias_SelectedIndexChanged);
+            // 
+            // errorProv
+            // 
+            this.errorProv.ContainerControl = this;
             // 
             // f13_ModificarPuesto
             // 
@@ -391,7 +398,7 @@
             this.Controls.Add(this.tbPonderacion);
             this.Controls.Add(this.cmbCompetencias);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1002, 606);
             this.MinimumSize = new System.Drawing.Size(1002, 606);
@@ -406,6 +413,7 @@
             this.pnDatos.ResumeLayout(false);
             this.pnDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntajesRequeridos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +445,6 @@
         private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ponderacion;
+        private System.Windows.Forms.ErrorProvider errorProv;
     }
 }

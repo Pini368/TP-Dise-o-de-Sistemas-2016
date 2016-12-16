@@ -267,12 +267,12 @@ namespace Trabajo_práctico.Formularios
 
                     if (listaCar.Count == 0)
                     {
-                        errorProv.SetError(dgvCaracteristicas, "Debe cargar al menos una característica.");
+                        errorProv.SetError(dgvPuntajesRequeridos, "Debe cargar al menos una característica.");
                         //errorString += "Debe cargar al menos una característica.\n";
                     }
                     else
                     {
-                        errorProv.SetError(dgvCaracteristicas, null);
+                        errorProv.SetError(dgvPuntajesRequeridos, null);
                     }
                     //errorString.Remove(errorString.LastIndexOf('\n'));
                     //MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -313,12 +313,12 @@ namespace Trabajo_práctico.Formularios
 
                 if (listaCar.Count == 0)
                 {
-                    errorProv.SetError(dgvCaracteristicas, "Debe cargar al menos una característica.");
+                    errorProv.SetError(dgvPuntajesRequeridos, "Debe cargar al menos una característica.");
                     //errorString += "Debe cargar al menos una característica.\n";
                 }
                 else
                 {
-                    errorProv.SetError(dgvCaracteristicas, null);
+                    errorProv.SetError(dgvPuntajesRequeridos, null);
                 }
                 //errorString.Remove(errorString.LastIndexOf('\n'));
                 //MessageBox.Show(errorString, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

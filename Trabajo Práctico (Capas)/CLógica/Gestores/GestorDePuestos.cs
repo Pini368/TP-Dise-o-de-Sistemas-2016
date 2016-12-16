@@ -206,7 +206,7 @@ namespace CLogica.Gestores
             try
             {
                 Expression<Func<Puesto, bool>> filtro;
-                filtro = (pu => pu.nombre.StartsWith(nombre) || pu.codigo_puesto == codigo);
+                filtro = (pu => pu.nombre.Equals(nombre) || pu.codigo_puesto == codigo);
                 return cdP.getPuestos(filtro);
             }
             catch (Exception ex)

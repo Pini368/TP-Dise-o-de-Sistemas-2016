@@ -10,9 +10,9 @@
 
 --INSERT INTO Respuesta VALUES (@nombre, @orden, @id_opcion_respuesta);
 
---INSERT INTO ValorRespuesta VALUES (@ponderacion, @id_pregunta, @id_respuesta);
-
 --INSERT INTO Pregunta VALUES (@descripcion, @pregunta, @nombre, @codigo_factor, NULL, NULL, @codigo_competencia);
+
+--INSERT INTO ValorRespuesta VALUES (@ponderacion, @id_pregunta, @id_respuesta);
 
 --Insert de Candidato
 

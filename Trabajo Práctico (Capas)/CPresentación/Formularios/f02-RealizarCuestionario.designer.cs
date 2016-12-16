@@ -107,7 +107,7 @@
             this.tbNroDto.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNroDto.Location = new System.Drawing.Point(185, 86);
             this.tbNroDto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNroDto.MaxLength = 8;
+            this.tbNroDto.MaxLength = 10;
             this.tbNroDto.Name = "tbNroDto";
             this.tbNroDto.Size = new System.Drawing.Size(271, 27);
             this.tbNroDto.TabIndex = 1;

@@ -10,4 +10,6 @@ DELETE FROM Cuestionario;
 
 DELETE FROM LogProcesos;
 
-SELECT * FROM Candidato;
+DELETE FROM Puntaje_Requerido;
+
+DELETE FROM Puesto;

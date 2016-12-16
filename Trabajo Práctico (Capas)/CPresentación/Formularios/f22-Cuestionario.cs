@@ -182,7 +182,6 @@ namespace Trabajo_práctico
                 }
                 else
                 {
-                    clogCuest.obtenerCuestionario(GestorDeAutenticacion.obtenerCandidatoActual());
                     float puntaje = clogCuest.obtenerPuntajeCuestionario(cuest);
                     clogCuest.terminarCuestionario(cuest);
                     MessageBox.Show("Felicitaciones, usted ha completado el cuestionario\nSu puntaje fue de " + puntaje.ToString() + " puntos", "Cuestionario Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);

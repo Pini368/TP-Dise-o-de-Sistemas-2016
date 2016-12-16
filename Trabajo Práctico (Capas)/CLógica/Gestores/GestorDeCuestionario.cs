@@ -96,7 +96,7 @@ namespace CLogica.Gestores
 
                 foreach (Factor fac in lfac)
                 {
-                    Random rnd = new Random();
+                    Random rnd = new Random(Guid.NewGuid().GetHashCode());
                     int aleatorio = rnd.Next(0, fac.Pregunta.Count - 1);
                     preguntas.Add(fac.Pregunta.ToList()[aleatorio]);
                     int aleatorio1;

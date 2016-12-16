@@ -58,7 +58,7 @@
             this.dgvPuestos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPuestos.Location = new System.Drawing.Point(51, 231);
-            this.dgvPuestos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPuestos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPuestos.Name = "dgvPuestos";
             this.dgvPuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuestos.Size = new System.Drawing.Size(900, 263);
@@ -132,7 +132,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(155, 69);
+            this.label5.Location = new System.Drawing.Point(149, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 24);
             this.label5.TabIndex = 5;
@@ -143,7 +143,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(157, 7);
+            this.label6.Location = new System.Drawing.Point(149, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 24);
             this.label6.TabIndex = 3;
@@ -154,7 +154,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(157, 39);
+            this.label7.Location = new System.Drawing.Point(149, 38);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(172, 24);
             this.label7.TabIndex = 4;
@@ -166,7 +166,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(984, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -294,7 +294,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pnDatos);
             this.Controls.Add(this.dgvPuestos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "f11_GestionarPuestos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Puestos";

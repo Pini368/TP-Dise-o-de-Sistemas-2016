@@ -29,7 +29,7 @@ namespace CEntidades
         public string nombre { get; set; }
         public string genero { get; set; }
         public string nacionalidad { get; set; }
-        public System.DateTime fecha_nacimiento { get; set; }
+        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
         public string email { get; set; }
         public int escolaridad { get; set; }
         public string id_consultor { get; set; }
